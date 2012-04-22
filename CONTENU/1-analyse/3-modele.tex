@@ -1,0 +1,674 @@
+\section{Langages de représentations}\label{s:mods}
+
+% \subsection{Langages de balisages }
+\subsection{eXtended Markup Language (?)}
+The eXtended Markup Language (XML) aims to give a hierarchical structure to  text in a machine-, yet human-readable way. It is widely used to store or exchange information as it also supports Unicode.
+XML is formally defined as a Standard Generalized Markup Language's subset (SGML) designed to improve parser efficiency. Work on XML began in 1996 and it became a W3C Recommendation in early 1998.
+
+\paragraph{Mark-up}
+This is achieved by adding mark-up elements that are easily noticed as they begin with '<' and end with a '>'. Mark-up elements are used to enclose unicode text, and give thus a mean to identify them and possibly to process it. As its name indicates, it is said extensible because we can define our own mark-up elements and writes a line like that:
+
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+opening mark-up element 			enclosing mark-up element
+<structural_element>Some unicode text inside</structural_element>
+\end{Verbatim}
+
+Attributes can be defined for each mark-up element. 
+For instance, the xml:lang attributes indicates the natural language used to write the enclosed text. The « 1812 Overture » full title can be written like that:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<title xml:lang='ru'>Торжественная увертюра 1812 года, Toržestvennaja uvertjura 1812 goda</title>
+<title xml:lang='fr'>Ouverture Solennelle, L'Année 1812, Op. 49</title>
+\end{Verbatim}
+
+\paragraph{Syntax}
+XML does not only enclose text with mark-up elements. It also enables to imbricate mark-up elements in such a way that the elements conforms to a tree structure. 
+
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<element>
+	<sub-element>Example of text</sub-element>
+</element>
+\end{Verbatim}
+
+Other syntaxic rules have been defined to enables conforming parser to process XML file. Any file conspuing to these rules is said to be well-formed.
+
+\paragraph{Schema}
+Furthermore, if XML provides us with a syntax we also have the ability to makes purpose-specific XML-based mark-up languages – i.e. define constraints on structure, mark-up elements or even datatyping definition. Indeed, several schema languages exists and are used to encode documents or serialize text data according to a particular schema. XML files complying with a schema – i.e. conforming to the constraints defined in the schema – are said to be valid.
+
+\paragraph{Namespace}
+When creating schemas, ambiguity problems usually arise and namespace declaration can take care of that. Indeed, it provides an abstract container for XML elements and attributes and gives to their name a scope. As each namespace is identified by an URI, the ambiguity between identically named elements or attributes from differents namespace can be resolved. 
+
+Therefore, I can declare my own « title » element and simultaniously use the « DC Terms » property title. We show here a complete example with xml heading:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<?xml version="1.0" encoding="UTF-8"?>
+<ex:musical_opus xmlns:dc="http://purl.org/dc/elements/1.1/"
+    			 xmlns:ex="http://example.org">
+	<dc:title>1812 Overture</dc:title>
+    <ex:title>Festival Overture, The Year 1812</ex:title>
+</ex:musical_opus>
+\end{Verbatim}
+
+In this example, dc:title and ex:title denotes two different elements for which we can give informally different meaning – ex:title indicating the complete name, dc:title a short version. 
+
+\subsubsection*{XML Schema}
+This W3C recommendation was published in 2001 and is one of several xml schema languages\footnote{We can cite, the old and very simple \gui{Document Type Defintion}(DTD) as well as the major rival of XML Schema, namely \gui{Relax NG}.}. It is often called XSD in reference to its files suffix – '.xsd'.
+
+XSD can define imbrication, quantification and naming rules for xml elements and attributes – in order to enable vocabulary and content model validation. XSD also supports namespace so parts of other schemas can be included or imported. 
+
+\paragraph{Datatypes}
+But one of the main and most criticized characteristic of XSD is DataType validation. It can be applied to elements or attributes to constraint their content.  DataType definition must use XSD primitive or derived datatypes – see the scheme for a detailled hierarchy. This dependence upon specific datatypes is the source of many criticism. 
+
+Derived datatypes can be built by restriction – of the permitted values set –, list – declaration of values –, or union – between several types. 
+As an complete example, we define a XSD schema describing « MusicalOpus » as a list of XML elements named:
+\begin{liste}
+	\item Title: title of the musical opus
+	\item Extent: length or duration – as a string
+	\item Composer: name of the composer
+	\item composed: date of composition of the opus – only the year
+	\item Performer: name of the performer
+	\item performed: date of performance – only the year
+	\item conductedby: name of the person who conducted the performer, this attribute is declared optionnal – thanks to the minOccurs attribute
+	\item ComposerNationality: picked from a list of value we enumerate in the scheme
+\end{liste}
+
+Here is the resulting XSD scheme:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<?xml version="1.0" encoding="utf-8"?> 
+<xs:schema elementFormDefault="qualified"   xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
+ <xs:element name="MusicalOpus"> 
+   <xs:complexType> 
+     <xs:sequence> 
+       <xs:element name="Title" type="xs:string" /> 
+       <xs:element name="Extent" type="xs:string" /> 
+       <xs:element name="Composer" type="xs:string" /> 
+       <xs:element name="composed" type="xs:gYear" /> 
+       <xs:element name="Performer" type="xs:string" /> 
+       <xs:element name="performed" type="xs:gYear"/> 
+       <xs:element name="conductedBy" type="xs:string" minOccurs="0"/>  
+       <xs:element name="ComposerNationality"> 
+         <xs:simpleType> 
+           <xs:restriction base="xs:string"> 
+             <xs:enumeration value="FR" /> 
+             <xs:enumeration value="DE" /> 
+             <xs:enumeration value="RU" /> 
+             <xs:enumeration value="UK" /> 
+             <xs:enumeration value="US" /> 
+           </xs:restriction> 
+         </xs:simpleType> 
+       </xs:element> 
+     </xs:sequence> 
+   </xs:complexType> 
+ </xs:element> 
+</xs:schema> 
+\end{Verbatim}
+
+
+And we provide a XML file which states that it conforms to the previous XSD scheme through a xsi:noNamespaceSchemaLocation attribute:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<?xml version="1.0" encoding="utf-8"?> 
+<MusicalOpus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:noNamespaceSchemaLocation="MusicalOpus.xsd"> 
+  <Title>Festival Overture, The Year 1812</Title> 
+  <Extent>14:19</Extent> 
+  <Composer>Pyotr Ilyich Tchaikovsky</Composer> 
+  <composed>1880</composed> 
+  <Performer>Minneapolis Symphony Orchestra</Performer> 
+  <performed>1954</performed> 
+  <conductedBy>Antal Dorati</conductedBy> 
+  <conductedBy>Harold Lawrence</conductedBy> 
+  <ComposerNationality>RU</ComposerNationality> 
+</MusicalOpus> 
+\end{Verbatim}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Ontologie et représentation des connaissances}
+\subsubsection*{Resource Description Framework}
+\addcontentsline{toc}{subsection}{Resource Description Framework}
+The Resource  Description Framework (RDF) is an abstract model which is part of the W3C recommendations for the Semantic Web. 
+Let's just bring back to mind how \pc{Tim Berners-Lee} defined it to set RDF back into its context of creation: 
+
+\ciel{
+The Semantic Web is not a separate Web but an extension of the current one, in which information is given well-defined meaning, better enabling computers and people to work in cooperation.}
+
+Indeed, RDF aims to describe and link resources – and no more web pages – in a simple, all-purpose and machine-readable way. 
+The focus on software agents led to choose a formal semantic and provable inference. 
+Thus, such descriptions will foremost benefits to software agents which we'll be able to exploit, process and search into this web of linked data. 
+
+\paragraph{Statements / Triples}
+The description consists in making statements that describes or models web resources. The statements are formed as subject-predicate-object sentence called triples that can be represented as a graph – one node/vertex for the subject and the object, and a directed and labeled edge for the predicate. 
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+Subject		Predicate	    Object	
+Tchaikovsky ---- is the Composer of ----> 1812 overture
+\end{Verbatim}
+Thereby, a set of statements constitute a multigraph, that is a graph in which node/vertex can have multiple ingoing or outgoing edges resulting possibly in loops. 
+However, unlike an hypertext the rdf multigraph has labelled edges – also called properties -- connecting a resource with another resource or a literal value.
+
+\paragraph{URI, datatype and literals}
+RDF is said to have an URI-based vocabulary, meaning that resources and properties and typed literal are identified by URI reference. 
+Indeed, unlike plain literals, typed literals are literals combined with a datatype URI.
+Datatypes in RDF are compatible with XML Schema datatypes --which can thus be used as there are-- but any datatype definition conforming to RDF constraints may be used.
+
+Let's rewrite our previous example with Tchaikovsky:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+Subject:  http://example.org/Tchaikovsky
+Property: http://example.org/Composer
+Object:   http://example.org/1812_Overture
+\end{Verbatim}
+
+And now an example with a gYear XSD datatype:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+Subject:  http://example.org/1812_Overture
+Property: http://example.org/composed
+Object:   '1880' xsd:gYear
+\end{Verbatim}
+The following examples make use of the namespace ability to ease the reading. We define here the prefix used for our example and for specific rdf elements:
+\begin{liste}
+	\item \cd{Example prefix: 'ex:'	Example URI: 'http://example.org'}
+	\item \cd{RDF prefix: 'rdf:'	RDF URI:'http://www.w3.org/1999/02/22-rdf-syntax-ns\#'}
+\end{liste}
+Our previous example could then be written like that:
+\cd{ex:1812\_Overture  -- ex:composed -->  '1880' xsd:gYe}
+
+
+\paragraph{Structured value}
+When we want to define a resource composed in fact of several other resources or literals, 
+RDF makes us declare an intermediate node – only to conform to the RDF syntax. 
+This kind of nodes are called blank nodes because they don't really need to be referenced by an URI. 
+As they are only a product of the RDF syntax and don't represent anything in particular they can stay anonymous.
+
+Indeed, when we declare the size of a digital file such as an audio file, we may want to specify the unit. 
+Thus considering that the following statement is not sufficient:
+\cd{ex:audio\_file\_01  ex:size '33,7'}
+
+So we need to define one blank node and use a particular RDF property called value:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+ex:audio_file_01 	-- ex:size -->	_blank_node_01
+_blank_node_01	-- rdf:value -->	'33,7'
+_blank_node_01	-- ex:unit -->	ex:Mb xsd:decimal
+\end{Verbatim}
+
+The value property is not the only one to be used in such context. 
+The type property states the nature of a blank node. 
+An example will be shown in the next paragraph.
+
+\paragraph{Grouping resources}
+% 7.2.3.a  containers
+RDF provides two different ways to group things. The first one is called Containers comprises three predefined types which points out some members of the group they define:
+\begin{liste}
+	\item a bag define a non-ordered group that may include duplicate members. 
+	\item a seq define an ordered group that may include duplicate members.
+	\item a alt define a group of alternatives resources or literals. 
+\end{liste}
+
+Members may be resources or literal, their membership is stated by declaring them as list item (li).
+We show here example connected to our information sample. First, a bag of \gui{Performer} having played the \gui{1812 overture}, then a seq describing the content of the audio CD. 
+Eventually, an alt group of russian, french and english version of \gui{Tchaikovsky}'s full name.
+
+1) Bag of \gui{Performer}
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+ex:1812_Overture	-- ex:Performer -->	_blank_node_02
+_blank_node_02	-- rdf:type -->		rdf:bag
+_blank_node_02	-- rdf:li -->		ex:Minneapolis_S_O
+_blank_node_02	-- rdf:li -->		ex:St_Petersburg_Ph
+\end{Verbatim}
+2) Seq of audio tracks from \gui{Tchaikovsky: 1812 Festival Overture; Capriccio Italien; Beethoven:  Wellington's Victory} CD:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+ex:1812_Op49_CD	-- ex:TrackList -->	_blank_node_03
+_blank_node_03	-- rdf:type -->		rdf:seq
+_blank_node_03	-- rdf:li -->		ex:Op49_audio
+_blank_node_03	-- rdf:li -->		ex:Op49_commentary
+_blank_node_03	-- rdf:li -->		ex:Capriccio_Italien_audio
+_blank_node_03	-- rdf:li -->		ex:Wellington_Op91_audio01
+_blank_node_03	-- rdf:li -->		ex:Wellington_Op91_audio02
+_blank_node_03	-- rdf:li -->		ex:Op91_commentary
+\end{Verbatim}
+3) Alt names of \gui{Tchaikovsky}
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+ex:Tchaikovsky		-- ex:Name -->		_blank_node_04
+_blank_node_04	-- rdf:type -->		rdf:alt
+_blank_node_04	-- rdf:li -->		'Pyotr Ilyich Tchaikovsky' @en
+_blank_node_04	-- rdf:li -->		'Piotr Ilitch Tchaïkovski' @fr
+_blank_node_04	-- rdf:li -->		'Пётр Ильич Чайкoвский' @ru
+\end{Verbatim}
+
+% 7.2.3.b  collection
+Unlike containers, collections can make a closed group definition, that is list all members member of the collection. With a container you can not state that there  is no other member than those you give in your definition. 
+Moreover, list have predefined properties to identify the first item, the rest of the list and the end of it – a nil property. 
+
+A rewriting of our tracklist example as a list would be:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+ex:1812_Op49_CD	-- ex:TrackList -->	_blank_node_03
+_blank_node_03	-- rdf:type -->		rdf:list
+_blank_node_03	-- rdf:first -->		ex:Op49_audio
+_blank_node_03	-- rdf:rest -->		ex:Op49_commentary
+_blank_node_03	-- rdf:rest -->		ex:Capriccio_Italien_audio
+_blank_node_03	-- rdf:rest -->		ex:Wellington_Op91_audio01
+_blank_node_03	-- rdf:rest -->		ex:Wellington_Op91_audio02
+_blank_node_03	-- rdf:rest -->		ex:Op91_commentary
+_blank_node_03	-- rdf:rest -->		rdf:nil
+\end{Verbatim}
+
+\paragraph{Serialization format}
+As an abstract model, RDF statements can be serialized or represented in a variety of form. The most widely known is the \gui{RDF XML} but the W3C also introduced the more readable \gui{Notation} (N3) based on tabular spacing. This last form is closely related to the \gui{Turtle} and \gui{N-Triples} formats.
+
+
+
+
+
+\subsubsection*{RDF Schema}
+\addcontentsline{toc}{subsection}{RDF Schema}
+RDFS is the result of 6 years of work from the W3C consortium – from the 1998's first version to the 2004's final recommendation. 
+It is formally introduced as a vocabulary description language intended to structure RDF resources. 
+Indeed, RDFS presents mechanisms for describing classes of resources, associated properties and also the relationships between properties and other resources. 
+
+These mechanisms are in fact itselves classes and properties that enables us to describe vocabulary or basic ontology. 
+Like RDF, RDFS follows a minimalistic approach allowing a relatively basic expressiveness compared to the Ontology Web Language (OWL) – which is built upon it.
+
+\paragraph{RDF(S) Class}
+Classes are resources – identified by an URI, described by properties – associated with a set of resources called the class extension. 
+Resources in the class extension  are called instances – the rdf:type property may be used to state a resource as an instance of a class. 
+Note that a class extension can cointain the class itself as instance – this is why rdfs:Class can be defined as a rdfs:Class in the table below.
+SubClasses may be defined by the SubClassOf property. In this case, their extension pertains necessarily to any upper class extension. 
+If we state « X » to be the class of all « Opus » and « Y » a sub-class of « X » containing all the « MusicalOpus » ; then every instance of « Y » will be an instance of « X ». 
+
+% \paragraph{Class List}
+\begin{table}[ht!]
+   \begin{center}
+		\begin{tabularx}{400pt}{|l|X|}
+		   \hline
+		Class name & Comment\\ \hline\hline
+		rdfs:Resource & The class resource, everything.\\ \hline
+		rdfs:Literal & The class of literal values, e.g. textual strings and integers.\\ \hline
+		rdf:XMLLiteral & The class of XML literals values.\\ \hline
+		rdfs:Class & The class of classes.\\ \hline
+		rdf:Property & The class of RDF properties.\\ \hline
+		rdfs:Datatype & The class of RDF datatypes.\\ \hline
+		rdf:Statement & The class of RDF statements.\\ \hline
+		rdf:Bag & The class of unordered containers.\\ \hline
+		rdf:Seq & The class of ordered containers.\\ \hline
+		rdf:Alt & The class of containers of alternatives.\\ \hline
+		rdfs:Container & The class of RDF containers.\\ \hline
+		rdfs:ContainerMembershipProperty & The class of container membership properties, rdf:\_1, rdf:\_2, \dots, all of which are sub-properties of 'member'.\\ \hline
+		rdf:List & The class of RDF Lists.\\ \hline
+		\end{tabularx}
+		\caption{Class list \label{tab:rdfs-classes}}
+   \end{center}
+\end{table}
+
+\paragraph{RDF(S) Properties}
+First of all, let's recall that all properties are instances of the rdf:Property class. A property link a pair of resources, one of them as a subject and the other one as the object. 
+RDFS introduces two properties to restrict which can of resources may be linked together. rdfs:domain constraints the subject resource to be an instance of a given class whereas rdfs:range constraints the objet resource likewise. 
+SubProperty relationships – stated with rdfs:subPropertyOf – induces that all pairs of resource linked are also linked by the upper property. 
+Thus, having a « Contributor » property and a « Performer » sub-property we can state that:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+ex:1812\_Overture
+ex:Performer
+ex:Minneapolis\_SO
+\end{Verbatim}
+and this would entail:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+ex:1812\_Overture
+ex:Contributor
+ex:Minneapolis\_SO
+\end{Verbatim}
+
+% 7.3.2.a  Property List
+\begin{table}[ht!]
+   \begin{center}
+		\begin{tabularx}{450pt}{|l|X|c|c|}
+		   \hline
+rdf:type & The subject is an instance of a class. & rdfs:Resource & rdfs:Class \\ \hline
+rdfs:subClassOf & The subject is a subclass of a class. & rdfs:Class & rdfs:Class \\ \hline
+rdfs:subPropertyOf & The subject is a subproperty of a property. & rdf:Property &rdf:Property \\ \hline
+rdfs:domain & A domain of the subject property. & rdf:Property & rdfs:Class\\ \hline
+rdfs:range & A range of the subject property. & rdf:Property & rdfs:Class\\ \hline
+rdfs:label & A human-readable name for the subject. & rdfs:Resource & rdfs:Literal \\ \hline
+rdfs:comment & A description of the subject resource. & rdfs:Resource & rdfs:Literal\\ \hline
+rdfs:member & A member of the subject resource. & rdfs:Resource & rdfs:Resource\\ \hline
+rdf:first & The first item in the subject RDF list. & rdf:List & rdfs:Resource\\ \hline
+rdf:rest & The rest of the subject RDF list after the first item. & rdf:List & rdf:List\\ \hline
+rdfs:seeAlso & Further information about the subject resource. & rdfs:Resource &rdfs:Resource\\ \hline
+rdfs:isDefinedBy & The definition of the subject resource. & rdfs:Resource & rdfs:Resource\\ \hline
+rdf:value & Idiomatic property used for structured values (see the RDF Primer for an example of its usage). & rdfs:Resource & rdfs:Resource\\ \hline
+rdf:subject & The subject of the subject RDF statement. & rdf:Statement & rdfs:Resource\\ \hline
+rdf:predicate & The predicate of the subject RDF statement. & rdf:Statement & rdfs:Resource\\ \hline
+rdf:object & The object of the subject RDF statement. & rdf:Statement & rdfs:Resource\\ \hline
+		\end{tabularx}
+		\caption{Class list \label{tab:rdfs-classes}}
+   \end{center}
+\end{table}
+
+Eventually, observe these four properties that appear more like annotation than property defining resource: \cd{rdfs:label, rdfs:comment, rdfs:seeAlso, rdfs:isDefinedBy}.
+
+
+
+
+
+\subsubsection*{Ontology Web Language}
+\addcontentsline{toc}{subsection}{Ontology Web Language}
+The Ontology Web Language (OWL) is a knowledge representation language intended – as its name states – to build ontology in a web environnement. 
+OWL relies on RDF and XML syntax and defines its constructs as extension or subset of RDF/RDFS classes and properties. 
+Nevertheless, OWL provides in addition comparaison and cardinality constraints on classes or properties. 
+These constructs enables to model domain specific ontology while bringing along generic reasoning tool. 
+
+The W3C created a working group in 2001 and documents became recommendations in 2004.
+However, OWL was a revision of earlier work called DAML+OIL initiated conjointly by the « Defense Advanced Research Projects Agency » (DARPA) and the European Union's « Information Society Technologies » (IST) project. 
+
+\paragraph{OWL species}
+OWL defines in fact three sub-languages with different level of expressiveness and thus computational efficiency:
+\begin{liste}
+	\item « OWL Lite » is the simplest, less expressive sub-language. It supports 0..1 cardinality constraints and thus are intended for thesauri and taxonomies migration project.
+
+	\item « OWL DL » gives full expressivity while ensuring computational completeness – all entailments are garanteed to be computed – and decidability – all computations will finish in finite times. Full expressivity means it includes all language constructs but to ensure the rest it needs to restrict their use by some conditions. 
+
+	\item « OWL Full » gives full expressivity without conditions. For instance, a major difference with « OWL DL » is that all resources can be considered as individuals – even Class and Property. There are strong equivalence between « OWL Full » and RDF – RDFS. This comes nevertheless with no computational garantees. 
+\end{liste}
+% Each level is a sub-level from its predecessor, that is every legal ontology or valid conclusion expressed in « OWL Lite » is a legal ontology or respectively a valid conclusion in « OWL DL » and so on between « OWL DL » and « OWL Full ». 
+
+% 7.4.2  Class
+% OWL defines its class like RDFS except that only OWL Full can state that a class is an instance of another class. OWL Lite and DL don't allow a class to be considered at the same time as an individual – thus also as a member of a class extension. 
+
+% 7.4.2.a  Class descriptions
+% OWL supports six different kind of class descriptions: 
+% 1. a simple class declaration – with a URI reference
+% 2. an exhaustive enumeration of the class extension
+% 3. definition of a class as a subset of another class depending on property restrictions
+% 4. an intersection of several classes descriptions
+% 5. an union of several classes descriptions
+% 6. a complement of a class description
+
+% 1. Class declaration can be done as follow:
+% <owl:Class rdf:ID='Composer' />
+
+% 2. Or if we want to define directly its extension like RDFS Containers, we can write: 
+% <owl:Class rdf:ID='Nationality'>
+% 	<owl:oneOf rdf:parseType='Collection'>
+% 		<owl:Thing rdf:about='ex:French' />
+% 		<owl:Thing rdf:about='ex:Russian' />
+% 		<owl:Thing rdf:about='ex:English' />
+% 	</owl:oneOf>
+% </owl:Class>
+
+% 3. We may also use more complex property restrictions, including value or  cardinality restrictions. For this purpose we have a set of properties:
+
+% Value restrictions
+% owl:allValuesFrom, owl:someValuesFrom  – with the values being either a class or a datatype but OWL Lite only supports class value.
+
+% owl:hasValue – the value has to be either an individual or a data value. This property is not included in OWL Lite. 
+
+% Cardinality constraints
+% owl:maxCardinality, owl:minCardinality, owl:cardinality – the value has to be related to a XML Schema datatype.
+
+% 4,5,6. These constructs are similar to AND, OR, NOT operators acting on classes. Only owl:intersectionOf can be used in some way in OWL Lite, whereas owl:unionOf and owl:complementOf are not included.
+
+% 7.4.2.b  Class axioms
+% Classes may be described with the previous properties, class axioms are the three properties that have owl:Class for domain and range: 
+% owl:subClassOf enables specialisation to be described. The sub-class' extension set is thus stated as a subset of the class extension set. 
+
+% owl:equivalentClass declares class extension equivalence between two classes descriptions.
+
+% owl:disjointWith establishes that two classes extensions of two classes descriptions have no member in common.
+
+% Note that all owl:Class are sub-classes of the owl:Thing superclass. 
+
+% 7.4.3  Property
+% OWL defines four kind of Property that must be mutually disjoint when using OWL DL:
+
+% owl:DatatypeProperty links instance with literal values.
+% owl:ObjectProperty define relations between instances.
+% owl:AnnotationProperty are intended for human reader. In OWL DL, it is impossible to define restriction or sub-property for Annotation Properties and information will not be taken into account by reasoners.
+% owl:OntologyProperty are used for importing ontology and make statements about versionning information. In OWL DL, the same constraints hold as those specified for Annotation Properties. 
+
+% 7.4.3.a  Property declaration
+% We take as an example the definition of creation relationships on two different level of specialisation. First, a « createdBy » relation between a « Person » and an « Opus ». Second, a music related « composedBy » relation, involving a « Composer » and a « MusicalOpus ».
+
+% Class declaration
+% <owl:Class rdf:ID='Person' />
+% <owl:Class rdf:ID='Composer'>
+% 	<rdfs:subClassOf rdf:resource='Person' />
+% </owl:Class>
+% <owl:Class rdf:ID='Opus' />
+% <owl:Class rdf:ID='MusicalOpus'>
+% 	<rdfs:subClassOf rdf:resource='Opus' />
+% </ow:Class>
+
+% Property declaration
+% <owl:ObjectProperty rdf:ID='createdBy'>
+% 	<rdfs:domain rdf:resource='Opus' />
+% 	<rdfs:range rdf:resource='Person' />
+% </owl:ObjectProperty>
+% <owl:ObjectProperty rdf:ID='composedBy'>
+% 	<rdfs:domain rdf:resource='MusicalOpus' />
+% 	<rdfs:range rdf:resource='Composer' />
+% 	<rdfs:subPropertyOf rdf:resource='createdBy />
+% </owl:ObjectProperty>
+
+% Note the use of rdfs:domain, rdfs:range, rdfs:subPropertyOf and rdfs:subClassOf properties within OWL statements.
+
+% Now, if we want to take advantage of Property restrictions to define our « Composer » class, we can state for instance that « Composer » individuals are precisely those « Person » individuals who have « composed » at least one « MusicalOpus ». This lead us to write the following declaration: 
+
+% <owl:Class rdf:ID='Composer'>
+% 	<rdfs:subClassOf>
+% 		<owl:intersectionOf rdf:parseType='Collection'>
+% 			<owl:Class rdf:ID='Person' />
+% 			<owl:Restriction>
+% 				<owl:onProperty rdf:resource='composedBy' />
+% 				<owl:minCardinality rdf:datatype='\&xsd;nonNegativeInteger'>1</owl:minCardinality>
+% 			</owl:Restriction>
+% 		</owl:intersectionOf >
+% 	</rdfs:subClassOf>	
+% </owl:Class>
+
+% Note that the intersectionOf property requires a list of Classes declarations which can be given either by owl:Class or owl:Restriction – which is defined as a sub-class of owl:Class. 
+
+% 7.4.3.b  Property characteristics
+% Properties can also be defined as:
+% transitive: P(x,y) and P(y,z) implies P(x,z). For instance, if x is located in y and y is located in z, then x is located in z. 
+% symetric: P(x,y) if and only if P(y,x). If x is next to y, then y must be next to x. 
+% functionnal: P(x,y) and P(x,z) implies y = z. The property has only one value for each individual it applies to. 
+% inverseOf: P1(x,y) if and only if P2(y,x). If x is the « fatherOf » y, then y is the « childOf » x, thus making « fatherOf » the inverseOf « childOf » property. 
+% inverseFunctional: P(y,x) and P(z,x) implies y = z.
+
+
+% 7.4.4  Individual
+% Ontology is not only about Classes and Properties, it enables us to state some facts about individuals. In order to describe them, we state them as Class instance, make use of Property or assert facts about their individuality. 
+
+% Let's use our previous ontology description to decribe « Tchaikovsky » and the « 1812 overture ».
+
+% <Person rdf:ID='Tchaikovsky' />
+% <MusicalOpus rdf:ID='1812_Overture'>
+% 	<composedBy rd:resource='Tchaikovsky' />
+% </MusicalOpus>
+
+% From this description, we can entail that:
+% « Tchaikovsky » is not only a « Person », it is also a « Composer » because he composed the « 1812 overture ». As he composed it, we can also say that he has « created » it. 
+
+% As OWL is a web language, it has rejected the « unique name » assumption and hence need to deal with identity uniqueness – and thus URI reference. In order to do so, three constructs have been defined:
+% owl:sameAs states that two URI reference refer in fact to the same individual, meaning we can merge their definition and the related conclusions. 
+% owl:differentFrom declares that two URI reference refer to different individuals. 
+% owl:AllDifferent provides an idiom for stating that a list of individuals are all different. 
+
+% Now, to demonstrate the use of sameAs property and to refer to our information sample, we define several « Tchaikovsky » individuals with different spelling. Then, we declare several MusicalOpus, « Cappricio italien » and « Ромео и Джульетта » which is the russian spelling for « Romeo and Juliet ».
+
+% <Person rdf:ID='Tchaïkovski' xml:lang='fr' />
+% <Person rdf:ID='Чайкoвский' xml:lang='ru' />
+
+% <MusicalOpus rdf:ID='Capriccio_italien' xml:lang='fr'>
+% 	<composedBy rd:resource='Tchaïkovski' />
+% </MusicalOpus>
+% <MusicalOpus rdf:ID='Ромео и Джульетта' xml:lang='ru'>
+% 	<composedBy rd:resource='Чайкoвский' />
+% </MusicalOpus>
+
+% If we change the first statements by:
+% <Person rdf:ID='Tchaïkovski' xml:lang='fr'>
+% 	<owl:sameAs rdf:resource='Tchaikovsky'/>
+% </Person>
+% <Person rdf:ID='Чайкoвский' xml:lang='ru'>
+% 	<owl:sameAs rdf:resource='Tchaikovsky'/>
+% </Person>
+
+% We can entail that there are the same person and that he has composed all three « MusicalOpus » described. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Thésaurus et vocabulaires structurés}
+\subsubsection{Besoins en modélisation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% à revoir
+%La mise en place d'une telle application nécessite de représenter le vocabulaire de la réalisation audiovisuelle dans toutes ses variations possibles et de le documenter suffisamment afin de le rendre compréhensible pour des novices. 
+Cet objectif nous amène à considérer la construction d'une ressource termino-ontologique.
+L'ontologie permet de représenter les concepts partagés par les professionels de la réalisation audiovisuelle et la terminologie permet de capturer les différentes formes d'expression associées à ces concepts. 
+
+La spécificité de notre problématique est de considérer la collaboration de communautés hétérogènes par leur degré de compréhension des concepts ou leur utilisation de la terminologie. 
+Ceci nous amène à envisager la terminologie comme un moyen d'associer à des éléments ontologiques (concept, relation, instances) une chaîne lexicale ou des ressources média.
+Chaque chaîne ou ressource s'adresse en particulier à une communauté dont les membres partagent une capacité d'interprétation commune. 
+Il n'existe donc plus une terminologie de référence par langue, mais des terminologies pour chaque communauté d'utilisateurs. 
+On remarquera que notre acception de la terminologie sert bien à normaliser les pratiques linguistiques entre les membres d'une même organisation. 
+En plus de cela, elle permet de fixer la manière de s'adresser à d'autres communautés.
+
+Par ailleurs, les types de réalisations sont divers et nécessitent des concepts spécifiques pour être décrits. Une fiction se structure en séquences et en scènes alors que les documentaires ou magazines d'information se composent de sujets. 
+La variabilité des types de contenu à filmer implique donc de pouvoir étendre le fond conceptuel initial pour représenter de nouveaux usages. 
+De la même manière, la collaboration avec de nouveaux partenaires nécessite de pouvoir ajouter de nouvelles terminologies au fond conceptuel existant. 
+Ontologie et terminologie doivent se gérer de manière indépendante. 
+À partir de ces besoins, nous définissons maintenant les exigences en terme de modélisation. 
+
+Nos besoins en modélisation peuvent être exprimés par les assertions suivantes:
+\begin{enumerate}
+	\item[(A1)] la variabilité des pratiques linguistiques des organisations et des communautés implique d'associer plusieurs termes à un même concept. Il n'y a pas de choix des termes préférés par une communauté mais une \textit{correspondance} entre les termes d'une ou plusieurs communautés, quels que soient la langue et le code d'écriture utilisé.
+	
+	\item[(A2)] la variabilité de compréhension des communautés implique d'associer des explications (chaîne lexicale) ou des illustrations (ressource média) aux concepts afin d'en enrichir la \textit{documentation}. 
+	
+	\item[(A3)] la variabilité des cas de collaboration implique de pouvoir étendre la conceptualisation initiale ou la terminologie pour s'adapter à de nouvelles pratiques ou de nouvelles communautés. Cela implique une gestion et une \textit{évolution} indépendante de l'ontologie et de la terminologie. 
+\end{enumerate}
+
+
+
+\subsubsection*{Simple Knowledge Organization System}
+\addcontentsline{toc}{subsection}{Simple Knowledge Organization System}
+\e{
+SKOS est un langage de représentation de vocabulaires structurés et de thésaurus qui repose sur RDF et OWL. 
+Son objectif est de représenter tout type de SOC en vue de le publier sur le web de données,  liées et ouvertes (Linked Open Data). 
+En témoigne les travaux et méthodes de conversion proposés par \cite{Summers2008} ou \cite{VanAssem2006} et les applications de gestion de thésaurus développés autour de SKOS, comme celle de \cite{Schandl2010}.
+On notera que l'objectif de publication semble pousser vers une représentation minimale mais extensible de SOC déjà construits.
+}
+
+% \subsubsection*{SKOS}
+\paragraph{Concept et Etiquette}
+SKOS centre son modèle sur les concepts (\cd{skos:Concept}) et considère les étiquettes comme des propriétés de ces derniers. 
+On distingue trois types d'étiquettes: 
+\begin{itemize} 
+	\item les étiquettes préférées (\cd{skos:prefLabel}) qui sont uniques par langue et servent de référence.
+	\item les étiquettes alternatives (\cd{skos:altLabel}) qui servent de synonymes pour l'étiquette de référence. 
+	\item les étiquettes cachées (\cd{skos:hiddenLabel}) qui servent à la récupération d'erreurs de frappes les plus courantes. 
+\end{itemize}
+Chacune de ces propriétés est formalisée comme une instance de \cd{owl:Anno\-tationProperty}, ce qui permet de l'attacher dans les faits à tout type d'éléments ontologiques, et pas seulement à des concepts. 
+Les valeurs lexicales portées par ces étiquettes sont formalisées comme des \cd{rdf:PlainLiteral}, ce qui permet de spécifier la langue et l'alphabet utilisés. 
+Par exemple, la chaîne "higashi"@ja-Latn correspond à un mot japonais écrit avec l'alphabet latin.
+
+\paragraph{Documentation}
+Différentes notes de documentation existent afin de :
+\begin{itemize}
+	\item définir un concept (\cd{skos:definition}), expliciter son contexte d'usage (\cd{skos:scopeNote}) ou donner des exemples (\cd{skos:example})
+	\item spécifier l'historique de sa signification (\cd{skos:historyNote}), les changements effectués (\cd{skos:changeNote}) ou à faire (\cd{skos:editorialNote})
+\end{itemize}
+L'ensemble de ces notes est défini comme une spécialisation de \cd{skos:note}, formalisé comme une \cd{owl:annotationProperty}. 
+De cette manière, les notes peuvent servir à porter de la documentation écrite (comme les étiquettes), pointer vers des ressources RDF ou des documents identifiés par une URI. 
+Cela permet ainsi de prévoir l'extension de ces notes à des besoins plus spécifiques.
+
+
+\paragraph{Groupes et relations entre Concepts}
+Les concepts peuvent être regroupés dans des schémas conceptuels (\cd{skos:\-ConceptScheme} et relation \cd{skos:inScheme}) et structurés par différentes relations:
+\begin{itemize}
+	\item des relations de structuration hiérarchiques (\cd{skos:broader}, \cd{skos:na\-rrower}) ou associatives (\cd{skos:related})
+	\item des relations de correspondances entre concepts de schémas différents, soit une relation d'équivalence exacte (\cd{skos:exactMatch}), une équivalence approximative (\cd{skos:closeMatch}), des relations hiérarchiques (\cd{skos:broadMatch}, \cd{skos:narrowMatch}) ou associative \cd{skos:rela\-ted\-Match}).
+\end{itemize}
+
+
+\paragraph{SKOS-XL}
+SKOS-XL est une extension de SKOS développée courant 2008 pour proposer une modélisation alternative au vocabulaire de base et favoriser des extensions plus fines. 
+Dans SKOS-XL les termes ne sont plus portés par les concepts mais deviennent des éléments à part entière (\cd{skosxl:Label}). 
+
+Les relations d'attachement entre termes et concepts sont analogues aux attributs de SKOS mais les formalisent comme des instances de \cd{owl:objectProperty}. 
+Le domaine de ces relations n'est pas défini ce qui permet de les associer à n'importe quelle ressource RDF, et donc en particulier aux concepts SKOS mais également à des ConceptScheme. 
+Si cette dernière possibilité permet de créer des groupes de termes, elle introduit une confusion sur la sémantique des ConceptScheme (groupe de concepts, de termes, de triplets ?). 
+Les étiquettes portent une seule chaîne lexicale avec les mêmes possibilités que pour SKOS grâce à l'attribut \cd{skos:literalForm}. 
+L'indépendance des étiquettes permet également de spécifier des relations entre eux comme la synonymie, la traduction, etc. \cite{Pastor2009a}. 
+Cette possibilité est ouverte par la relation générique \cd{skosxl:labelRelation}. 
+
+
+Dans SKOS, la gestion de plusieurs jargons métiers dans une même conceptualisation [A1] est rendue difficile par la caractérisation simple des termes par la langue. 
+Ainsi, même si on accroche plusieurs étiquettes au même concept, on ne sait pas les sélectionner pour les présenter à l'une ou l'autre communauté. 
+Cela implique un dédoublement des concepts et donc des schémas conceptuels nécessaires (un par communauté).%, voir figure \ref{fig:skos}. 
+%implique une représentation plus fine par rapport à SKOS ce qui 
+Avec le découplage terme-concept de SKOS-XL, on peut gérer terme et concept de manière séparés sans pour autant avoir de primitives spécifiques pour regrouper les termes par jargon ou code d'écriture, voir figure \ref{fig:skosxl}. 
+Une solution consisterait à regrouper les termes dans des ConceptScheme (SKOS-XL l'autorise).
+Les ConceptScheme serviraient alors à la fois à regrouper les concepts (AV-Scheme) et les termes spécifiques aux organisations (RTBF-Scheme, VRT-Scheme). 
+Cependant, si cette modélisation permet de gérer vocabulaire métier et conceptualisation de manière séparés c'est au prix d'un flottement sur la sémantique de ConceptScheme. 
+Le support d'un nouveau jargon peut donc se faire sans toucher à la conceptualisation [A3] grâce à la permissivité de l'extension SKOS-XL. 
+L'extension ou la mise en correspondance de la conceptualisation est facilitée par les relations sémantiques entre concepts.
+
+
+\subsubsection*{ISO 25964-1}
+\addcontentsline{toc}{subsection}{ISO 25964-1}
+Cette norme propose une modélisation terme-concept similaire à SKOS-XL mais se concentre sur la représentation des thésaurus. 
+Elle se fonde sur des modèles pré-existants, le méta-modèle \cite{Vandenbussche2009} ainsi que la norme BS 8723. 
+L'originalité par rapport à SKOS est de considérer la composition de termes ou de concepts et d'enrichir la description des éléments du modèle par des attributs Dublin Core.
+
+Les termes se distinguent entre termes préférés simples ou composés et termes non préférés simples. 
+La caractérisation des termes porte également sur l'appartenance à une langue à laquelle s'ajoutent des attributs de dates, une définition ainsi que des notes d'historique et de révision. 
+Des relations sémantiques entre termes sont également considérées en particulier l'équivalence composée, la synonymie, l'abréviation, l'acronyme, etc. 
+Le thésaurus est considéré comme l'élément central décrit par l'ensemble des quinze attributs originaux du Dublin Core ainsi que des notes d'historique pour la maintenance. 
+Sur les questions de documentation et de groupement de concepts, il existe une similarité importante avec les primitives de SKOS (note, groupe de concepts, etc.).\\
+
+%\textbf{Discussion}\\
+Les apports de la norme ISO 25964 par rapport à SKOS concernent davantage les pratiques de création et de maintenance de thésaurus que la gestion des jargons métiers [A1] et l'illustration de concepts par des ressources média [A2]. 
+Ainsi, les manques par rapport à nos besoins sont similaires. L'attention portée sur les détails de description de chaque élément du modèle est tout à fait convaincante. 
+L'écart avec l'aspect épuré et synthétique de SKOS s'explique certainement par l'écart entre leurs objectifs. 
+Alors que SKOS vise la publication de tout type de SOC, l'ISO 25946 se concentre sur la construction et l'évolution des seuls thésaurus. 
+La norme ne s'est pas encore attelée aux questions d'interopérabilité et de correspondance avec d'autres vocabulaires. Ce travail est en cours et sera dévoilé dans la seconde partie de la norme (ISO 25946-2). 
+De notre point de vue, il manque toujours un moyen de regrouper des termes indépendamment des concepts pour ajouter des jargons à une conceptualisation existante [A3].
+
+
+\subsection*{Bilan}
+L'étude des standards et normes de références précédentes ne semble pas apporter de solution complètement satisfaisante pour l'ensemble de nos besoins. 
+En effet, les approches restent centrées sur le concept et sa structuration auquel on intègre (SKOS) ou rattache (SKOS-XL, ISO 25946-1) ensuite les termes. 
+Ces derniers sont représentés de manière plus ou moins fine (gestion des compositions dans ISO 25946 absente de SKOS). 
+Dans tous les cas, la préférence d'un terme s'établit uniquement sur l'appartenance à une langue et non par rapport à une communauté de jargon. % mais sont caractérisés de manière identique dans les deux modèles (appartenance à une langue). 
+De ce fait, ces modèles se limitent à représenter un seul jargon de référence par thésaurus et suppose ainsi l'existence d'une communauté homogène dans sa compréhension et dont on cherche à normaliser l'usage linguistique. %Dans notre cas, la collaboration entre communautés hétérogènes dans leur compréhension des concepts et leur utilisation de la langue exige de pouvoir gérer plusieurs jargons. C'est pourquoi 
+Nous proposons dans la suite un modèle Multi-Jargon afin d'associer plusieurs jargons métiers et des explications à une conceptualisation commune. %basé sur des concepts originaux 
+
+
+\subsection*{Discussion}
+\addcontentsline{toc}{subsection}{Discussion}

@@ -1,0 +1,525 @@
+\documentclass[a4paper,11pt,open=right,cleardoublepage=empty,bibliography=totoc,BCOR=0mm,DIV=12,parskip=half,french]{scrbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Packages vitaux (XeTeX, KOMA-Script…)
+\XeTeXdefaultencoding utf-8
+\usepackage{xunicode}
+\usepackage{fontspec}
+\usepackage{xltxtra}
+\usepackage{scrhack}
+\usepackage{typearea}
+\usepackage{scrpage2}
+\renewcommand*\chapterpagestyle{scrheadings}
+\renewcommand*{\captionformat}{~: }
+
+%%%%% Hacks
+\interfootnotelinepenalty=10000
+
+%%%%% Français
+\usepackage[frenchb]{babel}
+\frenchspacing
+\usepackage[babel]{csquotes}
+
+%%%%% Tableaux
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{ctable}
+\usepackage{hhline}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{supertabular}
+
+%%%%% Divers
+\usepackage{epigraph}
+\usepackage{fancybox}
+\usepackage{framed}
+\usepackage[stable]{footmisc}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{mdwlist}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage[xetex,table,x11names,svgnames,svgnames*]{xcolor}
+\usepackage{verbatim}
+\usepackage{ifthen}
+\usepackage{xifthen}
+
+\usepackage{fancyvrb}
+\usepackage{moreverb}
+
+%%%%% Mise en page
+\usepackage{appendix}
+\usepackage{chngpage}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{shorttoc}
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+
+%%%%%%% Références
+% \usepackage{hyperref}
+
+% CHNPAGE : Permet d'utiliser les commandes \spacing, doublespace (double interligne), singlespace (simple interligne) et onehalfspace (un interligne et demi).
+% ENUMITEM : Pour paramétrer l'espacement dans les listes (partopsep itemsep topsep).
+% SHORTTOC : En français, la table des matières n'apparait qu'à la fin. Au début doit se trouver le sommaire. Or, il n'y a qu'une seule commande en LaTeX qui fait apparaître la table des matières, c'est \tableofcontents. Afin de satisfaire aux normes françaises, le fichier de style shorttoc.sty (créé par J.P. Drucbert et amélioré par DarkPetitTroll), peut être utilisé. Il ne faut pas oublier de placer ce fichier de style dans le même répertoire que le fichier source ou dans /texmf/tex/latex/! Voir cette page : http://petitroll.free.fr/index.php/2006/09/29/48-ajouter-un-sommaire-dans-un-document-latex
+
+%%%%% Bibliographie
+\usepackage[bibstyle=verbose-trad1,citestyle=authoryear-ibid,ibidtracker=true,maxnames=1,minnames=1,uniquename=allfull,backref=true,backrefstyle=two]{biblatex}
+%Original: bibstyle=verbose-trad1,citestyle=authoryear-ibid,maxnames=2,ibidtracker=true
+%Mine:  bibstyle=verbose-trad1,citestyle=authoryear-ibid,ibidtracker=true,maxnames=1,minnames=1,uniquename=allfull,backref=true,backrefstyle=two
+
+%%%%% Symboles
+\usepackage{dingbat}
+\usepackage{latexsym}
+\usepackage{manfnt}
+\usepackage{marvosym}
+\usepackage{phaistos}
+\usepackage{pifont}
+\usepackage{textcomp}
+\usepackage{wasysym}
+
+%%%%%%%%%%% À METTRE APRÈS LE \begin{document}
+
+%\deffootnote[1em]{0em}{0em}{\thefootnotemark{}.~}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% BALISAGE INLINE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Contractions
+\newcommand{\e}[1]{\emph{#1}}
+\newcommand{\g}[1]{\textbf{#1}}
+\newcommand{\pc}[1]{\textsc{#1}}
+\newcommand{\ita}[1]{\textit{#1}}
+
+%%%%% Combinaisons
+\newcommand{\eg}[1]{\textbf{\emph{#1}}}
+\newcommand{\gse}[1]{\textbf{\textsf{#1}}}
+\newcommand{\gpc}[1]{\textbf{\textsc{#1}}}
+\newcommand{\gri}[1]{\textbf{\textit{#1}}}
+
+%%%%% Usages
+\newcommand{\me}[1]{\textit{#1}}
+\newcommand{\patronyme}[1]{\textsc{#1}}
+
+%%%%% Items exergue
+\newcommand{\tii}[1]{\textbf{#1}~---~}
+\newcommand{\poi}[1]{\textbf{#1}.~}
+
+%%%%% Citation En Ligne
+\newcommand{\ciel}[1]{\textit{\gui{#1}}}
+
+%%%%% Un bout de code
+\newcommand{\cd}[1]{\textcolor{black!70}{\texttt{#1}}}
+
+
+%%%%% Guillemets français
+\newcommand{\gui}[1]{«\,#1\,»}
+
+%%%%% Référence bibliographique entre crochets
+\newcommand{\citcroc}[1]{[\cite{#1}]}
+
+%%%%% Référence bibliographique en PetiteCapitale et ()
+\newcommand{\parcite}[1]{(\pc{\cite{#1}})}
+
+%%%%% Séparateur
+\newcommand{\sep}{\begin{center}{\wtof\addfontfeature{Scale=6}\symbol{57355}}\end{center}\vspace{-2em}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% ENVIRONNEMENTS, FIGURES ET AUTRES ZONES SPÉCIALES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Centerpage (utile pour une page de remerciements)
+\newenvironment{vcenterpage}
+{\newpage\vspace*{\fill}}
+{\vspace*{\fill}\par\pagebreak}
+
+%%%%% J'en ai marre des tableaux
+\newcommand{\lquatre}[4]{#1&#2&#3&#4\\\hline}
+
+%%%%% Épigraphes
+\newcommand{\epigraphii}[2]{\epigraph{\textit{#1}}{\textsc{#2}}\vspace{2cm}}
+\newcommand{\epigraphsec}[2]{\epigraph{\textit{#1}}{\textsc{#2}}}
+
+%%%%% Items des listes
+\newcommand{\setlabelitems}[4]{%
+	\renewcommand{\labelitemi}{#1}%
+	\renewcommand{\labelitemii}{#2}%
+	\renewcommand{\labelitemiii}{#3}%
+	\renewcommand{\labelitemiv}{#4}%
+}
+
+%%%%% Liste simple Amleth
+\newenvironment{liste}%
+{\begin{list}{\labelitemi}{
+	\setlength{\itemindent}{0em}%
+	\setlength{\listparindent}{0em}%
+	\setlength{\rightmargin}{0em}%
+	\setlength{\leftmargin}{2cm}%
+	\setlength{\labelwidth}{20pt}%
+	\setlength{\labelsep}{5pt}%
+	\setlength{\itemsep}{0cm}%
+	\setlength{\parsep}{0em}%
+	\setlength{\topsep}{0em}%
+	\setlength{\partopsep}{0em}%
+}}
+{\end{list}}
+
+%%%%% Liste énumérotée Amleth
+\newenvironment{listenum}%
+{\begin{enumerate}[leftmargin=2cm,noitemsep,nolistsep]{
+
+}}
+{\end{enumerate}}
+
+%[itemindent=0em,listparindent=0em,rightmargin=0em,leftmargin=2cm,itemsep=0em,topsep=0em,partopsep=0em]
+
+%%%%% Liste non indentée
+\newenvironment{listeni}%
+{\begin{list}{\labelitemi}{
+	\setlength{\itemindent}{0em}%
+	\setlength{\listparindent}{0em}%d
+	\setlength{\rightmargin}{0em}%
+	\setlength{\leftmargin}{12pt}%
+	\setlength{\labelwidth}{20pt}%
+	\setlength{\labelsep}{5pt}%
+	\setlength{\itemsep}{0cm}%
+	\setlength{\parsep}{0em}%
+	\setlength{\topsep}{0em}%
+	\setlength{\partopsep}{0em}%
+}}
+{\end{list}}
+
+%%%%% Citation longue
+\newsavebox{\auteurcitation}
+\newsavebox{\boitecitation}
+\newboolean{auteurcitationpresent}
+\newenvironment{ciloac}[1]%
+{%
+	%\vspace{-1em}
+	\savebox{\auteurcitation}{\small#1}%
+	\begin{lrbox}{\boitecitation}%
+		\begin{minipage}{.8\linewidth}%
+			\small\itshape«\,\ignorespaces%
+}%
+{%
+			\unskip\,»\par\mbox{}\hfill\usebox{\auteurcitation}%
+		\end{minipage}%
+	\end{lrbox}%
+	\begin{center}%
+		\usebox{\boitecitation}%
+	\end{center}%
+	%\vspace{-1em}
+}
+
+%%%%% Citation courte
+\newenvironment{cico}{\begin{quote}\begin{small}«\,}{\,»\end{small}\end{quote}}
+
+%%%%% Figure
+\newcommand{\figue}[4]
+{
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=#2\linewidth]{#1}
+		\caption{\small #3}
+		\label{#4}
+	\end{figure}
+}
+
+%%%%% Encadré coloré
+\newenvironment{cadrecol}[1]
+{%
+	\setlength\fboxrule{1pt}%
+	\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{black}{#1}}%
+	\MakeFramed{\FrameRestore}%
+}{%
+	\endMakeFramed
+}
+
+%%%%% Changer ponctuellement les marges
+\newenvironment{changemargin}[2]{\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{0pt}%
+\setlength{\rightmargin}{0pt}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{0pt plus 1pt}%
+\addtolength{\leftmargin}{#1}%
+\addtolength{\rightmargin}{#2}%
+}\item }{\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% CARACTÈRES ACTIFS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lccode"2019="2019
+\catcode`\'\active
+%\def'{\@ifnextchar_\parfollowedbyunderscore\parnotfollowedbyunderscore}
+\def'{\kern0.1em\string'}
+
+\lccode"171="171
+\catcode`\«\active
+\def«{\string«~}
+
+\lccode"187="187
+\catcode`\»\active
+\def»{~\string»}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% CESURE et HYPHENATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\hyphenation{audio-visuel inter-com-pré-hen-sion infor-ma-ti-sation appa-reil exploi-ta-tion impli-ca-tion ingé-nie-rie métho-de enregi-stre-ment hypo-thèse inter-pré-ta-tion igno-ran-ce}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% FONTEX XETEX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newfontfamily\fichierexternef[Mapping=tex-text,Scale=1,RawFeature=+onum;+swsh;+dlig;+clig;+hlig]{Brioso Pro}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% SYMBOLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Déclarations
+\newfontfamily\htof[Mapping=tex-text]{HoeflerText Ornaments}
+\newfontfamily\wtof[Mapping=tex-text]{Adobe Wood Type Ornaments Std}
+\newfontfamily\wsdf[Mapping=tex-text]{Wiesbaden Swing LT Std Dingbats}
+\newfontface\WHIIIf[Mapping=tex-text]{WFRP3Symbols}
+\newfontface\sangraelf[Mapping=tex-text]{Sangrael™}
+
+%%%%% Accès
+\newcommand{\wto}[2]{{\wtof\addfontfeature{Scale=#2}\symbol{#1}}}
+\newcommand{\hto}[2]{{\htof\addfontfeature{Scale=#2}\symbol{#1}}}
+\newcommand{\wsd}[2]{{\wsdf\addfontfeature{Scale=#2}\symbol{#1}}}
+
+%%%%% Symboles utilisés
+\newcommand{\petitbourdon}[1]{\wsd{57354}{#1}}
+\newcommand{\sangraelducks}[1]{\sangraelf\addfontfeature{Scale=#1}\symbol{66}}
+\newcommand{\sangraeltower}[1]{\sangraelf\addfontfeature{Scale=#1}\symbol{75}}
+\newcommand{\sangraelbridge}[1]{\sangraelf\addfontfeature{Scale=#1}\symbol{77}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% MAQUEREAUX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\att}[1]{\textbf{\textsc{#1}}}
+
+%%%%% Texte désignant un fichier externe
+\newcommand{\fichierexterne}[1]{\centering\fichierexternef{#1}}
+
+%%%%% Figure encadrée
+\definecolor{btfond}{rgb}{0.75,0.75,0.75}
+\newenvironment{btdedahs}
+{%
+	\setlength\fboxrule{1pt}%
+	\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{black}{Silver}}%
+	\MakeFramed{\FrameRestore}%
+}{%
+	\endMakeFramed
+}
+\newenvironment{ff}[2]
+{%
+	\begin{center}%
+	\begin{minipage}{#1}%
+	\begin{center}%
+	\begin{btdedahs}%
+	{\addfontfeature{Scale=1.11}\textit{\textbf{#2}}}\vspace{1em}\par%
+}{%
+	\end{btdedahs}%
+	\end{center}%
+	\end{minipage}%
+	\end{center}%
+}	
+
+%%%%% Exemple
+\newenvironment{exemplejdr}
+{%
+	\begin{center}%
+	\begin{minipage}{11cm}%
+	\textsc{\textbf{Exemple.}~}%
+	\itshape%
+}{%
+	\end{minipage}%
+	\end{center}%
+}
+
+%%%%% Description-Chiffrage-Acquisition-Perte-Augmentation-Développement
+\newcommand{\DCAPADpuce}{\wto{57395}{1}~}
+\newcommand{\DCAPAD}[6]{%
+	\par\textsc{\textbf{\DCAPADpuce Définition.~}}#1%
+	\par\textsc{\textbf{\DCAPADpuce Chiffrage.~}}#2%
+	\par\textsc{\textbf{\DCAPADpuce Acquisition.~}}#3%
+	\par\textsc{\textbf{\DCAPADpuce Perte.~}}#4%
+	\par\textsc{\textbf{\DCAPADpuce Augmentation.~}}#5%
+	\par\textsc{\textbf{\DCAPADpuce Diminution.~}}#6%
+	\par
+}
+
+%%%%% Donnée du système de jeu (nom de compétence, etc.)
+\newcommand{\jd}[1]{\textit{#1}}
+
+%%%%% Point + par
+\newcommand{\pointp}[2]{\par\textsc{\textbf{#1}~}#2\par}
+
+%%%%% Point
+\newcommand{\point}[1]{\par\textsc{\textbf{#1}~}}
+
+%%%%% Point de règle tiré d'un autre jeu
+\definecolor{jfond}{rgb}{1,0.8,0.8}
+\newenvironment{jdedahs}
+{%
+	\setlength\fboxrule{1pt}%
+	\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{black}{DarkGoldenrod1}}%
+	\MakeFramed{\FrameRestore}%
+}{%
+	\endMakeFramed
+}
+\newenvironment{jeu}[1]
+{%
+	\begin{jdedahs}%
+	\textbf{\textsc{#1}}%
+	\small%
+}{%
+	\end{jdedahs}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\parindent=0em
+\setlength{\bibitemsep}{0.5em}
+\raggedbottom
+
+%%%%% scrpage2
+\pagestyle{scrheadings}
+\clearscrheadings
+\clearscrplain
+\clearscrheadfoot		
+\setheadsepline{.2pt}
+	\lehead{\headingsf\pagemark}
+	\rehead{\headingsf\scshape Chapitre~\thechapter}
+	\lohead{\headingsf\headmark}
+	\rohead{\pagemark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% TABLE DES MATIERES ET NUMÉROTATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\usepackage{remreset}
+\makeatletter
+\@removefromreset{footnote}{chapter}
+\makeatother
+
+%\titlecontents{chapter}[0pt]{\addvspace{5pt}}{\bfseries Chapitre\thecontentslabel~---~}{}{\titlerule*[8pt]{.}\contentspage}
+%\titlecontents{section}[10pt]{\addvspace{2pt}}{Section\thecontentslabel.\ }{}{\titlerule*[8pt]{.}\contentspage}
+%\titlecontents{subsection}[20pt]{}{\S\ \thecontentslabel.\ }{}{\titlerule*[8pt]{.}\contentspage}
+%\titlecontents{subsubsection}[30pt]{}{\thecontentslabel.\ }{}{\titlerule*[8pt]{.}\contentspage}
+%\titlecontents{paragraph}[40pt]{}{\thecontentslabel.\ }{}{\titlerule*[8pt]{.}\contentspage}
+%\titlecontents{subparagraph}[50pt]{}{\thecontentslabel.\ }{}{\titlerule*[8pt]{.}\contentspage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% SURCHARGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Liste d'items avec description
+\renewenvironment{description}[1]{%
+	\begin{basedescript}{%
+		\desclabelstyle{\multilinelabel}%
+		\renewcommand{\makelabel}[1]{\bfseries\scshape##1}%
+		\setlength{\labelwidth}{#1}%
+		\setlength{\labelsep}{5pt}%
+		\setlength{\leftmargin}{\labelwidth+\labelsep}%
+	}%
+}{%
+	\end{basedescript}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% MISE EN PAGE ET TYPOGRAPHIE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Police principale
+\setmainfont[Mapping=tex-text,Scale=1,Ligatures=Common]{Adobe Jenson Pro}
+\setsansfont[Mapping=tex-text]{Hypatia Sans Pro}
+\setmonofont[Scale=0.77]{Monaco}
+
+%%%%% Polices des titres
+\newcommand\salicornefonte{Hypatia Sans Pro}
+\newfontfamily\secf[Mapping=tex-text,Color=000000FF,LetterSpace=-0.0,Scale=1.5]{\salicornefonte}%BB0000FF
+\newfontfamily\subsecf[Mapping=tex-text,Color=000000FF,LetterSpace=-0.0,Scale=1.3]{\salicornefonte}%DD0000FF
+\newfontfamily\subsubsecf[Mapping=tex-text,Color=000000FF,LetterSpace=-0.0,Scale=1.1]{\salicornefonte}%FF0000FF
+\newfontfamily\parf[Mapping=tex-text,Color=000000FF,LetterSpace=-0.0,Scale=1]{\salicornefonte}%BB0000FF
+
+%%%%% Trucs stranges
+\newfontfamily\grec[Mapping=tex-text,Color=000000FF,LetterSpace=-0.0,Scale=1]{Cambria}
+\newfontfamily\awto[Mapping=tex-text]{Adobe Wood Type Ornaments Std}
+\newfontfamily\cjkfont[Script=CJK]{AR PL UKai CN}
+
+%%%%% Polices des entêtes de chapitres
+\newcommand\fontechapitres{Adobe Garamond Pro}
+\newfontfamily\headingsf[Mapping=tex-text,Color=000000FF,LetterSpace=-0.0,Scale=1,Ligatures=Common]{Adobe Garamond Pro}
+\newfontfamily\chapf[Mapping=tex-text,Color=000000FF,LetterSpace=-0.0,Scale=2.5]{\fontechapitres}
+\newfontfamily\chaptertitlenamef[Mapping=tex-text,Color=AAAAAAFF,LetterSpace=-0.0,Scale=2.5]{\fontechapitres}
+\newfontfamily\thechapterf[Mapping=tex-text,Color=777777FF,LetterSpace=-0.0,Scale=6]{\fontechapitres}
+
+%%%%% titlesec :: titles
+\titleformat*{\section}{\bfseries\scshape\secf}
+\titleformat*{\subsection}{\bfseries\subsecf}
+\titleformat*{\subsubsection}{\bfseries\subsubsecf}
+\titleformat*{\paragraph}{\bfseries\parf}
+
+%%%%% titles :: chapter
+\renewcommand{\thechapter}{\Roman{chapter}}
+\titleformat{\chapter}[display]
+	{\setlength{\baselineskip}{2\baselineskip}\chapf\scshape\filleft}
+	{\chaptertitlenamef\MakeUppercase{\chaptertitlename}~\thechapterf\thechapter}
+	{1em}
+	{}
+	{}
+\titlespacing{\chapter}{0pt}{*1}{*12}[0pt] % Avec les épigraphes
+%\titlespacing{\chapter}{0pt}{*1}{*24}[0pt] % Sans les épigraphes
+
+%%%%% Police des tableaux
+\let\oldlongtable=\longtable
+\def\longtable{\small\oldlongtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\scshape{Description Sémantique de Documents Audiovisuels Structurés}}
+\author{Benjamin \textsc{Diemert}}
+\date{}
+\bibliography{dsdav}
+
+\begin{document}
+
+\deffootnote[2em]{0em}{0em}{\thefootnotemark{}.~}
+
+%%%%% Items des listes
+\setlabelitems{\wto{57364}{1}}{\wto{57364}{1}}{\wto{57364}{1}}{\wto{57364}{1}} 
+
+\input{CONTENU/0.tex}
+
+\end{document}

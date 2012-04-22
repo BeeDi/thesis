@@ -1,0 +1,113 @@
+
+
+\section{Définitions des SOC (i)}\label{chap:defs}
+%Distinguer entre terme et concept ; dictionnaire, thésaurus, ontologies etc.
+
+\e{
+L'objectif de cette section est de clarifier ce qui appartient au domaine de la  linguistique et ce qui relève du domaine conceptuel, en vue d'identifier les notions qui nous serviront à spécifier une solution au cahier des charges dressés dans la section précédente. 
+La confusion qui nous intéresse concerne principalement la définition des ontologies par rapport à d'autres SOC tels ques les thésaurus, notamment du fait qu'on utilise parfois les mêmes langages pour les représenter.}
+
+La définition des SOC proposée par \cite{Zacklad2010}, étend celle de \cite{Hodge2000} à \ciel{l'ensemble des formes d'écritures codifiées participant à la description documentaire primaire ou secondaire d'une situation}. 
+L'ensemble défini par \citeauthor{Hodge2000} comprend ainsi tout type de :
+\begin{liste}
+	\item \e{liste de termes} (fichiers d'autorités, glossaires, dictionnaires, répertoires géographiques)
+	\item \e{schème de classification/catégorisation} (vedettes-matières, taxonomie)
+	\item \e{schème qui se structure par le types de relations qui unit ses membres} (thésaurus, réseaux sémantiques, ontologies). 
+\end{liste}
+
+À cela \citeauthor{Zacklad2010} souhaite ajouter des modes de description du contenu émergents ou plus faiblement codifiés comme par exemple les folksonomies. 
+Les SOC qui nous intéressent en particulier sont les schèmes structurés par types de relations. 
+% pourquoi ? 
+
+
+\subsection{Thésaurus, terminologie, ontologie}
+Dans cette section, nous nous reposerons majoritairement sur les définitions de \cite{bachimont:icc}. Concernant le thésaurus, l'auteur écrit :
+
+\g{Thésaurus :} 
+\ciel{
+Une organisation de libellés linguistiques selon des relations d'hyperonymie et d'hyponimie. 
+Les libellés sont également reliés par des relations dites d'association, qui sont de nature quelconque. 
+Même si en pratique les libellés d'un thésaurus correspondent souvent à des termes du domaine, ce n'est pas nécessairement systématique.}
+
+Cette définition situe clairement les thésaurus comme faisant partie du cadre de la linguistique. 
+Il s'agit d'un ensemble de mots structurés et reliés suivant leur \e{signification}, c'est à dire leur sens normé ou commun à plusieurs contextes d'usage particuliers (à l'inverse du sens, qui lui varie suivant les usages, \cite{Roche2005}). 
+\citeauthor{bachimont:icc} finit sa définition en comparant les mots issus d'un thésaurus aux termes. La distinction se joue à deux niveaux, la stabilité d'écriture du terme (niveau linguistique) et le fait qu'un terme renvoit à un concept (niveau conceptuel) : 
+
+\g{Terme :} 
+\ciel{
+Une unité linguistique dont le signifié est un concept, c'est-à-dire un signifié normé. 
+Le terme se manifeste linguistiquement par une stabilité et régularité de sa forme signifiante.
+En particulier, un terme possède des contextes d'occurrence réguliers, obéissant à des canevas morpho-syntaxiques typiques. 
+La détection de ces canevas est à la base des outils de détection des termes en corpus. 
+Un terme peut posséder des variantes terminologiques.
+Dans une optique normative, on détermine une forme préférée.}
+
+Ainsi, plus qu'un repérage des mots (signifiant) utilisés dans un domaine donné, la terminologie s'attache à identifier les signifiés correspondants. 
+Au-delà des débats sur les méthodes utilisées pour constituer les couples signifiant-signifié\footnote{L'approche \e{sémasiologique} (initiée par \cite{Bourigault1994}) s'appuie sur l'analyse linguistique d'un corpus de textes pour repérer les couplages signifiant-signifié ainsi que l'organisation conceptuelle sous-jacente. L'identification de ces \e{désignations} est ensuite validée par des experts du domaine. 
+Dans une optique différente, l'approche \e{onomasiologique} prend comme appui la modélisation conceptuelle pour nommer ensuite les concepts. On parle alors de \e{dénominations} dont l'objectif est de refléter sans ambiguïté la structure conceptuelle dont elles sont issues.
+Une critique faite à la première approche par \cite{Roche2006} est que les relations identifiées entre désignations sont purement linguistiques (hyper/hyponymie, méronymie etc.) et ne se rattachent pas à une structure conceptuelle. Ainsi, l'analyse de texte n'est qu'une première étape dans la constitution d'une terminologie, elle permet d'identifier les usages des mots, mais pas de les raccorder à des concepts. De même, la constitution du corpus va également grandement influer sur les résultats de l'analyse et pose alors un problème de réutilisabilité.}, on cherche à repérer la modélisation conceptuelle sous-jacente d'un domaine, de manière à pouvoir adosser chaque terme à un concept.
+À noter que l'inverse n'est pas forcément valable, car il existe des concepts qui n'ont pas d'appelation usuelle et que l'on doit alors désigner par une phrase. 
+Une autre conséquence de cette définition est que plusieurs mots peuvent être adossés au même concept.
+Il devient alors important de pouvoir expliciter cette équivalence et éventuellement de spécifier un signifié préféré pour le terme.
+
+Cette définition du terme préfigure ainsi la relation qu'entretient la terminologie avec l'ontologie pour \cite{bachimont:icc} : 
+
+\g{Terminologie :} 
+\ciel{un recensement et une organisation d'unités linguistiques à l'usage stabilisé et attesté, dont le signifié correspond à un concept du domaine.
+La terminologie est l'organisation des termes du domaine.
+La terminologie est la face linguistique de l'ontologie, qui en est le côté conceptuel. 
+Il n'y a pas une stricte correspondance cependant entre ontologie et terminologie : si tout terme doit correspondre à un concept de l'ontologie, tout concept n'a pas forcément d'usage linguistique régulier attesté.}
+
+De son côté, \cite[\S 2.4]{Roche2005} parle de manière similaire \ciel{[d']un système de termes reflétant une modélisation conceptuelle, [...] plus généralement dénommé \e{système notionnel} [qui] trouve sa raison d'être dans la façon dont nous appréhendons les objets du monde.}
+\citeauthor{Roche2005} précise que si les systèmes notionnels ne relèvent pas de la linguistique, ils ne dépassent pas forcément le cadre d'une langue, sauf \ciel{pour des communautés de pratique dont les langues d'usage partagent la même conceptualisation du monde.}.
+La distinction est ainsi faite entre les mots d'usage (qui peuvent être polysémiques) et les termes dont on spécifié une forme préférée (signifiant) et qu'on adosse à une signification (signifié normé).  
+
+Concernant les particularismes qui peuvent exister dans chaque communauté, \citeauthor{Roche2005} propose de s'éloigner d'une vision purement normalisatrice. 
+Ainsi, sur le plan linguistique, il est possible de rattacher les différents mots d'usages et de préciser leur contextes d'utilisation.
+Sur le plan conceptuel, l'auteur propose de constituer des \gui{terminologies régionales} que l'on cherchera ensuite à mettre en correspondance. 
+
+
+
+
+\paragraph{Ontologie}
+Concernant les ontologies, nous nous limiterons aux définitions proposés dans le cadre de l'ingénierie des connaissances (IC). Les travaux de \cite{Charlet2002} nous rappelle qu'il existe de multiples définitions : 
+
+Pour \cite{Gruber1993} : \ciel{Une ontologie est une spécification explicite d'une conceptualisation.}
+
+ La définition proposée par \cite{Uschold1996} nous permet de préciser de quoi se compose une conceptualisation et en quoi une ontologie la spécifie : 
+
+\ciel{Une ontologie implique ou comprend une certaine vue du monde par rapport à un domaine donné. Cette vue est souvent conçue comme
+un ensemble de concepts -- e.g. entités, attributs, processus --, leurs définitions
+et leurs interrelations. On appelle cela une conceptualisation. [...]
+Une ontologie peut prendre différentes formes mais elle inclura nécessairement
+un vocabulaire de termes et une spécification de leur signification. [...]
+Une ontologie est une spécification rendant partiellement compte d’une conceptualisation.}
+
+\citeauthor{Charlet2002} en conclut qu'une ontologie est une conceptualisation, c'est-à-dire un ensemble de concepts et de relations dont on cherche à normer la signification. 
+Pour faire de la conceptualisation un objet informatique, il faut spécifier une théorie logique dotée d'un vocabulaire (les concepts et les relations), à la manière des travaux de \cite{Guarino1995}.
+
+% Roche puis Babache
+Pour \citeauthor{Roche2005}, une ontologie est équivalente au système notionnel des terminologies, d'où la relation forte établie par les chercheurs en IC : 
+
+\ciel{définie pour un objectif donné et un domaine particulier, une ontologie est pour l'ingénierie des connaissances une représentation d'une modélisation d'un domaine partagée par une communauté d'acteurs. Objet informatique défini à l'aide d'un formalisme de représentation, elle se compose principalement d'un ensemble de concepts définis en compréhension, de relations et de propriétés logiques.} (\cite{Roche2005})
+
+\citeauthor{Bachimont2000a} insiste sur le fait qu'on utilise une sémantique donnée (différentielle, référentielle, psychologique, distributionnelle, conceptuelle etc., \cite{bachimont:hdr}) pour établir la signification des concepts de l'ontologie. Chaque sémantique propose un point de vue particulier qui permet de faire correspondre une signification propre à chaque unité   : 
+
+\ciel{une ontologie est la signature fonctionnelle et relationnelle, munie de sa sémantique, d'un langage formel de représentation et manipulation des connaissances.} (\cite{Bachimont2000a})
+
+% ? différentes sémantiques 
+Pour bien cerner les conséquences de cette définition, voici quelques sémantiques décrites par \cite{bachimont:hdr} qui se distinguent dans leur manière d'expliciter la signification d'une unité d'expression : 
+\begin{liste}
+	\item \e{sémantique différentielle} : la signification d'une unité consiste en l'identité et la différence par rapport aux autres unités linguistiques de la langue. On reste donc dans le cadre de la linguistique.
+	\item \e{sémantique référentielle} : la signification d'une unité est l'objet auquel elle fait référence, dans un univers extralinguistique. Ici, on s'attache à une théorie %...
+	\item \e{sémantique psychologique} : la signification d'une unité est la représentation mentale que l'on s'en fait. 
+\end{liste}
+
+% Au final, on construit un objet informatique en suivant une méthode de construction qui nous guide pour spécifier le comportement de l'ontologie. 
+
+% RTO
+
+
+
+
+\section{Méthode de construction d'ontologie}\label{chap:construction}

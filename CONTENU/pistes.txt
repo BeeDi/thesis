@@ -1,0 +1,63 @@
+==== Introduction
+== Motivations 
+= Numérisation 
+
+Considérer la logique métier de chacune des étapes de la chaîne afin d'évaluer la pertinence des différents niveaux de fragmentation du contenu. 
+\cite{Crozat2011}
+
+De même les règles et les connaissances métiers servent à encadrer le calcul pour lui donner un sens. 
+
+Par ailleurs, la fragmentation implique de fractionner le contenu dont il s'agit également de maintenir la cohérence pour le métier. 
+
+Unité Technique de Manipulation (UTM)
+Unité Sémiotique d'Interprétation (USI)
+
+
+
+=== Positionnement Disciplinaire
+L'analyse du signal produit des informations à partir du contenu seul, 
+L'ingé documentaire modélise la structure du contenu d'un document afin de faciliter sa manipulation. 
+L'ingé. des connaissances formalise l'expression de connaissances afin de favoriser leur exploitation critique, leur enrichissement, leur diffusion. 
+Le champ des documents audiovisuels, la spécificité de l'audiovisuel 
+
+notre approche vise à adjoindre une documentation au contenu afin de faciliter un certains nombre de traitements, de tâches. Nous décidons de formaliser cette adjonction ... 
+
+
+
+==== État de l'art 
+== Chaîne éditoriale
+- production multi-support
+- polymorphisme
+
+
+== Gestion des objets AV
+le plan n'est pas forcément l'unité cinématique (JP Martin, 7.3.2) mais est l'unité de base pour les producteurs, l'unité de description du scripting, l'unité à gérer et à décrire. 
+On laisse le détails aux analyses du signal ou de la sémiotique. 
+
+
+== OAIS vs MediaMap
+Cette norme lutte contre le décrochage technologique et de connaissances par rapport au temps. 
+On doit compenser ces pertes au niveau de l'archive pour s'assurer que l'accès et la lecture seront toujours possibles.
+
+Dans MM, on fait de la gestion de connaissances, mais il n'y a pas d'axe temporelle à gérer.
+On cherche à faire de la médiation de connaissances entre communautés (par l'adaptation) et formats (càd gérer l'interopérabilité). 
+Les mots-clés sont contextualisation, adaptation mais pas préservation. 
+
+
+
+==== Approche
+== Hiérarchie de niveaux de modélisation
+
+= Contenu
+C'est un flux.
+
+= Objet, Séquence
+C'est un enregistrement d'un contenu. 
+Par exemple, une séquence dans un chutier dont on ne connaît pas encore la place dans un document. 
+
+= Document, Fragment documentaire
+Un document audiovisuel est un objet av dans un contexte éditorial (genre + audience). 
+Il s'adresse à quelqu'un, c'est un objet de communication; construit par un acte de publication; déclenche une lecture. 
+
+Un fragment est une séquence éditorialisée, car publié dans un contexte éditorial qui suggère une lecture (par exemple sur un site web en compagnie d'autres séquences).
+Le geste éditorial a été de réunir ces séquences en fonction d'un critère commun. 
