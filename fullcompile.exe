@@ -1,0 +1,2 @@
+#!/bin/bash
+latex.clean ; cp ~/Dropbox/Bibliography/dsdav.bib ./ ; xelatex These.tex ; bibtex These.aux ; xelatex These.tex ; xelatex These.tex ; xelatex These.tex ; ~/Apps/opendetex/detex These > These-Stripped.txt ; ./countTexLines.sh
