@@ -14,7 +14,7 @@ opening mark-up element 			enclosing mark-up element
 \end{Verbatim}
 
 Attributes can be defined for each mark-up element. 
-For instance, the xml:lang attributes indicates the natural language used to write the enclosed text. The « 1812 Overture » full title can be written like that:
+For instance, the xml:lang attributes indicates the natural language used to write the enclosed text. The \gui{1812 Overture} full title can be written like that:
 \begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
 <title xml:lang='ru'>Торжественная увертюра 1812 года, Toržestvennaja uvertjura 1812 goda</title>
 <title xml:lang='fr'>Ouverture Solennelle, L'Année 1812, Op. 49</title>
@@ -37,7 +37,7 @@ Furthermore, if XML provides us with a syntax we also have the ability to makes 
 \paragraph{Namespace}
 When creating schemas, ambiguity problems usually arise and namespace declaration can take care of that. Indeed, it provides an abstract container for XML elements and attributes and gives to their name a scope. As each namespace is identified by an URI, the ambiguity between identically named elements or attributes from differents namespace can be resolved. 
 
-Therefore, I can declare my own « title » element and simultaniously use the « DC Terms » property title. We show here a complete example with xml heading:
+Therefore, I can declare my own \gui{title} element and simultaniously use the \gui{DC Terms} property title. We show here a complete example with xml heading:
 \begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
 <?xml version="1.0" encoding="UTF-8"?>
 <ex:musical_opus xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -58,7 +58,7 @@ XSD can define imbrication, quantification and naming rules for xml elements and
 But one of the main and most criticized characteristic of XSD is DataType validation. It can be applied to elements or attributes to constraint their content.  DataType definition must use XSD primitive or derived datatypes – see the scheme for a detailled hierarchy. This dependence upon specific datatypes is the source of many criticism. 
 
 Derived datatypes can be built by restriction – of the permitted values set –, list – declaration of values –, or union – between several types. 
-As an complete example, we define a XSD schema describing « MusicalOpus » as a list of XML elements named:
+As an complete example, we define a XSD schema describing \gui{MusicalOpus} as a list of XML elements named:
 \begin{liste}
 	\item Title: title of the musical opus
 	\item Extent: length or duration – as a string
@@ -141,8 +141,8 @@ And we provide a XML file which states that it conforms to the previous XSD sche
 
 
 \subsection{Ontologie et représentation des connaissances}
-\subsubsection*{Resource Description Framework}
-\addcontentsline{toc}{subsection}{Resource Description Framework}
+\subsubsection{Resource Description Framework}
+% \addcontentsline{toc}{subsubsection}{Resource Description Framework}
 The Resource  Description Framework (RDF) is an abstract model which is part of the W3C recommendations for the Semantic Web. 
 Let's just bring back to mind how \pc{Tim Berners-Lee} defined it to set RDF back into its context of creation: 
 
@@ -274,8 +274,8 @@ As an abstract model, RDF statements can be serialized or represented in a varie
 
 
 
-\subsubsection*{RDF Schema}
-\addcontentsline{toc}{subsection}{RDF Schema}
+\subsubsection{RDF Schema}
+% \addcontentsline{toc}{subsubsection}{RDF Schema}
 RDFS is the result of 6 years of work from the W3C consortium – from the 1998's first version to the 2004's final recommendation. 
 It is formally introduced as a vocabulary description language intended to structure RDF resources. 
 Indeed, RDFS presents mechanisms for describing classes of resources, associated properties and also the relationships between properties and other resources. 
@@ -288,7 +288,7 @@ Classes are resources – identified by an URI, described by properties – asso
 Resources in the class extension  are called instances – the rdf:type property may be used to state a resource as an instance of a class. 
 Note that a class extension can cointain the class itself as instance – this is why rdfs:Class can be defined as a rdfs:Class in the table below.
 SubClasses may be defined by the SubClassOf property. In this case, their extension pertains necessarily to any upper class extension. 
-If we state « X » to be the class of all « Opus » and « Y » a sub-class of « X » containing all the « MusicalOpus » ; then every instance of « Y » will be an instance of « X ». 
+If we state \gui{X} to be the class of all \gui{Opus} and \gui{Y} a sub-class of \gui{X} containing all the \gui{MusicalOpus} ; then every instance of \gui{Y} will be an instance of \gui{X}. 
 
 % \paragraph{Class List}
 \begin{table}[ht!]
@@ -318,7 +318,7 @@ If we state « X » to be the class of all « Opus » and « Y » a sub-cl
 First of all, let's recall that all properties are instances of the rdf:Property class. A property link a pair of resources, one of them as a subject and the other one as the object. 
 RDFS introduces two properties to restrict which can of resources may be linked together. rdfs:domain constraints the subject resource to be an instance of a given class whereas rdfs:range constraints the objet resource likewise. 
 SubProperty relationships – stated with rdfs:subPropertyOf – induces that all pairs of resource linked are also linked by the upper property. 
-Thus, having a « Contributor » property and a « Performer » sub-property we can state that:
+Thus, having a \gui{Contributor} property and a \gui{Performer} sub-property we can state that:
 \begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
 ex:1812\_Overture
 ex:Performer
@@ -363,34 +363,37 @@ Eventually, observe these four properties that appear more like annotation than 
 
 
 
-\subsubsection*{Ontology Web Language}
-\addcontentsline{toc}{subsection}{Ontology Web Language}
+\subsubsection{Ontology Web Language}
+% \addcontentsline{toc}{subsubsection}{Ontology Web Language}
 The Ontology Web Language (OWL) is a knowledge representation language intended – as its name states – to build ontology in a web environnement. 
 OWL relies on RDF and XML syntax and defines its constructs as extension or subset of RDF/RDFS classes and properties. 
 Nevertheless, OWL provides in addition comparaison and cardinality constraints on classes or properties. 
 These constructs enables to model domain specific ontology while bringing along generic reasoning tool. 
 
 The W3C created a working group in 2001 and documents became recommendations in 2004.
-However, OWL was a revision of earlier work called DAML+OIL initiated conjointly by the « Defense Advanced Research Projects Agency » (DARPA) and the European Union's « Information Society Technologies » (IST) project. 
+However, OWL was a revision of earlier work called DAML+OIL initiated conjointly by the \gui{Defense Advanced Research Projects Agency} (DARPA) and the European Union's \gui{Information Society Technologies} (IST) project. 
 
 \paragraph{OWL species}
 OWL defines in fact three sub-languages with different level of expressiveness and thus computational efficiency:
 \begin{liste}
-	\item « OWL Lite » is the simplest, less expressive sub-language. It supports 0..1 cardinality constraints and thus are intended for thesauri and taxonomies migration project.
+	\item \gui{OWL Lite} is the simplest, less expressive sub-language. 
+	It supports 0..1 cardinality constraints and thus are intended for thesauri and taxonomies migration project.
 
-	\item « OWL DL » gives full expressivity while ensuring computational completeness – all entailments are garanteed to be computed – and decidability – all computations will finish in finite times. Full expressivity means it includes all language constructs but to ensure the rest it needs to restrict their use by some conditions. 
+	\item \gui{OWL DL} gives full expressivity while ensuring computational completeness – all entailments are garanteed to be computed – and decidability – all computations will finish in finite times. 
+	Full expressivity means it includes all language constructs but to ensure the rest it needs to restrict their use by some conditions. 
 
-	\item « OWL Full » gives full expressivity without conditions. For instance, a major difference with « OWL DL » is that all resources can be considered as individuals – even Class and Property. There are strong equivalence between « OWL Full » and RDF – RDFS. This comes nevertheless with no computational garantees. 
+	\item \gui{OWL Full} gives full expressivity without conditions. For instance, a major difference with \gui{OWL DL} is that all resources can be considered as individuals – even Class and Property. 
+	There are strong equivalence between \gui{OWL Full} and RDF – RDFS. This comes nevertheless with no computational garantees. 
 \end{liste}
-Each level is a sub-level from its predecessor, that is every legal ontology or valid conclusion expressed in « OWL Lite » is a legal ontology or respectively a valid conclusion in « OWL DL » and so on between « OWL DL » and « OWL Full ». 
+Each level is a sub-level from its predecessor, that is every legal ontology or valid conclusion expressed in \gui{OWL Lite} is a legal ontology or respectively a valid conclusion in \gui{OWL DL} and so on between \gui{OWL DL} and \gui{OWL Full}. 
 
 \paragraph{Class}
-OWL defines its class like RDFS except that only OWL Full can state that a class is an instance of another class. OWL Lite and DL don't allow a class to be considered at the same time as an individual – thus also as a member of a class extension. 
-
+OWL defines its class like RDFS except that only OWL Full can state that a class is an instance of another class. 
+OWL Lite and DL don't allow a class to be considered at the same time as an individual – thus also as a member of a class extension. 
 % 7.4.2.a  Class descriptions
 OWL supports six different kind of class descriptions: 
 \begin{liste}
-	\item a simple class declaration – with a URI reference (\cd{<owl:Class rdf:ID='Composer' />})
+	\item a simple class declaration – with a URI reference (\cd{<owl:Class rdf:ID='Composer' />}).
 
 	\item an exhaustive enumeration of the class extension. Or if we want to define directly its extension like RDFS Containers, we can write:
 	\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
@@ -403,132 +406,145 @@ OWL supports six different kind of class descriptions:
 </owl:Class>
 	\end{Verbatim}
 
-	\item definition of a class as a subset of another class depending on property restrictions
-	\item an intersection of several classes descriptions
-	\item an union of several classes descriptions
-	\item a complement of a class description
+	\item definition of a class as a subset of another class depending on property restrictions. 
+	We may also use more complex property restrictions, including value or  cardinality restrictions. 
+	For this purpose we have a set of properties:
+	\begin{liste}
+		\item \cd{owl:allValuesFrom}, \cd{owl:someValuesFrom} --- with the values being either a class or a datatype but OWL Lite only supports class value.
+		\item \cd{owl:hasValue} --- the value has to be either an individual or a data value. This property is not included in OWL Lite. 
+		\item \cd{owl:maxCardinality}, \cd{owl:minCardinality}, \cd{owl:cardinality} --- the value has to be related to a XML Schema datatype.
+	\end{liste}
+
+	\item \cd{owl:intersectionOf} --- an intersection of several classes descriptions in a similar fashion to an AND operator acting on  class declaration. 
+	This property can be used in some way in OWL Lite.
+	\item \cd{owl:unionOf} --- an union of several classes descriptions in a similar fashion to an OR operator acting on class declaration. 
+	This property is not included in OWL Lite. 
+	\item \cd{owl:complementOf} --- a complement of a class description similar to a NOT operator acting on class declaration. 
+	This property is not included in OWL Lite.
 \end{liste}
 
-We may also use more complex property restrictions, including value or  cardinality restrictions. For this purpose we have a set of properties:
 
-Value restrictions
-owl:allValuesFrom, owl:someValuesFrom  – with the values being either a class or a datatype but OWL Lite only supports class value.
+\paragraph{Class axioms}
+Classes may be described with the previous properties, class axioms are the three properties that have owl:Class for domain and range: 
+\begin{liste}
+	\item \cd{owl:subClassOf} enables specialisation to be described. The sub-class' extension set is thus stated as a subset of the class extension set. 
 
-owl:hasValue – the value has to be either an individual or a data value. This property is not included in OWL Lite. 
+	\item \cd{owl:equivalentClass} declares class extension equivalence between two classes descriptions.
 
-Cardinality constraints
-owl:maxCardinality, owl:minCardinality, owl:cardinality – the value has to be related to a XML Schema datatype.
+	\item \cd{owl:disjointWith} establishes that two classes extensions of two classes descriptions have no member in common.
+\end{liste}
+Note that all owl:Class are sub-classes of the owl:Thing superclass. 
 
-4,5,6. These constructs are similar to AND, OR, NOT operators acting on classes. Only owl:intersectionOf can be used in some way in OWL Lite, whereas owl:unionOf and owl:complementOf are not included.
+\paragraph{Property}
+OWL defines four kind of Property that must be mutually disjoint when using OWL DL:
+\begin{liste}
+	\item \cd{owl:DatatypeProperty} links instance with literal values.
+	\item \cd{owl:ObjectProperty} define relations between instances.
+	\item \cd{owl:AnnotationProperty} are intended for human reader. 
+	In OWL DL, it is impossible to define restriction or sub-property for Annotation Properties and information will not be taken into account by reasoners.
+	\item \cd{owl:OntologyProperty} are used for importing ontology and make statements about versionning information. 
+	In OWL DL, the same constraints hold as those specified for Annotation Properties.
+\end{liste}
 
-% 7.4.2.b  Class axioms
-% Classes may be described with the previous properties, class axioms are the three properties that have owl:Class for domain and range: 
-% owl:subClassOf enables specialisation to be described. The sub-class' extension set is thus stated as a subset of the class extension set. 
+\paragraph{Property declaration}
+We take as an example the definition of creation relationships on two different level of specialisation. 
+First, a \gui{createdBy} relation between a \gui{Person} and an \gui{Opus}. 
+Second, a music related \gui{composedBy} relation, involving a \gui{Composer} and a \gui{MusicalOpus}.
 
-% owl:equivalentClass declares class extension equivalence between two classes descriptions.
+Class declaration:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<owl:Class rdf:ID='Composer'>
+	<rdfs:subClassOf rdf:resource='Person' />
+</owl:Class>
+<owl:Class rdf:ID='Opus' />
+<owl:Class rdf:ID='MusicalOpus'>
+	<rdfs:subClassOf rdf:resource='Opus' />
+</ow:Class>
+\end{Verbatim}
 
-% owl:disjointWith establishes that two classes extensions of two classes descriptions have no member in common.
+Property declaration:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<owl:ObjectProperty rdf:ID='createdBy'>
+	<rdfs:domain rdf:resource='Opus' />
+	<rdfs:range rdf:resource='Person' />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID='composedBy'>
+	<rdfs:domain rdf:resource='MusicalOpus' />
+	<rdfs:range rdf:resource='Composer' />
+	<rdfs:subPropertyOf rdf:resource='createdBy />
+</owl:ObjectProperty>
+\end{Verbatim}
+Note the use of rdfs:domain, rdfs:range, rdfs:subPropertyOf and rdfs:subClassOf properties within OWL statements.
 
-% Note that all owl:Class are sub-classes of the owl:Thing superclass. 
+Now, if we want to take advantage of Property restrictions to define our \gui{Composer} class, we can state for instance that \gui{Composer} individuals are precisely those \gui{Person} individuals who have \gui{composed} at least one \gui{MusicalOpus}. 
+This lead us to write the following declaration: 
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<owl:Class rdf:ID='Composer'>
+  <rdfs:subClassOf>
+    <owl:intersectionOf rdf:parseType='Collection'>
+      <owl:Class rdf:ID='Person' />
+      <owl:Restriction>
+        <owl:onProperty rdf:resource='composedBy' />
+        <owl:minCardinality rdf:datatype='\&xsd;nonNegativeInteger'>1</owl:minCardinality>
+      </owl:Restriction>
+    </owl:intersectionOf >
+  </rdfs:subClassOf>	
+</owl:Class>
+\end{Verbatim}
+Note that the intersectionOf property requires a list of Classes declarations which can be given either by owl:Class or owl:Restriction – which is defined as a sub-class of owl:Class. 
 
-% 7.4.3  Property
-% OWL defines four kind of Property that must be mutually disjoint when using OWL DL:
-
-% owl:DatatypeProperty links instance with literal values.
-% owl:ObjectProperty define relations between instances.
-% owl:AnnotationProperty are intended for human reader. In OWL DL, it is impossible to define restriction or sub-property for Annotation Properties and information will not be taken into account by reasoners.
-% owl:OntologyProperty are used for importing ontology and make statements about versionning information. In OWL DL, the same constraints hold as those specified for Annotation Properties. 
-
-% 7.4.3.a  Property declaration
-% We take as an example the definition of creation relationships on two different level of specialisation. First, a « createdBy » relation between a « Person » and an « Opus ». Second, a music related « composedBy » relation, involving a « Composer » and a « MusicalOpus ».
-
-% Class declaration
-% <owl:Class rdf:ID='Person' />
-% <owl:Class rdf:ID='Composer'>
-% 	<rdfs:subClassOf rdf:resource='Person' />
-% </owl:Class>
-% <owl:Class rdf:ID='Opus' />
-% <owl:Class rdf:ID='MusicalOpus'>
-% 	<rdfs:subClassOf rdf:resource='Opus' />
-% </ow:Class>
-
-% Property declaration
-% <owl:ObjectProperty rdf:ID='createdBy'>
-% 	<rdfs:domain rdf:resource='Opus' />
-% 	<rdfs:range rdf:resource='Person' />
-% </owl:ObjectProperty>
-% <owl:ObjectProperty rdf:ID='composedBy'>
-% 	<rdfs:domain rdf:resource='MusicalOpus' />
-% 	<rdfs:range rdf:resource='Composer' />
-% 	<rdfs:subPropertyOf rdf:resource='createdBy />
-% </owl:ObjectProperty>
-
-% Note the use of rdfs:domain, rdfs:range, rdfs:subPropertyOf and rdfs:subClassOf properties within OWL statements.
-
-% Now, if we want to take advantage of Property restrictions to define our « Composer » class, we can state for instance that « Composer » individuals are precisely those « Person » individuals who have « composed » at least one « MusicalOpus ». This lead us to write the following declaration: 
-
-% <owl:Class rdf:ID='Composer'>
-% 	<rdfs:subClassOf>
-% 		<owl:intersectionOf rdf:parseType='Collection'>
-% 			<owl:Class rdf:ID='Person' />
-% 			<owl:Restriction>
-% 				<owl:onProperty rdf:resource='composedBy' />
-% 				<owl:minCardinality rdf:datatype='\&xsd;nonNegativeInteger'>1</owl:minCardinality>
-% 			</owl:Restriction>
-% 		</owl:intersectionOf >
-% 	</rdfs:subClassOf>	
-% </owl:Class>
-
-% Note that the intersectionOf property requires a list of Classes declarations which can be given either by owl:Class or owl:Restriction – which is defined as a sub-class of owl:Class. 
-
-% 7.4.3.b  Property characteristics
-% Properties can also be defined as:
-% transitive: P(x,y) and P(y,z) implies P(x,z). For instance, if x is located in y and y is located in z, then x is located in z. 
-% symetric: P(x,y) if and only if P(y,x). If x is next to y, then y must be next to x. 
-% functionnal: P(x,y) and P(x,z) implies y = z. The property has only one value for each individual it applies to. 
-% inverseOf: P1(x,y) if and only if P2(y,x). If x is the « fatherOf » y, then y is the « childOf » x, thus making « fatherOf » the inverseOf « childOf » property. 
-% inverseFunctional: P(y,x) and P(z,x) implies y = z.
+\paragraph{Property characteristics}
+Properties can also be defined as:
+\begin{liste}
+	\item \e{transitive}: P(x,y) and P(y,z) implies P(x,z). For instance, if x is located in y and y is located in z, then x is located in z. 
+	\item \e{symetric}: P(x,y) if and only if P(y,x). If x is next to y, then y must be next to x. 
+	\item \e{functionnal}: P(x,y) and P(x,z) implies y = z. The property has only one value for each individual it applies to. 
+	\item \e{inverseOf}: P1(x,y) if and only if P2(y,x). If x is the \gui{fatherOf} y, then y is the \gui{childOf} x, thus making \gui{fatherOf} the inverseOf \gui{childOf} property. 
+	\item \e{inverseFunctional}: P(y,x) and P(z,x) implies y = z.
+\end{liste}
 
 
-% 7.4.4  Individual
-% Ontology is not only about Classes and Properties, it enables us to state some facts about individuals. In order to describe them, we state them as Class instance, make use of Property or assert facts about their individuality. 
+\paragraph{Individual}
+Ontology is not only about Classes and Properties, it enables us to state some facts about individuals. In order to describe them, we state them as Class instance, make use of Property or assert facts about their individuality. 
+Let's use our previous ontology description to decribe \gui{Tchaikovsky} and the \gui{1812 overture}.
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<Person rdf:ID='Tchaikovsky' />
+<MusicalOpus rdf:ID='1812_Overture'>
+	<composedBy rd:resource='Tchaikovsky' />
+</MusicalOpus>
+\end{Verbatim}
 
-% Let's use our previous ontology description to decribe « Tchaikovsky » and the « 1812 overture ».
+From this description, we can entail that:
+\gui{Tchaikovsky} is not only a \gui{Person}, it is also a \gui{Composer} because he composed the \gui{1812 overture}. As he composed it, we can also say that he has \gui{created} it. 
 
-% <Person rdf:ID='Tchaikovsky' />
-% <MusicalOpus rdf:ID='1812_Overture'>
-% 	<composedBy rd:resource='Tchaikovsky' />
-% </MusicalOpus>
+As OWL is a web language, it has rejected the \gui{unique name} assumption and hence need to deal with identity uniqueness – and thus URI reference. In order to do so, three constructs have been defined:
+owl:sameAs states that two URI reference refer in fact to the same individual, meaning we can merge their definition and the related conclusions. 
+owl:differentFrom declares that two URI reference refer to different individuals. 
+owl:AllDifferent provides an idiom for stating that a list of individuals are all different. 
 
-% From this description, we can entail that:
-% « Tchaikovsky » is not only a « Person », it is also a « Composer » because he composed the « 1812 overture ». As he composed it, we can also say that he has « created » it. 
+Now, to demonstrate the use of sameAs property and to refer to our information sample, we define several \gui{Tchaikovsky} individuals with different spelling. Then, we declare several MusicalOpus, \gui{Cappricio italien} and «\verb?Ромео и Джульетта?» which is the russian spelling for \gui{Romeo and Juliet}.
 
-% As OWL is a web language, it has rejected the « unique name » assumption and hence need to deal with identity uniqueness – and thus URI reference. In order to do so, three constructs have been defined:
-% owl:sameAs states that two URI reference refer in fact to the same individual, meaning we can merge their definition and the related conclusions. 
-% owl:differentFrom declares that two URI reference refer to different individuals. 
-% owl:AllDifferent provides an idiom for stating that a list of individuals are all different. 
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<Person rdf:ID='Tchaïkovski' xml:lang='fr' />
+<Person rdf:ID='Чайкoвский' xml:lang='ru' />
 
-% Now, to demonstrate the use of sameAs property and to refer to our information sample, we define several « Tchaikovsky » individuals with different spelling. Then, we declare several MusicalOpus, « Cappricio italien » and « Ромео и Джульетта » which is the russian spelling for « Romeo and Juliet ».
-
-% <Person rdf:ID='Tchaïkovski' xml:lang='fr' />
-% <Person rdf:ID='Чайкoвский' xml:lang='ru' />
-
-% <MusicalOpus rdf:ID='Capriccio_italien' xml:lang='fr'>
-% 	<composedBy rd:resource='Tchaïkovski' />
-% </MusicalOpus>
-% <MusicalOpus rdf:ID='Ромео и Джульетта' xml:lang='ru'>
-% 	<composedBy rd:resource='Чайкoвский' />
-% </MusicalOpus>
-
-% If we change the first statements by:
-% <Person rdf:ID='Tchaïkovski' xml:lang='fr'>
-% 	<owl:sameAs rdf:resource='Tchaikovsky'/>
-% </Person>
-% <Person rdf:ID='Чайкoвский' xml:lang='ru'>
-% 	<owl:sameAs rdf:resource='Tchaikovsky'/>
-% </Person>
-
-% We can entail that there are the same person and that he has composed all three « MusicalOpus » described. 
+<MusicalOpus rdf:ID='Capriccio_italien' xml:lang='fr'>
+	<composedBy rd:resource='Tchaïkovski' />
+</MusicalOpus>
+<MusicalOpus rdf:ID='Ромео и Джульетта' xml:lang='ru'>
+	<composedBy rd:resource='Чайкoвский' />
+</MusicalOpus>
+\end{Verbatim}
+If we change the first statements by:
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<Person rdf:ID='Tchaïkovski' xml:lang='fr'>
+	<owl:sameAs rdf:resource='Tchaikovsky'/>
+</Person>
+<Person rdf:ID='Чайкoвский' xml:lang='ru'>
+	<owl:sameAs rdf:resource='Tchaikovsky'/>
+</Person>
+\end{Verbatim}
+We can entail that there are the same person and that he has composed all three \gui{MusicalOpus} described. 
 
 
 
@@ -576,8 +592,8 @@ Nos besoins en modélisation peuvent être exprimés par les assertions suivante
 
 
 
-\subsubsection*{Simple Knowledge Organization System}
-\addcontentsline{toc}{subsection}{Simple Knowledge Organization System}
+\subsubsection{Simple Knowledge Organization System}
+% \addcontentsline{toc}{subsubsection}{Simple Knowledge Organization System}
 \e{
 SKOS est un langage de représentation de vocabulaires structurés et de thésaurus qui repose sur RDF et OWL. 
 Son objectif est de représenter tout type de SOC en vue de le publier sur le web de données,  liées et ouvertes (Linked Open Data). 
@@ -641,8 +657,8 @@ Le support d'un nouveau jargon peut donc se faire sans toucher à la conceptuali
 L'extension ou la mise en correspondance de la conceptualisation est facilitée par les relations sémantiques entre concepts.
 
 
-\subsubsection*{ISO 25964-1}
-\addcontentsline{toc}{subsection}{ISO 25964-1}
+\subsubsection{ISO 25964-1}
+% \addcontentsline{toc}{subsubsection}{ISO 25964-1}
 Cette norme propose une modélisation terme-concept similaire à SKOS-XL mais se concentre sur la représentation des thésaurus. 
 Elle se fonde sur des modèles pré-existants, le méta-modèle \cite{Vandenbussche2009} ainsi que la norme BS 8723. 
 L'originalité par rapport à SKOS est de considérer la composition de termes ou de concepts et d'enrichir la description des éléments du modèle par des attributs Dublin Core.
