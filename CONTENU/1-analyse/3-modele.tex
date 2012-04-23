@@ -382,43 +382,44 @@ OWL defines in fact three sub-languages with different level of expressiveness a
 
 	\item « OWL Full » gives full expressivity without conditions. For instance, a major difference with « OWL DL » is that all resources can be considered as individuals – even Class and Property. There are strong equivalence between « OWL Full » and RDF – RDFS. This comes nevertheless with no computational garantees. 
 \end{liste}
-% Each level is a sub-level from its predecessor, that is every legal ontology or valid conclusion expressed in « OWL Lite » is a legal ontology or respectively a valid conclusion in « OWL DL » and so on between « OWL DL » and « OWL Full ». 
+Each level is a sub-level from its predecessor, that is every legal ontology or valid conclusion expressed in « OWL Lite » is a legal ontology or respectively a valid conclusion in « OWL DL » and so on between « OWL DL » and « OWL Full ». 
 
-% 7.4.2  Class
-% OWL defines its class like RDFS except that only OWL Full can state that a class is an instance of another class. OWL Lite and DL don't allow a class to be considered at the same time as an individual – thus also as a member of a class extension. 
+\paragraph{Class}
+OWL defines its class like RDFS except that only OWL Full can state that a class is an instance of another class. OWL Lite and DL don't allow a class to be considered at the same time as an individual – thus also as a member of a class extension. 
 
 % 7.4.2.a  Class descriptions
-% OWL supports six different kind of class descriptions: 
-% 1. a simple class declaration – with a URI reference
-% 2. an exhaustive enumeration of the class extension
-% 3. definition of a class as a subset of another class depending on property restrictions
-% 4. an intersection of several classes descriptions
-% 5. an union of several classes descriptions
-% 6. a complement of a class description
+OWL supports six different kind of class descriptions: 
+\begin{liste}
+	\item a simple class declaration – with a URI reference (\cd{<owl:Class rdf:ID='Composer' />})
 
-% 1. Class declaration can be done as follow:
-% <owl:Class rdf:ID='Composer' />
+	\item an exhaustive enumeration of the class extension. Or if we want to define directly its extension like RDFS Containers, we can write:
+	\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+<owl:Class rdf:ID='Nationality'>
+	<owl:oneOf rdf:parseType='Collection'>
+		<owl:Thing rdf:about='ex:French' />
+		<owl:Thing rdf:about='ex:Russian' />
+		<owl:Thing rdf:about='ex:English' />
+	</owl:oneOf>
+</owl:Class>
+	\end{Verbatim}
 
-% 2. Or if we want to define directly its extension like RDFS Containers, we can write: 
-% <owl:Class rdf:ID='Nationality'>
-% 	<owl:oneOf rdf:parseType='Collection'>
-% 		<owl:Thing rdf:about='ex:French' />
-% 		<owl:Thing rdf:about='ex:Russian' />
-% 		<owl:Thing rdf:about='ex:English' />
-% 	</owl:oneOf>
-% </owl:Class>
+	\item definition of a class as a subset of another class depending on property restrictions
+	\item an intersection of several classes descriptions
+	\item an union of several classes descriptions
+	\item a complement of a class description
+\end{liste}
 
-% 3. We may also use more complex property restrictions, including value or  cardinality restrictions. For this purpose we have a set of properties:
+We may also use more complex property restrictions, including value or  cardinality restrictions. For this purpose we have a set of properties:
 
-% Value restrictions
-% owl:allValuesFrom, owl:someValuesFrom  – with the values being either a class or a datatype but OWL Lite only supports class value.
+Value restrictions
+owl:allValuesFrom, owl:someValuesFrom  – with the values being either a class or a datatype but OWL Lite only supports class value.
 
-% owl:hasValue – the value has to be either an individual or a data value. This property is not included in OWL Lite. 
+owl:hasValue – the value has to be either an individual or a data value. This property is not included in OWL Lite. 
 
-% Cardinality constraints
-% owl:maxCardinality, owl:minCardinality, owl:cardinality – the value has to be related to a XML Schema datatype.
+Cardinality constraints
+owl:maxCardinality, owl:minCardinality, owl:cardinality – the value has to be related to a XML Schema datatype.
 
-% 4,5,6. These constructs are similar to AND, OR, NOT operators acting on classes. Only owl:intersectionOf can be used in some way in OWL Lite, whereas owl:unionOf and owl:complementOf are not included.
+4,5,6. These constructs are similar to AND, OR, NOT operators acting on classes. Only owl:intersectionOf can be used in some way in OWL Lite, whereas owl:unionOf and owl:complementOf are not included.
 
 % 7.4.2.b  Class axioms
 % Classes may be described with the previous properties, class axioms are the three properties that have owl:Class for domain and range: 
