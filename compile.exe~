@@ -1,0 +1,2 @@
+#!/bin/bash
+xelatex ./current/These.tex ; ./countTexLines.sh

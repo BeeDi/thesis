@@ -30,6 +30,6 @@
 *.txt
 *.pdf
 *.sublime*
-docs/
-fonts/
-PERRON/
+./docs/*
+./fonts/*
+./PERRON/*

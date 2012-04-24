@@ -561,38 +561,8 @@ We can entail that there are the same person and that he has composed all three 
 
 
 
-\subsection{Thésaurus et vocabulaires structurés}
-\subsubsection{Besoins en modélisation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% à revoir
-%La mise en place d'une telle application nécessite de représenter le vocabulaire de la réalisation audiovisuelle dans toutes ses variations possibles et de le documenter suffisamment afin de le rendre compréhensible pour des novices. 
-Cet objectif nous amène à considérer la construction d'une ressource termino-ontologique.
-L'ontologie permet de représenter les concepts partagés par les professionels de la réalisation audiovisuelle et la terminologie permet de capturer les différentes formes d'expression associées à ces concepts. 
-
-La spécificité de notre problématique est de considérer la collaboration de communautés hétérogènes par leur degré de compréhension des concepts ou leur utilisation de la terminologie. 
-Ceci nous amène à envisager la terminologie comme un moyen d'associer à des éléments ontologiques (concept, relation, instances) une chaîne lexicale ou des ressources média.
-Chaque chaîne ou ressource s'adresse en particulier à une communauté dont les membres partagent une capacité d'interprétation commune. 
-Il n'existe donc plus une terminologie de référence par langue, mais des terminologies pour chaque communauté d'utilisateurs. 
-On remarquera que notre acception de la terminologie sert bien à normaliser les pratiques linguistiques entre les membres d'une même organisation. 
-En plus de cela, elle permet de fixer la manière de s'adresser à d'autres communautés.
-
-Par ailleurs, les types de réalisations sont divers et nécessitent des concepts spécifiques pour être décrits. Une fiction se structure en séquences et en scènes alors que les documentaires ou magazines d'information se composent de sujets. 
-La variabilité des types de contenu à filmer implique donc de pouvoir étendre le fond conceptuel initial pour représenter de nouveaux usages. 
-De la même manière, la collaboration avec de nouveaux partenaires nécessite de pouvoir ajouter de nouvelles terminologies au fond conceptuel existant. 
-Ontologie et terminologie doivent se gérer de manière indépendante. 
-À partir de ces besoins, nous définissons maintenant les exigences en terme de modélisation. 
-
-Nos besoins en modélisation peuvent être exprimés par les assertions suivantes:
-\begin{enumerate}
-	\item[(A1)] la variabilité des pratiques linguistiques des organisations et des communautés implique d'associer plusieurs termes à un même concept. Il n'y a pas de choix des termes préférés par une communauté mais une \textit{correspondance} entre les termes d'une ou plusieurs communautés, quels que soient la langue et le code d'écriture utilisé.
-	
-	\item[(A2)] la variabilité de compréhension des communautés implique d'associer des explications (chaîne lexicale) ou des illustrations (ressource média) aux concepts afin d'en enrichir la \textit{documentation}. 
-	
-	\item[(A3)] la variabilité des cas de collaboration implique de pouvoir étendre la conceptualisation initiale ou la terminologie pour s'adapter à de nouvelles pratiques ou de nouvelles communautés. Cela implique une gestion et une \textit{évolution} indépendante de l'ontologie et de la terminologie. 
-\end{enumerate}
-
-
-
-\subsubsection{Simple Knowledge Organization System}
+\subsection{Thésaurus et vocabulaires structurés}\label{sec:thesaurus}
+\subsubsection{Simple Knowledge Organization System}\label{sec:skos}
 % \addcontentsline{toc}{subsubsection}{Simple Knowledge Organization System}
 \e{
 SKOS est un langage de représentation de vocabulaires structurés et de thésaurus qui repose sur RDF et OWL. 
@@ -601,7 +571,6 @@ En témoigne les travaux et méthodes de conversion proposés par \cite{Summers2
 On notera que l'objectif de publication semble pousser vers une représentation minimale mais extensible de SOC déjà construits.
 }
 
-% \subsubsection*{SKOS}
 \paragraph{Concept et Etiquette}
 SKOS centre son modèle sur les concepts (\cd{skos:Concept}) et considère les étiquettes comme des propriétés de ces derniers. 
 On distingue trois types d'étiquettes: 
@@ -633,7 +602,40 @@ Les concepts peuvent être regroupés dans des schémas conceptuels (\cd{skos:\-
 \end{itemize}
 
 
-\paragraph{SKOS-XL}
+
+\paragraph{Exemple de représentation} 
+Pour illustrer l'utilisation de SKOS, nous reprendrons le scénario présenté dans notre cahier des charges fonctionnels (\ref{sec:cdcf}). 
+Il s'agit de représenter deux termes de jargons correspondant au même concept de cadrage.
+En effet, les deux organisations ont décidé de lier la définition de leur concept malgré leur usage d'étiquettes différent. 
+Ceci se reflète par la mise en relation explicicte de ces concepts (\cd{skos:exactMatch}) et leur incorporation dans des schèmes différents (\cd{skos:inScheme}).
+Par ailleurs, la VRT utilise des étiquettes cachés pour gérer l'utilisation d'abréviations par les utilisateurs écrivant leurs requêtes. 
+Afin de satisfaire aux besoins des amateurs, on rajoute également une illustration graphique ainsi qu'une définition :
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+//====== CONCEPTS ======//
+<PlanAmericain> rdf:type skos:Concept ; 
+  skos:prefLabel "Plan américain"@fr ;
+  skos:prefLabel "American shot"@en
+  skos:altLabel "Plan 3/4"@fr ;
+  skos:altLabel "Medium-close shot"@en ;
+  skos:inScheme   <RTBF-Scheme> ;
+  skos:example ex:PlanAmericain.png ;                               //Illustration//
+  skos:definition "plan coupant les personnages à mi-cuisse"@fr ;   //Définition//
+  skos:exactMatch <Plan34> .
+   
+<Plan34> rdf:type skos:Concept ;
+  skos:prefLabel "3/4 shot"@en
+  skos:altLabel "Medium-close shot"@en ;
+  skos:prefLabel "Plan 3/4"@fr ;
+  skos:hiddenLabel "mcs"@en ;                                           //Abréviations//
+  skos:hiddenLabel "m.c.s."@en ;
+  skos:example ex:PlanAmericain.png ;                                   //Illustration//
+  skos:definition "shot plan coupant les personnages à mi-cuisse"@en ;
+  skos:inScheme   <VRT-Scheme> .
+\end{Verbatim}
+
+
+
+\paragraph{SKOS-XL}\label{sec:skos-xl}
 SKOS-XL est une extension de SKOS développée courant 2008 pour proposer une modélisation alternative au vocabulaire de base et favoriser des extensions plus fines. 
 Dans SKOS-XL les termes ne sont plus portés par les concepts mais deviennent des éléments à part entière (\cd{skosxl:Label}). 
 
