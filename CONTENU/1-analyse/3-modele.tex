@@ -1,7 +1,7 @@
 \section{Langages de représentations}\label{s:mods}
 
 % \subsection{Langages de balisages }
-\subsection{eXtended Markup Language (?)}
+\subsection{eXtended Markup Language (t)}
 The eXtended Markup Language (XML) aims to give a hierarchical structure to  text in a machine-, yet human-readable way. It is widely used to store or exchange information as it also supports Unicode.
 XML is formally defined as a Standard Generalized Markup Language's subset (SGML) designed to improve parser efficiency. Work on XML began in 1996 and it became a W3C Recommendation in early 1998.
 
@@ -141,7 +141,7 @@ And we provide a XML file which states that it conforms to the previous XSD sche
 
 
 \subsection{Ontologie et représentation des connaissances}
-\subsubsection{Resource Description Framework}
+\subsubsection{Resource Description Framework (t)}
 % \addcontentsline{toc}{subsubsection}{Resource Description Framework}
 The Resource  Description Framework (RDF) is an abstract model which is part of the W3C recommendations for the Semantic Web. 
 Let's just bring back to mind how \pc{Tim Berners-Lee} defined it to set RDF back into its context of creation: 
@@ -274,7 +274,7 @@ As an abstract model, RDF statements can be serialized or represented in a varie
 
 
 
-\subsubsection{RDF Schema}
+\subsubsection{RDF Schema (t)}
 % \addcontentsline{toc}{subsubsection}{RDF Schema}
 RDFS is the result of 6 years of work from the W3C consortium – from the 1998's first version to the 2004's final recommendation. 
 It is formally introduced as a vocabulary description language intended to structure RDF resources. 
@@ -363,7 +363,7 @@ Eventually, observe these four properties that appear more like annotation than 
 
 
 
-\subsubsection{Ontology Web Language}
+\subsubsection{Ontology Web Language (t)}
 % \addcontentsline{toc}{subsubsection}{Ontology Web Language}
 The Ontology Web Language (OWL) is a knowledge representation language intended – as its name states – to build ontology in a web environnement. 
 OWL relies on RDF and XML syntax and defines its constructs as extension or subset of RDF/RDFS classes and properties. 
@@ -562,7 +562,7 @@ We can entail that there are the same person and that he has composed all three 
 
 
 \subsection{Thésaurus et vocabulaires structurés}\label{sec:thesaurus}
-\subsubsection{Simple Knowledge Organization System}\label{sec:skos}
+\subsubsection{Simple Knowledge Organization System (m)}\label{sec:skos}
 % \addcontentsline{toc}{subsubsection}{Simple Knowledge Organization System}
 \e{
 SKOS est un langage de représentation de vocabulaires structurés et de thésaurus qui repose sur RDF et OWL. 
@@ -618,18 +618,20 @@ Afin de satisfaire aux besoins des amateurs, on rajoute également une illustrat
   skos:altLabel "Plan 3/4"@fr ;
   skos:altLabel "Medium-close shot"@en ;
   skos:inScheme   <RTBF-Scheme> ;
+  skos:inScheme   <AV-Scheme> ;
   skos:example ex:PlanAmericain.png ;                               //Illustration//
   skos:definition "plan coupant les personnages à mi-cuisse"@fr ;   //Définition//
   skos:exactMatch <Plan34> .
    
 <Plan34> rdf:type skos:Concept ;
   skos:prefLabel "3/4 shot"@en
-  skos:altLabel "Medium-close shot"@en ;
   skos:prefLabel "Plan 3/4"@fr ;
+  skos:altLabel "Medium-close shot"@en ;
   skos:hiddenLabel "mcs"@en ;                                           //Abréviations//
   skos:hiddenLabel "m.c.s."@en ;
   skos:example ex:PlanAmericain.png ;                                   //Illustration//
-  skos:definition "shot plan coupant les personnages à mi-cuisse"@en ;
+  skos:definition "shows a character from head to the middle of the leg"@en ;
+  skos:inScheme   <AV-Scheme> ;
   skos:inScheme   <VRT-Scheme> .
 \end{Verbatim}
 
@@ -645,6 +647,49 @@ Si cette dernière possibilité permet de créer des groupes de termes, elle int
 Les étiquettes portent une seule chaîne lexicale avec les mêmes possibilités que pour SKOS grâce à l'attribut \cd{skos:literalForm}. 
 L'indépendance des étiquettes permet également de spécifier des relations entre eux comme la synonymie, la traduction, etc. \cite{Pastor2009a}. 
 Cette possibilité est ouverte par la relation générique \cd{skosxl:labelRelation}. 
+
+
+% REVOIR les termes par rapport à l'exemple de SKOS
+\begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
+//====== CONCEPTS ======//
+C-PlanAmericain rdf:type skos:Concept ; 
+  skosxl:prefLabel <T-PlanAmericain> ;
+  skosxl:prefLabel <T-AmericanShot> ;
+  skosxl:altLabel <T-Plan34> ;
+  skosxl:altLabel <T-MCShot> ;
+  skos:example ex:PlanAmericain.png ;                               //Illustration//
+  skos:definition "plan coupant les personnages à mi-cuisse"@fr ;   //Définition//
+  skos:inScheme   <RTBF-Scheme> ;
+  skos:inScheme   <AV-Scheme> ;
+  skos:exactMatch <C-Plan34> .
+
+C-Plan34 rdf:type skos:Concept ;
+  skosxl:prefLabel <T-Plan34> ;
+  skosxl:prefLabel <T-34Shot> ;
+  skosxl:altLabel <T-MCShot> ;
+  skosxl:hiddenLabel <T-MCS> ;                                           //Abréviations//
+  skosxl:hiddenLabel <T-M-C-S> ;
+  skos:example ex:PlanAmericain.png ;                                   //Illustration//
+  skos:definition "shows a character from head to the middle of the leg"@en ;
+  skos:inScheme <AV-Scheme> ;
+  skos:inScheme <VRT-Scheme> .
+
+//====== TERMES ======//
+T-PlanAmericain rdf:type skosxl:Label ;
+  skosxl:literalForm "Plan américain"@fr .
+T-AmericanShot rdf:type skosxl:Label ;
+  skosxl:literalForm "American shot"@en .
+T-MCShot rdf:type skosxl:Label ;
+  skosxl:literalForm "Medium-close shot"@en .
+T-Plan34 rdf:type skosxl:Label ;
+  skosxl:literalForm "Plan 3/4"@fr .
+T-34Shot rdf:type skosxl:Label ;
+  skosxl:literalForm "3/4 shot"@en .
+T-MCS  rdf:type skosxl:Label ;
+  skosxl:literalForm "mcs"@en .
+T-M-C-S  rdf:type skosxl:Label ;
+  skosxl:literalForm "m.c.s."@en .
+\end{Verbatim}
 
 
 Dans SKOS, la gestion de plusieurs jargons métiers dans une même conceptualisation [A1] est rendue difficile par la caractérisation simple des termes par la langue. 
@@ -680,14 +725,15 @@ La norme ne s'est pas encore attelée aux questions d'interopérabilité et de c
 De notre point de vue, il manque toujours un moyen de regrouper des termes indépendamment des concepts pour ajouter des jargons à une conceptualisation existante [A3].
 
 
-\subsection*{Bilan}
+% \subsection*{Bilan}
+
+
+
+\subsection*{Discussion}
+\addcontentsline{toc}{subsection}{Discussion}
 L'étude des standards et normes de références précédentes ne semble pas apporter de solution complètement satisfaisante pour l'ensemble de nos besoins. 
 En effet, les approches restent centrées sur le concept et sa structuration auquel on intègre (SKOS) ou rattache (SKOS-XL, ISO 25946-1) ensuite les termes. 
 Ces derniers sont représentés de manière plus ou moins fine (gestion des compositions dans ISO 25946 absente de SKOS). 
 Dans tous les cas, la préférence d'un terme s'établit uniquement sur l'appartenance à une langue et non par rapport à une communauté de jargon. % mais sont caractérisés de manière identique dans les deux modèles (appartenance à une langue). 
 De ce fait, ces modèles se limitent à représenter un seul jargon de référence par thésaurus et suppose ainsi l'existence d'une communauté homogène dans sa compréhension et dont on cherche à normaliser l'usage linguistique. %Dans notre cas, la collaboration entre communautés hétérogènes dans leur compréhension des concepts et leur utilisation de la langue exige de pouvoir gérer plusieurs jargons. C'est pourquoi 
 Nous proposons dans la suite un modèle Multi-Jargon afin d'associer plusieurs jargons métiers et des explications à une conceptualisation commune. %basé sur des concepts originaux 
-
-
-\subsection*{Discussion}
-\addcontentsline{toc}{subsection}{Discussion}

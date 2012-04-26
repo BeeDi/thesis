@@ -91,17 +91,70 @@ Pour \citeauthor{Roche2005}, une ontologie est équivalente au système notionne
 
 \ciel{définie pour un objectif donné et un domaine particulier, une ontologie est pour l'ingénierie des connaissances une représentation d'une modélisation d'un domaine partagée par une communauté d'acteurs. Objet informatique défini à l'aide d'un formalisme de représentation, elle se compose principalement d'un ensemble de concepts définis en compréhension, de relations et de propriétés logiques.} (\cite{Roche2005})
 
-\citeauthor{Bachimont2000a} insiste sur le fait qu'on utilise une sémantique donnée (différentielle, référentielle, psychologique, distributionnelle, conceptuelle etc., \cite{bachimont:hdr}) pour établir la signification des concepts de l'ontologie. Chaque sémantique propose un point de vue particulier qui permet de faire correspondre une signification propre à chaque unité   : 
+\citeauthor{Bachimont2000a} insiste sur le fait qu'on utilise une sémantique donnée (différentielle, référentielle, psychologique, distributionnelle, conceptuelle etc., \cite{bachimont:hdr}) pour établir la signification des concepts de l'ontologie. Chaque sémantique propose un point de vue particulier qui permet de faire correspondre une signification propre à chaque unité d'expression : 
 
 \ciel{une ontologie est la signature fonctionnelle et relationnelle, munie de sa sémantique, d'un langage formel de représentation et manipulation des connaissances.} (\cite{Bachimont2000a})
 
-% ? différentes sémantiques 
+Les ontologies se construisent ainsi en s'adossant à des théories, et ce sont ces théories qui fixent des principes pour déterminer la signification des unités linguistiques qu'elles emploient et chargent d'un sens bien précis (sémantique). 
+
+\paragraph{Sémantique et classification d'ontologie}
 Pour bien cerner les conséquences de cette définition, voici quelques sémantiques décrites par \cite{bachimont:hdr} qui se distinguent dans leur manière d'expliciter la signification d'une unité d'expression : 
 \begin{liste}
-	\item \e{sémantique différentielle} : la signification d'une unité consiste en l'identité et la différence par rapport aux autres unités linguistiques de la langue. On reste donc dans le cadre de la linguistique.
-	\item \e{sémantique référentielle} : la signification d'une unité est l'objet auquel elle fait référence, dans un univers extralinguistique. Ici, on s'attache à une théorie %...
-	\item \e{sémantique psychologique} : la signification d'une unité est la représentation mentale que l'on s'en fait. 
+	\item \e{sémantique différentielle} : la signification d'une unité consiste en l'identité et la différence par rapport aux autres unités linguistiques de la langue. On reste donc dans le cadre de la linguistique. La différenciation des  unités peut se faire par différentes méthodes ; par observation empirique d'un corpus de texte (\e{sémantique distributionnelle}) ; ou bien suivant une modélisation de la signification des concepts du domaine établie par des experts par exemple (\e{sémantique conceptuelle}). 
+
+	\item \e{sémantique référentielle} : la signification d'une unité est l'objet auquel elle fait référence, dans un univers extralinguistique. Ici, on s'attache à une théorie propre à cet univers et qui explicite la définition des objets.
+	
+	\item \e{sémantique psychologique} : la signification d'une unité est la représentation mentale que l'on s'en fait. Là encore, il s'agit de suivre une théorie, mais dans le champ de la psychologie. 
 \end{liste}
+
+Cette liste de sémantiques permet de comprendre la grande variabilité des ontologies qu'il est possible de construire. 
+Il est alors utile de caractériser différentes propriétés pour distinguer des "types" d'ontologies et les raccorder à des usages précis. 
+S'il existe de nombreuses manière de caractériser les ontologies, nous trouvons celle d'\cite{Oberle2006} particulièrement éclairante. 
+Cette classification repose sur trois propriétés : 
+\begin{liste}
+	\item l'\g{objectif} de l'ontologie (purpose) où l'on distingue entre deux objectifs, servir de référence ou bien être utilisé dans un cas d'application :
+	\begin{liste}
+		\item l'\e{ontologie de référence} vise à établir un consensus entre des agents (humains, machines) d'une même communauté, ou bien à servir d'explication et de langages communs avec des agents de communautés différentes. 
+		\item l'\e{ontologie d'application} qui se limite à un cas d'application et suit des contraintes et simplifications propres.
+	\end{liste}
+	La différence réside dans l'arbitrage entre l'expressivité de la représentation et sa décidabilité (indigo\cite{Borgo2002}). 
+	Typiquement, une référence n'est consulté qu'occasionnellement et se doit d'être la plus exhaustive possible alors qu'une ontologie d'application doit servir à faire des raisonnements à l'exécution. 
+
+	\item l'\g{expressivité} de l'ontologie (expressiveness) où l'on considère un engagement plus ou moins fort sur le formalisme de représentation :
+	\begin{liste}
+		\item l'\e{ontologie légère} (lightweight) qui peut se limiter à une hiérarchie de concepts bien connus dans une communauté avec quelques relations. 
+		L'apport se situe alors dans la structuration des connaissances qui clarifie leur signification plus qu'il ne les établit.
+		\item l'\e{ontologie lourde} (heavyweight) qui vise à exclure toute ambiguïté terminologique et conceptuelle.
+		Pour cela, la formalisation se veut beaucoup plus contrainte et détaillée afin de forcer une interprétation. 
+	\end{liste}
+
+	\item la \g{spécificité} de l'ontologie qui peut se limiter à une domaine ou s'étendre à un ensemble de domaines voire plusieurs champs disciplinaires : 
+	\begin{liste}
+		\item l'\e{ontologie générique} (generic, upper/top level) contient des concepts utilisés dans de nombreux champs disciplinaires (évènements, processus etc.)
+		\item l'\e{ontologie noyau} (core) comporte des concepts qui se situent à la croisée de plusieurs domaines. 
+		La distinction avec une ontologie générique se fait car elle comporte des concepts utilisable quelque soit le domaine.
+		De même, on distingue les ontologies noyaux des ontologies de domaine car les premières comportent des éléments réutilisables dans des plusieurs domaines proches. 
+		\item l'\e{ontologie de domaine} contient des concepts propre à un domaine, et bien souvent des éléments plus génériques extraits de domaine différents.
+		Cependant, l'ontologie de domaine présente généralement des éléments plus spécifiques, propres au domaine concerné. 
+	\end{liste}
+\end{liste}
+
+
+\subsection{Conséquences pour une Ingénierie des Connaissances}
+En suivant l'analyse proposé par \cite{Bachimont2004}, il en découle que  l'Ingénierie des Connaissances (IC) \ciel{exprime les connaissances d'un domaine dans un langage de modélisation et l'opérationnalise en un système}. 
+En d'autres termes, la modélisation de l'IC porte sur les concepts utilisés par les gens de ce domaine pour penser et établir des connaissances sur le monde, mais pas directement sur le monde.
+Ainsi, les modèles de l'IC n'ont pas pour vocation à \ciel{prédire quoi que ce soit sur le monde ni sur la connaissance}, mais plutôt d'\ciel{instrumenter le travail intellectuel, l'exercice de la pensée, le travail de la connaissance}. 
+Dans cette perspective, \citeauthor{Bachimont2004} nous propose de théoriser l'IC comme \ciel{une ingénierie des inscriptions numériques des connaissances qui vise à instrumenter le travail cognitif associé à ces inscriptions}. 
+        
+Les inscriptions possèdent une double dimension ; \e{matérielle} (et donc manipulable par des techniques de calcul logique) ; \e{sémiotique} (et donc interprétable selon des conventions propres à une situation d'usage).  
+En d'autres termes, le systèmes d'IC permet d'agir de manière prédictible sur les inscriptions de connaissances, ces actions produisant de nouvelles inscriptions qui donnent matière à penser à l'utilisateur. 
+        
+Il y a donc plusieurs éléments à valider en IC, les calculs qui seront faits sur les inscriptions (on teste le comportement du système informatique) puis l'interprétation de ces inscriptions (on évalue le gain apporté par le système et les inscriptions qu'il fournit à l'utilisateur selon une situation d'usage). 
+La modélisation prise en charge par l'IC ne porte donc ni sur le monde, ni sur l'activité cognitive et ne peut être validé uniquement par le formalisme de ses inscriptions. 
+        
+Les inscriptions de connaissances doivent être considérées sous deux angles : d'un point de vue \e{nomographique} (on formalise la manipulation symbolique des inscriptions pour prévoir/définir le comportement du système) et \e{idiographique} (on décrit le sens des manipulations symboliques et des inscriptions produites par rapport aux normes, conventions, concepts du domaine.
+
+
 
 % Au final, on construit un objet informatique en suivant une méthode de construction qui nous guide pour spécifier le comportement de l'ontologie. 
 
@@ -110,4 +163,3 @@ Pour bien cerner les conséquences de cette définition, voici quelques sémanti
 
 
 
-\section{Méthode de construction d'ontologie}\label{chap:construction}
