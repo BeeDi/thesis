@@ -1,1 +1,0 @@
-latex.clean ; cp ~/Dropbox/Bibliography/dsdav.bib ./ ; xelatex These.tex ; bibtex These.aux ; xelatex These.tex ; xelatex These.tex ; xelatex These.tex

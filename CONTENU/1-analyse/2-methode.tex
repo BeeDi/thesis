@@ -1,1 +1,64 @@
-\section{Une méthode de construction d'ontologie}\label{chap:construction}
+\subsection{Une méthode de construction d'ontologie}\label{chap:construction}
+Nous avons défini dans la section précédente (\ref{sec:tto}) ce qu'est une ontologie,  présenté des exemples de sémantiques et montré comment il était possible de classifier ces ontologies suivant leur usage. 
+Dans cette section, nous détaillons la méthode de construction d'ontologie \pc{Archonte} (\pc{arch}itecture for \pc{ont}ological \pc{e}laborating) proposé par \cite{Bachimont2000a}.
+Cette présentation est aussi l'occasion de préciser l'importance crucuiale du choix d'une sémantique sur la construction d'une ontologie.
+
+La méthode repose sur trois étapes successives qui aboutissent à une ontologie computationnelle, exprimée dans un langage opérationnel de représentation des connaissances et à partir duquel on peut effectuer des inférences. 
+% Précisons maintenant les étapes de cette méthode ainsi que les résultats obtenus :
+\begin{liste}
+	\item Le point de départ de la méthodologie est constitué d'expressions linguistiques (signifiant) issues du domaine considéré.
+	L'intérêt de disposer d'un tel ensemble de traces linguistiques est qu'elles servent à exprimer des concepts (signifié) ou des connaissances sur le monde. 
+	Ainsi, on se retrouve avec un corpus de candidat-termes dont la signification peut être source d'ambiguïtés et dont l'on cherche à clarifier l'interprétation.
+\end{liste}
+\begin{liste}
+	\item[1.] La première étape de cette méthode (aussi appelée \e{normalisation sémantique}) consiste à établir un \g{engagement sémantique}  qui précise la manière de mener l'interprétation des candidats-termes et de construire une première structure de connaissances. 
+	Pour cela, on fixe d'abord un contexte de référence, la tâche ou le problème qui a poussé à l'élaboration de l'ontologie, qui permet de cadrer l'interprétation des candidat-termes.
+	Ensuite, pour préciser l'interprétation on s'appuie sur la sémantique différentielle afin d'expliciter les différences et les similarités entre une notion et son voisinage direct (notion parente, notion soeurs).
+	Cette caractérisation des notions par leur voisinage repose sur quatres relations à expliciter : 
+	\begin{liste}
+		\item la \e{communauté avec le père} (similarity with parent) : pourquoi la notion hérite des proprités de son père.
+		\item la \e{différence avec le père} (difference with parent) : en quoi la notion est différente de son père.
+		\item la \e{différence avec les frères} (difference with siblings) : en quoi un notion est différentes de ses notions soeurs.
+		\item la \e{communauté avec les frères} (similarity with siblings) : quelle est la propriété que partage les frères -- dont on distingue plusieurs valeurs exclusives, une par frère. 		
+	\end{liste}
+
+	\item Cette aboutit à la construction d'une \g{ontologie différentielle} qui structure un ensemble de notions de manière hiérarchique et non ambiguië par rapport à un contexte de référence. 
+
+	\item[2.] l'\g{engagement ontologique}
+	\item[3.] l'\g{engagement computationnel}
+\end{liste}
+
+% \begin{liste}
+% 	\item
+% \end{liste}
+
+
+
+
+
+
+
+\subsection{Conséquences pour une Ingénierie des Connaissances}
+En suivant l'analyse proposé par \cite{Bachimont2004}, il en découle que  l'Ingénierie des Connaissances (IC) \ciel{exprime les connaissances d'un domaine dans un langage de modélisation et l'opérationnalise en un système}. 
+En d'autres termes, la modélisation de l'IC porte sur les concepts utilisés par les gens de ce domaine pour penser et établir des connaissances sur le monde, mais pas directement sur le monde.
+Ainsi, les modèles de l'IC n'ont pas pour vocation à \ciel{prédire quoi que ce soit sur le monde ni sur la connaissance}, mais plutôt d'\ciel{instrumenter le travail intellectuel, l'exercice de la pensée, le travail de la connaissance}. 
+Dans cette perspective, \citeauthor{Bachimont2004} nous propose de théoriser l'IC comme \ciel{une ingénierie des inscriptions numériques des connaissances qui vise à instrumenter le travail cognitif associé à ces inscriptions}. 
+        
+Les inscriptions possèdent une double dimension ; \e{matérielle} (et donc manipulable par des techniques de calcul logique) ; \e{sémiotique} (et donc interprétable selon des conventions propres à une situation d'usage).  
+En d'autres termes, le systèmes d'IC permet d'agir de manière prédictible sur les inscriptions de connaissances, ces actions produisant de nouvelles inscriptions qui donnent matière à penser à l'utilisateur. 
+        
+Il y a donc plusieurs éléments à valider en IC, les calculs qui seront faits sur les inscriptions (on teste le comportement du système informatique) puis l'interprétation de ces inscriptions (on évalue le gain apporté par le système et les inscriptions qu'il fournit à l'utilisateur selon une situation d'usage). 
+La modélisation prise en charge par l'IC ne porte donc ni sur le monde, ni sur l'activité cognitive et ne peut être validé uniquement par le formalisme de ses inscriptions. 
+        
+Les inscriptions de connaissances doivent être considérées sous deux angles : d'un point de vue \e{nomographique} (on formalise la manipulation symbolique des inscriptions pour prévoir/définir le comportement du système) et \e{idiographique} (on décrit le sens des manipulations symboliques et des inscriptions produites par rapport aux normes, conventions, concepts du domaine.
+
+
+
+% Au final, on construit un objet informatique en suivant une méthode de construction qui nous guide pour spécifier le comportement de l'ontologie. 
+
+% RTO
+
+
+
+
+

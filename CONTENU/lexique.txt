@@ -1,6 +1,0 @@
-== Audiovisuel == 
-encodage / transcodage
-format d'émission/d'encapsulation
-habillage
-finition
-

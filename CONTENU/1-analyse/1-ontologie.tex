@@ -1,6 +1,6 @@
 
 
-\section{Définitions des SOC (i)}\label{chap:defs}
+\section{Les Systèmes d'Organisation de Connaissances (m,i)}\label{chap:defs}
 %Distinguer entre terme et concept ; dictionnaire, thésaurus, ontologies etc.
 
 \e{
@@ -20,7 +20,7 @@ Les SOC qui nous intéressent en particulier sont les schèmes structurés par t
 % pourquoi ? 
 
 
-\subsection{Thésaurus, terminologie, ontologie}
+\subsection{Thésaurus, terminologie, ontologie}\label{sec:tto}
 Dans cette section, nous nous reposerons majoritairement sur les définitions de \cite{bachimont:icc}. Concernant le thésaurus, l'auteur écrit :
 
 \g{Thésaurus :} 
@@ -97,7 +97,7 @@ Pour \citeauthor{Roche2005}, une ontologie est équivalente au système notionne
 
 Les ontologies se construisent ainsi en s'adossant à des théories, et ce sont ces théories qui fixent des principes pour déterminer la signification des unités linguistiques qu'elles emploient et chargent d'un sens bien précis (sémantique). 
 
-\paragraph{Sémantique et classification d'ontologie}
+\paragraph{Sémantiques et ontologies}
 Pour bien cerner les conséquences de cette définition, voici quelques sémantiques décrites par \cite{bachimont:hdr} qui se distinguent dans leur manière d'expliciter la signification d'une unité d'expression : 
 \begin{liste}
 	\item \e{sémantique différentielle} : la signification d'une unité consiste en l'identité et la différence par rapport aux autres unités linguistiques de la langue. On reste donc dans le cadre de la linguistique. La différenciation des  unités peut se faire par différentes méthodes ; par observation empirique d'un corpus de texte (\e{sémantique distributionnelle}) ; ou bien suivant une modélisation de la signification des concepts du domaine établie par des experts par exemple (\e{sémantique conceptuelle}). 
@@ -106,18 +106,19 @@ Pour bien cerner les conséquences de cette définition, voici quelques sémanti
 	
 	\item \e{sémantique psychologique} : la signification d'une unité est la représentation mentale que l'on s'en fait. Là encore, il s'agit de suivre une théorie, mais dans le champ de la psychologie. 
 \end{liste}
-
 Cette liste de sémantiques permet de comprendre la grande variabilité des ontologies qu'il est possible de construire. 
-Il est alors utile de caractériser différentes propriétés pour distinguer des "types" d'ontologies et les raccorder à des usages précis. 
-S'il existe de nombreuses manière de caractériser les ontologies, nous trouvons celle d'\cite{Oberle2006} particulièrement éclairante. 
-Cette classification repose sur trois propriétés : 
+
+
+\paragraph{Classification d'ontologie}
+Il peut également être utile de définir des propriétés pour distinguer des "genres" d'ontologies, non pas en fonction de la sémantique utilisé, mais en fonction de l'usage que l'on souhaite en faire. 
+\cite{Oberle2006} propose une classification qui repose sur trois propriétés : 
 \begin{liste}
 	\item l'\g{objectif} de l'ontologie (purpose) où l'on distingue entre deux objectifs, servir de référence ou bien être utilisé dans un cas d'application :
 	\begin{liste}
 		\item l'\e{ontologie de référence} vise à établir un consensus entre des agents (humains, machines) d'une même communauté, ou bien à servir d'explication et de langages communs avec des agents de communautés différentes. 
 		\item l'\e{ontologie d'application} qui se limite à un cas d'application et suit des contraintes et simplifications propres.
 	\end{liste}
-	La différence réside dans l'arbitrage entre l'expressivité de la représentation et sa décidabilité (indigo\cite{Borgo2002}). 
+	La différence réside dans l'arbitrage entre l'expressivité de la représentation et sa décidabilité (\cite{Borgo2002}). 
 	Typiquement, une référence n'est consulté qu'occasionnellement et se doit d'être la plus exhaustive possible alors qu'une ontologie d'application doit servir à faire des raisonnements à l'exécution. 
 
 	\item l'\g{expressivité} de l'ontologie (expressiveness) où l'on considère un engagement plus ou moins fort sur le formalisme de représentation :
@@ -138,28 +139,3 @@ Cette classification repose sur trois propriétés :
 		Cependant, l'ontologie de domaine présente généralement des éléments plus spécifiques, propres au domaine concerné. 
 	\end{liste}
 \end{liste}
-
-
-\subsection{Conséquences pour une Ingénierie des Connaissances}
-En suivant l'analyse proposé par \cite{Bachimont2004}, il en découle que  l'Ingénierie des Connaissances (IC) \ciel{exprime les connaissances d'un domaine dans un langage de modélisation et l'opérationnalise en un système}. 
-En d'autres termes, la modélisation de l'IC porte sur les concepts utilisés par les gens de ce domaine pour penser et établir des connaissances sur le monde, mais pas directement sur le monde.
-Ainsi, les modèles de l'IC n'ont pas pour vocation à \ciel{prédire quoi que ce soit sur le monde ni sur la connaissance}, mais plutôt d'\ciel{instrumenter le travail intellectuel, l'exercice de la pensée, le travail de la connaissance}. 
-Dans cette perspective, \citeauthor{Bachimont2004} nous propose de théoriser l'IC comme \ciel{une ingénierie des inscriptions numériques des connaissances qui vise à instrumenter le travail cognitif associé à ces inscriptions}. 
-        
-Les inscriptions possèdent une double dimension ; \e{matérielle} (et donc manipulable par des techniques de calcul logique) ; \e{sémiotique} (et donc interprétable selon des conventions propres à une situation d'usage).  
-En d'autres termes, le systèmes d'IC permet d'agir de manière prédictible sur les inscriptions de connaissances, ces actions produisant de nouvelles inscriptions qui donnent matière à penser à l'utilisateur. 
-        
-Il y a donc plusieurs éléments à valider en IC, les calculs qui seront faits sur les inscriptions (on teste le comportement du système informatique) puis l'interprétation de ces inscriptions (on évalue le gain apporté par le système et les inscriptions qu'il fournit à l'utilisateur selon une situation d'usage). 
-La modélisation prise en charge par l'IC ne porte donc ni sur le monde, ni sur l'activité cognitive et ne peut être validé uniquement par le formalisme de ses inscriptions. 
-        
-Les inscriptions de connaissances doivent être considérées sous deux angles : d'un point de vue \e{nomographique} (on formalise la manipulation symbolique des inscriptions pour prévoir/définir le comportement du système) et \e{idiographique} (on décrit le sens des manipulations symboliques et des inscriptions produites par rapport aux normes, conventions, concepts du domaine.
-
-
-
-% Au final, on construit un objet informatique en suivant une méthode de construction qui nous guide pour spécifier le comportement de l'ontologie. 
-
-% RTO
-
-
-
-

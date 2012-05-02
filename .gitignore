@@ -29,6 +29,7 @@
 *.doc
 *.txt
 *.pdf
+*.xml
 *.sublime*
 docs/
 fonts/
