@@ -1,2 +1,2 @@
 #!/bin/bash
-xelatex These.tex ; ./countTexLines.sh
+bibtex These ; xelatex These.tex ; ./countTexLines.sh

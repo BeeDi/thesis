@@ -1,7 +1,9 @@
+\newpage
 \section{Gérer les objets audiovisuels et leur circulation}\label{sec:gest}
 
+[Voir MXF, voir AAF ? \cite{Cox2006}, voire une partie de MPEG-7]
 
-
+[Identifiant : hors du cadre de la thèse, dépendant des choix applicatifs des organisations qui utilisent notre modèle. Plusieurs solutions peuvent être implementés via OWL, les URI pouvant être transformé.]
 
 
 
@@ -139,13 +141,13 @@ En se concentrant sur un éventail de techniques, ces approches se prêtent plus
 Nous proposons donc de définir la terminologie suivante pour distinguer entre trois niveaux successifs de réutilisation, chacun visant à créer un nouveau document mais suivant des opérations différentes (voir Figure \ref{img:intro:reuse}). 
 La premier critère distinctif est l'automatisation de la transformation, le second critère repose sur la création originale de contenu plutôt que la réorganisation d'un existant : 
 \begin{liste}
-	\item le \e{retraitement} (repurposing) qui se caractérise par une automatisation de la transformation opérée sur le contenu (quelque soit son type), c'est-à-dire que cette transformation est effectué par un logiciel lui-même paramétré par un humain. 
+	\item le \eg{retraitement} (repurposing) qui se caractérise par une automatisation de la transformation opérée sur le contenu (quelque soit son type), c'est-à-dire que cette transformation est effectué par un logiciel lui-même paramétré par un humain. 
 	Ces transformations visent à modifier la forme d'expression du document, extraire des fragments des contenu de différentes sources pour les aggréger dans un nouveau document, ou bien encore réorganiser automatiquement la structure du contenu. 
 	Le retraitement dépasse le polymorphisme en ce sens où il possible de gérer de multiple sources de contenus pour construire dynamiquement un nouveau document. 
 	Dans le cas de l'audiovisuel, il s'agit des pratiques de réencodage, de changements de formats d'encapsulation etc.
 	Pour reprendre l'exemple précédent (\ref{sec:ex-reuse}) d'un contenu TV pour une diffusion Web, ou bien encore la création automatique de résumé de rencontres sportives etc. \\
 
-	\item la \e{rééditorialisation} (reediting) se caractérise par une transformation (manuelles et automatiques) de contenus existants. 
+	\item la \eg{rééditorialisation} (reediting) se caractérise par une transformation (manuelles et automatiques) de contenus existants. 
 	La motivation de ce document est de s'adapter à un nouveau contexte de lecture (genre éditoriale, public, forme d'expression etc.).
 	La transformation du contenu nécessite une compréhension du nouveau contexte de lecture et consiste en des opérations de réorganisation, de mise en relation avec d'autres contenus, de traduction etc. 
 	Ces opérations ne se limitent pas à une transformation de la forme d'expression du document (retraitement) mais ne constituent pas une création originale de contenus (réécriture). 
@@ -155,7 +157,7 @@ La premier critère distinctif est l'automatisation de la transformation, le sec
 	Pour reprendre l'exemple précédent, il s'agit de monter différemment une séquence initialement prévu pour un journal TV et qui doit s'insérer dans un DVD etc. \\
 
 	 
-	\item la \e{réécriture} (reauthoring) se caractérise par une transformation de contenus existants accompagnée d'une création de contenu original. 
+	\item la \eg{réécriture} (reauthoring) se caractérise par une transformation de contenus existants accompagnée d'une création de contenu original. 
 	L'ajout de contenu sert à satisfaire soit aux attentes spécifiques du nouveau public cible, aux contraintes d'un nouveau genre éditorial (commentaires, explications, exemples etc.) soit à la création d'une version augmentée d'un document existant (pas de changement de public cible, mais de nouvelles attentes).
 	Dans le cas de l'audiovisuel, il s'agit par exemple de la construction d'un documentaire à partir de vidéo d'archives, la création originale étant le commentaire proposé.\\	 
 \end{liste}
@@ -218,7 +220,7 @@ Du côté des fournisseurs de contenu, il existe une distinction entre les chaî
 
 
 
-Finalement, il nous faut encore éclairer à quels moments dans la chaîne de production les différentes pratiques de réutilisation sont réalisées (voir définition en \ref{sec:caracs-reuse}).
+Finalement, il nous faut encore éclairer à quels moments dans la chaîne de production les différentes pratiques de réutilisation sont réalisées (voir définition en \ref{sec:reuse}).
 De manière générale, on considère que la réutilisation commence à la phase de pré-production, au moment du \pc{Planning} et du \pc{Scripting} où l'on spécifie les nouvelles formes et formats d'exploitation (voir Figure \ref{img:intro:reutilisation}). 
 Mais chaque pratique opére à différents étapes de la chaîne :
 \begin{liste}
@@ -240,6 +242,6 @@ Mais chaque pratique opére à différents étapes de la chaîne :
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=0.8\textwidth]{images/Workflow-Reuse-v1.png}
-\caption{La réutilisation dans les chaînes de production}
+\caption{Les différentes formes de réutilisation et leur mise en oeuvre dans la chaîne de production audiovisuelle.}
 \label{img:intro:reutilisation}
 \end{figure}
