@@ -95,19 +95,19 @@ Nous passerons ensuite à l'examen des modélisations existantes (\ref{sec:desc}
 % Comment les produits de la chaîne audiovisuelle sont gérées par les systèmes informatiques, quelles opérations sont menées sur ces objets ? (\ref{sec:gest})
 % Comment décrit-on les objets audiovisuels, comment s'organisent la construction ou la récolte de ces informations dans la chaîne de production ? (\ref{sec:desc})}
 
-\section{Cahier des charges fonctionnel}\label{sec:cdc-av}
+\section{Cahier des charges fonctionnel (n,m)}\label{sec:cdc-av}
 % \addcontentsline{toc}{section}{Cahier des charges fonctionnel}
+\e{
+Pour bien saisir les implications de la réutilisation de contenu, nous développons un scénario de production prévoyant de multiple formes d'exploitations. 
+Ce scénario suit celui de la commande de tournage développé en section \ref{sec:scenar}.}
 
-
-
-\subsection{Scénario de réutilisation multiple}\label{sec:ex-reuse}
-Pour bien saisir la finesse des différentes opérations possibles, nous proposons de prendre un exemple.
-Imaginons une chaîne de télévision qui souhaite réaliser la captation d'un évènement culturel (par exemple un opéra, une pièce de théâtre, un concert etc.). 
+\subsection{Scénario de réutilisation multiple (m)}\label{sec:ex-reuse}
+Imaginons une chaîne de télévision (la RTBF par exemple) qui souhaite réaliser la captation d'un évènement culturel, comme un opéra, une pièce de théâtre, un concert etc. 
 Les producteurs de la chaîne sont intéressés par trois types de contenus qui seront ensuite exploités de quatre manières différentes (voir Figure \ref{img:intro:reuse}):
 \begin{listenum}
-	\item[a.] la \e{captation de l'évènement} en tant que tel.
-	\item[b.] des \e{entrevues avec l'équipe} (metteur en scène, talents sur scène, programmateur etc.). 
-	\item[c.] des \e{commentaires du public} avant ou après l'évènement.\\
+	\item[a.] la \e{captation de l'évènement} en tant que tel, qui pourrait être réalisé par une organisation tierce à la RTBF.
+	\item[b.] des \e{entrevues avec l'équipe} (metteur en scène, talents sur scène, programmateur etc.) qui serait prise en charge par la RTBF. 
+	\item[c.] des \e{commentaires du public} avant ou après l'évènement, par des amateurs, spectateurs ou non.\\
 
 	\item une partie de tous les types de contenu sera utilisée pour construire un sujet destiné à un \e{journal télévisé}. 
 	\item un montage raccourci de l'évènement et des commentaires du public seront utilisés pour produire une \e{bande-annonce diffusée sur le Web}.
@@ -152,19 +152,47 @@ L'exemple des commentaires du public -- voir la Figure \ref{img:intro:reuse-proc
 % Afin de préciser la nature de ces opérations, nous présentons différentes approches de la réutilisation des contenus.
 
 
-\subsection{Besoins en modélisation (n,i,t)}
-Le scénario d'usage que nous venons de voir présente un exemple de production incluant directement plusieurs cadres d'exploitation pour des contenus produits en collaboration avec deux organisations professionelles et des amateurs. 
-Ce scénario permet d'illustrer les échanges 
+\subsection{Besoins en modélisation (n)}
+Le scénario d'usage que nous venons de voir présente un exemple de production incluant directement plusieurs formes d'exploitations pour des contenus produits en collaboration avec deux organisations professionelles et des amateurs. 
+Ce scénario permet d'illustrer des opérations de transformation des contenus qui ne se limite pas à une réutilisation brut de matériel. 
+On distingue ainsi plusieurs types de transformations qui définissent par les objets d'entrée et de sortie nos besoins de modélisations :
+\begin{liste}
+	\item le \e{transcodage} d'un contenu d'un format/encodage/résolution à l'autre afin de satisfaire aux contraintes techniques propre à un médium ou un canal de distribution. 
+	Par exemple, le journal télévisé distribué dans 2 types de définitions ou bien la bande-annonce préparé pour une diffusion Web et DVD.
+	%retraitement
 
+	\item le \e{montage} différencié d'une séquence de contenu suivant la forme éditoriale dans laquelle elle s'insère.
+	Le montage des commentaires du public sera plus rapide et dense pour la bande-annonce que pour le journal télévisé. 
+	Ce dernier utilisera aussi moins de contenu pour rester sur les commentaires les plus construits ou marquants.
+	%rééditorialisation 
 
+	\item l'\e{intégration} d'une séquence montée dans de multiple formes d'exploitations. 
+	Par exemple, la bande-annonce est un montage de plusieurs commentaires du public. 
+	Elle sert, telle quelle, à la fois sur le site Web de la chaîne et dans les bonus du DVD. 
+\end{liste}
 
-The details of this use case specifies more than a simple reuse of material. It specifies the kind of processing that support repurposing and which defines thus the modeling requirements for the audiovisual document:
-%Such exploitation cases implies various kinds of operations: 
-\begin{itemize}
-	\item the \textit{reencoding} of edited material to fit the technical parameters proper to each distribution medium/channel (news report distributed by channel broadcasting and internet).
-	
-	\item the reuse of shooting materials in two distinct editorial structure (\textit{resequencing} of the opinion shot in the website and news report editing).
+De plus, si l'on reprend le scénario depuis la commande de tournage, on se rend compte qu'il existe de nombreux types d'informations que l'on peut collecter sur les objets audiovisuels construits :
+\begin{liste}
+	\item le genre de l'objet audiovisuel à construire qui détermine un schéma de \e{structure éditoriale}. 
+	\item la commande de tournage qui fait office de \e{prescription} de la forme et du contenu de l'objet à produire.
+	\item le tournage dont le résultat constitue la \e{réalisation} de la commande, c'est-à-dire le fichier vidéo créé.
+	\item une fois le contenu produit, on peut en établir une \e{description} qui se révèlera plus ou moins proche de la prescription.
+	\item le montage qui détermine la \e{composition} de l'objet audiovisuel.
+	\item l'\e{organisation de la production} de manière générale, c'est-à-dire la division des tâches entre contributeurs. 
+\end{liste}
 
-	\item the reuse of a part of an editorial structure into another editorial structure (\textit{repurposing} of the public comment editing into the DVD bonus editing). 
-\end{itemize}
+Nos besoins en modélisations peuvent donc se résumer par les assertions suivantes : 
+\begin{liste}
+	\item[(B1)] rendre les objets et les fragments audiovisuels \g{autonomes} implique de les modéliser sur différents niveaux (technique, esthétique, éditorial etc.). 
+	Chaque niveau de modélisation de ces objets correspond au résultat d'opérations effectuées durant le processus de production audiovisuel.
+	Ainsi, chaque niveau peut être repris séparément de l'ensemble.
 
+	\item[(B2)] rendre les objets et les fragments audiovisuels \g{réutilisables} implique de leur associer de multiples connaissances dès le début et tout au long de leur cycle de vie.
+	Ces connaissances doivent correspondre à celles mobilisées par les contributeurs (humain ou logiciel) de la chaîne de production.
+	Chaque type de connaissance s'associe à un niveau spécifique de l'objet audiovisuel de manière à faciliter leur recherche.
+
+	% \item[(B3)] : 
+\end{liste}
+
+% À chaque niveau de modélisation des objets et fragments audiovisuels correspond des types de connaissances. 
+On notera que la modélisation des objets et des connaissances associées s'enrichit suivant le déroulement de la chaîne de production.

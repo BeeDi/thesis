@@ -226,13 +226,13 @@ Nous détaillerons dans cette section les Schémas de Description liés à la ge
 
 \subsubsection{Gestion du contenu}
 MPEG-7 définit trois concepts fondamentaux pour modéliser l'enregistrement d'une réalité en un contenu multimédia et les multiples transformations qu'il est possible de lui appliquer. 
-Ainsi, pour chaque modalité d'enregistrement (audio, audiovisuel, photo etc.) MPEG-7 considère la création de trois éléments, une \pc{Content Entity} (entité de contenu, CE), une \pc{MediaInstance} (instance de média, MI) et un \pc{MediaProfile} (profil de média, MP), voir la Figure \ref{img:soa:media}.
-Pour donner une première idée, on peut dire que le fichier créé correspond à la \pc{MediaInstance}, que le \pc{MediaProfile} correspond aux paramétrages de son encodage et que la \pc{Content Entity} représente le contenu de manière abstraite.
+Ainsi, pour chaque modalité d'enregistrement (audio, audiovisuel, photo etc.) MPEG-7 considère la création de trois éléments, une \pc{ContentEntity} (entité de contenu, CE), une \pc{MediaInstance} (instance de média, MI) et un \pc{MediaProfile} (profil de média, MP), voir la Figure \ref{img:soa:media}.
+Pour donner une première idée, on peut dire que le fichier créé correspond à la \pc{MediaInstance}, que le \pc{MediaProfile} correspond aux paramétrages de son encodage et que la \pc{ContentEntity} représente le contenu de manière abstraite.
 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=0.8\textwidth]{images/MPEG-7-MediaManagement.png}
-\caption{Gestion des contenus dans MPEG-7 à trois niveaux : contenu, instance et profile (extrait de la norme).}
+\caption{Gestion des contenus dans MPEG-7 à trois niveaux : contenu, instance et profile.}
 \label{img:soa:media}
 \end{figure}
 
@@ -249,15 +249,15 @@ Ce qui paraît troublant néanmoins, est l'amalgame fait entre réencodage et mo
 Les changements de structure réalisés par le montage semblent en effet bien plus significatif qu'un changement de paramètre d'enregistrement. 
 On peut se souvenir de la citation d'\pc{Eisenstein} à ce sujet évoqué en section \ref{sec:prod}.
 
-Enfin, la notion de \pc{Content Entity} correspond à une entité abstraite permettant de regrouper toutes les versions ultérieures de ce même contenu.
+Enfin, la notion de \pc{ContentEntity} correspond à une entité abstraite permettant de regrouper toutes les versions ultérieures de ce même contenu.
 De ce fait, c'est à elle qu'on attache des informations concernant la création, l'usage et le type de média construit. % ??? Sûr ???
-Ce regroupement d'informations à ce niveau découle de l'idée que chaque \pc{Content Entity} définit une forme reconnaissable de contenu, quelque soit les variations apportées.
+Ce regroupement d'informations à ce niveau découle de l'idée que chaque \pc{ContentEntity} définit une forme reconnaissable de contenu, quelque soit les variations apportées.
 Encore une fois, l'idée qu'un montage différent n'impacte pas la forme et donc potentiellement l'identité du contenu nous semble ambiguë. 
 Il s'agit là d'un de nos points d'achoppement par rapport à la modélisation proposée par la norme. 
 
 \paragraph{Schémas de description}
 Détaillons maintenant les trois Schémas de Descriptions proposés par MPEG-7 dans la partie \gui{Content Management}.
-Remarquons que ces schémas s'appliquent tous à décrire les \pc{Content Entity}.
+Remarquons que ces schémas s'appliquent tous à décrire les \pc{ContentEntity}.
 % plus de détails sur les DSs
 
 Le \pc{MediaInformation} est un schéma qui comporte des informations d'identification du CE ainsi qu'un ou plusieurs Profiles d'instances. 
@@ -352,15 +352,15 @@ The authors merge the concepts of Expression and Manifestation. Moreover, they a
 \cite{Marcos2009}
 
 %=============
-\subsection{OntoMedia}
+\subsection{OntoMedia : la convergence des modèles}
 \cite{Lee2012a}, \cite{Burger2011}
 
 
 
 %=============================
 %=============================
-\subsection{Descriptions basés sur des documents de production}
-Script, Storyboard, Analyse sémiotique (\cite{Martin2005}, \cite{ThiBui2003}) etc.
+\subsection{Descriptions métiers}
+Script, Storyboard (\cite{Martin2005}, \cite{ThiBui2003}) etc.
 Réappropriations dans le champ informatique : \cite{Chakravarthy2009b} ; \cite{Chakravarthy2009c}
 
 Another trail of research has emerged recently. In comparison to the previous approach, it does not attack the multimedia description from below (with signal processing techniques) but from above. The principles is to represent the knowledge included in documents related to the multimedia content. It can be a web-page where the image is published and commented by others \cite{Simperl2009} or more specific documents related to the production context. \cite{Chakravarthy2009b} and \cite{Chakravarthy2009c} take interest in the knowledge of film direction. They propose a semantic model which captures the information typically included in a storyboard or screenplay. They also provide a system to capture the director's demands and assist her/him during the shooting. 
