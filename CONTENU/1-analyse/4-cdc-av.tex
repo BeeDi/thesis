@@ -28,67 +28,61 @@ Le besoin d'autonomiser tous les objets de la chaîne audiovisuelle, en vue de l
 	% modèle de composition (\cite{Stockinger2007})
 
 	\item[(B)] \g{la modélisation des connaissances construites sur ces objets}.
-:
-
+	De multiples connaissances peuvent être associées aux objets audiovisuels, soit au cours la chaîne de production, soit a posteriori par analyse du produit final.
+	Dans le premier cas, on vise la modélisation des connaissances construites par les contributeurs de la chaîne et exprimés dans leur vocabulaire métier (section \ref{sec:docvoc}). 
+	Ces informations concernent la prescription du contenu à produire, le déroulement de la production mais aussi les objets produits (composition et contenu).
+	La structure de l'objet est ainsi décrite en termes de scène, de plan, de séquence plateau etc. alors que le contenu est décrit en termes de personnage à l'écran, de posture, de mouvement de caméra etc. 
+	Pour reprendre la distinction faite par \cite[\S 3.3.2.1 Descriptions du contenu, p.83]{ThiBui2003}, les documents métier propose une description à forte teneur sémantique, plutôt qu'une description des primitives perceptives du contenu.
+	
+	Dans le second cas, en effet, les objets produits sont plutôt décrits par des segments spatiaux ou temporels, par la colorimétrie de l'image, la tonalité ou le rythme du son etc. 
+	La production de ces informations peut être automatisée. 
+	
+	Ainsi, ces deux approches peuvent être menées de manière complémentaires car elles ne se réalisent pas au même moment, ne suivent pas la même méthode et ne produisent pas le même type d'informations.
+	L'enjeu est donc de trouver un moyen de faire co-exister toute ces informations, selon leur nature, leur producteur et le moment de leur production.
+	% \e{prescription}  \e{description} après la production
 \end{liste}
 
-Sur ce point, il s'agit de clarifier la nature des connaissances que l'on attache aux objets et leur pertinence vis-à-vis des usages que l'on prend en compte. 
-Nous considérons trois types de connaissances à associer aux objets : 
-\begin{liste}
-	\item les connaissances sur les objets ; leur \e{représentation matérielle} (stockage, encodage, format etc.) ; leur \e{contenu} (ce qui est vu ou entendu par le lecteur).
-
-	\item les connaissances liées à la chaîne de production ; la \e{spécification de la forme et du contenu} (que l'on retrouve dans les documents de pré-production) ; le \e{contexte de production} au sens large, incluant les contributeurs et leurs contributions à la chaîne ; le \e{cadre d'exploitation}  qui détaille l'usage de ces objets (type de distribution, droits et propriété intellectuelle, type de réutilisation et transformations opérées pour la réaliser, etc.).
-
-	\item des connaissances issues de l'analyse du contenu des objets audiovisuels. 
-	Par exemple, une analyse rhétorique du contenu permettra de mettre à jour la logique argumentative ou discursive (\cite{Gaillard2008}). 
-	Ainsi, une multitude d'analyses peuvent être menées, chacune selon une grille d'analyse du contenu propre. 
-	On examinera alors si les modélisations permettent d'ajouter de nouvelles échelles de fragmentation et d'y adjoindre des informations.
-\end{liste}
-
-
-\cite{ThiBui2003} propose 4 types de descriptions d'un contenu :
-\begin{liste}
-	\item \e{description syntaxique d'ordre sensoriel} : il s'agit de caractériser le signal et la manière dont il peut être perçu.
-	Pour les aspects visuels, la couleur, la forme, la luminosité, le mouvement, la position etc.
-	Pour les aspects sonores, la tonalité, le rythme etc.
-   
-	\item \e{description syntaxique d'ordre structurel} : le contenu peut être découpé en éléments de base. 
-	Pour un contenu audiovisuel, il peut s'agir d'un découpage temporel (image ou segment temporel), d'un découpage visuel (portion de l'image) ou bien encore d'un mélange des deux.
-	Le caractère syntaxique s'oppose au caractère sémantique et indique que le découpage est indépendant de sa signification. 
-	Le découpage se fait donc de manière arbitraire. 
-	Ilne correspond pas forcément à des objets signifiants pour un humain, comme un plan, une scène ou bien une table que l'on verrait à l'écran.
-	Il est toujours difficile de trancher le passage d'un élément syntaxique à un objet signifiant car cela dépend de l'application que l'on considère. 
-
-	\item \e{description sémantique d'ordre structurel} : le contenu est décrit par des objets signifiants. 
-	Du point de vue temporel, on distinguera les scènes, les chansons des moments parlés, les refrains des couplets etc.
-	Du point de vue spatial, il s'agit d'objets comme une chaise, ou bien de regroupements d'objets.
-
-	\item \e{description sémantique des objets du monde narratif} 
-\end{liste}
-
-% Nous présenterons d'abord un scénario de réutilisation pour clarifier les usages que nous visons ainsi que les besoins en modélisation (\ref{sec:cdc-av}).
-% Notre état de l'art sera nourri par un examen préalable des définitions de l'objet audiovisuel  (section \ref{sec:dav}).
-
-
-% On peut tenter de distinguer entre différents approches et objets de modélisation : 
+% Sur ce point, il s'agit de clarifier la nature des connaissances que l'on attache aux objets et leur pertinence vis-à-vis des usages que l'on prend en compte. 
+% Nous considérons trois types de connaissances à associer aux objets : 
 % \begin{liste}
-% 	\item \e{les modélisations de l'objet audiovisuel} : celles qui traitent de la composition d'un objet audiovisuel fini, qui détaillent la manière de représenter sa structure interne, ou bien la manière dont on l'a groupé avec d'autres objets.
-% 	\item 
+% 	\item les connaissances sur les objets ; leur \e{représentation matérielle} (stockage, encodage, format etc.) ; leur \e{contenu} (ce qui est vu ou entendu par le lecteur).
+
+% 	\item les connaissances liées à la chaîne de production ; la \e{spécification de la forme et du contenu} (que l'on retrouve dans les documents de pré-production) ; le \e{contexte de production} au sens large, incluant les contributeurs et leurs contributions à la chaîne ; le \e{cadre d'exploitation}  qui détaille l'usage de ces objets (type de distribution, droits et propriété intellectuelle, type de réutilisation et transformations opérées pour la réaliser, etc.).
+
+% 	\item des connaissances issues de l'analyse du contenu des objets audiovisuels. 
+% 	Par exemple, une analyse rhétorique du contenu permettra de mettre à jour la logique argumentative ou discursive (\cite{Gaillard2008}). 
+% 	Ainsi, une multitude d'analyses peuvent être menées, chacune selon une grille d'analyse du contenu propre. 
+% 	On examinera alors si les modélisations permettent d'ajouter de nouvelles échelles de fragmentation et d'y adjoindre des informations.
 % \end{liste}
- 
 
-% Certains se concentrent sur la description des caractéristiques du signal, des évènements que montrent le contenu ou encore de la manière dont ces contenus sont produits, échangés, adaptés etc.
+	
+% \cite{ThiBui2003} propose 4 types de descriptions d'un contenu :
+% \begin{liste}
+% 	\item \e{description syntaxique d'ordre sensoriel} : il s'agit de caractériser le signal et la manière dont il peut être perçu.
+% 	Pour les aspects visuels, la couleur, la forme, la luminosité, le mouvement, la position etc.
+% 	Pour les aspects sonores, la tonalité, le rythme etc.
+   
+% 	\item \e{description syntaxique d'ordre structurel} : le contenu peut être découpé en éléments de base. 
+% 	Pour un contenu audiovisuel, il peut s'agir d'un découpage temporel (image ou segment temporel), d'un découpage visuel (portion de l'image) ou bien encore d'un mélange des deux.
+% 	Le caractère syntaxique s'oppose au caractère sémantique et indique que le découpage est indépendant de sa signification. 
+% 	Le découpage se fait donc de manière arbitraire. 
+% 	Ilne correspond pas forcément à des objets signifiants pour un humain, comme un plan, une scène ou bien une table que l'on verrait à l'écran.
+% 	Il est toujours difficile de trancher le passage d'un élément syntaxique à un objet signifiant car cela dépend de l'application que l'on considère. 
 
-% L'objectif de ce chapitre est d'examiner les modèles de l'audiovisuel existants en regard de nos  de réutilisation des objets audiovisuels. 
-% modéliser les objets de la chaîne de production et les connaissances associées
+% 	\item \e{description sémantique d'ordre structurel} : le contenu est décrit par des objets signifiants. 
+% 	Du point de vue temporel, on distinguera les scènes, les chansons des moments parlés, les refrains des couplets etc.
+% 	Du point de vue spatial, il s'agit d'objets comme une chaise, ou bien de regroupements d'objets.
 
-% les objets de la chaîne de production
-% les connaissances associées à ces objets permettant de les rendre autonome dans leur circulation et leur réutilisation.
+% 	\item \e{description sémantique des objets du monde narratif} 
+% \end{liste}
 
-% Plusieurs sous-problèmes pour réaliser l'autonomie des objets audiovisuels :  
-% nous examinerons la manière dont on peut définir un objet, un document, un contenu audiovisuel. 
-% comment modéliser ces objets pour gérer leur circulation 
-% comment modéliser ces objets pour faciliter leur réutilisation
+
+
+Nous présenterons d'abord un scénario de réutilisation pour clarifier les usages que nous visons ainsi que les besoins en modélisation (\ref{sec:cdc-av}).
+Notre état de l'art sera nourri par un examen préalable des définitions que l'on trouve dans la littérature sur l'objet audiovisuel (section \ref{sec:dav}) et de la réutilisation des contenus (\ref{sec:gest}).
+Nous passerons ensuite à l'examen des modélisations existantes (\ref{sec:desc}) en précisant quels types d'informations elles proposent et la manière dont celles-ci sont produites. 
+
+
 
 
 % d'un exemple de réutilisation d'objets audiovisuels (\ref{sec:cdc-av}). 
