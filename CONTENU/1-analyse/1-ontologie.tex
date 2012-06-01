@@ -4,7 +4,7 @@
 %Distinguer entre terme et concept ; dictionnaire, thésaurus, ontologies etc.
 
 \e{
-L'objectif de cette section est de clarifier ce qui appartient au domaine de la  linguistique et ce qui relève du domaine conceptuel, en vue d'identifier les notions qui nous serviront à spécifier une solution au cahier des charges dressés dans la section précédente. 
+L'objectif de cette section est de clarifier ce qui appartient au domaine de la  linguistique et ce qui relève du domaine conceptuel, en vue d'identifier les notions qui nous serviront à spécifier une solution au cahier des charges dressé dans la section précédente. 
 La confusion qui nous intéresse concerne principalement la définition des ontologies par rapport à d'autres SOC tels ques les thésaurus, notamment du fait qu'on utilise parfois les mêmes langages pour les représenter.}
 
 La définition des SOC proposée par \cite{Zacklad2010}, étend celle de \cite{Hodge2000} à \ciel{l'ensemble des formes d'écritures codifiées participant à la description documentaire primaire ou secondaire d'une situation}. 
@@ -15,9 +15,10 @@ L'ensemble défini par \citeauthor{Hodge2000} comprend ainsi tout type de :
 	\item \e{schème qui se structure par le types de relations qui unit ses membres} (thésaurus, réseaux sémantiques, ontologies). 
 \end{liste}
 
-À cela \citeauthor{Zacklad2010} souhaite ajouter des modes de description du contenu émergents ou plus faiblement codifiés comme par exemple les folksonomies. 
+À cela \citeauthor{Zacklad2010} souhaitent ajouter des modes de description du contenu émergents ou plus faiblement codifiés comme par exemple les folksonomies. 
 Les SOC qui nous intéressent en particulier sont les schèmes structurés par types de relations. 
 % pourquoi ? 
+% Lien avec les ontologies (section suivante)
 
 
 \subsection{Thésaurus, terminologie, ontologie (m)}\label{sec:tto}
@@ -30,7 +31,7 @@ Les libellés sont également reliés par des relations dites d'association, qui
 Même si en pratique les libellés d'un thésaurus correspondent souvent à des termes du domaine, ce n'est pas nécessairement systématique.}
 
 Cette définition situe clairement les thésaurus comme faisant partie du cadre de la linguistique. 
-Il s'agit d'un ensemble de mots structurés et reliés suivant leur \e{signification}, c'est à dire leur sens normé ou commun à plusieurs contextes d'usage particuliers (à l'inverse du sens, qui lui varie suivant les usages, \cite{Roche2005}). 
+Il s'agit d'un ensemble de mots structurés et reliés suivant leur \e{signification}, c'est-à-dire leur sens normé ou commun à plusieurs contextes d'usage particuliers (à l'inverse du sens, qui lui varie suivant les usages, \cite{Roche2005}). 
 \citeauthor{bachimont:icc} finit sa définition en comparant les mots issus d'un thésaurus aux termes. La distinction se joue à deux niveaux, la stabilité d'écriture du terme (niveau linguistique) et le fait qu'un terme renvoit à un concept (niveau conceptuel) : 
 
 \g{Terme :} 
@@ -46,7 +47,7 @@ Ainsi, plus qu'un repérage des mots (signifiant) utilisés dans un domaine donn
 Au-delà des débats sur les méthodes utilisées pour constituer les couples signifiant-signifié\footnote{L'approche \e{sémasiologique} (initiée par \cite{Bourigault1994}) s'appuie sur l'analyse linguistique d'un corpus de textes pour repérer les couplages signifiant-signifié ainsi que l'organisation conceptuelle sous-jacente. L'identification de ces \e{désignations} est ensuite validée par des experts du domaine. 
 Dans une optique différente, l'approche \e{onomasiologique} prend comme appui la modélisation conceptuelle pour nommer ensuite les concepts. On parle alors de \e{dénominations} dont l'objectif est de refléter sans ambiguïté la structure conceptuelle dont elles sont issues.
 Une critique faite à la première approche par \cite{Roche2006} est que les relations identifiées entre désignations sont purement linguistiques (hyper/hyponymie, méronymie etc.) et ne se rattachent pas à une structure conceptuelle. Ainsi, l'analyse de texte n'est qu'une première étape dans la constitution d'une terminologie, elle permet d'identifier les usages des mots, mais pas de les raccorder à des concepts. De même, la constitution du corpus va également grandement influer sur les résultats de l'analyse et pose alors un problème de réutilisabilité.}, on cherche à repérer la modélisation conceptuelle sous-jacente d'un domaine, de manière à pouvoir adosser chaque terme à un concept.
-À noter que l'inverse n'est pas forcément valable, car il existe des concepts qui n'ont pas d'appelation usuelle et que l'on doit alors désigner par une phrase. 
+À noter que l'inverse n'est pas forcément valable, car il existe des concepts qui n'ont pas d'appellation usuelle et que l'on doit alors désigner par une phrase. 
 Une autre conséquence de cette définition est que plusieurs mots peuvent être adossés au même concept.
 Il devient alors important de pouvoir expliciter cette équivalence et éventuellement de spécifier un signifié préféré pour le terme.
 
@@ -60,21 +61,21 @@ Il n'y a pas une stricte correspondance cependant entre ontologie et terminologi
 
 De son côté, \cite[\S 2.4]{Roche2005} parle de manière similaire \ciel{[d']un système de termes reflétant une modélisation conceptuelle, [...] plus généralement dénommé \e{système notionnel} [qui] trouve sa raison d'être dans la façon dont nous appréhendons les objets du monde.}
 \citeauthor{Roche2005} précise que si les systèmes notionnels ne relèvent pas de la linguistique, ils ne dépassent pas forcément le cadre d'une langue, sauf \ciel{pour des communautés de pratique dont les langues d'usage partagent la même conceptualisation du monde.}.
-La distinction est ainsi faite entre les mots d'usage (qui peuvent être polysémiques) et les termes dont on spécifié une forme préférée (signifiant) et qu'on adosse à une signification (signifié normé).  
+La distinction est ainsi faite entre les mots d'usage (qui peuvent être polysémiques) et les termes dont on a spécifié une forme préférée (signifiant) et qu'on adosse à une signification (signifié normé).  
 
 Concernant les particularismes qui peuvent exister dans chaque communauté, \citeauthor{Roche2005} propose de s'éloigner d'une vision purement normalisatrice. 
-Ainsi, sur le plan linguistique, il est possible de rattacher les différents mots d'usages et de préciser leur contextes d'utilisation.
+Ainsi, sur le plan linguistique, il est possible de rattacher les différents mots d'usages et de préciser leurs contextes d'utilisation.
 Sur le plan conceptuel, l'auteur propose de constituer des \gui{terminologies régionales} que l'on cherchera ensuite à mettre en correspondance. 
 
 
 
 
 \paragraph{Ontologie}
-Concernant les ontologies, nous nous limiterons aux définitions proposés dans le cadre de l'ingénierie des connaissances (IC). Les travaux de \cite{Charlet2002} nous rappelle qu'il existe de multiples définitions. Pour \cite{Gruber1993} : 
+Concernant les ontologies, nous nous limiterons aux définitions proposées dans le cadre de l'ingénierie des connaissances (IC). Les travaux de \cite{Charlet2002} nous rappelle qu'il existe de multiples définitions. Pour \cite{Gruber1993} : 
 
 \ciel{Une ontologie est une spécification explicite d'une conceptualisation.}
 
- La définition proposée par \cite{Uschold1996} nous permet de préciser de quoi se compose une conceptualisation et en quoi une ontologie la spécifie : 
+ La définition proposée par \cite{Uschold1996} (traduite par \citeauthor{Charlet2002}) nous permet de préciser de quoi se compose une conceptualisation et en quoi une ontologie la spécifie : 
 
 \ciel{Une ontologie implique ou comprend une certaine vue du monde par rapport à un domaine donné. Cette vue est souvent conçue comme
 un ensemble de concepts -- e.g. entités, attributs, processus --, leurs définitions
@@ -82,6 +83,7 @@ et leurs interrelations. On appelle cela une conceptualisation. [...]
 Une ontologie peut prendre différentes formes mais elle inclura nécessairement
 un vocabulaire de termes et une spécification de leur signification. [...]
 Une ontologie est une spécification rendant partiellement compte d’une conceptualisation.}
+
 
 \citeauthor{Charlet2002} en conclut qu'une ontologie est une conceptualisation, c'est-à-dire un ensemble de concepts et de relations dont on cherche à normer la signification. 
 Pour faire de la conceptualisation un objet informatique, il faut spécifier une théorie logique dotée d'un vocabulaire (les concepts et les relations), à la manière des travaux de \cite{Guarino1995}.
@@ -110,16 +112,16 @@ Cette liste de sémantiques permet de comprendre la grande variabilité des onto
 
 
 \paragraph{Classification d'ontologie}
-Il peut également être utile de définir des propriétés pour distinguer des "genres" d'ontologies, non pas en fonction de la sémantique utilisé, mais en fonction de l'usage que l'on souhaite en faire. 
+Il peut également être utile de définir des propriétés pour distinguer des "genres" d'ontologies, non pas en fonction de la sémantique utilisée, mais en fonction de l'usage que l'on souhaite en faire. 
 \cite{Oberle2006} propose une classification qui repose sur trois propriétés : 
 \begin{liste}
-	\item l'\g{objectif} de l'ontologie (purpose) où l'on distingue entre deux objectifs, servir de référence ou bien être utilisé dans un cas d'application :
+	\item l'\g{objectif} de l'ontologie (purpose) où l'on distingue entre deux objectifs, servir de référence ou bien être utilisée dans un cas d'application :
 	\begin{liste}
-		\item l'\e{ontologie de référence} vise à établir un consensus entre des agents (humains, machines) d'une même communauté, ou bien à servir d'explication et de langages communs avec des agents de communautés différentes. 
+		\item l'\e{ontologie de référence} vise à établir un consensus entre des agents (humains, machines) d'une même communauté, ou bien à servir d'explication et de langage commun avec des agents de communautés différentes. 
 		\item l'\e{ontologie d'application} qui se limite à un cas d'application et suit des contraintes et simplifications propres.
 	\end{liste}
 	La différence réside dans l'arbitrage entre l'expressivité de la représentation et sa décidabilité (\cite{Borgo2002}). 
-	Typiquement, une référence n'est consulté qu'occasionnellement et se doit d'être la plus exhaustive possible alors qu'une ontologie d'application doit servir à faire des raisonnements à l'exécution. 
+	Typiquement, une référence n'est consultée qu'occasionnellement et se doit d'être la plus exhaustive possible alors qu'une ontologie d'application doit servir à faire des raisonnements à l'exécution. 
 
 	\item l'\g{expressivité} de l'ontologie (expressiveness) où l'on considère un engagement plus ou moins fort sur le formalisme de représentation :
 	\begin{liste}
@@ -129,12 +131,12 @@ Il peut également être utile de définir des propriétés pour distinguer des 
 		Pour cela, la formalisation se veut beaucoup plus contrainte et détaillée afin de forcer une interprétation. 
 	\end{liste}
 
-	\item la \g{spécificité} de l'ontologie qui peut se limiter à une domaine ou s'étendre à un ensemble de domaines voire plusieurs champs disciplinaires : 
+	\item la \g{spécificité} de l'ontologie qui peut se limiter à un domaine ou s'étendre à un ensemble de domaines voire plusieurs champs disciplinaires : 
 	\begin{liste}
 		\item l'\e{ontologie générique} (generic, upper/top level) contient des concepts utilisés dans de nombreux champs disciplinaires (évènements, processus etc.)
 		\item l'\e{ontologie noyau} (core) comporte des concepts qui se situent à la croisée de plusieurs domaines. 
 		La distinction avec une ontologie générique se fait car elle comporte des concepts utilisable quelque soit le domaine.
-		De même, on distingue les ontologies noyaux des ontologies de domaine car les premières comportent des éléments réutilisables dans des plusieurs domaines proches. 
+		De même, on distingue les ontologies noyaux des ontologies de domaine car les premières comportent des éléments réutilisables dans plusieurs domaines proches. 
 		\item l'\e{ontologie de domaine} contient des concepts propre à un domaine, et bien souvent des éléments plus génériques extraits de domaine différents.
 		Cependant, l'ontologie de domaine présente généralement des éléments plus spécifiques, propres au domaine concerné. 
 	\end{liste}

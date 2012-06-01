@@ -608,8 +608,8 @@ Les concepts peuvent être regroupés dans des schémas conceptuels (\cd{skos:\-
 Pour illustrer l'utilisation de SKOS, nous reprendrons le scénario présenté dans notre cahier des charges fonctionnels (\ref{sec:cdcf}). 
 Il s'agit de représenter deux termes de jargons correspondant au même concept de cadrage.
 En effet, les deux organisations ont décidé de lier la définition de leur concept malgré leur usage d'étiquettes différent. 
-Ceci se reflète par la mise en relation explicicte de ces concepts (\cd{skos:exactMatch}) et leur incorporation dans des schèmes différents (\cd{skos:inScheme}).
-Par ailleurs, la VRT utilise des étiquettes cachés pour gérer l'utilisation d'abréviations par les utilisateurs écrivant leurs requêtes. 
+Ceci se reflète par la mise en relation explicite de ces concepts (\cd{skos:exactMatch}) et leur incorporation dans des schèmes différents (\cd{skos:inScheme}).
+Par ailleurs, la VRT utilise des étiquettes cachées pour gérer l'utilisation d'abréviations par les utilisateurs écrivant leurs requêtes. 
 Afin de satisfaire aux besoins des amateurs, on rajoute également une illustration graphique ainsi qu'une définition :
 \begin{Verbatim}[fontsize=\small,formatcom=\color{black!70}]
 //====== CONCEPTS ======//
@@ -644,7 +644,8 @@ Dans SKOS-XL les termes ne sont plus portés par les concepts mais deviennent de
 
 Les relations d'attachement entre termes et concepts sont analogues aux attributs de SKOS mais les formalisent comme des instances de \cd{owl:objectProperty}. 
 Le domaine de ces relations n'est pas défini ce qui permet de les associer à n'importe quelle ressource RDF, et donc en particulier aux concepts SKOS mais également à des ConceptScheme. 
-Si cette dernière possibilité permet de créer des groupes de termes, elle introduit une confusion sur la sémantique des ConceptScheme (groupe de concepts, de termes, de triplets ?). 
+Si cette dernière possibilité permet de créer des groupes de termes, elle introduit une confusion sur la sémantique des ConceptScheme.
+Est-ce un groupe de concepts, de termes ou bien de triplets ? 
 Les étiquettes portent une seule chaîne lexicale avec les mêmes possibilités que pour SKOS grâce à l'attribut \cd{skos:literalForm}. 
 L'indépendance des étiquettes permet également de spécifier des relations entre eux comme la synonymie, la traduction, etc. \cite{Pastor2009a}. 
 Cette possibilité est ouverte par la relation générique \cd{skosxl:labelRelation}. 
@@ -697,10 +698,10 @@ Dans SKOS, la gestion de plusieurs jargons métiers dans une même conceptualisa
 Ainsi, même si on accroche plusieurs étiquettes au même concept, on ne sait pas les sélectionner pour les présenter à l'une ou l'autre communauté. 
 Cela implique un dédoublement des concepts et donc des schémas conceptuels nécessaires (un par communauté).%, voir figure \ref{fig:skos}. 
 %implique une représentation plus fine par rapport à SKOS ce qui 
-Avec le découplage terme-concept de SKOS-XL, on peut gérer terme et concept de manière séparés sans pour autant avoir de primitives spécifiques pour regrouper les termes par jargon ou code d'écriture, voir figure \ref{fig:skosxl}. 
+Avec le découplage terme-concept de SKOS-XL, on peut gérer terme et concept de manière séparée sans pour autant avoir de primitives spécifiques pour regrouper les termes par jargon ou code d'écriture.%, voir figure \ref{fig:skosxl}. 
 Une solution consisterait à regrouper les termes dans des ConceptScheme (SKOS-XL l'autorise).
 Les ConceptScheme serviraient alors à la fois à regrouper les concepts (AV-Scheme) et les termes spécifiques aux organisations (RTBF-Scheme, VRT-Scheme). 
-Cependant, si cette modélisation permet de gérer vocabulaire métier et conceptualisation de manière séparés c'est au prix d'un flottement sur la sémantique de ConceptScheme. 
+Cependant, si cette modélisation permet de gérer vocabulaire métier et conceptualisation de manière séparée c'est au prix d'un flottement sur la sémantique de ConceptScheme. 
 Le support d'un nouveau jargon peut donc se faire sans toucher à la conceptualisation [A3] grâce à la permissivité de l'extension SKOS-XL. 
 L'extension ou la mise en correspondance de la conceptualisation est facilitée par les relations sémantiques entre concepts.
 
@@ -708,11 +709,11 @@ L'extension ou la mise en correspondance de la conceptualisation est facilitée 
 \subsubsection{ISO 25964-1}
 % \addcontentsline{toc}{subsubsection}{ISO 25964-1}
 Cette norme propose une modélisation terme-concept similaire à SKOS-XL mais se concentre sur la représentation des thésaurus. 
-Elle se fonde sur des modèles pré-existants, le méta-modèle \cite{Vandenbussche2009} ainsi que la norme BS 8723. 
+Elle se fonde sur des modèles pré-existants, le méta-modèle de \cite{Vandenbussche2009} ainsi que la norme BS 8723. 
 L'originalité par rapport à SKOS est de considérer la composition de termes ou de concepts et d'enrichir la description des éléments du modèle par des attributs Dublin Core.
 
 Les termes se distinguent entre termes préférés simples ou composés et termes non préférés simples. 
-La caractérisation des termes porte également sur l'appartenance à une langue à laquelle s'ajoutent des attributs de dates, une définition ainsi que des notes d'historique et de révision. 
+La caractérisation des termes porte également sur l'appartenance à une langue à laquelle s'ajoutent des attributs de date, une définition ainsi que des notes d'historique et de révision. 
 Des relations sémantiques entre termes sont également considérées en particulier l'équivalence composée, la synonymie, l'abréviation, l'acronyme, etc. 
 Le thésaurus est considéré comme l'élément central décrit par l'ensemble des quinze attributs originaux du Dublin Core ainsi que des notes d'historique pour la maintenance. 
 Sur les questions de documentation et de groupement de concepts, il existe une similarité importante avec les primitives de SKOS (note, groupe de concepts, etc.).\\

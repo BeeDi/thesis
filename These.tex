@@ -61,6 +61,8 @@
 \usepackage{titlesec}
 \usepackage{titletoc}
 
+\usepackage{minitoc}
+
 
 %%%%%%% Références
 % \usepackage{hyperref}
@@ -117,7 +119,7 @@
 
 %%%%% Un bout de code
 \newcommand{\cd}[1]{\textcolor{black!70}{\texttt{#1}}}
-
+\newcommand{\tw}[1]{\texttt{#1}}
 
 %%%%% Guillemets français
 \newcommand{\gui}[1]{«\,#1\,»}
@@ -514,7 +516,7 @@
 \bibliography{dsdav}
 
 \begin{document}
-
+\dominitoc
 \deffootnote[2em]{0em}{0em}{\thefootnotemark{}.~}
 
 %%%%% Items des listes

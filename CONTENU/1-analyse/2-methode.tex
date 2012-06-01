@@ -6,15 +6,15 @@ Cette présentation est aussi l'occasion de préciser l'importance crucuiale du 
 La méthode repose sur trois étapes successives qui aboutissent à une ontologie computationnelle, exprimée dans un langage opérationnel de représentation des connaissances et à partir duquel on peut effectuer des inférences. 
 % Précisons maintenant les étapes de cette méthode ainsi que les résultats obtenus :
 % \begin{liste}
-	Le point de départ de la méthodologie est constitué d'expressions linguistiques (signifiant) issues du domaine considéré.
-	L'intérêt de disposer d'un tel ensemble de traces linguistiques est qu'elles servent à exprimer des concepts (signifié) ou des connaissances sur le monde. 
-	Ainsi, on se retrouve avec un corpus de candidat-termes dont la signification peut être source d'ambiguïtés et dont l'on cherche à clarifier l'interprétation.\\
+Le point de départ de la méthodologie est constitué d'expressions linguistiques (signifiant) issues du domaine considéré.
+L'intérêt de disposer d'un tel ensemble de traces linguistiques est qu'elles servent à exprimer des concepts (signifiés) ou des connaissances sur le monde. 
+Ainsi, on se retrouve avec un corpus de candidats-termes dont la signification peut être source d'ambiguïtés et dont l'on cherche à clarifier l'interprétation.\\
 % \end{liste}
 % \begin{liste}
 \g{[1.]} La première étape de cette méthode (aussi appelée \e{normalisation sémantique}) consiste à établir un \g{engagement sémantique}  qui précise la manière de mener l'interprétation des candidats-termes et de construire une première structure de connaissances. 
-Pour cela, on fixe d'abord un contexte de référence, la tâche ou le problème qui a poussé à l'élaboration de l'ontologie, qui permet de cadrer l'interprétation des candidat-termes.
+Pour cela, on fixe d'abord un contexte de référence, la tâche ou le problème qui a poussé à l'élaboration de l'ontologie, qui permet de cadrer l'interprétation des candidats-termes.
 
-Ensuite, pour préciser l'interprétation on s'appuie sur la sémantique différentielle afin d'expliciter les différences et les similarités entre une notion et son voisinage direct (notion parente, notion soeurs) : 
+Ensuite, pour préciser l'interprétation on s'appuie sur la sémantique différentielle afin d'expliciter les différences et les similarités entre une notion et son voisinage direct (notion parente, notions soeurs) : 
 
 	\ciel{
 	La méthodologie que nous proposons ici repose sur l'organisation générale des unités en un réseau d'identités et de différences.
@@ -22,10 +22,10 @@ Ensuite, pour préciser l'interprétation on s'appuie sur la sémantique différ
 
 Cette caractérisation des notions par leur voisinage repose sur quatres relations à expliciter : 
 \begin{liste}
-	\item la \e{communauté avec le père} (similarity with parent) : pourquoi la notion hérite des proprités de son père.
-	\item la \e{différence avec le père} (difference with parent) : en quoi la notion est différente de son père.
-	\item la \e{différence avec les frères} (difference with siblings) : en quoi un notion est différentes de ses notions soeurs.
-	\item la \e{communauté avec les frères} (similarity with siblings) : quelle est la propriété que partage les frères -- dont on distingue plusieurs valeurs exclusives, une par frère.\\ 		
+	\item la \e{communauté avec le parent} (similarity with parent) : pourquoi la notion hérite des proprités de son parent.
+	\item la \e{différence avec le parent} (difference with parent) : en quoi la notion est différente de son parent.
+	\item la \e{différence avec les soeurs} (difference with siblings) : en quoi un notion est différentes de ses notions soeurs.
+	\item la \e{communauté avec les soeurs} (similarity with siblings) : quelle est la propriété que partage les notion soeurs -- dont on distingue plusieurs valeurs exclusives, une par soeur.\\ 		
 \end{liste}
 % \end{liste}
 
@@ -34,7 +34,7 @@ Les candidats-termes sont structurés par des prescriptions interprétatives et 
 
 % \begin{liste}
 \g{[2.]} L'\g{engagement ontologique} consiste à munir l'ontologie différentielle d'une sémantique formelle extensionnelle.
-Rappelons que cette sémantique définit les concepts par leur extension, c'est à dire tout les individus qu'ils désignent parmi un ensemble de référence. 
+Rappelons que cette sémantique définit les concepts par leur extension, c'est-à-dire tous les individus qu'ils désignent parmi un ensemble de référence. 
 Il s'agit donc de relier des primitives dotées d'une signification linguistique normalisée à des concepts désignant un ensemble de référents (ou individus).
 Pour cela, il faut adjoindre à l'ontologie différentielle un modèle référentiel : 
 
@@ -42,7 +42,7 @@ Pour cela, il faut adjoindre à l'ontologie différentielle un modèle référen
 	l'ontologie référentielle obéit aux contraintes sémantiques de l'ontologie différentielle : [s]a structure arborescente se retrouve dans l'ontologie référentielle et lui donne son squelette.
 	Chaque relation de spécialisation sémantique au niveau différentiel se traduit par une spécialisation d'extension au niveau référentiel.} (\cite[p.148]{bachimont:icc})
 
-Ce changement de sémantique permet d'enrichir l'ontologie de nouveau concepts et d'en modifier la structuration. 
+Ce changement de sémantique permet d'enrichir l'ontologie de nouveaux concepts et d'en modifier la structuration. 
 En effet, on peut désormais avoir recours à des opérations ensemblistes (réunion, intersection, complémentaire) qui composent le sens des concepts et permettent ainsi de définir de nouveaux concepts.
 L'ajout de ces \gui{concepts définis} modifie également la structure de l'ontologie, qui passe d'une arborescence à une structure en treillis, c'est-à-dire admettant l'héritage multiple. 
 Par exemple, une primitive différentielle de \cd{mandat politique} spécialisée en concepts de \cd{député} et de \cd{maire} ne permet pas de représenter de double mandat.
@@ -72,7 +72,7 @@ Nous obtenons une \g{ontologie computationelle} qui est une version de l'ontolog
 
 
 \subsection{Conséquences pour une Ingénierie des Connaissances (n)}
-En suivant l'analyse proposé par \cite{Bachimont2004}, il en découle que  l'Ingénierie des Connaissances (IC) \ciel{exprime les connaissances d'un domaine dans un langage de modélisation et l'opérationnalise en un système}. 
+En suivant l'analyse proposée par \cite{Bachimont2004}, il en découle que  l'Ingénierie des Connaissances (IC) \ciel{exprime les connaissances d'un domaine dans un langage de modélisation et l'opérationnalise en un système}. 
 En d'autres termes, la modélisation de l'IC porte sur les concepts utilisés par les gens de ce domaine pour penser et établir des connaissances sur le monde, mais pas directement sur le monde.
 Ainsi, les modèles de l'IC n'ont pas pour vocation à \ciel{prédire quoi que ce soit sur le monde ni sur la connaissance}, mais plutôt d'\ciel{instrumenter le travail intellectuel, l'exercice de la pensée, le travail de la connaissance}. 
 Dans cette perspective, \citeauthor{Bachimont2004} nous propose de théoriser l'IC comme \ciel{une ingénierie des inscriptions numériques des connaissances qui vise à instrumenter le travail cognitif associé à ces inscriptions}. 
@@ -81,9 +81,9 @@ Les inscriptions possèdent une double dimension ; \e{matérielle} (et donc mani
 En d'autres termes, le systèmes d'IC permet d'agir de manière prédictible sur les inscriptions de connaissances, ces actions produisant de nouvelles inscriptions qui donnent matière à penser à l'utilisateur. 
         
 Il y a donc plusieurs éléments à valider en IC, les calculs qui seront faits sur les inscriptions (on teste le comportement du système informatique) puis l'interprétation de ces inscriptions (on évalue le gain apporté par le système et les inscriptions qu'il fournit à l'utilisateur selon une situation d'usage). 
-La modélisation prise en charge par l'IC ne porte donc ni sur le monde, ni sur l'activité cognitive et ne peut être validé uniquement par le formalisme de ses inscriptions. 
+La modélisation prise en charge par l'IC ne porte donc ni sur le monde, ni sur l'activité cognitive et ne peut être validée uniquement par le formalisme de ses inscriptions. 
         
-Les inscriptions de connaissances doivent être considérées sous deux angles : d'un point de vue \e{nomographique} (on formalise la manipulation symbolique des inscriptions pour prévoir/définir le comportement du système) et \e{idiographique} (on décrit le sens des manipulations symboliques et des inscriptions produites par rapport aux normes, conventions, concepts du domaine.
+Les inscriptions de connaissances doivent être considérées sous deux angles : d'un point de vue \e{nomographique} (on formalise la manipulation symbolique des inscriptions pour prévoir/définir le comportement du système) et \e{idiographique} (on décrit le sens des manipulations symboliques et des inscriptions produites par rapport aux normes, conventions, concepts du domaine).
 
 
 

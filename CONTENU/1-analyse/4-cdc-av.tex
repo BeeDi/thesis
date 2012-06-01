@@ -1,4 +1,5 @@
 \chapter{Modélisations de l'audiovisuel (m,i)}\label{chap:mav}
+\minitoc
 %
 % Il existe de nombreux modèles, schémas et standards pour décrire les divers aspects de la chaîne de production audiovisuelle et des objets qui y sont construits. 
 % Parmi ces modèles, certains sont issus d'une refléxion générale sur la description des ressources numériques. 
@@ -103,7 +104,8 @@ Ce scénario suit celui de la commande de tournage développé en section \ref{s
 
 \subsection{Scénario de réutilisation multiple (m)}\label{sec:ex-reuse}
 Imaginons une chaîne de télévision (la RTBF par exemple) qui souhaite réaliser la captation d'un évènement culturel, comme un opéra, une pièce de théâtre, un concert etc. 
-Les producteurs de la chaîne sont intéressés par trois types de contenus qui seront ensuite exploités de quatre manières différentes (voir Figure \ref{img:intro:reuse}):
+Les producteurs de la chaîne sont intéressés par trois types de contenus (notés a, b, c dans la liste suivante) qui seront ensuite exploités de quatre manières différentes (numérotées 1, 2, 3, 4 dans la liste suivante).
+La Figure \ref{img:intro:reuse} illustre les liens entre contenus et formes d'exploitations :
 \begin{listenum}
 	\item[a.] la \e{captation de l'évènement} en tant que tel, qui pourrait être réalisé par une organisation tierce à la RTBF.
 	\item[b.] des \e{entrevues avec l'équipe} (metteur en scène, talents sur scène, programmateur etc.) qui serait prise en charge par la RTBF. 
@@ -129,7 +131,7 @@ En effet, chaque audience a ses attentes, de même qu'il existe des contraintes 
 Ces spécificités exigent des variations dans la qualité de l'encodage, le format d'encapsulation utilisé, le montage réalisé, l'habillage du contenu etc. 
 Par exemple, les contraintes de diffusion sur le Web implique d'encoder la vidéo dans un format spécifique et de multiples résolutions, généralement plus petites que pour la diffusion télévisée. 
 Ensuite, le montage d'une bande-annonce possède un rythme généralement plus rapide que celui des bonus de DVD. 
-Finalement, les cas d'exploitation gérés par la chaîne de télévision posséderont un habillage spécifique (logo de la chaîne, message d'annonces etc.) que ne partageront pas forcément les versions vendu à des organisations tierces. 
+Finalement, les cas d'exploitation gérés par la chaîne de télévision posséderont un habillage spécifique (logo de la chaîne, message d'annonces etc.) que ne partageront pas forcément les versions vendues à des organisations tierces. 
 
 L'exemple des commentaires du public -- voir la Figure \ref{img:intro:reuse-process} -- permet de montrer à quels moments des transformations doivent être effectuées afin de produire les différentes formes d'exploitation :
 \begin{liste} 
@@ -154,16 +156,16 @@ L'exemple des commentaires du public -- voir la Figure \ref{img:intro:reuse-proc
 
 \subsection{Besoins en modélisation (n)}
 Le scénario d'usage que nous venons de voir présente un exemple de production incluant directement plusieurs formes d'exploitations pour des contenus produits en collaboration avec deux organisations professionelles et des amateurs. 
-Ce scénario permet d'illustrer des opérations de transformation des contenus qui ne se limite pas à une réutilisation brut de matériel. 
-On distingue ainsi plusieurs types de transformations qui définissent par les objets d'entrée et de sortie nos besoins de modélisations :
+Ce scénario permet d'illustrer des opérations de transformation des contenus qui ne se limitent pas à une réutilisation brut de matériel vidéo. 
+On distingue ainsi plusieurs types de transformations qui définissent nos besoins de modélisations :
 \begin{liste}
-	\item le \e{transcodage} d'un contenu d'un format/encodage/résolution à l'autre afin de satisfaire aux contraintes techniques propre à un médium ou un canal de distribution. 
-	Par exemple, le journal télévisé distribué dans 2 types de définitions ou bien la bande-annonce préparé pour une diffusion Web et DVD.
+	\item le \e{transcodage} d'un contenu d'un format/encodage/résolution à l'autre afin de satisfaire aux contraintes techniques propre à un medium ou un canal de distribution. 
+	Par exemple, le journal télévisé distribué dans 2 types de définitions (SD, HD) ou bien la bande-annonce préparé pour une diffusion Web et DVD.
 	%retraitement
 
 	\item le \e{montage} différencié d'une séquence de contenu suivant la forme éditoriale dans laquelle elle s'insère.
-	Le montage des commentaires du public sera plus rapide et dense pour la bande-annonce que pour le journal télévisé. 
-	Ce dernier utilisera aussi moins de contenu pour rester sur les commentaires les plus construits ou marquants.
+	Le montage des commentaires du public est plus rapide et dense pour la bande-annonce que pour le journal télévisé. 
+	Ce dernier prend plus de temps pour montrer les commentaires les plus construits ou les plus marquants.
 	%rééditorialisation 
 
 	\item l'\e{intégration} d'une séquence montée dans de multiple formes d'exploitations. 
@@ -184,15 +186,18 @@ De plus, si l'on reprend le scénario depuis la commande de tournage, on se rend
 Nos besoins en modélisations peuvent donc se résumer par les assertions suivantes : 
 \begin{liste}
 	\item[(B1)] rendre les objets et les fragments audiovisuels \g{autonomes} implique de les modéliser sur différents niveaux (technique, esthétique, éditorial etc.). 
-	Chaque niveau de modélisation de ces objets correspond au résultat d'opérations effectuées durant le processus de production audiovisuel.
-	Ainsi, chaque niveau peut être repris séparément de l'ensemble.
+	Chaque niveau de modélisation correspond au résultat d'opérations effectuées durant le processus de production audiovisuel.
+	Ainsi, chaque niveau peut être pris séparément de l'ensemble.
 
 	\item[(B2)] rendre les objets et les fragments audiovisuels \g{réutilisables} implique de leur associer de multiples connaissances dès le début et tout au long de leur cycle de vie.
 	Ces connaissances doivent correspondre à celles mobilisées par les contributeurs (humain ou logiciel) de la chaîne de production.
-	Chaque type de connaissance s'associe à un niveau spécifique de l'objet audiovisuel de manière à faciliter leur recherche.
+	Chaque type de connaissance s'associe à un niveau spécifique de l'objet audiovisuel pour le décrire et ainsi faciliter sa recherche.
 
 	% \item[(B3)] : 
 \end{liste}
 
 % À chaque niveau de modélisation des objets et fragments audiovisuels correspond des types de connaissances. 
-On notera que la modélisation des objets et des connaissances associées s'enrichit suivant le déroulement de la chaîne de production.
+On notera que la modélisation des objets et des connaissances associées vont de pair et suivent le déroulement de la chaîne de production.
+Ainsi, ce n'est plus seulement le résultat final de la production qui est modélisé, mais l'ensemble du processus.
+Chaque résultat est modélisé séparément, relié à l'ensemble et décrit par des connaissances récoltées pendant sa construction, ce qui confère à la modélisation ces propriétés d'autonomie et de réutilisabilité.
+Cette finesse de modélisation ne peut s'obtenir qu'à partir d'une compréhension plus complète de la chaîne et donc plus centrée sur les métiers de la production audiovisuelle. 

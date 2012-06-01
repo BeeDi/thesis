@@ -11,7 +11,7 @@
 \subsection{Caractériser la réutilisation}\label{sec:reuse}
 \e{
 Si la promesse du numérique de faciliter la manipulation des contenus a bien été tenue, il n'est pas si évident d'articuler ces conditions technologiques avec les usages attendus.
-Il peut s'agir de récupérer des contenus existants ou produits par d'autres pour les intégrer dans sa chaîne de production, ou bien de réutiliser des contenus dans de nouveaux cadre d'exploitation (variation des modes de consommation, de distribution, de public etc.).}
+Il peut s'agir de récupérer des contenus existants ou produits par d'autres pour les intégrer dans sa propre chaîne de production, ou bien de réutiliser des contenus dans de nouveaux cadres d'exploitations (variation des modes de consommation, de distribution, de public etc.).}
 
 \e{
 Ces opérations qui semblaient a priori plus simple dans un environnement numérique sont en fait plus compliquées qu'il n'y paraît. 
@@ -28,8 +28,8 @@ Nous proposons maintenant d'examiner la manière dont différentes communautés 
 Il s'agit de clarifier les hypothèses et les techniques proposées par chacune de ces communautés, et ainsi identifier les éléments pris en compte dans leur représentation du monde.  % Correction ?
 
 \paragraph{Multimédia et Signal}
-Prenons d'abord le cas de la communauté multimédia très orienté analyse et traitement du signal. 
-Dans ce cadre, les constats mis en avant sont largement les mêmes que ceux que nous avons présentés précédemment (voir section \ref{chap:motiv}, multiplication et diversification des terminaux de lecture et des réseaux de communication, transformation des usages) :
+Prenons d'abord le cas de la communauté multimédia très orientée analyse et traitement du signal. 
+Dans ce cadre, les constats mis en avant sont largement les mêmes que ceux que nous avons présentés précédemment (voir section \ref{sec:motiv}, multiplication et diversification des terminaux de lecture et des réseaux de communication, transformation des usages) :
  
 \ciel{ 
 Hundreds of device profiles are available for accessing online content and more announced everyday. These devices are connected through a wide variety of networks [\dots] As before, the issue of usage scenarios --activity type, user age and gender, time available, and prior knowledge of the subject matter-- continues to exist.} (\cite{Singh2004}).
@@ -41,7 +41,7 @@ En effet, l'approche de la réutilisation privilégiée par cette communauté co
 Fundamental to this approach is the need to maintain a single copy of the content in its original form and to repurpose the content to fit the desired scenario in real time and in an automated fashion. [\dots] the next step in the repurposing process is to describe the content so that it can be understood and processed to fit delivery requirements --whether they're technical or usage based.} (\cite{Singh2004}).
 
 L'approche automatique est justifiée par la difficulté à maintenir et gérer différentes versions d'un même contenu, en plus d'être coûteux et chronophage.
-Ainsi, la décision humaine est simplement reporté au niveau du paramétrage du système de supervisation des opérations techniques.\\
+Ainsi, la décision humaine est simplement reportée au niveau du paramétrage du système de supervisation des opérations techniques.\\
 
 
 \paragraph{Ingénierie Documentaire}
@@ -52,7 +52,7 @@ Les langages de modélisation documentaires tels que \e{Document Type Definition
 
 Nous noterons le développement récent des \gui{chaînes éditoriales}, ces systèmes qui opérationnalisent l'hypothèse de base de l'ingénierie documentaire reformulée par \cite{Crozat2004} de la sorte : \ciel{tout contenu numérique consiste en une ressource qu’un calcul permet de publier dynamiquement sous différentes formes contextualisées}. 
 
-Ces systèmes se concentrent ainsi sur le maintien d'une ressource de base que l'on peut transformer ensuite de diverses manières, soit par une transformation technique que l'on pourra automatisée, soit par une transformation manuelle réglée sur les usages visées (\cite{Crozat2011}) : 
+Ces systèmes se concentrent ainsi sur le maintien d'une ressource de base que l'on peut transformer ensuite de diverses manières, soit par une transformation technique que l'on pourra automatisée, soit par une transformation manuelle réglée sur les usages visés (\cite{Crozat2011}) : 
 \begin{liste}
 	\item le polymorphisme \ciel{consiste en la possibilité technique de disposer d'une source unique de contenu et de la transformer à volonté selon les supports et mises en formes désirés}. Dans ce cas, on établit une séparation entre le fond (la source documentaire) et les formes de publication qui permet de mettre en place une production multi-support.
 
@@ -65,9 +65,9 @@ Ces systèmes se concentrent ainsi sur le maintien d'une ressource de base que l
 
 Notons que les chaînes éditoriales s'orientent vers des pratiques de ré-éditorialisation qui sont réalisées manuellement plutôt que de manière automatique.
 Les définitions données du polymorphisme et de la réutilisation sont des définitions d'opérations techniques plutôt que des pratiques en tant que telle. 
-Ces opérations sont donc permises et prises en charges par les chaînes éditoriales mais ne constitue par leur horizon d'usage.
+Ces opérations sont donc permises et prises en charges par les chaînes éditoriales mais ne constituent par leur horizon d'usage.
  % et paramétrées par des règles définies par un utilisateur.
-Il semble donc que ces deux communautés s'intéressent à des opérations techniques similaires (le polymorphisme et la réutilisation) mais visent des usages distincts qui ne posent pas les mêmes problèmes :
+Il semble donc que l'Ingénierie documentaire traditionnelle et le courant lié aux chaînes éditoriales s'intéressent tous deux à des opérations techniques similaires (le polymorphisme et la réutilisation) mais visent des usages distincts qui ne posent pas les mêmes problèmes :
 \begin{liste}
 	\item D'un côté, il s'agit d'instrumenter d'automatiser des réécritures, entre objets multimédia mais aussi entre documents structurés en XML, base de données etc. 
 	Un exemple classique est la création de compte-rendu (ou reporting) qui s'effectue en extrayant des données de diverses sources puis en les intégrant dans de nouveaux documents.
@@ -96,7 +96,8 @@ La \e{republication} (en anglais re-authoring ou re-purposing) recouvre un ensem
 
 
 On l'aura compris, ce processus englobe des opérations techniques et éditoriales et place les conventions des communautés dans une position centrale. 
-Pour ce qui est de caractériser des communautés d'utilisateurs, \pc{Stockinger} se réfère à la notion d'habitus développée par des sociologues dont \cite{Bourdieu}, et propose différents critères de regroupement :
+Pour ce qui est de caractériser des communautés d'utilisateurs, \pc{Stockinger} se réfère à des sociologues dont \cite{Bourdieu}, et propose différents critères de regroupement :
+% la notion d'habitus développée par
 \begin{liste}
 	\item le temps ou l'espace occupé
 	\item les activités et les objectifs recherchés
@@ -111,7 +112,7 @@ Une fois une communauté cible identifiée, il est alors possible ; (1) de défi
 La republication est donc un processus, parfois très complexe, d'adaptation d'un document ou d'un corpus de documents sources à des usages spécifiques. Ce processus d'adaptation peut concerner tous les plans constitutifs d'un document (Stockinger, 1981, 1999 et 2003), c'est-à-dire aussi bien le plan du contenu que celui de l'expression. Il s'accomplit à travers un ensemble d'activités intellectuelles et de gestes techniques et en référence à des modèles ou genres de publications qui intègrent les contraintes typiques des contextes et des communautés d'usage auxquels un document ou un corpus de documents republiés est destiné} \parencite{Stockinger2007b}.
 
 % opérations : (traitement linguistique, restructuration, rééditorialisation).
-La republication repose donc sur une représentation des communautés d'utilisateurs, de leur capacités d'interprétation ainsi que sur une représentation des contenus dont ils disposent habituellement. 
+La republication repose donc sur une représentation des communautés d'utilisateurs, de leur capacités d'interprétation ainsi que sur une représentation des contenus dont elles disposent habituellement. 
 La republication se définit selon \parencite{Stockinger2007} suivant les critères suivants : 
 \begin{liste}
 	\item \e{les opérations à effectuer} ; sélection, réorganisation, ajout d'explications, ajout d'éléments complémentaires, traduction, mise en lien avec d'autres ressources, modification de la forme d'expression, création de nouveau contenu etc.
@@ -141,9 +142,9 @@ Nous proposons donc de définir la terminologie suivante pour distinguer entre t
 La premier critère distinctif est l'automatisation de la transformation, le second critère repose sur la création originale de contenu plutôt que la réorganisation d'un existant : 
 \begin{liste}
 	\item le \eg{retraitement} (repurposing) qui se caractérise par une automatisation de la transformation opérée sur le contenu (quelque soit son type), c'est-à-dire que cette transformation est effectué par un logiciel lui-même paramétré par un humain. 
-	Ces transformations visent à modifier la forme d'expression du document, extraire des fragments des contenu de différentes sources pour les aggréger dans un nouveau document, ou bien encore réorganiser automatiquement la structure du contenu. 
-	Le retraitement dépasse le polymorphisme en ce sens où il possible de gérer de multiple sources de contenus pour construire dynamiquement un nouveau document. 
-	Dans le cas de l'audiovisuel, il s'agit des pratiques de réencodage, de changements de formats d'encapsulation etc.
+	Ces transformations visent à modifier la forme d'expression du document, extraire des fragments de contenu de différentes sources pour les aggréger dans un nouveau document, ou bien encore réorganiser automatiquement la structure du contenu. 
+	Le retraitement dépasse le polymorphisme en ce sens où il est possible de gérer de multiple sources de contenus pour construire dynamiquement un nouveau document. 
+	Dans le cas de l'audiovisuel, il s'agit des pratiques de réencodage, de changements de format d'encapsulation etc.
 	Pour reprendre l'exemple précédent (\ref{sec:ex-reuse}) d'un contenu TV pour une diffusion Web, ou bien encore la création automatique de résumé de rencontres sportives etc. \\
 
 	\item la \eg{rééditorialisation} (reediting) se caractérise par une transformation (manuelle et automatique) de contenus existants. 
@@ -152,8 +153,8 @@ La premier critère distinctif est l'automatisation de la transformation, le sec
 	Ces opérations ne se limitent pas à une transformation de la forme d'expression du document (retraitement) mais ne constituent pas une création originale de contenus (réécriture). 
 	Simplement, on réutilise divers contenus existants pour créer un nouveau document.  
 	La ré-éditorialisation repose donc sur le polymorphisme et la réutilisation au sens de \cite{Crozat2011}.
-	Dans le cas de l'audiovisuel, il s'agit typiquement de pratiques de re-montage et de nouvelles sélection de contenu. 
-	Pour reprendre l'exemple précédent, il s'agit de monter différemment une séquence initialement prévu pour un journal TV et qui doit s'insérer dans un DVD etc. \\
+	Dans le cas de l'audiovisuel, il s'agit typiquement de pratiques de re-montage et de nouvelles sélections de contenu. 
+	Pour reprendre l'exemple précédent, il s'agit de monter différemment une séquence initialement prévue pour un journal TV et qui doit s'insérer dans un DVD etc. \\
 
 	 
 	\item la \eg{réécriture} (reauthoring) se caractérise par une transformation de contenus existants accompagnée d'une création de contenu original. 
@@ -171,7 +172,7 @@ Leur mise en place pose également des problèmes dans l'organisation de la cha�
 Les changements introduits par la réutilisation dans la chaîne de production sont donc plus vastes qu'une simple adaptation technique à de nouveaux modes de distribution. %(canal de diffusion + terminal de lecture). 
 Il s'agit également de prendre en compte l'audience visée pour affiner encore plus l'adaptation du contenu à ses futurs consomateurs/lecteurs.
 L'objectif est de favoriser le développement de variantes d'un même programme soit par la restructuration du contenu (retraitement ou rééditorialisation) ou par l'ajout de contenus (réécriture). 
-L'introduction d'acteurs tiers dans une chaîne de production pour fabriquer ou fournir du contenu ne peut se faire sans une plus grande maitrîse des contenus et une meilleure description de ces derniers dès la pré-production.
+L'introduction d'acteurs tiers dans une chaîne de production pour fabriquer ou fournir du contenu ne peut se faire sans une plus grande maîtrise des contenus et une meilleure description de ces derniers dès la pré-production.
 En effet, le client qui souhaite déléguer la fabrication de contenu à un fournisseur tiers doit d'abord définir ses attentes. 
 À l'inverse, si le fournisseur connaît son contenu le client lui a besoin d'un descriptif pour sélectionner les fragments les plus pertinents.
 Ainsi, les chaînes de production des clients et des fournisseurs doivent évoluer pour gérer (fournir/acquérir) non pas juste du contenu, mais des descriptions (adjointes ou pas à du contenu) facilitant le travail de leurs partenaires (fabrication ou réutilisation).
@@ -184,7 +185,7 @@ Ce qui auparavant pouvait se résoudre \e{de visu} ou de manière informelle doi
 Qu'il s'agisse de passer commande, ou bien de rechercher dans des bases existantes, cette étape s'apparente à la définition du besoin, à l'écriture d'un cahier des charges, ou dans les termes propres à la production audiovisuelle, au \e{Scripting} défini en \ref{sec:preprod}. 
 Maintenant que la fabrication du contenu est déléguée à des tiers, il reste cependant à récupérer le résultat et à vérifier qu'il satisfait à la demande initiale. 
 Cette dernière étape nommée généralement \e{Acquisition} constitue un travail à part entière puisqu'il s'agit de \gui{faire rentrer} le contenu dans les \gui{cases} du système d'information et de gestion des contenus. 
-En plus des questions de formats informatiques, s'ajoute souvent le problème de la description des contenus et de leur triage en vue de leur utilisation future.  
+En plus des questions de formats informatiques, s'ajoute souvent le problème de la description des contenus et de leur classification en vue de leur utilisation future.  
 L'acquisition dépend grandement des conventions établies avec le fabricant/livreur de contenu et impacte directement sur le temps passé à faire le \e{derushing}. 
 
 Côté client, on transforme d'abord la phase de scripting en l'expression d'une \pc{Commande} ou d'une \pc{Requête} ce qui permet de déléguer la fabrication des contenus à un tiers.
@@ -200,10 +201,10 @@ Ensuite, on vérifie par \pc{Acquisition} du contenu que le résultat correspond
 Du côté des fournisseurs de contenu, il existe une distinction entre les chaînes du fabricant et du fournisseur du contenu :  
 
 \begin{liste}
-	\item \e{déléguer la fabrication à des contributeurs tiers} : l'utilisation du scripting pour définir la \pc{Commande} de contenu attendu semble une solution satisfaisante, à condition que le vocabulaire utilisé soit normé de manière à éviter la confusion ou les différences d'interprétations. 
-    Lorsqu'il s'agit d'amateurs, la situation se complique car on ne peut pas s'appuyer sur le vocabulaire commun de la production audiovisuelle pour le clarifier. 
-    De plus, le manque d'expérience et l'ignorance des usages du métier impliquent de documenter non seulement les mots mais aussi ce qu'il faut faire durant la phase de \pc{Fabrication}. 
-    En d'autres termes, on se retrouve non pas à écarter la confusion sur les mots, mais à expliquer les opérations auxquelles ces mots font référence. 
+	\item \e{déléguer la fabrication à des contributeurs tiers} : l'utilisation du scripting pour définir la \pc{Commande} de contenu attendu semble une solution satisfaisante, à condition que le vocabulaire utilisé soit normé et rattaché à une conceptualisation de manière à éviter la confusion ou les différences d'interprétations. 
+    Lorsqu'il s'agit d'amateurs, la situation se complique car on ne peut pas s'appuyer sur une conceptualisation commune de la production audiovisuelle pour clarifier la commande. 
+    De plus, le manque d'expérience et l'ignorance des usages du métier impliquent non seulement de documenter les concepts par des mots et des définitions, mais aussi d'expliquer ce qu'il faut faire durant la phase de \pc{Fabrication}. 
+    En d'autres termes, en travaillant avec des amateurs, les professionnels ne se retrouvent non pas à écarter la confusion entre des mots se reférant au même concept, mais à expliquer les opérations auxquelles ces concepts font référence. 
     De même pour l'acquisition, s'il s'agit surtout de se mettre d'accord entre professionnels, travailler avec des amateurs semble plus difficile de prime abord. 
     Les notions de formats d'encodage et d'encapsulation sont souvent confuses ou se mélangent, de même que la description des contenus peut s'avérer compliquée à réaliser sans expérience préalable. 
     Tout du moins, il faut remarquer que la description de la demande initiale sert de description a minima du contenu produit, même si les variations ou les écarts ne sont pas forcément indiqués.
