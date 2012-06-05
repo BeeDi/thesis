@@ -1,27 +1,36 @@
 \newpage
-\section{Circulation et réutilisation des objets audiovisuels}\label{sec:gest}
+\section{Circulation et réutilisation des objets audiovisuels(m)}\label{sec:gest}
 
-[Voir MXF, voir AAF ? \cite{Cox2006}
+% [Voir MXF, voir AAF ? \cite{Cox2006}
+% [Identifiant : hors du cadre de la thèse, dépendant des choix applicatifs des organisations qui utilisent notre modèle. Plusieurs solutions peuvent être implementés via OWL, les URI pouvant être transformé.]
 
-[Identifiant : hors du cadre de la thèse, dépendant des choix applicatifs des organisations qui utilisent notre modèle. Plusieurs solutions peuvent être implementés via OWL, les URI pouvant être transformé.]
+\e{
+Si la promesse du numérique de faciliter la manipulation et la circulation des fichiers semble bien s'être réalisée, il n'est pas si évident de l'articuler avec les besoins de la production audiovisuelle (\ref{sec:besoins}).
+Ce que l'on nomme la réutilisation des objets audiovisuels recouvre en réalité diverses pratiques et qui repose plus sur la notion d'objet métier ou d'objet numérique que sur la notion informatique de fichier.
+Ainsi, la production souhaite récupérer des contenus existants ou produits par d'autres pour les intégrer dans sa propre chaîne de production, ou bien de réutiliser des contenus dans de nouveaux cadres d'exploitations (variation des modes de consommation, de distribution, de public etc.) quelque soit la manière dont l'informatique représente ces objets.}
+
+\e{
+Ces opérations qui semblaient a priori plus simple dans un environnement numérique sont en fait plus compliquées qu'il n'y paraît. 
+Le numérique impose le calcul et l'explicitation des informations.
+Or toutes les informations construites durant la chaîne de production ne sont pas encore intégrées dans les systèmes informatiques actuels.
+Lorsque ces informations s'échangent sur papier, à l'oral, par mail ou dans des fichiers non-structurés, le lien avec les objets audiovisuels est alors bien souvent rompu, ce qui entraîne une limitation des traitements réalisables sur ces objets.}
+
+\e{
+Dès lors que l'on s'applique à structurer et associer ces informations aux objets audiovisuels, on ouvre la possibilité de récupérer, manipuler, transformer ces objets de nouvelles manières. 
+Ainsi augmentés d'un supplément de contexte, les objets gagnent un supplément de manipulabilité susceptible de satisfaire aux besoins de la production audiovisuelle.
+Une des solutions développée et utilisée dans l'industrie de la production audiovisuelle est le format conteneur qui encapsule divers types de données en un seul fichier. 
+Ainsi, ces formats permettent d'associer de multiples types de fichiers multimédia avec d'autres types d'informations.}
+
+\e{
+Cette section a d'abord un souci de clarification des usages et des solutions adoptées. Nous nous intéresserons d'abord aux pratiques de réutilisations (\ref{sec:reuse}), puis nous expliquerons leurs impacts sur la chaîne de production audiovisuelle (\ref{sec:rechaine}). 
+Enfin, nous présenterons des formats conteneurs qui assurent le transport des contenus et des informations associées le long de la chaîne de production (\ref{sec:wrapper}).}
+
+
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Caractériser la réutilisation}\label{sec:reuse}
-\e{
-Si la promesse du numérique de faciliter la manipulation des contenus a bien été tenue, il n'est pas si évident d'articuler ces conditions technologiques avec les usages attendus.
-Il peut s'agir de récupérer des contenus existants ou produits par d'autres pour les intégrer dans sa propre chaîne de production, ou bien de réutiliser des contenus dans de nouveaux cadres d'exploitations (variation des modes de consommation, de distribution, de public etc.).}
-
-\e{
-Ces opérations qui semblaient a priori plus simple dans un environnement numérique sont en fait plus compliquées qu'il n'y paraît. 
-Le numérique impose le calcul et l'explicitation des informations. 
-Or toutes les informations construites durant la chaîne de production ne sont pas encore intégrées dans les systèmes informatiques actuels.
-Il existe donc une limite aux traitements réalisables, limite qu'il est possible de dépasser en représentant et en attachant d'autres types d'informations aux contenus. 
-Ainsi augmentés d'un supplément de contexte, les contenus gagneront un supplément de manipulabilité susceptible de satisfaire aux usages attendus.}
-
-
-
 % \subsubsection{Caractérisations de la réutilisation}\label{sec:caracs-reuse}
 Nous avons vu grâce à l'exemple de la section \ref{sec:ex-reuse} à quel moment et dans quel type d'opérations la réutilisation pouvait se concrétiser. 
 Nous proposons maintenant d'examiner la manière dont différentes communautés scientifiques  abordent la notion de réutilisation. 
@@ -166,6 +175,13 @@ Les pratiques de réutilisations sont donc chevillées aux dimensions techniques
 Leur mise en place pose également des problèmes dans l'organisation de la chaîne de production audiovisuelle et son informatisation
 % Il faut donc élargir le champ de la modélisation des contenus à une dimension sémiotique et éditoriale et faire le lien avec le déroulement de la production.
 
+
+
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Évolutions de la chaîne de production (M)}\label{sec:rechaine}
 \e{
@@ -245,3 +261,109 @@ Mais chaque pratique opére à différents étapes de la chaîne :
 \caption{Les différentes formes de réutilisation et leur mise en oeuvre dans la chaîne de production audiovisuelle.}
 \label{img:intro:reutilisation}
 \end{figure}
+
+
+
+
+
+
+
+
+\subsection{Formats conteneurs pour l'audiovisuel} \label{sec:wrapper}
+% intro
+Les formats conteneurs sont des formats de fichiers qui encapsulent des contenus de toutes sortes (audio, vidéo, texte, image etc.). 
+Un des exemples le plus connu pour la vidéo est le format AVI de Microsoft, souvent confondu avec un format de compression. 
+Ces formats ont la particularité d'associer aux contenus audio-visuels des informations annexes, le plus souvent sous la forme de métadonnées.
+L'intérêt de ces formats est de constituer un objet numérique qui structure l'enregistrement du contenu et de ces informations annexes et fournit ainsi une manière unique d'y accéder (\cite{Ferreira2010}).
+Sans cela, les informations seraient dispersées et le lien avec le contenu devrait se faire via des références. 
+Cette force constitue également un inconvénient lorsque le modèle d'information à associer au contenu est figé et ne correspond pas à ses besoins.
+
+Dans le cas de la production télévisuelle, deux formats liés et complémentaires ont été progressivement adoptés par l'industrie.  
+Il s'agit du \pc{Material eXchange Format} (MXF) et de l'\pc{Advanced Authoring Format} (AAF) que nous présentons par la suite. 
+Leur particularité est de pouvoir intégrer d'utiliser des schémas de métadonnées propres aux besoins de l'industrie, mais aussi de pouvoir en utiliser d'autres. 
+Comme ces formats servent de référence à l'industrie, il est particulièrement intéressant pour nous de comprendre leur modélisation d'un objet audiovisuel, de voir comment ils gèrent les résultats intermédiaires de la chaîne de production ou quelles genres d'informations ils embarquent avec le contenu.
+
+
+\subsubsection{Material eXchange Format}
+% qui / quand
+MXF est un format conteneur ouvert développé depuis le milieu des années 90 par des membres de l'industrie et standardisé en 2004 par la \pc{Society of Motion Picture and Television Engineers} (SMPTE).
+% objectif
+Son objectif est de favoriser les échanges de contenus audio-visuels finis en les associant à d'autres données et métadonnées (\cite{Devlin2002}). 
+% portée et usage
+
+
+% description
+Ses principales caractéristiques en tant que format sont les suivantes (\cite{Ferreira2010a}) : 
+\begin{liste} 
+	\item \e{indépendant d'un système propriétaire}. 
+	Le standard se veut avant tout un format qui fonctionne sur tout systèmes. 
+	Ainsi, il définit une organisation des données bit par bit qui repose notamment sur le système de \pc{Key-Length-Value} (KLV, clé-longueur-valeur). 
+	La clé donne un identificateur de l'élément à suivre, la longueur précise la taille de la valeur à suivre et la valeur contient les données de l'élément.
+	Comme dans tout format de fichier, on retrouve la définition d'en-tête et de fin de fichier. 
+	L'en-tête contient des métadonnées de description du contenu (\pc{Header Metadata}), de sa structuration (\pc{Partition Metadata}) et une table d'association entre un timecode et une position dans le flux binaire du fichier (\pc{Index Table}).
+
+	\item \e{indépendant des méthodes de compression du contenu utilisées}.
+	MXF définit une structure d'encapsulation et d'accès au contenu nommé \pc{Essence Container} (EC) qui permet de transporter du contenu sans le transformer ou bien de faire référence à des fichiers externes.  
+	MXF possède des transpositions permettant de synchroniser différents flux de contenus, quelque soit leur encodage. 
+	Chaque type de contenu est traité à part, ainsi les EC sont composés de \pc{Content Package}, eux-mêmes décomposé en \pc{Picture Item} (piste vidéo), \pc{SoundItem} (piste audio), \pc{Data Item} (télétexte, sous-titre etc.), \pc{Compound Item} (contenu audiovisuel encodé comme un seul contenu) et \pc{System Item} (autres données comme les timecode etc.).
+	La Figure \ref{img:mxf-content} montre deux méthodes d'encapsulation de ces essences.
+
+
+	\item \e{diffusable en flux continu ou bien par fichier}. 
+	Suivant la méthode d'organisation de l'EC décrit ci-dessus, le contenu d'un fichier MXF peut être visionné au cours de son transfert (streaming). 
+	Cette caractéristique est particulièrement importante dans le cadre de la diffusion télévisuelle et s'applique à tout les types de contenu d'un MXF (audio-visuel, mais aussi sous-titre ou métadonnées etc.). 
+	Naturellement, le fichier MXF peut également être transféré en FTP.
+
+	\item \e{une organisation des contenus indépendante de leur visionnage}. 
+	En effet, MXF définit à part l'organisation des contenus encapsulés et la manière de les visionner.
+	Le \pc{Header Metadata}	d'un fichier MXF contient une partie \pc{File Pacakage} (FP) qui décrit la manière dont les fichiers de contenus sont encapsulés dans le MXF. 
+	Cette description détaille les méthodes d'encodage pour toutes les pistes de contenus (Track) du fichier, de même que les timecode originaux.
+	Cependant, si le FP décrit les sources d'un fichier MXF, il existe également un \pc{Material Package} (MP) décrivant la manière dont celles-ci doivent être visionnées.
+	Il s'agit là de définir un montage simplifié qui explicite quelle partie et dans quel ordre jouer les contenus sources, à la manière d'une \ciel{Edit Decision List}. 
+
+	\item \e{encapsulation conjointe des contenus et des métadonnées}. 
+	Comme nous l'avons vu, un fichier MXF contient des métadonnées propres à l'ensemble du fichier ainsi que des métadonnées propres à chaque paquet de données (Package). 
+	Ces éléments sont intégrés dans la structure du fichier, au même titre que le contenu.
+\end{liste}
+
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.9\textwidth]{images/MXF-ContentPackage.png}
+\caption{Deux méthodes d'encapsulation des essences en MXF : image par image (haut, pour le streaming), par séquence vidéo (bas).}
+\label{img:mxf-content}
+\end{figure}
+
+Du fait de sa large adoption par l'industrie de la télévision, il favorise l'interopérabilité entre les systèmes, souvent propriétaires, des producteurs, diffuseurs, chaînes de télévision etc. (\cite{Ferreira2010}, \cite{Devlin2002}). 
+Cependant, MXF n'est pas fait pour gérer les résultats intermédiaires de la chaîne de production. 
+Il a été spécifiquement conçu pour favoriser la circulation des programmes finis, indépendamment de la manière dont les contenus sont matériellement enregistrés et structurés.
+De ce fait, MXF se positionne comme un format utilisé en fin de chaîne de production, à la diffusion des programmes ou bien dans le cas d'échanges entre professionnels.
+
+\subsubsection{Advanced Authoring Format}
+% \cite{Gilmer2002} 
+% \cite{Austerberry2004}
+% qui 
+AAF est un format conteneur développé principalement par l'\ciel{Advanced Media Workflow Association} (AMWA) en collaboration avec d'autres organismes tels que le SMPTE et l'EBU.
+% objectif, portée et usage 
+Ses objectifs sont similaires à celui de MXF, à la différence qu'AAF vise à favoriser les échanges de contenus à l'intérieur de la chaîne de production (\cite{Austerberry2004}).
+AAF s'occupe plus particulièrement des informations utilisées au moment de la post-production par les applications de montage : 
+
+\ciel{The traditional workflow – based around tape interchange, isolated non-linear editing and authoring tools, and ad-hoc metadata systems – is being recast as a more integrated networked system with a consistent approach to the format and interchange of essence and metadata.} (\cite{Gilmer2002})
+
+% description
+Le modèle de MXF présenté précédemment est en réalité une sous-partie de celui d'AAF. 
+On retrouve donc les mêmes principes et fonctions, dont les \pc{Packages} qui portent les descriptions et les \pc{Items} qui encapsulent les contenus. 
+Parmi les éléments supplémentaires dans AAF qui le destine particulièrement à une utilisation dans la chaîne de production., nous trouvons :
+\begin{liste}
+	\item le \pc{Physical Source Package} permet de référencer des contenus enregistré sur d'autres mediums que les disques durs (cassette vidéo, bande 35mm etc.).
+
+	\item le \pc{Composition Package} permet de définir la manière dont le contenu doit être visionné en termes d'ordre (comme MXF) mais aussi en terme d'effets, de transition ou de composition des flux de contenu (ce que l'on appelle des EDL complexes).
+	
+	\item le \pc{Dictionary} qui permet d'intégrer des définitions des métadonnées autres que celles du dictionnaire du SMPTE dans le AAF.
+\end{liste}
+
+De plus, AAF se différencie par l'utilisation de la technologie \e{Structured Storage} de Microsoft pour gérer l'organisation des données (plutôt que la méthode du KLV).
+De ce fait, AAF ne permet pas la diffusion en continu (streaming) de ses contenus.
+Cependant, les deux formats utilisent le même modèle de structuration, ce qui permet aux applications d'effectuer des transformations de l'un à l'autre aisément, et particulièrement du AAF vers le MXF en suivant le déroulement de la chaîne.
+Leurs différences les prédisposent néanmoins à des usages complémentaires. 
+AAF se positionne comme un format pour la post-production qui conserve toutes les sources et le master alors que MXF, avec son modèle simplifié et ses capacités de diffusion en continu, est particulièrement intéressant pour les échanges de programmes finis.
