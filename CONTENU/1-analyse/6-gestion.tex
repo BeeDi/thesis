@@ -288,12 +288,11 @@ Comme ces formats servent de référence à l'industrie, il est particulièremen
 % qui / quand
 MXF est un format conteneur ouvert développé depuis le milieu des années 90 par des membres de l'industrie et standardisé en 2004 par la \pc{Society of Motion Picture and Television Engineers} (SMPTE).
 % objectif
-Son objectif est de favoriser les échanges de contenus audio-visuels finis en les associant à d'autres données et métadonnées (\cite{Devlin2002}). 
-% portée et usage
-
+Son objectif est de favoriser les échanges de contenus audio-visuels finis en les associant à d'autres données ou métadonnées (\cite{Devlin2002}).
+Ces métadonnées sont structurés par le schéma \pc{Descriptive Metadata Scheme-1} (DMS-1, ) que nous présenterons en détails dans la suite de la section. 
 
 % description
-Ses principales caractéristiques en tant que format sont les suivantes (\cite{Ferreira2010a}) : 
+Voici d'abord les principales caractéristiques de MXF en tant que format (\cite{Ferreira2010a}) : 
 \begin{liste} 
 	\item \e{indépendant d'un système propriétaire}. 
 	Le standard se veut avant tout un format qui fonctionne sur tout systèmes. 
@@ -322,8 +321,8 @@ Ses principales caractéristiques en tant que format sont les suivantes (\cite{F
 	Il s'agit là de définir un montage simplifié qui explicite quelle partie et dans quel ordre jouer les contenus sources, à la manière d'une \ciel{Edit Decision List}. 
 
 	\item \e{encapsulation conjointe des contenus et des métadonnées}. 
-	Comme nous l'avons vu, un fichier MXF contient des métadonnées propres à l'ensemble du fichier ainsi que des métadonnées propres à chaque paquet de données (Package). 
-	Ces éléments sont intégrés dans la structure du fichier, au même titre que le contenu.
+	Comme nous l'avons vu, un fichier MXF contient un \pc{Header Metadata} transportant des métadonnées propres à l'ensemble du fichier ainsi que des métadonnées propres à chaque paquet de données (Package). 
+	Ces éléments sont donc intégrés dans la structure du fichier, au même titre que le contenu.
 \end{liste}
 
 
@@ -334,10 +333,80 @@ Ses principales caractéristiques en tant que format sont les suivantes (\cite{F
 \label{img:mxf-content}
 \end{figure}
 
+\paragraph{Adoption et usage}
 Du fait de sa large adoption par l'industrie de la télévision, il favorise l'interopérabilité entre les systèmes, souvent propriétaires, des producteurs, diffuseurs, chaînes de télévision etc. (\cite{Ferreira2010}, \cite{Devlin2002}). 
 Cependant, MXF n'est pas fait pour gérer les résultats intermédiaires de la chaîne de production. 
 Il a été spécifiquement conçu pour favoriser la circulation des programmes finis, indépendamment de la manière dont les contenus sont matériellement enregistrés et structurés.
 De ce fait, MXF se positionne comme un format utilisé en fin de chaîne de production, à la diffusion des programmes ou bien dans le cas d'échanges entre professionnels.
+
+\subsubsection{Description Metadata Scheme-1}
+DMS-1 a été standardisé par le SMPTE en 2004 \cite{Smpte2004}.
+Il propose trois schémas de description (\pc{Framework}), chacun proposant une perspective de description particulière : 
+\begin{liste}
+	\item le \pc{Production Framework} propose une description du fichier MXF en tant que résultat d'une production. 
+	Les informations qu'il regroupe s'appliquent donc au fichier en entier (identification, propriété intellectuelle, droits et contrats, projet, format de publication, format d'image, récompense) mais aussi au contenu de l'objet audiovisuel (évènements relatés, période historique, annotation).
+
+	\item le \pc{Clip Framework} aborde la description du point de vue de la création du matériel audio-visuel, c'est-à-dire des séquences de contenu encapsulées dans le MXF. 
+	On retrouve des informations liées à la production (projet, droits et contrat) mais surtout des éléments pour décrire les essences (format de l'image, sous-titre, script utilisé, matériel utilisé et paramètrage, opérations de transformation des essences) et une description par plan.
+
+	\item le \pc{Scene Framework} propose une vision éditoriale du contenu en le découpant en scène et plan. 
+	Ces éléments sont ensuite décrits en terme d'évènements, en précisant les participants et les lieux où ils se déroulent etc.
+\end{liste}
+
+\paragraph{Framework et ensemble de métadonnées}
+Ces \pc{Framework} sont composés de petits ensembles de métadonnées, parfois partagés,  que l'on attachent au \pc{Header Metadata} d'un fichier MXF. 
+Par exemple, l'ensemble \pc{Titles} est commun au trois \pc{Framework} et se compose des métadonnées suivantes ; \e{Extended Text Language Code} ; \e{Main Title} ; \e{Secondary Title} ; \e{Working Title} ; \e{Original Title} ; \e{Version Title}. 
+De nombreux autres ensembles sont partagés, comme les annotations, la description des lieux, des participants, des organisations etc. 
+Ces ensembles prennent alors un sens différent en fonction du \pc{Framework} auquel ils sont associés. 
+Par exemple, on distingue les participants à la production, à la création d'une séquence, en tant que présentateur ou acteur (respectivement pour le \pc{Production}, \pc{Clip} et \pc{Scene Framework}). 
+De même, pour les lieux il peut s'agir d'un lieu où se trouve l'organisme producteur, du lieu de tournage, du lieu où se déroule l'action qui est différent du lieu de tournage dans le cas d'une fiction (respectivement pour le \pc{Production}, \pc{Clip} et \pc{Scene Framework}). 
+Ainsi, la distinction entre éléments réels (issu du \pc{Clip Framework}) ou fictifs (issu du \pc{Scene Framework}) n'est pas clairement spécifié. 
+De manière générale, il semble regrettable que les mêmes ensembles de métadonnées soient utilisés pour décrire des objets différents.
+Cela propage ainsi une certaine confusion sur le plan sémantique. 
+
+\paragraph{Framework et Package MXF}
+Comme pour les ensembles, les \pc{Framework} peuvent s'attacher à un ou plusieurs des \pc{Package} de MXF (\pc{File Package}, \pc{Material Package} etc.). 
+Par exemple, le \pc{Clip Framework} appliqué au \pc{Material Package} décrit ce qui est nécessaire au visionnage du contenu (format d'image prévu).
+S'il s'appliquait au \pc{File Package}, les informations correspondrait aux informations de création (format d'image original).
+Là encore, l'objet de la description change légèrement et si les mêmes éléments de description peuvent être utilisé, il semblerait plus clair de préciser la nature de ces informations. 
+
+Nous remarquerons que DMS-1 utilise la notion de plan de deux manière différentes qui peuvent sembler ambigüe. 
+Ainsi, le plan est utilisé à la fois dans le \pc{Clip Framework} et le \pc{Scene Framework}. 
+D'après les auteurs, cela correspond à la nature duale des plans, à la fois élément factuel et éditorial. 
+Ce choix implique alors que chaque plan peut être décrit à deux endroits à la fois, selon deux perspectives différentes (descriptive de ce qui est perçu, ou bien pour nommer le plan par rapport au script par exemple).
+
+\paragraph{Multilingue et thésaurus}
+Concernant la gestion des vocabulaires et des langues, DMS-1 prévoit que certains ensembles de métadonnées soient décrites par un code de langue et puissent faire référence à un élément d'un thésaurus.
+Cette perspective est particulièrement intéressante vis-à-vis des besoins que nous avons exprimés dans le chapitre précédent (\ref{sec:bm}).
+Cependant, le lien avec un thésaurus externe est limité car il ne s'applique qu'aux ensembles et non à chaque métadonnée de l'ensemble.
+
+\paragraph{Travaux liés}
+\cite{Marcos2009} ont construit une ontologie basée sur le schéma DMS-1, MPEG-7 et une ontologie de domaine pour construire un système de Media Asset Management. 
+Ce système, développé dans le cadre du projet européen RUSHES, a pour objectif d'aggréger des informations récoltées pendant la production par différentes sources, puis de les associer aux objets audiovisuels et proposer des services de recherche d'information et d'accès au contenu (\cite{Gorka2008}). 
+Les objets audiovisuels considérés sont les prises de vue brutes, nommées \ciel{rush} dans le milieu audiovisuel.
+
+L'approche consiste à transformer ou relier des informations de bas-niveau en une indexation sémantique à l'aide des ontologies développées.
+Les services sémantiques proposés par le système sont les suivants : 
+\begin{liste}
+	\item \e{transformation de formats des données échangées pendant la production}. 
+	Les annotations recueillies à partir des équipements de tournage et après analyse automatique du contenu sont transformés du format DMS-1 en un autre format utilisé par le système d'indexation.
+	\item \e{sémantisation de l'analyse automatique du contenu}. 
+	Les auteurs prennent l'exemple d'une reconnaissance des visages qui permet d'identifier le nombre de personnes présents dans une séquence.
+	Ces personnes peuvent alors être intégrées à une base de connaissances.
+	De même, l'analyse permet de détecter les changements de plans.
+	\item \e{recherche, découverte, annotation de séquences}. 
+	La recherche peut se faire soit à l'aide de mots-clés, soit à l'aide des concepts de l'ontologie, qui permettent alors d'enrichir les requêtes, de proposer des recommandations etc. 
+	De plus, l'ontologie peut être également utilisé pour relier les annotations manuelles avec des concepts ou des éléments de la base de connaissances.
+\end{liste}
+
+Ces travaux poussent ainsi l'utilisation de DMS-1 en tant que schéma de description des prises de vue, juste après leur production, et non pas seulement des programmes finis, en fin de chaîne. 
+Ce changement de granularité montre l'importance du \pc{Clip Framework} et du \pc{Scene Framework} qui permettent d'attacher la description à ces objets intermédiaires de la production.
+Ceci est d'autant plus pertinent que DMS-1 prévoit déjà de décrire, en partie, les participants de la chaîne et leurs contributions.
+
+L'originalité de l'approche se situe également dans la transformation des résultats d'une analyse automatique en objet sémantique. 
+Les exemples de l'analyse des visages et de la détection de plan sont éclairants mais les auteurs ne fournissent pas d'indication pour généraliser le procédé à d'autres types d'information.
+
+
 
 \subsubsection{Advanced Authoring Format}
 % \cite{Gilmer2002} 
@@ -367,3 +436,5 @@ De ce fait, AAF ne permet pas la diffusion en continu (streaming) de ses contenu
 Cependant, les deux formats utilisent le même modèle de structuration, ce qui permet aux applications d'effectuer des transformations de l'un à l'autre aisément, et particulièrement du AAF vers le MXF en suivant le déroulement de la chaîne.
 Leurs différences les prédisposent néanmoins à des usages complémentaires. 
 AAF se positionne comme un format pour la post-production qui conserve toutes les sources et le master alors que MXF, avec son modèle simplifié et ses capacités de diffusion en continu, est particulièrement intéressant pour les échanges de programmes finis.
+
+\subsubsection{SMPTE descriptive metadata dictionnary}
