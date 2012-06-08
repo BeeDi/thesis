@@ -104,13 +104,17 @@ Ce scénario suit celui de la commande de tournage développé en section \ref{s
 
 \subsection{Scénario de réutilisation multiple (m)}\label{sec:ex-reuse}
 Imaginons une chaîne de télévision (la RTBF par exemple) qui souhaite réaliser la captation d'un évènement culturel, comme un opéra, une pièce de théâtre, un concert etc. 
-Les producteurs de la chaîne sont intéressés par trois types de contenus (notés a, b, c dans la liste suivante) qui seront ensuite exploités de quatre manières différentes (numérotées 1, 2, 3, 4 dans la liste suivante).
-La Figure \ref{img:intro:reuse} illustre les liens entre contenus et formes d'exploitations :
-\begin{listenum}
+Le défi de la réutilisation consiste à intégrer les contenus que l'on produit dans différentes formes d'exploitation. 
+Pour notre scénario, la Figure \ref{img:reuse} résume les liens entre contenus (à gauche) et formes d'exploitations (à droite). 
+Ainsi, les producteurs de la chaîne sont intéressés par trois types de contenus :
+\begin{liste}
 	\item[a.] la \e{captation de l'évènement} en tant que tel, qui pourrait être réalisé par une organisation tierce à la RTBF.
 	\item[b.] des \e{entrevues avec l'équipe} (metteur en scène, talents sur scène, programmateur etc.) qui serait prise en charge par la RTBF. 
 	\item[c.] des \e{commentaires du public} avant ou après l'évènement, par des amateurs, spectateurs ou non.\\
+\end{liste}
 
+Ces contenus seront ensuite exploités de quatre manières différentes, 
+\begin{listenum}
 	\item une partie de tous les types de contenu sera utilisée pour construire un sujet destiné à un \e{journal télévisé}. 
 	\item un montage raccourci de l'évènement et des commentaires du public seront utilisés pour produire une \e{bande-annonce diffusée sur le Web}.
 	\item un montage de la captation de l'évènement, des bonus comprenant les entrevues avec l'équipe ainsi que la bande-annonce utilisant les commentaires spectateurs seront intégrés dans le \e{DVD}.	 
@@ -121,8 +125,9 @@ La Figure \ref{img:intro:reuse} illustre les liens entre contenus et formes d'ex
 \centering
 \includegraphics[width=0.7\textwidth]{images/UC-Tahnhauser-v1fr.png}
 \caption{Modèle de la production classique comparé avec une production avec réutilisation}
-\label{img:intro:reuse}
+\label{img:reuse}
 \end{figure}
+
 
 Chaque cas de réutilisation tire sa matière première d'à peu près la même base de contenu filmé, mais en tire partie d'une manière propre à chaque forme d'exploitation visée. 
 En effet, chaque audience a ses attentes, de même qu'il existe des contraintes techniques spécifiques pour chaque contexte d'exploitation. 
