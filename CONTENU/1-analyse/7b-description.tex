@@ -39,9 +39,9 @@ rightsHolder & \\ \hline
 \e{title} & 
 	alternative \\ \hline
 \e{type} & \\ \hline
-		\end{tabularx}
-		\caption{Liste des propriétés et sous-propriétés du DCMI Metadata Terms \label{tab:dcmi}}
-   \end{center}
+\end{tabularx}
+\caption{Liste des propriétés et sous-propriétés du DCMI Metadata Terms}\label{tab:dcmi}
+\end{center}
 \end{table}
 
 La \pc{Dublin Core Metadata Initiative} (DCMI) est une organisation qui vise à développer et promouvoir l'usage de standards de description de ressources afin de faciliter l'échange d'information sur le Web.
@@ -112,7 +112,7 @@ Et ce, d'autant plus, que DMS-1 fournit des informations plus adapté à l'audio
 
 
 %=============
-\subsection{MPEG-7 Part 5: Multimedia Description Scheme}
+\subsection{MPEG-7 Part 5: Multimedia Description Scheme}\label{sec:mpeg7}
 % \cite{Hunter2001} ; \cite{Troncy2007} ; \cite{Nack2005a} ; \cite{Dasiopoulou2009} ; \cite{Garcia2005} ; 
 
 % à revoir
@@ -233,19 +233,145 @@ La description peut être raffinée en utilisant des concepts (\pc{Concept}), en
 
 
 
-%To address the standard's inherent annotation ambiguity and bring it to a Semantic Web level, \cite{Arndt2007} performed a selected formalization based on the DOLCE foundational ontology. In a sense, they have provided us with a knowledge representation version of MPEG-7.\\
 
 
 
-% Ontologies basées sur MPEG-7 : \cite{Dasiopoulou2009}
+%Core Ontology for MultiMedia
 %=============
-\subsection{Core Ontology for MultiMedia}
+\subsection{Ontologies basées sur MPEG-7}
 % \addcontentsline{toc}{subsubsection}{Core Ontology for MultiMedia}
-\cite{Arndt2009} ; \cite{Arndt2007} ; \cite{Staab2008} 
-MPEG-7 has been widely used to represent low-level features and to associate them with parts of multimedia material \cite{VanOssenbruggen2004}. \cite{Nack2005a} and \cite{Arndt2009} pointed two major drawbacks to the use of MPEG-7 in a Semantic Web environment: 1) its representation as a XML Schema do not provide direct integration with other knowledge representation standards 2) the inherent syntactic and semantic ambiguity of content annotation descriptors. 
+MPEG-7 est une norme qui propose de nombreux descripteurs pour modéliser les objets audiovisuels.
+La grande force de son approche est d'associer ces descripteurs à n'importe quel séquence de contenu multimédia.
+Cette richesse amène également une certaine difficulté dans l'appréhension de sa modélisation, tant la norme est étendue et complexe. 
+De nombreux auteurs ont critiqués l'approche de représentation de la norme, notamment du fait de l'ambiguïté sémantique et syntaxique des descriptions produites (\cite{VanOssenbruggen2004, Nack2005a, Troncy2007, Dasiopoulou2009, Arndt2007}).
 
-Several works have tried to formalize the standards partially, \cite{Hunter2001} and \cite{Tsinaraki2004}. \cite{Garcia2005} created automatically a full OWL conversion. However, these works have never provided a clear solution to the syntactic and semantic ambiguity of MPEG-7 content description. The Core Ontology for MultiMedia (COMM) proposes to redesign MPEG-7 with respects to the Semantic Web and knowledge representation standards \cite{Arndt2007}. Using the DOLCE foundational ontology as a modeling basis, they performed a selected formalization of MPEG-7 descriptor and thus clarified modeling patterns. 
+En effet, si l'utilisation des langages XML semblait légitime à l'époque, il en résulte un manque de formalisation qui complique les raisonnements et l'interopérabilité avec d'autres schémas de description (\cite{Nack2005a}).
+De plus, la possibilité de créer plusieurs variantes syntaxiques valides pour représenter la même description rend difficile leur maintien et leur intéropérabilité, et ce même avec d'autres descriptions MPEG-7 (\cite{Arndt2007}).
+Une approche formalisée sémantiquement aurait permis de réconcilier ces différentes variantes de représentation. 
 
+Deux autres inconvénients mis en évidence par \cite{Nack2005a} sont la rigidité structurelle des descriptions et l'abscence de relations entre documents. 
+La description d'un fragment de contenu ne peut se faire hors d'une structure de description d'un document entier. 
+Une fois cette structure fixée, elle ne pourra plus être altérée, sous peine de la rendre incompatible avec les anciennes versions.
+Les relations doivent également être contenu à l'intérieur d'une description d'un document.
+De ce fait, créer une relation entre deux programmes obligent à créer un document de type collection contenant ces deux programmes.
+
+MPEG-7 reste une source de référence et d'inspiration pour plusieurs série de travaux qui tentent de pallier à ces défauts de représentation.
+Leur approche consiste à proposer une formalisation sémantique d'une partie du standard avec pour objectif de relier ces descriptions à des ontologies de domaines.
+\cite{Troncy2007} et \cite{Dasiopoulou2009} ont étudié plusieurs de ces travaux en vue de les comparer, voir la Table \ref{tab:ontos} pour une synthèse de leur comparaison. 
+Ces travaux par l'étendue de leur reprise de \g{MPEG-7} (colonne éponyme) ; l'ontologie générique à laquelle il se raccroche pour réaliser des alignements et des liens avec des ontologies de domaines (colonne \g{Ontologie}) ; le type et le domaine d'applications visés (colonne \g{Applications}) ; le langage de représentation utilisé (RDF-S ou OWL) (colonne \g{Langage}) ; le type de modélisation, modulaire (fond blanc) ou monolithique (fond gris).
+On remarquera en particulier que ces ontologies se concentrent sur les parties de décomposition structurelles des objets audiovisuels, et sur les descripteurs bas-niveau (Visual DS et Audio DS).
+% Il en résulte ...
+
+\begin{table}[htb!]
+% \begin{center}
+\begin{tabularx}{\textwidth}{l p{95pt} l p{135pt} r}
+\hline
+	\g{Nom} & \g{MPEG-7} & \g{Ontologie} & \g{Application} & \g{Langage} \\ \hline
+	
+	\rowcolor{lightgray}
+	\pc{Harmony} &  Structure+Visual DS & ABC & analyse et annotation d'image dans le milieu médical & OWL Full \\ \hline
+	
+	\pc{aceMedia} & Structure+Visual DS & DOLCE+AO & analyse et annotation de match de tennis & RDF-S \\ \hline
+
+	\pc{SmartWeb} &  Structure+Visual DS & SmartSUMO & analyse et annotation de vidéo de match de football & OWL \\ \hline
+
+	\pc{Boemie} & Structure+Visual DS + Audio DS & -- & analyse, annotation et recherche de documents multimédia & OWL-DL  \\ \hline
+	
+	\pc{COMM} &  Structure+Visual DS & DOLCE & -- & OWL-DL \\ \hline
+
+	\rowcolor{lightgray}
+	\pc{Rhizomik} & MPEG-7 en entier & Semantic DS & conversion MPEG-7 XML vers OWL & OWL-DL \\ \hline
+
+	\pc{DS-MIRF} & MDS complet & Semantic DS & conversion MPEG-7 XML vers OWL (football et formule 1) & OWL-DL \\ \hline
+\end{tabularx}
+\caption{ }\label{tab:ontos}
+% \end{center}
+\end{table}
+
+
+
+\paragraph{\pc{Harmony}}
+\cite{Hunter1999} ont réalisé la première tentative de formalisation sémantique de MPEG-7. 
+L'ontologie \pc{Harmony} était représentée initiallement en RDF-S puis en OWL Full, et suit de près la modélisation proposée par MPEG-7. 
+Il en résulte les mêmes constats que pour MPEG-7, la modularité des descriptions ainsi qu'une ambiguïté syntaxique et sémantique.
+
+Les travaux de \cite{Hunter2001} ont intégré l'ontologie générique ABC permettant de modéliser des temporalités (évènement, situation, action), des actualités (artefact ou agent) et des oeuvres.
+L'intégration d'ABC doit aussi permettre de créer des relations ou des alignements avec des ontologies génériques ou de domaines, pour favoriser l'interopérabilité la spécialisation des descriptions. 
+\cite{Hunter2004} est un exemple d'utilisation de l'ontologie pour l'annotation et l'analyse d'images médicales. 
+
+
+\paragraph{\pc{aceMedia}}
+Le projet \pc{aceMedia}\footnote{http://www.acemedia.org} a développé deux ontologies basées sur MPEG-7. 
+La \pc{Multimedia Structure Ontology} (MSO) pour la description de la structure des objets audiovisuels, et la \pc{Visual Descriptor Ontology} (VDO) pour les aspects visuels (\cite{Petridis2004, Martinez2002}).
+Ces ontologies proposent une modélisation modulaire, proche de MPEG-7, mais qui clarifie certaines ambiguïtés syntaxiques, à l'inverse d'\pc{Harmony}.
+Par exemple, MSO introduit les classes \cd{mso:Frame} et \cd{mso:KeyFrame} afin de distinguer leur rôle respectif. 
+Dans MPEG-7 et \pc{Harmony}, la description d'une image pouvait résulter de l'utilisation d'un \pc{VideoSegment} ou d'une \pc{StillRegion}.
+
+MSO et VSO utilisent deux ontologies génériques, DOLCE Lite et l'Annotation Ontology (AO).
+L'AO a été construite pour spécialiser les entités de DOLCE (\cite{Borgo2002}) afin de faciliter la mise en relation avec des ontologies de domaine.
+Ces ontologies ont été utilisé pour l'analyse et l'annotation d'images et de vidéos dans le domaine du sport (jeu de tennis, \cite{Petridis2006}) et pour des vidéos personnelles.
+
+
+\paragraph{\pc{SmartWeb}}
+Le projet \pc{SmartWeb}\footnote{http://www.smartweb-projekt.de/start\_en.html} a développé un ensemble d'ontologies pour construire des services d'in\-fo\-rmations sur le Web. 
+Parmi cet ensemble, on trouve une ontologie d'annotation de contenu multimédia qui se construit sur l'ontologie générique SmartSUMO (\cite{Oberle2007, Vembu2006}).
+SmartSUMO est elle-même développé dans ce projet à partir de DOLCE (\cite{Borgo2002}) et SUMO (\cite{Niles2001}). 
+Par rapport aux deux premières ontologies, celle-ci permet d'ajouter des informations de création et de production en formalisant le processus d'annotation lui-même.
+
+Une particularité de la modélisation est de considérer les objets multimédia et les segments comme deux classes soeurs, et non comme une spécialisation, ce qui amène certaines ambiguïtés dans des décompositions complexes.
+L'ontologie a été utilisé pour l'analyse et l'annotation de vidéos de match de football.
+
+
+\paragraph{\pc{Boemie}}
+Le projet \pc{Boemie}\footnote{http://www.boemie.org/} a développé deux ontologies ; la \pc{Multimedia Content Ontology} (MCO) et la \pc{Multimedia Descriptors Ontology} (MDO). 
+Ces ontologies visent à re-modéliser MPEG-7 en OWL-DL, du point de vue de la décomposition des objets audiovisuels et des descripteurs audio et vidéo de bas-niveau (\cite{Dasiopoulou2009a}).
+
+On retrouve la séparation entre objets audiovisuels et segments, mais cette modélisation utilise des restrictions de classes pour éviter toute ambiguïté.
+La décomposition peut également se faire de manière indépendante sur un plan logique (unité logique) et factuel (segments).
+Le lien avec des ontologies de domaines se fait par des relations pointant vers des concepts génériques de MCO.
+\cite{Karkaletsis2005} propose une utilisation de ces ontologies dans le cadre de l'analyse, l'annotation et la recherche de documents multimédia.
+
+
+\paragraph{COMM}
+\cite{Arndt2007, Staab2008, Arndt2009}
+% However, these works have never provided a clear solution to the syntactic and semantic ambiguity of MPEG-7 content description. The Core Ontology for MultiMedia (COMM) proposes to redesign MPEG-7 with respects to the Semantic Web and knowledge representation standards \cite{Arndt2007}. Using the DOLCE foundational ontology as a modeling basis, they performed a selected formalization of MPEG-7 descriptor and thus clarified modeling patterns. 
+\cite{Gangemi2005}
+
+
+\paragraph{\pc{Rhizomik}}
+Contrairement aux approches précédentes, \cite{Garcia2005} ont developpés une méthode de conversion automatique de MPEG-7 dans le cadre du projet \pc{ReDeFer}\footnote{http://rhizomik.net/redefer}.
+Alors que les autres approches retravaillent la modélisation de MPEG-7 pour la clarifier et l'ajuster à leurs besoins, cette méthode reprend directement le XML Schema du standard.
+La méthode repose sur deux langages d'alignement, XML2RDF et XML2OWL qui permettent de convertir tous les éléments en une ontologie OWL nommée \pc{Rhizomik}.
+
+La séparation entre objets et segments multimédia est totale puisque les deux classes ne sont même pas soeurs.
+De plus, reprenant la représentation de MPEG-7, cette nouvelle représentation conserve ses défauts déjà mentionnés, ambiguïté et complexité de la représentation.
+Du point de vue de la mise en relation avec des ontologies de domaines, cela est rendu possible par l'intermédiaire du Semantic DS.
+Cette modélisation (décrite en \ref{sec:mpeg7}) est plus orienté et moins complète que celle proposée par des ontologies génériques.
+De plus, l'approche nécessite d'utiliser un XML Schema pour définir les concepts du domaine, avant de pouvoir effectuer la transformation en une ontologie OWL.
+De ce fait, l'ontologie est mieux utilisée pour transformer des descriptions MPEG-7 que pour faciliter l'intégration avec d'autres ontologies.
+
+
+\paragraph{DS-MIRF}
+\cite{Tsinaraki2004a, Tsinaraki2007} présentent le DS-MIRF framework qui traduit manuellement le MDS, l'Audio DS et le Visual DS en une ontologie OWL-DL.
+Plus précisément, la transformation est piloté par une ontologie tierce qui définit les alignements en le XML Schema et les entités OWL.
+Cette méthode permet d'expliciter et de clarifier certaines ambiguïtés de MPEG-7, mais la structure de l'ontologie reste proche de celle de \pc{Rhizomik}.
+
+Une méthodologie a été proposé pour traduire systématiquement les déclarations réalisées avec une ontologie de domaine en déclarations compatibles avec la sémantique de MPEG-7.
+Ainsi, contraiment à la méthode de \pc{Rhizomik}, l'intégration avec d'autres ontologies est réalisé en définissant un alignement, plutôt qu'en transformant les ontologies en XML Schema.
+Le DS-MIRF framework a été utilisé pour l'annotation de match de football et de courses de Formule 1.
+
+
+% Several works have tried to formalize the standards partially, \cite{Hunter2001} and \cite{Tsinaraki2004}. \cite{Garcia2005} created automatically a full OWL conversion.
+
+% To address the standard's inherent annotation ambiguity and bring it to a Semantic Web level, \cite{Arndt2007} performed a selected formalization based on the DOLCE foundational ontology. In a sense, they have provided us with a knowledge representation version of MPEG-7.\\
+% 
+% MPEG-7 has been widely used to represent low-level features and to associate them with parts of multimedia material \cite{VanOssenbruggen2004}. \cite{Nack2005a} and \cite{Arndt2009} pointed two major drawbacks to the use of MPEG-7 in a Semantic Web environment: 1) its representation as a XML Schema do not provide direct integration with other knowledge representation standards 2) the inherent syntactic and semantic ambiguity of content annotation descriptors. 
+
+
+
+%=============
+\subsection{OntoMedia : la convergence des modèles}
+\cite{Lee2012}, \cite{Burger2011}
 
 
 
@@ -267,14 +393,8 @@ The authors merge the concepts of Expression and Manifestation. Moreover, they a
 % \addcontentsline{toc}{subsubsection}{TV Anytime}
 \cite{Evain2000} ; \cite{Tsinaraki2004} ; \cite{Tsinaraki2005}
 
-%=============
-\subsection{Material eXchange Format : Description Metadata Scheme-1}
-% \addcontentsline{toc}{subsubsection}{Material eXchange Format : Description Metadata Scheme-1}
-\cite{Marcos2009}
 
-%=============
-\subsection{OntoMedia : la convergence des modèles}
-\cite{Lee2012}, \cite{Burger2011}
+
 
 
 
@@ -288,14 +408,6 @@ Another trail of research has emerged recently. In comparison to the previous ap
 A similar work has been carried out by \cite{VanRijsselbergen2009} but with distinct goal and language. Their MovieScriptMarkupLanguage (MSML) captures the information of a shooting script with a particular attention to the details of set equipment's and actor's positions. The related Scoop system \cite{Cardinaels2008} provides its user 3D model of the set as well as the shots taken by the camera in a given position and settings. The overall objective is to provide an shooting-set 3D simulation to assist the production team in their preparation.\\
 
 
-
-
-
-
-%=============================
-%=============================
-\subsection{Systèmes informatiques}
-\cite{Tsinaraki2005} ; \cite{Tsinaraki2004} ; \cite{Dasiopoulou2009} (dans Gestion ?)
 
 
 
