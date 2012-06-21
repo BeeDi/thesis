@@ -1,15 +1,15 @@
 \section{Qu'est-ce qu'un objet audiovisuel numérique ?}\label{sec:dav}
 \e{
 Dans le monde de l'audiovisuel, certaines notions implicites déterminent la manière dont les professionnels se représentent les objets qu'ils produisent, manipulent, échangent etc. 
-L'objectif de cette section est d'expliciter les définitions de ces objets, d'en faire un inventaire.
+L'objectif de cette section est d'expliciter les définitions de ces objets, d'en faire un inventaire (\ref{sec:pv-av}).
 Notre démarche ne se limite pas cependant à la vision des professionnels de la production, puisque nous comparerons leurs concepts avec ceux d'autres communautés, en vue d'identifier des écarts ou des manques que nous pourrions intégrer dans notre travail.
-Ainsi, la communauté des bibliothèques numérique examine plus en détails les relations qui existent entre les résultats d'un processus de création. 
-La communauté de l'ingénierie documentaire et des sciences de l'information et de la communication invoque quant-à-eux la notion de document, généralement fort absente dans la communauté audiovisuelle, et propose une vision plus fine des différents état de la fabrication et de la consultation d'un contenu audiovisuel.
+Ainsi, la communauté des bibliothèques numérique examine plus en détails les relations qui existent entre les résultats d'un processus de création (\ref{sec:pv-bn}). 
+La communauté de l'ingénierie documentaire et des sciences de l'information et de la communication invoque quant-à-eux la notion de document, généralement fort absente dans la communauté audiovisuelle, et propose une vision plus fine des différents état de la fabrication et de la consultation d'un contenu audiovisuel (\ref{sec:pv-id}).
 Ces deux perspectives apportent une richesse conceptuelle qui, au moment d'examiner les modélisations de l'audiovisuel existantes, nous permettra de mieux identifier ce qu'ils représentent et ne représentent pas.}
 
 
 
-\subsection{Du point de vue de l'audiovisuel}
+\subsection{Du point de vue de l'audiovisuel}\label{sec:pv-av}
 Nous reprenons les définitions proposées par \cite[p.77]{Cox2006} (sauf pour la notion d'\pc{Asset} que nous empruntons à \cite{Austerberry2004}) que nous \ciel{traduisons} et commentons en français : 
 \begin{liste}
 	\item \pc{Work} (Oeuvre) : \ciel{un travail de création artistique, produite ou construite par les efforts conjugués de d'une personne ou d'un groupe}.
@@ -54,7 +54,7 @@ Cette liste de définition semble intégrer plusieurs manières de se représent
 % Définition de Media Asset etc. de \cite{Furht2008}.
 
 
-\subsection{Du point de vue des bibliothèques numériques}
+\subsection{Du point de vue des bibliothèques numériques}\label{sec:pv-bn}
 Le \e{Functional Requirements for Bibliographic Records : object-oriented} (FRBRoo) est un modèle conceptuel développé par \cite{Aalberg2008}.
 Il vise à faciliter l’échange d’information entre les bibliothèques numériques et les musées. 
 Il permet de représenter les personnes participant aux différentes étapes de construction d’un objet culturel, depuis l’idée jusqu’à la réalisation matérielle.
@@ -98,10 +98,14 @@ Par ailleurs, on peut identifier des correspondances entre les notions de FRBR e
 \end{liste}
 
 
-\subsection{Du point de vue de l'ingénierie documentaire}
+
+
+
+\subsection{Du point de vue de l'ingénierie documentaire}\label{sec:pv-id}
 Nous examinons principalement la lignée des travaux de recherche menés initiallement par \cite{Bachimont1998}, formalisés comme une théorie du support numérique dans \cite{bachimont:hdr} puis affinés dans \cite{bachimont:icc}. 
 De nombreux travaux ont repris ce positionnement pour l'appliquer au domaine de l'audiovisuel, par exemple \cite{Prie1999}, \cite{Troncy2004}, \cite{Morizet-mahoudeaux2005a}, \cite{Gaillard2008}.
 
+\paragraph{Les dimensions de l'inscription matérielle}
 Ces travaux reposent sur les concepts d'\pc{Inscription}, de \pc{Conte\-nu} et de \pc{Support}. 
 La définition d'un \pc{Contenu} permet de relier ces concepts : 
 \ciel{
@@ -162,93 +166,11 @@ Le dispositif a pour objectif de transformer une forme A inscrite sur un support
 	\end{liste}
 \end{listeni}
 
-
-% L'intérêt de cette décomposition est de pouvoir clarifier ce dont parleront les modèles que nous examinerons dans les sections suivantes.
-
-\paragraph{Sémiotique et structures du document}
-La distinction entre \e{forme physique de restitution} (FPR) et \e{forme sémiotique de restitution} (FSR) sera essentielle pour l'examen des modélisations de l'audiovisuel.
-Un changement de la FSR impacte la signification du contenu, alors que les changements sur la FPR ont une conséquence sur le plan perceptif, mais pas forcément sur la signification (un pixel mort ne change pas le sens d'une image).
-Comme nous le verrons plus tard (\ref{sec:codesc}), beaucoup de modèles se focalisent sur la FPR, c'est-à-dire sur la caractérisation du signal par des descripteurs de bas-niveau que l'on pourrait qualifier d'objectif (texture, couleur, forme etc.).
-
-La modélisation de la FSR se fonde sur une interprétation de la forme matérielle du contenu pour dégager ce que \cite{Prie2000} appelle des \e{structures documentaires}.
-Une structure documentaire découpe le contenu en unités et définit une grammaire de (dé)composition entre ces unités.
-% Le choix des unités logiques qui fondent la structure logique du document est dépendant des codes sémiotiques qu'une communauté mobilise pour construire son interprétation et ses usages.
-
-% il existe une structure documentaire première, celle construite par l'auteur pour communiquer son intentionnalité et prescrire une interprétation du document
-% ce découpage n'est pas la seule interprétation possible du document, chaque lecteur peut construire sa propre interprétation en fonction de la tâche visée
-
-ciel{
-	L’intentionnalité de l’auteur se retrouve plus ou moins dans les structures documentaires [\dots]
-	Les structures documentaires conditionnent – prescrivent – l’interprétation du document. 
-	En retour, interpréter un document peut également consister en la mise au jour de structures documentaires concernant sa description sémantique et son organisation.}
-
-
-
-
-
-
-
-Elle conduit à une indexation structurelle qui 
-Cette décomposition que  se retrouve soit le guide de l'intentionnalité constitué par l'auteur, soit le résultat d'un processus d'interprétation par un lecteur :
-
-\
-
-
-% \cite{Bottini2010}
-% \cite{Abascal2003}
-% \cite{Abascal2004}
-% nous renvoit aux besoins de modélisations exprimés en \ref{sec:bm-av} (\g{B2 : réutilisabilité}).
-
-
-% Cependant, la distinction entre ces deux niveaux n'est pas suffisante pour rendre compte d
-
-% voir Bottini
-% \begin{liste}
-%  	\item \e{niveau physique} : 
-%  	\item \e{niveau de typage du contenu} :
-%  	\item \e{niveau syntaxique} : 
-%  	\item \e{niveau conceptuel} :
-% \end{liste}
-
- 
-
-
-
-
-
-% 	Enfin, la diversité des types de documents audiovisuels, liée à leurs production dans des objectifs, pour des publics et sous des formes différentes en font un médium difficile à appréhender en soi, globalement, en tant que document.} 
-
-
 L'intérêt de cette définition du contenu par état (forme/support) est également de pouvoir introduire la notion de document et de formes documentaires, complètement absente des deux premières perspectives que nous avons examinées.
 
 
-% Pour autant, comme nous le proposions dans nos besoins de modélisations (\ref{sec:bm-av}, \g{B2 : réutilisabilité}), et il faut pouvoir les associer à la FPR.
-
-\subsection{Le document audiovisuel numérique}
-% [Quelles sont les manières de représenter les objets/contenus/documents audiovisuels, quelle sont les différences entre ces notions.]
-Pour \cite{Leleu-Merviel2004}, le document comporte à la fois une dimension \e{sémiotique} (signes et sens), \e{technique} (format d'enregistrement, codage et transmission de signaux) et \e{médiatique} (socialisation, diffusion et donc réception, consultation).
-Avec le numérique, les textes, et de manière plus générale les contenus, se structurent dans ces trois dimensions : 
-\begin{listeni}
-	\item la dimension \e{technique} des \e{données}, c'est-à-dire de l'enregistrement en binaire, inaccessible et illisible pour l'humain. 
-	Cette dimension correspond à la \e{forme d'enregistrement}  défini par \cite{bachimont:icc}. %FE
-	
-	\item la dimension \e{sémiotique} du \e{texte} qui structure le contenu en parties informationnelles.  %FSR + structure
-	On retrouve la 
-
-	\item la dimension de \e{surface} qui consiste en une actualisation effective ou un affichage au sens large. 
-	C'est la dimension de l'accès aux données, un accès qui peut être organisé spatialement et temporellement. \cite{Leleu-Merviel2005} propose ainsi deux concepts : 
-	\begin{liste}
-		\item la \e{scénique} est la manière de transposer des données en une réalité concrète : \ciel{la forme visuelle et sonore de l’inscription spatiale des fragments}. %FPR+SR
-		\item la \e{scénation} est la manière de restituer temporellement à l'utilisateur les fragments d'un document : \ciel{la structure organisée d’événements et/ou d’états avec lesquels l’utilisateur est effectivement mis en interaction}. %DR+FSR
-	\end{liste}
-\end{listeni}
-
-Cette définition développe celle proposée antérieurement par le réseau thématique pluridisciplinaire 33 (RTP-DOC, \cite{Pedauque2003}) qui fait référence dans les communautés scientifiques engagées dans les questions documentaires.
-Leur définition du document comporte trois dimensions : le document comme \e{forme} (la dimension matérielle dans laquelle s’incarne le contenu et qui permet sa manipulation), le document comme \e{signe} (il est porteur d’un sens intentionnel), et le document comme \e{médium} (sa dimension sociale, d'échange et de communication). 
-
-
-\cite{Morizet-mahoudeaux2005a} définissent un document non pas par ces dimensions, mais comme une référence pour son lecteur : \ciel{a document is a \e{content} instituted by a \e{publication act}, written down a medium, which possesses a \e{spatial} and \e{temporal delimitation}}.
-
+\paragraph{Le document numérique}
+\cite{Morizet-mahoudeaux2005a} définissent un document comme un contenu qui peut servir de référence par sa consistance matérielle dans le temps : \ciel{a document is a \e{content} instituted by a \e{publication act}, written down a medium, which possesses a \e{spatial} and \e{temporal delimitation}}.
 
 \begin{liste}
 	\item \e{permanence dans le temps} : \ciel{la consistance des signes matériels qu’il porte doit être assurée quelque soit le moment de leur consultation.} \parcite{Bottini2010}
@@ -263,33 +185,84 @@ Leur définition du document comporte trois dimensions : le document comme \e{fo
 \end{liste}
 
 
+Pour \cite{Leleu-Merviel2004}, le document comporte à la fois une dimension \e{sémiotique} qui renvoit au contenu (signes et sens), \e{technique} qui renvoit aux données (format d'enregistrement, codage et transmission de signaux) et \e{médiatique} qui renvoit à des processus de socialisation, de diffusion, de réception et de consultation.
+\cite{Leleu-Merviel2005} décrit cette dernière dimension comme étant la dimension d'accès aux données, un accès qui peut être organisé spatialement et temporellement :
+\begin{liste}
+	\item la \e{scénique} est la manière de transposer des données en une réalité concrète : \ciel{la forme visuelle et sonore de l’inscription spatiale des fragments}. %FPR+SR
+	\item la \e{scénation} est la manière de restituer temporellement à l'utilisateur les fragments d'un document : \ciel{la structure organisée d’événements et/ou d’états avec lesquels l’utilisateur est effectivement mis en interaction}. %DR+FSR
+\end{liste}
+
+On retrouve dans cette définition, la caractérisation de l'inscription matérielle faite par \cite{bachimont:icc} avec les correspondances suivantes : 
+\begin{liste}
+	\item les données correspondent à la FE, l'enregistrement en binaire, inaccessible et illisible pour l'humain. 
+	\item la dimension sémiotique renvoit à la FSR ainsi qu'à ses structuration.
+	\item la scénique renvoit à l'association FPR + SR qui rend perceptible le contenu.
+	\item la scénation renvoit à l'association FSR + DR qui conditionne l'interprétation du contenu.
+\end{liste}
+
+Cette définition développe celle proposée antérieurement par le réseau thématique pluridisciplinaire 33 (RTP-DOC, \cite{Pedauque2003}) qui fait référence dans les communautés scientifiques engagées dans les questions documentaires.
+Leur définition du document comporte trois dimensions similaires : le document comme \e{forme} (la dimension matérielle dans laquelle s’incarne le contenu et qui permet sa manipulation), le document comme \e{signe} (il est porteur d’un sens intentionnel), et le document comme \e{médium} (sa dimension sociale, d'échange et de communication).
+
+ 
+
+
+\paragraph{Unité de contenu et structures documentaires}
+La distinction entre \e{forme physique de restitution} (FPR) et \e{forme sémiotique de restitution} (FSR) sera essentielle pour l'examen des modélisations de l'audiovisuel.
+Un changement de la FSR impacte la signification du contenu, alors que les changements sur la FPR ont une conséquence sur le plan perceptif, mais pas forcément sur la signification (un pixel mort ne change pas le sens d'une image).
+Comme nous le verrons plus tard (\ref{sec:codesc}), beaucoup de modèles se focalisent sur la FPR, c'est-à-dire sur la caractérisation du signal par des descripteurs de bas-niveau que l'on pourrait qualifier d'objectif (texture, couleur, forme etc.).
+
+La modélisation de la FSR se fonde sur une interprétation de la forme matérielle du contenu pour dégager ce que \cite{Prie2000} appelle des \e{structures documentaires}.
+Une structure documentaire découpe le contenu en unités suivant une grammaire de (dé)composition.
+\citeauthor{Prie2000} considère ainsi que \ciel{toute structure est sémantique et fait partie d'une structure d’indexation conceptuelle} qui renvoit donc à une utilisation \ciel{dans le cadre d'une tâche qui peut être une tâche de présentation}.
+L'indexation conceptuelle est définie commme \ciel{explicitation de structures et de concepts contenus dans les documents numériques ou qui leur sont associés, pour mieux les exploiter}.
+On construira donc des structures différentes suivant l'exploitation du contenu visée, qu'il s'agisse de produire une interprétation pour faciliter l'accès au contenu, de manipuler le contenu ou bien d'en fournir une présentation. 
+
+\citeauthor{Prie2000} distingue ainsi le cas particulier de l'écriture.
+Il s'agit d'une tâche à part où \ciel{l’intentionnalité de l’auteur se retrouve plus ou moins dans les structures documentaires} qu'il définit. 
+Ces structures expriment des \ciel{connaissances \e{auctoriales} premières}, dans le sens où elles constituent le document et permettent sa médiatisation auprès d'un lectorat.
+Cette structure documentaire première renvoit également à un genre documentaire, où elle puise une \ciel{une structure de présentation \e{canonique}}, souvent appelée structure logique par d'autres auteurs.
+La notion de genre, amène à la notion de tradition de lecture, dont les éléments de structure canoniques prescrivent une interprétation du document.
+Les auteurs peuvent ainsi identifier des communautés de lecteurs par les genres documentaires qu'elles mobilisent dans leurs activités.
+
+La structure première ou canonique définit par l'auteur sert ensuite à d'autres communautés pour établir leur propre structure documentaires en fonction de leurs usages.
+Lorsque plusieurs structures sont associées à un document, \cite{Abascal2003} et \cite{Abascal2004} parlent alors de documents \ciel{multistructurés}, chacune répondant aux contraintes d'un usage.
+
+La multiplicité des structures documentaires n'éclaire pas pour autant sur leur nature.
+\cite[p.191-192]{bachimont:icc} propose ainsi de distinguer entre quatre niveaux :
+\begin{liste}
+ 	\item \e{niveau physique} : le document est avant tout un assemblage de formes matérielles (unités de contenu), organisées et destinées à faire sens pour un lecteur.
+
+ 	\item \e{niveau de typage du contenu} : chaque unité de contenu possède un type qui détermine sa sémantique et les manipulations qu'il peut subir.
+ 
+ 	\item \e{niveau syntaxique} : des règles syntaxiques (grammaire) tirent parti du typage des unités de contenu pour régir leur organisation au niveau physique. 
+
+ 	\item \e{niveau conceptuel} : le typage d'une unité de contenu lui associe également une signification conceptuelle, indépendante des règles syntaxiques (comme \citeauthor{Prie2000} le fait remarquer avec les structures documentaires).
+\end{liste}
+
+
+La caractérisation de ces différents niveaux nous renvoit aux besoins de modélisations exprimés en \ref{sec:bm-av} (\g{B1 : autonomie} et \g{B2 : réutilisabilité}).
+
 % on propose une modélisation logique du document qui repose sur la vision des contributeurs à sa production.
-% \paragraph{Sciences de l'information et de la communication}
 
 
+% paragraph{Discussion et comparaison}
 
+% \paragraph{La personnalisation document}
+% \ciel{
+% Cependant en numérique, les fragments existaient, au moins potentiellement, dans la mémoire de la machine, ce n’est que leur actualisation sur l’écran et la forme qu’elle prend qui se construit dans l’ici et maintenant de l’interaction. 
+% Celle-ci est donc nécessairement volatile. De plus, elle change à chaque fois.
+% Ainsi c’est l’affichage, [\dots] qui varie, mais non le document lui-même tel qu’il est mémorisé au niveau des données.}
 
+% \ciel{
+% conserver, retrouver l’information n’est pas suffisant. 
+% Pour qu’elle puisse être utile, il faut qu’elle puisse être exploitée, c’est-à-dire traitée et rapprochée d’autres de façon à produire de l’information nouvelle. 
+% Produire du sens n’est, pour l’essentiel, que rapprocher des informations disparates jamais rassemblées auparavant.} (\cite{Balpe1990})
 
+% % Deux pistes proposées par SLM : 
+% Il est alors possible de construire des assemblage cohérent de fragments le temps d'une consultation (d'un affichage) par un utilisateur (documents virtuels personnalisables).
+% Plus on a de connaissance sur son activité, ses tâches, ses compétences propres, plus il est alors possible de rendre cette assemblage pertinent. 
 
+% Il est aussi possible de mettre à profit la description des documents pour construire des notions de voisinage indépendamment du profilage des utilisateurs. 
+% La proximité entre deux documents pourra s'évaluer d'autant de manière qu'il y a de critères descriptifs.
+% Ainsi, des informations auparavant éparpillées dans des documents papier différents pourraient être regroupés. 
 
-\paragraph{Vers un document personnalisé}
-\ciel{
-Cependant en numérique, les fragments existaient, au moins potentiellement, dans la mémoire de la machine, ce n’est que leur actualisation sur l’écran et la forme qu’elle prend qui se construit dans l’ici et maintenant de l’interaction. 
-Celle-ci est donc nécessairement volatile. De plus, elle change à chaque fois.
-Ainsi c’est l’affichage, [\dots] qui varie, mais non le document lui-même tel qu’il est mémorisé au niveau des données.}
-
-\ciel{
-conserver, retrouver l’information n’est pas suffisant. 
-Pour qu’elle puisse être utile, il faut qu’elle puisse être exploitée, c’est-à-dire traitée et rapprochée d’autres de façon à produire de l’information nouvelle. 
-Produire du sens n’est, pour l’essentiel, que rapprocher des informations disparates jamais rassemblées auparavant.} (\cite{Balpe1990})
-
-% Deux pistes proposées par SLM : 
-Il est alors possible de construire des assemblage cohérent de fragments le temps d'une consultation (d'un affichage) par un utilisateur (documents virtuels personnalisables).
-Plus on a de connaissance sur son activité, ses tâches, ses compétences propres, plus il est alors possible de rendre cette assemblage pertinent. 
-
-Il est aussi possible de mettre à profit la description des documents pour construire des notions de voisinage indépendamment du profilage des utilisateurs. 
-La proximité entre deux documents pourra s'évaluer d'autant de manière qu'il y a de critères descriptifs.
-Ainsi, des informations auparavant éparpillées dans des documents papier différents pourraient être regroupés. 
-
-
-% BB et les documents 
