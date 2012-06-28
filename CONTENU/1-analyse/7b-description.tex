@@ -1,8 +1,15 @@
 %=============================
 %=============================
 % \subsection{Modèles et standards de description}
-\subsection{Modèles de description \e{a posteriori}}
-\subsubsection{Dublin Core Metadata Initiative: Metadata Terms}
+\subsection{Modèles de description \e{a posteriori}}\label{sec:post}
+\e{
+Nous présentons d'abord le Dublin Core, un modèle de description à vocation générique qui peut s'appliquer à tous types de ressources sur le Web (\ref{sec:dcmi}).
+Ensuite, nous introduisons plusieurs parties du standard MPEG-7 (\ref{sec:mpeg7}, \ref{sec:mpeg7-gc}, \ref{sec:mpeg7-dc}), et comparons des travaux de formalisation de ce standard qui visent à constituer une ontologie noyau pour le multimédia (\ref{sec:mpeg7etc}).
+Enfin, nous présentons une proposition d'alignement minimaliste qui permet d'aggréger les informations représentées dans de multiples modèles multimédia (\ref{sec:omr}).}
+
+
+
+\subsubsection{Dublin Core Metadata Initiative: Metadata Terms}\label{sec:dcmi}
 \begin{table}[htb!]
    \begin{center}
 		\begin{tabularx}{0.75\textwidth}{l X}
@@ -147,7 +154,7 @@ Enfin, la partie \e{Conformance} explicite des directives et des procédures pou
 Nous détaillerons dans cette section les Schémas de Description liés à la gestion du contenu (\e{Content Management} dans la Figure \ref{img:soa:mds}) et à la description du contenu (\e{Content Description}).\\
 
 
-\subsubsection{MPEG-7 : Gestion du contenu}
+\subsubsection{MPEG-7 : Gestion du contenu}\label{sec:mpeg7-gc}
 MPEG-7 définit trois concepts fondamentaux pour modéliser l'enregistrement d'une réalité en un contenu multimédia et les multiples transformations qu'il est possible de lui appliquer. 
 Ainsi, pour chaque modalité d'enregistrement (audio, audiovisuel, photo etc.) MPEG-7 considère la création de trois éléments, une \pc{ContentEntity} (entité de contenu, CE), une \pc{MediaInstance} (instance de média, MI) et un \pc{MediaProfile} (profil de média, MP), voir la Figure \ref{img:soa:media}.
 Pour donner une première idée, on peut dire que le fichier créé correspond à la \pc{MediaInstance}, que le \pc{MediaProfile} correspond aux paramétrages de son encodage et que la \pc{ContentEntity} représente le contenu de manière abstraite.
@@ -207,7 +214,7 @@ Les droits d'exploitation peuvent en effet porter uniquement sur certains types 
 L'historique permet de garder trace des diffusions et de leur audience.
 
 
-\subsubsection{MPEG-7 : Description du contenu}
+\subsubsection{MPEG-7 : Description du contenu}\label{sec:mpeg7-dc}
 \paragraph{La structure spatio-temporelle du contenu}
 MPEG-7 fournit un ensemble de schémas et de descripteurs qui permettent de découper les contenus multimédias de toute les manières possibles. 
 Pour cela, la norme définit la notion de \pc{Segment} qui se décline en segment spatial, temporel ou spatio-temporel et sur tout type de média (audio, image, audiovisuel, multimédia). 
@@ -414,7 +421,7 @@ Ainsi, il serait possible d'utiliser la dernière approche dans \pc{Harmony}.
 
 
 %=============
-\subsubsection{Ontology for Media Resources}
+\subsubsection{Ontology for Media Resources}\label{sec:omr}
 Suite aux travaux du W3C Media Annotation Working Group (MAWG), \cite{Burger2011} puis \cite{Lee2012} ont développé une ontologie minimaliste pour décrire et rechercher des informations sur des ressources média sur le Web.
 
 \begin{figure}[ht!]
@@ -478,7 +485,7 @@ Son objectif n'est pas l'exhaustivité de la représentation des objets audiovis
 % Script, Storyboard (\cite{Martin2005}, \cite{ThiBui2003}) etc.
 % Réappropriations dans le champ informatique : \cite{Chakravarthy2009b} ; \cite{Chakravarthy2009c}
 
-Les modélisations précédentes suivent une approche de fabrication des description dite \e{a posteriori}. 
+ 
 
 
 Another trail of research has emerged recently. 
