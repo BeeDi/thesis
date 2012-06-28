@@ -2,20 +2,21 @@
 \e{
 Dans le monde de l'audiovisuel, certaines notions implicites déterminent la manière dont les professionnels se représentent les objets qu'ils produisent, manipulent, échangent etc. 
 L'objectif de cette section est d'expliciter les définitions de ces objets, d'en faire un inventaire (\ref{sec:pv-av}).
-Notre démarche ne se limite pas cependant à la vision des professionnels de la production, puisque nous comparerons leurs concepts avec ceux d'autres communautés, en vue d'identifier des écarts ou des manques que nous pourrions intégrer dans notre travail.
-Ainsi, la communauté des bibliothèques numérique examine plus en détails les relations qui existent entre les résultats d'un processus de création (\ref{sec:pv-bn}). 
-La communauté de l'ingénierie documentaire et des sciences de l'information et de la communication invoque quant-à-eux la notion de document, généralement fort absente dans la communauté audiovisuelle, et propose une vision plus fine des différents état de la fabrication et de la consultation d'un contenu audiovisuel (\ref{sec:pv-id}).
+Notre démarche ne se limite cependant pas à la vision des professionnels de la production, puisque nous comparons leurs concepts avec ceux d'autres communautés, en vue d'identifier des écarts ou des manques que nous pourrons intégrer dans notre travail.
+Ainsi, la communauté des bibliothèques numériques examine plus en détails les relations qui existent entre les résultats d'un processus de création (\ref{sec:pv-bn}). 
+La communauté de l'ingénierie documentaire et des sciences de l'information et de la communication invoque quant-à-eux la notion de document, généralement fort absente dans la communauté audiovisuelle, et propose une vision plus fine des différents états de la fabrication et de la consultation d'un contenu audiovisuel (\ref{sec:pv-id}).
 Ces deux perspectives apportent une richesse conceptuelle qui, au moment d'examiner les modélisations de l'audiovisuel existantes, nous permettra de mieux identifier ce qu'ils représentent et ne représentent pas.}
 
 
 
 \subsection{Du point de vue de l'audiovisuel}\label{sec:pv-av}
-Nous reprenons les définitions proposées par \cite[p.77]{Cox2006} (sauf pour la notion d'\pc{Asset} que nous empruntons à \cite{Austerberry2004}) que nous \ciel{traduisons} et commentons en français : 
+Afin de clarifier la notion d'objet audiovisuel, nous présentons la manière dont les professionnels se représentent ses différents composants.
+Nous reprenons une liste de définitions proposées par \cite[p.77]{Cox2006} (sauf pour la notion d'\pc{Asset} que nous empruntons à \cite{Austerberry2004}) que nous \ciel{traduisons} et commentons en français : 
 \begin{liste}
-	\item \pc{Work} (Oeuvre) : \ciel{un travail de création artistique, produite ou construite par les efforts conjugués de d'une personne ou d'un groupe}.
+	\item \pc{Work} (Oeuvre) : \ciel{un travail de création artistique produite ou construite par les efforts conjugués d'une personne ou d'un groupe}.
 	Cette définition est clairement reprise du modèle FRBR (voir ci-après) et s'intègre d'ailleurs assez mal avec le reste de la modélisation.
 
-	\item \pc{Essence} : \ciel{toute données (numérique) ou signal (analogique) nécessaire à la représentation d'une modalité d'expérience perceptive (visuel, olfactive, auditive etc.)}.
+	\item \pc{Essence} : \ciel{toute donnée (numérique) ou signal (analogique) nécessaire à la représentation d'une modalité d'expérience perceptive (visuel, olfactive, auditive etc.)}.
 
 	\item \pc{Material} (Matériel) : \ciel{toute Essence ou combinaison d'Essences (image, son etc.)}. 
 	Ainsi, on peut parler de matériel audiovisuel, qui est une combinaison d'Essence audio et visuelle.
@@ -42,7 +43,7 @@ Cette liste de définition semble intégrer plusieurs manières de se représent
 
 	\item[\g{artistique}] : le travail de création artistique qui aboutit au résultat abstrait d'une Oeuvre. 
 	C'est cette réalisation abstraite qui est protégée par la propriété intellectuelle et peut faire l'objet d'une cession de droits.
-	Pourtant, la relation entre l'Oeuvre et l'Asset n'est pas établi clairement.
+	Pourtant, la relation entre l'Oeuvre et l'Asset n'est pas établie clairement.
 
 	\item[\g{concrète}] : plusieurs définitions font référence aux résultats concrets de la production (les Instances de Matériel, de Métadonnée et donc de Contenu, les Essences).
 
@@ -61,33 +62,33 @@ Il permet de représenter les personnes participant aux différentes étapes de 
 
 La particularité de cette modélisation est de disséquer les objets culturels dans le but de leur conservation.
 Ainsi, le modèle cherche à établir quelles sont les liens généalogiques entre les objets conservés, déterminer les inspirations, les adaptations etc. afin de mettre en évidence des relations culturelles.
-Ce souci du détails clarifie les relations entre les objets et par conséquence le processus de création. 
+Ce souci du détail clarifie les relations entre les objets et par conséquence le processus de création. 
 Chaque objet culturel possède trois niveaux de modélisation qui sont présentés dans leur ordre chronologique d'apparition dans le processus de création :
 \begin{liste}
-	\item le niveau des idées ou des oeuvres (\pc{Work}) n’ayant pas pris corps dans une matérialité externe à un sujet (par exemple une mélodie ou une histoire qui nous reste dans la tête). 
+	\item le niveau des \e{idées} ou des \e{oeuvres} (\pc{Work}) n’ayant pas pris corps dans une matérialité externe à un sujet (par exemple une mélodie ou une histoire qui nous reste dans la tête). 
 
-	\item le niveau des formes d'expression (\pc{Expression}) où l'on distingue parmi toutes les formes possibles pour exprimer une idée (une nouvelle écrite, ses traductions, une adaptation de nouvelle en scénario, une lecture de cette nouvelle etc.).
+	\item le niveau des \e{formes d'expression} (\pc{Expression}) où l'on distingue parmi toutes les formes possibles pour exprimer une idée (une nouvelle écrite, ses traductions, une adaptation de nouvelle en scénario, une lecture de cette nouvelle etc.).
 	On se situe à un niveau intermédiaire qui définit des formes abstraites de  réalisation.
 	Il faut préciser qu'on parle de forme abstraite dans le sens où il n'existe pas de réalisation concrète, ce qui n'empêche pas de les définir précisement et donc de distinguer de multiples variantes d'expressions :
 
 	\ciel{
 	the form of expression is an inherent characteristic of the expression, any change in form (e.g., from alpha-numeric notation to spoken word, a poem created in capitals and rendered in lower case) is a new expression. Similarly, changes in the intellectual conventions or instruments that are employed to express a work (e.g., translation from one language to another) result in the creation of a new expression.} (\cite{Aalberg2008})
 	
-	\item le niveau des réalisations concrètes comme les porteurs physique d’information (\pc{Information Carrier}) portant les expressions (livre, partition, cd-rom etc.). 
+	\item le niveau des \e{réalisations concrètes} comme les porteurs physiques d’information (\pc{Information Carrier}) portant les expressions (livre, partition, cd-rom etc.). 
 	À ce niveau, il faut également distinguer entre l’original (\pc{Manifestation Singleton}) et les copies manufacturées (\pc{Item}) issues d’un modèle de publication (\pc{Manifestation Product Type}). % à rapprocher de la notion de Media Profile dans MPEG-7
 \end{liste}
 
 \paragraph{Discussion et comparaison}
 Dans la perspective audiovisuelle présentée précédemment, la relation entre Oeuvre et Asset est bien plus floue.
 À la fin du processus de création, il apparaît évident que l'on a produit un Asset, mais la notion d'Oeuvre, et donc de l'idée qui a amené à la création, échappe aux systèmes de gestions d'objets audiovisuels.
-Ces systèmes ne sont pas fait pour gérer de la propriété intellectuelle, ou bien rendre compte des adaptations d'une même idée en plusieurs réalisations.
+Ces systèmes ne sont pas fait pour gérer la propriété intellectuelle, ou bien rendre compte des adaptations d'une même idée en plusieurs réalisations.
 
 Par ailleurs, on peut identifier des correspondances entre les notions de FRBR et celles du monde de l'audiovisuel :
 \begin{liste}
 	\item un \pc{Manifestation Singleton} correspond à la réalisation concrète originale du processus de production, ce qui correspond à la notion de \e{master} dans l'audiovisuel.
 	
-	\item dans le cadre du numérique, la notion de \pc{Manifestation Product Type} n'existe pas vraiment puisque chaque fichier peut servir de modèle pour être copié. 
-	Cependant on peut noter, que cette notion se rapproche de celle de \pc{MediaProfile} définie dans MPEG-7 à la section \ref{sec:mpeg7}.
+	\item dans le cadre du numérique, la notion de \pc{Manifestation Product Type} existe dans les cas des documents structurés associés à des feuilles de style.
+	On peut noter, que cette notion se rapproche de celle de \pc{MediaProfile} définie dans MPEG-7 à la section \ref{sec:mpeg7}.
 
 	\item un \pc{Item} correspond à une \pc{Instance} de \pc{Contenu} ou de \pc{Matériel}.
 	\item un \pc{Information Carrier} correspond à un \e{medium} (media en anglais).
@@ -103,7 +104,8 @@ Par ailleurs, on peut identifier des correspondances entre les notions de FRBR e
 
 \subsection{Du point de vue de l'ingénierie documentaire}\label{sec:pv-id}
 Nous examinons principalement la lignée des travaux de recherche menés initiallement par \cite{Bachimont1998}, formalisés comme une théorie du support numérique dans \cite{bachimont:hdr} puis affinés dans \cite{bachimont:icc}. 
-De nombreux travaux ont repris ce positionnement pour l'appliquer au domaine de l'audiovisuel, par exemple \cite{Prie1999}, \cite{Troncy2004}, \cite{Morizet-mahoudeaux2005a}, \cite{Gaillard2008}.
+% De nombreux travaux ont repris ce positionnement pour 
+Ce positionnement a été approfondi dans le domaine de l'audiovisuel par d'autres auteurs dont \cite{Prie1999}, \cite{Troncy2004}, \cite{Morizet-mahoudeaux2005a}, \cite{Gaillard2008}.
 
 \paragraph{Les dimensions de l'inscription matérielle}
 Ces travaux reposent sur les concepts d'\pc{Inscription}, de \pc{Conte\-nu} et de \pc{Support}. 

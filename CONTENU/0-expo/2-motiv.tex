@@ -97,8 +97,8 @@ Parmi les entreprises du consortium, on compte les deux grandes chaînes de tél
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Organisation du mémoire (n,i)}\label{sec:plan}
-\addcontentsline{toc}{section}{Organisation du mémoire (n,i)}
+\section*{Organisation du mémoire}\label{sec:plan}
+\addcontentsline{toc}{section}{Organisation du mémoire}
 
 \paragraph{Exposition}
 \e{
@@ -113,28 +113,47 @@ Nous nous appuyerons sur l'étude du fonctionnement de la chaîne de production 
 % En particulier, 
 Nous précisons alors la manière dont nous posons le problème sur le plan métier, ce qui nous amènera à définir le problème scientifique. 
 Sur le plan métier, le défi posé par le numérique consiste à passer d'une vision à l'échelle du document à une vision à l'échelle du fragment. 
-En effet, le numérique favorise la fragmentation et la circulation des contenus qu'il s'agit alors de rendre autonome pour en permettre l'exploitation. 
-Sur le plan scientifique, nous posons le problème en terme de modélisation des objets audiovisuels et des connaissances associées afin de construire une compréhension commune à tous les acteurs impliqués dans la production audiovisuelle.
-Nous concluons en expliquant comment nous mobilisons diverses disciplines scientifiques pour construire une réponse aux problèmes posés (\ref{sec:posd}).
+En effet, le numérique favorise la fragmentation et la circulation des contenus qu'il s'agit alors de rendre autonome pour en permettre l'exploitation (\ref{sec:pmetiers}). 
+Sur le plan scientifique, nous posons le problème en terme de modélisation des objets audiovisuels et des connaissances associées afin de construire une compréhension commune et dynamique pour tous les acteurs impliqués dans la production audiovisuelle (\ref{sec:scien}).
+% Nous concluons en expliquant comment nous mobilisons diverses disciplines scientifiques pour construire une réponse aux problèmes posés (\ref{sec:posd}).
 % proposent d'une part des outils et des méthodes de modélisation, et d'autre part proposent des modélisations de l'audiovisuel (\ref{sec:posd}).
 
 
 \paragraph{État de l'art}
 \e{
-La deuxième partie de ce mémoire vise à étudier des outils, méthodes et langages de modélisation. Elle permet également d'étudier les modélisations existantes des objets audiovisuels, mais égalements des connaissances qui y sont associées afin de faciliter leur exploitation.}
+La deuxième partie de ce mémoire vise à étudier des outils, méthodes et langages de modélisation. Elle permet également d'étudier les modélisations existantes des objets audiovisuels, mais égalements des connaissances métiers qui y sont associées afin de faciliter leur exploitation.}
 
-Le chapitre \g{\ref{chap:omod}. Outils de modélisation} commence par clarifier les définitions des concepts de \gui{systèmes d'organisation de connaissances} (soc) et en particulier les relations qu'entretiennent \gui{terminologie} et d'\gui{ontologie}.
+Le chapitre \g{\ref{chap:omod}. Outils de modélisation} commence par clarifier les besoins de modélisations à partir d'un scénario de production collaborative impliquant des acteurs professionnels et amateurs (\ref{sec:cdcf}).
+Ces besoins ne se situent pas seulement au niveau de la modélisation conceptuelle, mais également sur le plan des jargons utilisées pour présenter ces concepts à des contributeurs de la production.
+Ainsi, nous examinons les définitions des concepts de \gui{systèmes d'organisation de connaissances} (SOC) et en particulier les relations qu'entretiennent \gui{terminologie} et d'\gui{ontologie} (\ref{sec:defs}).
+Nous étudions ensuite les langages de structuration et de représentation des connaissances qui permettent de modéliser ces deux types de SOC (\ref{sec:mods}).
 
-Le chapitre \g{\ref{chap:mav}. Modélisation de l'audiovisuel}
+Le chapitre \g{\ref{chap:mav}. Modélisations de l'audiovisuel} a pour objectif de mettre en rapport les représentations des professionnels de la production avec diverses communautés scientifiques, en vue de clarifier la définition d'un objet audiovisuel (\ref{sec:dav}) et de sa réutilisation (\ref{sec:gest}).
+Cette étude s'appuie sur la poursuite du scénario d'usage du chapitre précédent, et met en exergue la nécessité de fragmenter la modélisation des objets audiovisuels pour favoriser leur réutilisation (\ref{sec:cdc-av}).
+Nous étudions ensuite les solutions utilisées dans l'industrie pour gérer la circulation des programmes (\ref{sec:wrapper}) et les décrire (\ref{sec:desc}).
+Cette dernière partie analyse les méthodes de fabrication de ces description ainsi que leur nature, puis les modélisations développées.
+Une attention particulière est portée à de MPEG-7 (\ref{sec:mpeg7}), qui tient lieu de référence à de nombreux travaux de formalisation sous la forme d'ontologie (\ref{sec:mpeg7etc}).
+Nous présentons également des approches de description plus proche de la perspective de la production audiovisuelle (\ref{sec:plan}).
+
 
 \paragraph{Contribution}
-Le chapitre \g{\ref{chap:mod}. Approche et modélisation}
+\e{La troisième partie de ce mémoire présente notre contribution conceptuelle et informatique aux problèmes de modélisations que nous avons soulevées.
+Nous détaillons nos choix de représentation pour opérationnaliser notre contribution en une ontologie informatique.}
 
-Le chapitre \g{\ref{chap:op}. Mise en oeuvre}
+Le chapitre \g{\ref{chap:mod}. Approche et modélisation} revient sur les langages et les modélisations étudiés dans le chapitre précédent et introduit les principes de notre approche (\ref{sec:principes}).
+Notre positionnement au sein de la chaîne de production audiovisuelle, nous permet de modéliser le déroulement de la chaîne, la définition d'une structure documentaire première, puis les fragments audiovisuels construits ainsi que les connaissances qui s'y rapportent.
+Nous détaillons la modélisation conceptuelle en parties, chacune correspondant à un besoin fonctionnel, en expliquant leur mise en relation par des exemples (\ref{sec:concept}).
 
-
+Le chapitre \g{\ref{chap:op}. Mise en oeuvre} présente la représentation informatique de notre conceptualisation.
+Nous argumentons d'abord nos choix de langage et montrons comment nous les utilisons (\ref{sec:ln}). 
+Nous détaillons ensuite la structuration de notre ontologie et son articulation avec des thésaurus et des bases de faits (\ref{sec:op}).
 
 \paragraph{Discussion}
-Le chapitre \g{\ref{chap:app}. Applications et validation}
+\e{La dernière partie de ce mémoire montre comment notre contribution est utilisé dans le cadre du projet MediaMap et ouvre la discussion sur ce travail de thèse.}
 
-La \eg{Conclusion}
+Le chapitre \g{\ref{chap:app}. Applications et expérimentations} introduit les diverses applications qui ont été développé (\ref{sec:app}) par nos partenaires et les expérimentations qu'elles ont permis de mener (\ref{sec:xp}).
+Il s'agit d'éclairer l'appropriation de notre travail dans le cadre de scénarios de production audiovisuelle collaborative.
+En particulier, nous expliquons quelle partie de l'ontologie est mobilisée par les applications pour construire ou bien intégrer des connaissances sur la production, ses contributeurs et ses produits.
+
+La \g{Conclusion} remet en perspective notre contribution et les applications développées par rapport aux problèmes métiers et scientifiques posés.
+Nous ouvrons également la discussion sur la poursuite de nos recherches et l'avenir des applications du projet MediaMap.
