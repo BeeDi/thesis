@@ -1,7 +1,8 @@
 %=============================
 %=============================
 % \subsection{Modèles et standards de description}
-\subsection{Dublin Core Metadata Initiative: Metadata Terms}
+\subsection{Modèles de description \e{a posteriori}}
+\subsubsection{Dublin Core Metadata Initiative: Metadata Terms}
 \begin{table}[htb!]
    \begin{center}
 		\begin{tabularx}{0.75\textwidth}{l X}
@@ -114,7 +115,8 @@ Et ce, d'autant plus, que DMS-1 fournit des informations plus adaptées à l'aud
 
 
 %=============
-\subsection{MPEG-7 Part 5: Multimedia Description Scheme}\label{sec:mpeg7}
+% \subsection{Modèles de description multimédia \e{a posteriori}}
+\subsubsection{MPEG-7 : Multimedia Description Scheme}\label{sec:mpeg7}
 % \cite{Hunter2001} ; \cite{Troncy2007} ; \cite{Nack2005a} ; \cite{Dasiopoulou2009} ; \cite{Garcia2005} ; 
 
 % à revoir
@@ -145,7 +147,7 @@ Enfin, la partie \e{Conformance} explicite des directives et des procédures pou
 Nous détaillerons dans cette section les Schémas de Description liés à la gestion du contenu (\e{Content Management} dans la Figure \ref{img:soa:mds}) et à la description du contenu (\e{Content Description}).\\
 
 
-\subsubsection{Gestion du contenu}
+\subsubsection{MPEG-7 : Gestion du contenu}
 MPEG-7 définit trois concepts fondamentaux pour modéliser l'enregistrement d'une réalité en un contenu multimédia et les multiples transformations qu'il est possible de lui appliquer. 
 Ainsi, pour chaque modalité d'enregistrement (audio, audiovisuel, photo etc.) MPEG-7 considère la création de trois éléments, une \pc{ContentEntity} (entité de contenu, CE), une \pc{MediaInstance} (instance de média, MI) et un \pc{MediaProfile} (profil de média, MP), voir la Figure \ref{img:soa:media}.
 Pour donner une première idée, on peut dire que le fichier créé correspond à la \pc{MediaInstance}, que le \pc{MediaProfile} correspond aux paramétrages de son encodage et que la \pc{ContentEntity} représente le contenu de manière abstraite.
@@ -205,7 +207,7 @@ Les droits d'exploitation peuvent en effet porter uniquement sur certains types 
 L'historique permet de garder trace des diffusions et de leur audience.
 
 
-\subsubsection{Description du contenu}
+\subsubsection{MPEG-7 : Description du contenu}
 \paragraph{La structure spatio-temporelle du contenu}
 MPEG-7 fournit un ensemble de schémas et de descripteurs qui permettent de découper les contenus multimédias de toute les manières possibles. 
 Pour cela, la norme définit la notion de \pc{Segment} qui se décline en segment spatial, temporel ou spatio-temporel et sur tout type de média (audio, image, audiovisuel, multimédia). 
@@ -234,7 +236,7 @@ La description peut être raffinée en utilisant des concepts (\pc{Concept}), en
 
 %Core Ontology for MultiMedia
 %=============
-\subsection{Ontologies basées sur MPEG-7}\label{sec:mpeg7etc}
+\subsubsection{Ontologies basées sur MPEG-7}\label{sec:mpeg7etc}
 % \addcontentsline{toc}{subsubsection}{Core Ontology for MultiMedia}
 MPEG-7 est une norme qui propose de nombreux descripteurs pour modéliser les objets audiovisuels.
 La grande force de son approche est d'associer ces descripteurs à n'importe quelle séquence de contenu multimédia.
@@ -412,7 +414,7 @@ Ainsi, il serait possible d'utiliser la dernière approche dans \pc{Harmony}.
 
 
 %=============
-\subsection{Ontology for Media Resources}
+\subsubsection{Ontology for Media Resources}
 Suite aux travaux du W3C Media Annotation Working Group (MAWG), \cite{Burger2011} puis \cite{Lee2012} ont développé une ontologie minimaliste pour décrire et rechercher des informations sur des ressources média sur le Web.
 
 \begin{figure}[ht!]
@@ -467,11 +469,17 @@ Son objectif n'est pas l'exhaustivité de la représentation des objets audiovis
 
 
 
+
+
 %=============================
 %=============================
-\subsection{Descriptions métiers basées sur le plan}\label{sec:plan}
-Script, Storyboard (\cite{Martin2005}, \cite{ThiBui2003}) etc.
-Réappropriations dans le champ informatique : \cite{Chakravarthy2009b} ; \cite{Chakravarthy2009c}
+\subsection{Modèles de description métier \e{in situ}}\label{sec:plan}
+% \subsection{Descriptions métiers basées sur le plan}\label{sec:plan}
+% Script, Storyboard (\cite{Martin2005}, \cite{ThiBui2003}) etc.
+% Réappropriations dans le champ informatique : \cite{Chakravarthy2009b} ; \cite{Chakravarthy2009c}
+
+Les modélisations précédentes suivent une approche de fabrication des description dite \e{a posteriori}. 
+
 
 Another trail of research has emerged recently. 
 In comparison to the previous approach, it does not attack the multimedia description from below (with signal processing techniques) but from above. 

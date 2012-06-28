@@ -8,7 +8,10 @@ Avant de commencer notre état de l'art sur la description des contenus audiovis
 }
 % Nous verrons quelles types de description chacune de ces approches construit sur les contenus, et comment ces descriptions sont exploitées, pour quel type d'usage, à l'intention de systèmes informatiques ou d'être humains.
 
-\subsection{Quelles descriptions ?}
+\subsection{Nature et fabrication des descriptions}
+% \subsection{Quelles descriptions ?}
+
+\subsubsection{Nature des descriptions}
 \paragraph{L'intérêt des descriptions textuelles}
 Tout d'abord, nous souhaitons argumenter sur les avantages d'une description textuelle de contenus audio-visuels. 
 En effet, pourquoi ne pas se contenter de ce que les images ont à nous offrir pour construire des index et rechercher ces images ? 
@@ -66,13 +69,17 @@ Nous pouvons ajouter à ces catégories, d'autres types d'informations proposée
 \end{liste}
 
 
-Notons enfin, qu'il existe également toutes sortes de descriptions produites par des intervenants extérieurs à la chaîne de production (les spectateurs, les critiques, les sémiologues etc.).
+Notons enfin, qu'il existe également toutes sortes de descriptions produites par des intervenants extérieurs à la chaîne de production (les spectateurs, les critiques, les sémiologues etc.), qui sont autant d'analyse pouvant se représenter sous la forme d'une structuration documentaire (voir \ref{sec:uc-sd}).
 % pertinent pour notre problème.
 
 
 
-\subsection{Comment construire les descriptions ?}\label{sec:codesc}
-\subsubsection{La collecte durant la production}
+\subsubsection{Fabriquer les descriptions, \e{in situ} ou \e{a posteriori} ?}\label{sec:codesc}
+Nous distinguons deux méthodes de fabrication des descriptions suivant le moment où l'information est construite.
+Ainsi, la fabrication que nous appellons \e{in situ} correspond à la collecte d'informations intervenant dès la pré-production d'un contenu, alors que l'approche dite \e{a posteriori} intervient en fin de chaîne, une fois l'objet audiovisuel constitué.
+
+% \subsubsection{La collecte durant la production}
+\paragraph{Fabrication \e{in situ}, la collecte durant la production}
 Dans la chaîne de production audiovisuelle, chaque communauté de contributeurs a un intérêt particulier et souvent différent sur les informations à partager sur l'objet. 
 Les informations que l'un jugera critique (sur quelle cassettes peut-on trouver la prise de vue n°354) peuvent être jugées insignifiantes pour d'autres (un journaliste se contentera de savoir que la prise de vue existe). 
 Il existe donc autant de descriptions possibles d'un objet, que de points de vue sur cet objet. 
@@ -101,7 +108,7 @@ Ainsi, les auteurs proposent de favoriser une collecte des informations au fur e
 
 
 
-\subsubsection{La construction a posteriori}
+\paragraph{Fabrication \e{a posteriori}}
 Les approches classiques de construction de descriptions des contenus audiovisuels se font \e{a posteriori} de la production de l'objet audiovisuel. 
 Elles interviennent en fin de chaîne, après la diffusion, voire en-dehors lorsqu'un organisme différent du producteur se charge de l'archivage (c'est le cas de l'INA avec l'audiovisuel public en France). 
 Il faut distinguer deux genres d'approches pour construire des descriptions de contenus audiovisuels : 
@@ -138,7 +145,7 @@ De multiple sortes d'analyses peuvent être menées automatiquement à partir du
 % description humaines (sémiotique des contenus par exemple)
 
 
-\paragraph{À propos du fossé sémantique}
+\subsubsection{À propos du fossé sémantique}
 % décrire le signal par des descripteurs analytiques/objectifs
 Comme nous avons vu, les approches d'analyse du signal audio ou vidéo visent donc à reconnaître puis à nommer ou identifier un certain types d'objets présent dans un objet audiovisuel. 
 Cependant, \cite{hare:semantic-gap} pointent la limite de la description par libellé qui ne propose pas d'interprétation aussi complète que celle effectuée par un humain. 
@@ -167,8 +174,12 @@ Dans ce cas, la requête mentionne un nom de marque qui ne correspond pas au nom
 Ainsi, l'attente implicite serait de pouvoir effectuer des rapprochements sémantiques entre libellés de la requête et libellés utilisés dans l'indexation. 
 Ce qui suppose l'utilisation de vocabulaires structurés à la base de l'indexation et un formalisme permettant d'effectuer des raisonnements. 
 
+Notons enfin que l'approche \e{in situ} consiste à modéliser les connaissances contenues dans les documents de la chaîne de production audiovisuelle.
+L'originalité de cette approche est d'attaquer le fossé sémantique par le haut, c'est-à-dire à partir des connaissances humaines, qu'il faut ensuite représenter et associer aux séquences audio-visuelles.
+C'est justement ce renversement du problème qui ouvre la possibilité de collecter les informations fabriquées durant la production.
+
 \e{
-Dans notre cas, nous nous intéressons à la manière dont les utilisateurs recherchent des séquences vidéos dans les pratiques de réutilisation des objets audiovisuels (décrites précédemment en section \ref{sec:reuse}). 
+Dans notre cas, nous nous intéressons à la manière dont les professionnels de la production recherchent des séquences vidéos dans le cadre de pratiques de réutilisation des objets audiovisuels (décrites précédemment en section \ref{sec:reuse}). 
 Or, il s'agit maintenant d'examiner les moyens de décrire ces objets audiovisuels en regard de ces pratiques de réutilisation. 
 Ainsi, nous nous attacherons dans cette section à présenter les standards, modèles et vocabulaires qui contribuent à décrire les objets audiovisuels. 
 Nous détaillerons quelles sont les informations fournies par ces modèles et quel genre de manipulation des objets audiovisuels elles permettent d'effectuer.}
