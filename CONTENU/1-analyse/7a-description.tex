@@ -2,13 +2,12 @@
 %====================================================
 %====================================================
 \newpage
-\section{Décrire les objets audiovisuels (m)}\label{sec:desc}
+\section{Décrire les objets audiovisuels}\label{sec:desc}
 \e{
-Avant de commencer notre état de l'art sur la description des contenus audiovisuels, nous souhaitons préciser pourquoi et de quelle manière sont abordés la construction et la collecte de ces descriptions.
-}
+Avant de commencer notre état de l'art sur les modélisations des objets audiovisuels, nous souhaitons préciser la nature des descriptions et les approches de fabrication de ces descriptions (\ref{sec:fab}).}
 % Nous verrons quelles types de description chacune de ces approches construit sur les contenus, et comment ces descriptions sont exploitées, pour quel type d'usage, à l'intention de systèmes informatiques ou d'être humains.
 
-\subsection{Nature et fabrication des descriptions}
+\subsection{Fabriquer des descriptions}\label{sec:fab}
 % \subsection{Quelles descriptions ?}
 
 \subsubsection{Nature des descriptions}
@@ -87,7 +86,7 @@ De plus, une description n'est jamais utile qu'en fonction d'un usage.
 Savoir où se trouve la prise de vue n'a d'intérêt que pour la personne qui devra en réaliser le montage, ou bien s'assurer de la préservation de la cassette une fois utilisée. 
 Les professionnels de la production sont donc confrontés à de multiples informations, pas forcément pertinentes par rapport à la tâche qu'ils doivent réaliser mais qui peuvent s'avérer utiles plus loin dans la chaîne.  
 
-\citeauthor{Rayers2002} et \cite{Austerberry2004} présentent en détails la manière dont les informations sont produites dans les processus de production télévisuels. 
+\citeauthor{Rayers2002}, comme \citeauthor{Austerberry2004} présentent en détails la manière dont les informations sont produites dans les processus de production télévisuels. 
 Leur expertise\footnote{Ces auteurs ont travaillé, entre autres, pour les réseaux de télévision public anglais (BBC), néerlandais (NOS), une bouquet privé américain (HBO) et en collaboration avec la principale association de professionnels du milieu de la télévision (SMPTE).} indique que ces informations sont collectées, manipulées,  réutilisées, diffusées à différentes étapes de la chaîne de production. 
 Pourtant, la mise en commun de ces informations restent un défi et il semble fréquent que ces informations doivent être retrouvées à la main, voire reconstruite à défaut d'en avoir connaissance :
 
@@ -104,7 +103,7 @@ Ainsi, les auteurs proposent de favoriser une collecte des informations au fur e
 \ciel{
 	At each step in the production process we can collect, and possibly re-use metadata. [\dots] Each re-use point is a saving as we have removed a data re- entry, probably reduced errors and given producers more information to help their task.} (\cite{Rayers2002})
 
-% collecte de MD tout au long de la chaîne : \cite{Rayers2002}
+
 
 
 
@@ -174,13 +173,12 @@ Dans ce cas, la requête mentionne un nom de marque qui ne correspond pas au nom
 Ainsi, l'attente implicite serait de pouvoir effectuer des rapprochements sémantiques entre libellés de la requête et libellés utilisés dans l'indexation. 
 Ce qui suppose l'utilisation de vocabulaires structurés à la base de l'indexation et un formalisme permettant d'effectuer des raisonnements. 
 
-Notons enfin que l'approche \e{in situ} consiste à modéliser les connaissances contenues dans les documents de la chaîne de production audiovisuelle.
+Notons enfin que l'approche \e{in situ} consiste à collecter les informations fabriquées durant la production. 
 L'originalité de cette approche est d'attaquer le fossé sémantique par le haut, c'est-à-dire à partir des connaissances humaines, qu'il faut ensuite représenter et associer aux séquences audio-visuelles.
-C'est justement ce renversement du problème qui ouvre la possibilité de collecter les informations fabriquées durant la production.
 
 \e{
 Dans notre cas, nous nous intéressons à la manière dont les professionnels de la production recherchent des séquences vidéos dans le cadre de pratiques de réutilisation des objets audiovisuels (décrites précédemment en section \ref{sec:reuse}). 
 Or, il s'agit maintenant d'examiner les moyens de décrire ces objets audiovisuels en regard de ces pratiques de réutilisation. 
 Ainsi, nous nous attacherons dans cette section à présenter les standards, modèles et vocabulaires qui contribuent à décrire les objets audiovisuels. 
 Nous détaillerons quelles sont les informations fournies par ces modèles et quel genre de manipulation des objets audiovisuels elles permettent d'effectuer.
-Nous distinguons parmi les modèles qui suivent une approche de fabrication des descriptions \e{a posteriori} (\ref{sec:post}) et ceux qui suivent une approche dite \e{in situ} de modélisation des connaissances des professionnels (\ref{sec:plan}).}
+Nous distinguons parmi les modèles qui suivent une approche dite \e{in situ} de modélisation des connaissances des professionnels (\ref{sec:plan}) et ceux qui suivent une approche de fabrication des descriptions se déroulant généralement \e{a posteriori} (\ref{sec:post}).}

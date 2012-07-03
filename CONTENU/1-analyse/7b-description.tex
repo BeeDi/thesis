@@ -1,5 +1,132 @@
 %=============================
 %=============================
+\subsection{Modèles de description \e{in situ}}\label{sec:plan}
+% \subsection{Descriptions métiers basées sur le plan}\label{sec:plan}
+% Script, Storyboard (\cite{Martin2005}, \cite{ThiBui2003}) etc.
+
+
+% Another trail of research has emerged recently. 
+% In comparison to the previous approach, it does not attack the multimedia description from below (with signal processing techniques) but from above. 
+% The principles is to represent the knowledge included in documents related to the multimedia content. 
+% It can be a web-page where the image is published and commented by others \cite{Simperl2009} or more specific documents related to the production context. 
+\e{
+Des modèles de description, dit \e{in situ}, sont apparus récemment avec pour approche de modéliser les connaissances contenues dans les documents de la chaîne de production audiovisuelle.
+Nous présentons plus en détails un langage XML qui capture les informations contenus dans un script (\ref{sec:msml}) ainsi qu'un projet de recherche qui formalise une notation d'assistance aux réalisateurs à la direction de tournage, elle-même reposant sur le script (\ref{sec:answer}).}
+
+\subsubsection{Movie Script Markup Langage}\label{sec:msml}
+MSML est un modèle documentaire développé par \cite{VanRijsselbergen2009} qui permet de représenter des scripts pour la production télévisuelle et les films dramatiques. 
+Le modèle se décompose en plusieurs parties, une partie décrivant le contenu, une autre sur la manière de fabriquer ce contenu et d'autres qui visent à fournir une pré-visualisation en 3D du contenu.
+MSML est représenté en XML Schema et utilise Schematron \parcite{ISO/IEC2006} pour édicter des règles plus complexes de validation de la structure des documents XML construits.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.6\textwidth]{images/MSML-sceneModel.png}
+\caption{Modélisation d'un script audiovisuel en MSML}
+\label{img:msml-model}
+\end{figure}
+
+% \paragraph{Modèle de scène}
+MSML repose sur la \e{scène} en tant qu'unité narrative, dans laquelle se déroule des \e{évènements} dans un \e{lieu} et à un moment donné, c'est-à-dire un \e{intervalle continu de temps}, voir Figure \ref{img:msml-model}.
+Des \e{entités} (éléments) sont présentes dans la \e{scène}, soit des \e{accessoires} qui décorent, soit des \e{personnages} qui participent à l'évolution de l'histoire.
+Les \e{évènements} peuvent être décomposés en deux types, soit des \e{actions} qui représentent également la description d'une scène (cadre, environnement, ambiance etc.), soit des \e{dialogues} entre personnages.
+La représentation des \e{évènements} peut être associée avec une représentation du temps écoulé, c'est-à-dire de sa \e{durées} (\pc{span}).
+Les éléments de \e{durée} servent à combiner des évènements de nature différentes, comme un dialogue et une action qui se réaliseraient  simultanément, ou bien une action qui donnerait des indications sur la manière de jouer le dialogue.
+
+
+% \paragraph{Modèle de fabrication}
+Le modèle de fabrication représente les \e{appareils techniques} (\pc{Component}) de captation, la \e{lumière} et le \e{plateau} afin de leur associer des \e{instructions}.
+Ces \e{instructions} sont des annotations textuelles écrites librement par le réalisateur pour indiquer la manière de fabriquer le contenu.
+Il peut s'agir par exemple, d'indiquer le type de plan souhaité par le réalisateur pour filmer un dialogue, pour réaliser la prise de son avec tel micro etc.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.6\textwidth]{images/MSML-sceneExample.png}
+\caption{Exemple de représentation d'un script audiovisuel en MSML}
+\label{img:msml-ex}
+\end{figure}
+
+La Figure \ref{img:msml-ex} montre un exemple de script décomposé selon les modèle de scène et de fabrication. 
+La scène se déroule dans une Jeep, deux personnages, Andi et Joe sont assis l'un à côté de l'autre et parlent. 
+La description de la scène est contenue dans un évènement \e{action}, puis Andi pose une question à Joe, représenté par un évènement \e{dialogue}. 
+On voit ainsi comment est réalisé la composition des éléments dialogue et action par l'intermédiaire des \e{durées}.
+L'action servant à décrire la manière dont le dialogue est énoncé par Andi.
+La scène se termine par une \e{instruction} de type transition qui indique au monteur qu'il ne faudra directement passer au plan suivant sans faire de fondu entre les plans.
+
+
+% \paragraph{Modèles de Pré-visualisation}
+% A similar work has been carried out by \cite{VanRijsselbergen2009} but with distinct goal and language. 
+% Their MovieScriptMarkupLanguage (MSML) captures the information of a shooting script with a particular attention to the details of set equipment's and actor's positions. 
+
+En vue de proposer une pré-visualisation graphique des évènements décrits dans le script, MSML propose des éléments permettant d'affiner la représentation du temps, ainsi que éléments de description des animations.
+Il s'agit en particulier de préciser la succession et la synchronisation des \e{évènements} se déroulant dans le script. 
+En effet, le texte du script décrit ces évènements ligne par ligne ce qui ne permet pas d'indiquer de relation temporelle entre eux.
+Ainsi, ils peuvent très bien se produire en simultanée, avec plus ou moins de temps entre eux etc.
+De plus, les \e{animations} permettent de décomposer le mouvement d'une entité (objet, personnage) en plusieurs parties.
+
+\paragraph{Discussion}
+Le modèle MSML a été illustré dans l'application \pc{Scoop} développé par \cite{Cardinaels2008}. 
+Il permet de coupler une représentation 3D d'un plateau et des personnages, avec la représentation du script et des équipements de production.
+Ainsi, un réalisateur peut modifier l'emplacement d'une caméra sur le plateau et observer directement l'effet sur le plan filmé. 
+L'objectif est de faciliter la préparation du tournage, notamment dans des environnements de plateau où la place est restreinte et le positionnement du décor difficile.
+Les informations récoltées pourraient également être réutilisé plus tard dans la production, cependant la représentation de script en fichier XML pose un problème de transformation des données et d'interopérabilité avec les applications de fin de chaîne.
+La synchronisation entre ces descriptions et le contenu filmé est également un problème qui n'est pas abordé par \cite{VanRijsselbergen2009}. 
+
+Le positionnement de MSML sur les connaissances spécifiques à la pré-production en fait un modèle à part parmi les modélisations que nous étudions.
+Son originalité provient de sa modélisation du contenu à produire selon un découpage narratif (scène), puis sur les indications de tournage dont il est possible d'observer les conséquences par l'intermédiaire d'une application.
+Ce point de vue de description particulier tranche avec des modélisations qui se concentre sur le matériel audiovisuel [\g{B1 : autonomie}] mais rend de ce fait difficile leur association [\g{B2 : réutilisabilité}].
+
+
+% The related  system  provides its user 3D model of the set as well as the shots taken by the camera in a given position and settings. 
+% The overall objective is to provide an shooting-set 3D simulation to assist the production team in their preparation.\\
+
+
+
+\subsubsection{Projet \pc{Answer}}\label{sec:answer}
+Le projet \pc{Answer} est un projet financé par le 7ème PCRD qui instrumente la pratique de direction des réalisateurs de film \parcite{UniversityofSouthamptonITInnovation2009}. 
+Les résultats du projet comportent des applications et une ontologie décomposées en plusieurs parties : 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\textwidth]{images/Ontofilm-concepts.png}
+\caption{Modélisation d'un script audiovisuel dans \pc{Answer}}
+\label{img:ontofilm}
+\end{figure}
+
+\begin{listeni}
+	\item une \gpc{Context Ontology} qui modélise le processus de production d'un film, les équipements techniques de captation, les décors, les costumes ainsi que des règles de réalisation audiovisuelle (règles d'enchaînement de plans, caractéristiques de tournage des plans etc.).
+	Par la suite, des éléments spécifiques au développement des jeux vidéos ont été rajouté à cette ontologie.
+	Cette partie de l'ontologie comporte en particulier : 
+
+	\begin{liste}
+		\item un modèle de pré-production qui décompose un \e{script} en scènes et plans, voir Figure \ref{img:ontofilm} \parcite{Chakravarthy2009a}.
+		Les scènes sont décrites par rapport aux personnages présents, aux actions se déroulant ou aux dialogues ainsi que les transitions, d'une manière très proche des scripts papiers.
+		Le modèle a fait l'objet d'une représentation proche des formats des logiciels d'écriture de script professionnels.  
+		Cette représentation est utilisée dans l'application \pc{Editor}, développée dans le cadre du projet, et qui permet aux réalisateurs d'annoter des scripts.\\
+	\end{liste}
+
+	\item une \gpc{Core Ontology} qui constitue un modèle de direction artistique également nommée \pc{Director Notation} \parcite{Chakravarthy2009b}. 
+	Cette notation vise à préciser le jeu d'acteurs (position, émotion, mouvement etc.) pour chaque plan du script. 
+	L'application \pc{Editor} permet d'écrire ces annotations à côté du script à partir d'une palette de symboles visuels. 
+	Un service Web, le \pc{Rule Engine}, transforme ces symboles en des instances de l'ontologie représentant la géométrie du film et de la \gui{scène} filmée.
+	Ces instances peuvent ensuite être utilisé par une application de pré-visualisation de la scène en 3D, avec animation des personnages etc.
+
+	\item une intégration de concepts de MPEG-7 comme ontologie générique. 
+	Il s'agit en particulier du Segment DS mais aussi de descripteurs plus spécifiques pour la couleur, la texture, les mouvements de caméra etc.
+\end{listeni}
+
+\paragraph{Discussion}
+L'intérêt de cette modélisation est d'associer des connaissances sur la production, c'est-à-dire comment a été construit le film, et le résultat de cette production, le film en tant que tel [\g{B2 : réutilisabilité}].
+Ceci est rendu possible par le fait que la structure d'annotation est celle du script, qui correspond à la fois à une unité de contenu -- le film -- et une unité de travail pour la production [\g{B1 : autonomie}].
+Ce projet propose ainsi une approche de description intégrée aux pratiques et au vocabulaire de la production filmique, en instrumentant le travail de ses contributeurs.
+Il est néanmoins regrettable que leurs résultats ne soient pas accessibles à la communauté scientifique, qu'il s'agisse des applications ou bien de l'ontologie, ce qui rend difficile la poursuite de leur travaux. 
+
+
+
+
+
+
+%=============================
+%=============================
 % \subsection{Modèles et standards de description}
 \subsection{Modèles de description \e{a posteriori}}\label{sec:post}
 \e{
@@ -151,7 +278,7 @@ Dans la partie \e{Systems} de la norme, on trouve ainsi la définition d'outils 
 La partie \e{Reference Software} présente des logiciels de références pour utiliser la norme.
 Enfin, la partie \e{Conformance} explicite des directives et des procédures pour s'assurer de la conformité des descriptions produites.
 
-Nous détaillerons dans cette section les Schémas de Description liés à la gestion du contenu (\e{Content Management} dans la Figure \ref{img:soa:mds}) et à la description du contenu (\e{Content Description}).\\
+Nous détaillerons dans cette les Schémas de Description liés à la gestion du contenu (\e{Content Management} dans la Figure \ref{img:soa:mds}) et à la description du contenu (\e{Content Description}).\\
 
 
 \subsubsection{MPEG-7 : Gestion du contenu}\label{sec:mpeg7-gc}
@@ -167,8 +294,9 @@ Pour donner une première idée, on peut dire que le fichier créé correspond �
 \end{figure}
 
 
-On remarque qu'il existe cependant des différences entre les \pc{MediaInstance}, entre l'original et ce qui est nommé des \gui{copies} (copied instances). 
-Ce qui est particulièrement intéressant pour nous est de constater que la nature de la manipulation entre l'original et les soi-disantes \gui{copies} importe peu (copie technique, réencodage ou montage), car cela crée de toute façon une nouvelle \pc{MediaInstance}. 
+On remarque qu'il existe cependant des différences dans les \pc{MediaInstance}, entre l'original et ce qui est nommé des \gui{copies} (copied instances). 
+Ce qui est particulièrement intéressant pour nous est de constater que la nature de la manipulation entre l'original et les soi-disantes \gui{copies} importe peu (copie technique, réencodage ou montage), car cela créé de toute façon une nouvelle \pc{MediaInstance}. 
+Le \pc{Variation DS} permet ainsi d'indiquer la nature de la variation entre les copies (résumé, traduction, changement de codage de la couleur etc. mais également une révision ou bien une version alternative pour le contenu).
 
 À l'inverse, la notion de \pc{MediaProfile} est dépendante de la nature de ces transformations. 
 Le \gui{MasterProfile} correspond ainsi aux paramètres d'encodage de la MI d'origine, la première créée. 
@@ -177,13 +305,19 @@ Il correspond donc à un regroupement de toutes les instances ayant en commun le
 %%%% orthographe %%%%
 Ce qui paraît troublant néanmoins, est l'amalgame fait entre réencodage et montage. 
 Les changements de structure réalisés par le montage semblent en effet bien plus significatif qu'un changement de paramètre d'enregistrement. 
-On peut se souvenir de la citation d'\pc{Eisenstein} à ce sujet évoqué en section \ref{sec:prod}.
+On peut se souvenir de la citation d'\pc{Eisenstein} à ce sujet évoqué en \ref{sec:prod}.
 
 Enfin, la notion de \pc{ContentEntity} correspond à une entité abstraite permettant de regrouper toutes les versions ultérieures de ce même contenu.
 De ce fait, c'est à elle qu'on attache des informations concernant la création, l'usage et le type de média construit. % ??? Sûr ???
 Ce regroupement d'informations à ce niveau découle de l'idée que chaque \pc{ContentEntity} définit une forme reconnaissable de contenu, quelque soit les variations apportées.
+
+
+
 Encore une fois, l'idée qu'un montage différent n'impacte pas la forme et donc potentiellement l'identité du contenu nous semble ambiguë. 
 Il s'agit là d'un de nos points d'achoppement par rapport à la modélisation proposée par la norme. 
+
+
+
 
 \paragraph{Schémas de description}
 Détaillons maintenant les trois Schémas de Descriptions proposés par MPEG-7 dans la partie \gui{Content Management}.
@@ -208,6 +342,8 @@ Le \pc{CreationInformation} peut être considéré comme une version étendue à
 
 		\item \pc{RelatedMaterial} : des métadonnées sur les autres versions d'un même contenu (format, type de média, localisation du média etc.) qui sont ensuite elles-mêmes décrites comme des éléments à part.
 	\end{liste}
+
+
 
 Le \pc{UsageDescription} est un schéma qui comporte un descripteur détaillant les droits attachés au contenu (\pc{Rights}), un descripteur décrivant les résultats financiers (\pc{FinancialResults}) et des schémas de descriptions sur les détails d'utilisation du contenu (\pc{Availability}) et sur l'historique de son utilisation(\pc{UsageRecord}).
 Les droits d'exploitation peuvent en effet porter uniquement sur certains types de distribution (DVD, télédiffusion etc.) ou une certaine période. 
@@ -386,7 +522,7 @@ Ainsi, contraiment à la méthode de \pc{Rhizomik}, l'intégration avec d'autres
 Le DS-MIRF framework a été utilisé pour l'annotation de match de football et de courses de Formule 1.
 
 
-\paragraph{Stratégies d'intégration à des ontologies de domaine}
+\paragraph{Stratégies d'intégration à des ontologies de domaine}\label{sec:strats-domaine}
 En guise de synthèse, nous comparons les stratégies d'intégration des ontologies basées sur MPEG-7 avec des ontologies de domaine.
 Ces ontologies de domaine servent à produire des descriptions sur le contenu d'objets ou segments multimédia, en proposant des concepts et des propriétés spécifiques à ce domaine. 
 Nous avons vu que de nombreux exemples d'applications s'intéressent à un domaine sportif (football, tennis etc.).
@@ -406,16 +542,43 @@ Les ontologies présentées mobilisent trois stratégies :
 	C'est l'approche utilisée dans COMM et les ontologies de \pc{SmartWeb}.
 \end{liste}
 
-Enfin, il est important de noter que dans les approches utilisant des ontologies génériques, la modélisation des objets audiovisuels est indépendante de la stratégie d'intégration à des ontologies de domaine. 
+Enfin, il est important de noter que dans les approches utilisant des ontologies génériques, la modélisation des objets audiovisuels est indépendante de la stratégie d'intégration à des ontologies de domaine.
 Ainsi, il serait possible d'utiliser la dernière approche dans \pc{Harmony}.
 
 \paragraph{Discussion}
-[\g{B1 : autonomie}]
-[\g{B2 : réutilisabilité}]
-%  structure documentaire générique, extensible ?
-%  description propre à la prod. av ? le signal tend mais n'y est pas encore
+Concernant la modélisation des objets audiovisuels, MPEG-7 et les ontologies réutilisant le Structure DS décomposent très finement le matériel audiovisuel dans l'espace et le temps [\g{B1 : autonomie}].
+Les Segments ainsi constitués renvoient alors au premier des trois niveaux de modélisation de MPEG-7, à savoir \pc{ContentEntity}, \pc{MediaProfile} et \pc{MediaInstance}.
+Cette modélisation en niveau permet d'identifier les variations construites à partir d'un même matériel audiovisuel, de les regrouper et d'associer la plupart des informations au niveau supérieur (CE).
+Ainsi, un CE peut regrouper plusieurs MP qui correspondent à un profil de transformation qui rassemble lui-même toutes les occurrences (MI) correspondant à ce profil.
+Une critique importante de ce système est de ne pas distinguer entre la nature des transformations effectuées sur le matériel original, et en particulier entre une transformation d'encodage et de montage.
+
+Ainsi, le CE vise plus de rassembler les informations communes à plusieurs variations de matériels audiovisuel que de modéliser un document ou un fragment documentaire portant une intention spécifique (voir la définition du document numérique section \ref{sec:docnum}).
+De même, un MP et ses MI visent simplement à identifier et gérer des variations d'un même matériel, sans pour autant le raccorder à un projet documentaire en construction.
+Les décompositions ou bien les variations identifiées avec MPEG-7 ne correspondent pas a priori à celle utilisée pendant la production pour organiser le travail ou bien sa présentation (structure documentaire auctoriale, voir \ref{sec:uc-sd}).
+Or l'identification de cette structure première semble pourtant décisive quand il s'agit de réutiliser des fragments de documents dans de nouveaux contextes d'exploitation. 
+De notre point de vue, il ne suffit pas d'identifier des segments ou des variations pour les constituer comme des fragments automones s'intégrant à un document audiovisuel.
+
+En particulier, il peut être important de spécifier la grammaire documentaire d'un genre de document pour faciliter les manipulations de ses fragments. 
+De ce point de vue, MPEG-7 définit une classification par genre et permet de typer les Segments suivant leur place dans la structure de présentation du contenu.
+Ces classifications peuvent être étendues par les utilisateurs mais aucune contraintes de composition n'est prévu, empêchant la modélisation d'une grammaire.
+L'usage de ces classifications par unité de présentation vise à faciliter le travail d'analyse du signal, notamment la reconnaissance optique des caractères (ROC).
+On retrouve ainsi l'esprit général de la norme qui consiste à opérer des décompositions a posteriori sur le matériel, et non à repérer des fragments documentaires qui ont porté l'intentionnalité de leur auteur pendant la production du document.
+
+
+En tant que CE, chacun des Segment d'une décomposition peut-être décrit par les schémas de descriptions et le schéma Semantic DS [\g{B2 : réutilisabilité}].
+MPEG-7 proposent beaucoup de descripteurs du matériel audio-visuel ainsi que des métadonnées sur le contexte de production.
+Le schéma \pc{Semantic} esquisse une description visant des entités représentés dans le matériel audiovisuel (objet, évènement, lieux, agent) et esquisse ainsi une ouverture à des descriptions propres à un domaine.
+Les ontologies basées sur MPEG-7 s'attaquent largement à cette question avec diverses stratégies (voir \ref{sec:strats-domaine}).
+Les exemples développés traitent par exemple de sport et constituent une voie prometteuse pour l'enrichissement des descriptions.
 % intégration avec des ontos de domaine importante, bcp d'efforts pour des formalismes de haut-niveau, mais du coup difficile à appréhender par les utilisateurs, problème d'adoption ?
+
+% Pour autant, ces modélisations ne fournissent pas de connaissances propres à la production audiovisuelle, comme celles représentées dans les modèles de la pré-production (voir \ref{sec:plan}).
 % peu de lien avec le contexte, approche a posteriori qui ne permet pas de prescription ou de description au fil de la production
+%  description propre à la prod. av ? le signal tend mais n'y est pas encore
+
+
+%  structure documentaire générique, extensible ?
+
 
 
 
@@ -478,27 +641,6 @@ Son objectif n'est pas l'exhaustivité de la représentation des objets audiovis
 
 
 
-%=============================
-%=============================
-\subsection{Modèles de description métier \e{in situ}}\label{sec:plan}
-% \subsection{Descriptions métiers basées sur le plan}\label{sec:plan}
-% Script, Storyboard (\cite{Martin2005}, \cite{ThiBui2003}) etc.
-% Réappropriations dans le champ informatique : \cite{Chakravarthy2009b} ; \cite{Chakravarthy2009c}
-
- 
-
-
-Another trail of research has emerged recently. 
-In comparison to the previous approach, it does not attack the multimedia description from below (with signal processing techniques) but from above. 
-The principles is to represent the knowledge included in documents related to the multimedia content. 
-It can be a web-page where the image is published and commented by others \cite{Simperl2009} or more specific documents related to the production context. 
-\cite{Chakravarthy2009b} and \cite{Chakravarthy2009c} take interest in the knowledge of film direction. 
-They propose a semantic model which captures the information typically included in a storyboard or screenplay. 
-They also provide a system to capture the director's demands and assist her/him during the shooting. 
-A similar work has been carried out by \cite{VanRijsselbergen2009} but with distinct goal and language. 
-Their MovieScriptMarkupLanguage (MSML) captures the information of a shooting script with a particular attention to the details of set equipment's and actor's positions. 
-The related Scoop system \cite{Cardinaels2008} provides its user 3D model of the set as well as the shots taken by the camera in a given position and settings. 
-The overall objective is to provide an shooting-set 3D simulation to assist the production team in their preparation.\\
 
 
 
