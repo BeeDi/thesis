@@ -1,6 +1,6 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {IV.1}Cahier des charges fonctionnel (n,m)}{\reset@font\mtcSfont 43}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {IV.1.1}Scénario de réutilisation multiple (m)}{\reset@font\mtcSSfont 43}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {IV.1.2}Besoins en modélisation (n)}{\reset@font\mtcSSfont 45}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {IV.1}Cahier des charges fonctionnel}{\reset@font\mtcSfont 43}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {IV.1.1}Scénario de réutilisation multiple}{\reset@font\mtcSSfont 43}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {IV.1.2}Besoins en modélisation}{\reset@font\mtcSSfont 45}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {IV.2}Qu\kern 0.1em'est-ce qu\kern 0.1em'un objet audiovisuel numérique ?}{\reset@font\mtcSfont 46}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {IV.2.1}Du point de vue de l\kern 0.1em'audiovisuel}{\reset@font\mtcSSfont 46}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {IV.2.2}Du point de vue des bibliothèques numériques}{\reset@font\mtcSSfont 47}}
@@ -63,9 +63,7 @@
 {\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode DS-MIRF}{\reset@font\mtcPfont 83}}
 {\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Stratégies d\kern 0.1em'intégration à des ontologies de domaine}{\reset@font\mtcPfont 83}}
 {\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Discussion}{\reset@font\mtcPfont 84}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {IV.4.3.6}Ontology for Media Resources}{\reset@font\mtcSSSfont 84}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Alignement avec d\kern 0.1em'autres conceptualisations}{\reset@font\mtcPfont 85}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Discussion}{\reset@font\mtcPfont 85}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {IV.4.4}Discussion}{\reset@font\mtcSSfont 86}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode MPEG-21}{\reset@font\mtcPfont 86}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode TV Anytime}{\reset@font\mtcPfont 86}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {IV.4.3.6}Ontology for Media Resources}{\reset@font\mtcSSSfont 85}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Alignement avec d\kern 0.1em'autres conceptualisations}{\reset@font\mtcPfont 86}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Discussion}{\reset@font\mtcPfont 86}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Discussion}{\reset@font\mtcSSfont 87}}

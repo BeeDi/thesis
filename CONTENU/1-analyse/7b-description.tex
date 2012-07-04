@@ -310,9 +310,6 @@ On peut se souvenir de la citation d'\pc{Eisenstein} à ce sujet évoqué en \re
 Enfin, la notion de \pc{ContentEntity} correspond à une entité abstraite permettant de regrouper toutes les versions ultérieures de ce même contenu.
 De ce fait, c'est à elle qu'on attache des informations concernant la création, l'usage et le type de média construit. % ??? Sûr ???
 Ce regroupement d'informations à ce niveau découle de l'idée que chaque \pc{ContentEntity} définit une forme reconnaissable de contenu, quelque soit les variations apportées.
-
-
-
 Encore une fois, l'idée qu'un montage différent n'impacte pas la forme et donc potentiellement l'identité du contenu nous semble ambiguë. 
 Il s'agit là d'un de nos points d'achoppement par rapport à la modélisation proposée par la norme. 
 
@@ -527,6 +524,7 @@ En guise de synthèse, nous comparons les stratégies d'intégration des ontolog
 Ces ontologies de domaine servent à produire des descriptions sur le contenu d'objets ou segments multimédia, en proposant des concepts et des propriétés spécifiques à ce domaine. 
 Nous avons vu que de nombreux exemples d'applications s'intéressent à un domaine sportif (football, tennis etc.).
 Cela permet alors d'enrichir la description, essentiellement techniques, de ces objets et de proposer une indexation propre à un métier.
+Dans notre cas, l'enrichissement souhaité serait d'intégrer les connaissances fabriquées par les contributeurs de la chaîne de production.
 Les ontologies présentées mobilisent trois stratégies : 
 \begin{liste}
 	\item \e{l'utilisation d'une ontologie générique} pour faire le lien entre les objets multimédias et des descriptions issues de l'ontologie de domaine. 
@@ -547,7 +545,7 @@ Ainsi, il serait possible d'utiliser la dernière approche dans \pc{Harmony}.
 
 \paragraph{Discussion}
 Concernant la modélisation des objets audiovisuels, MPEG-7 et les ontologies réutilisant le Structure DS décomposent très finement le matériel audiovisuel dans l'espace et le temps [\g{B1 : autonomie}].
-Les Segments ainsi constitués renvoient alors au premier des trois niveaux de modélisation de MPEG-7, à savoir \pc{ContentEntity}, \pc{MediaProfile} et \pc{MediaInstance}.
+Les \pc{Segments} ainsi constitués renvoient alors au premier des trois niveaux de modélisation de MPEG-7, à savoir \pc{ContentEntity}, \pc{MediaProfile} et \pc{MediaInstance}.
 Cette modélisation en niveau permet d'identifier les variations construites à partir d'un même matériel audiovisuel, de les regrouper et d'associer la plupart des informations au niveau supérieur (CE).
 Ainsi, un CE peut regrouper plusieurs MP qui correspondent à un profil de transformation qui rassemble lui-même toutes les occurrences (MI) correspondant à ce profil.
 Une critique importante de ce système est de ne pas distinguer entre la nature des transformations effectuées sur le matériel original, et en particulier entre une transformation d'encodage et de montage.
@@ -559,25 +557,26 @@ Or l'identification de cette structure première semble pourtant décisive quand
 De notre point de vue, il ne suffit pas d'identifier des segments ou des variations pour les constituer comme des fragments automones s'intégrant à un document audiovisuel.
 
 En particulier, il peut être important de spécifier la grammaire documentaire d'un genre de document pour faciliter les manipulations de ses fragments. 
-De ce point de vue, MPEG-7 définit une classification par genre et permet de typer les Segments suivant leur place dans la structure de présentation du contenu.
+De ce point de vue, MPEG-7 définit une classification par genre et permet de typer les \pc{Segments} suivant leur place dans la structure de présentation du contenu.
 Ces classifications peuvent être étendues par les utilisateurs mais aucune contraintes de composition n'est prévu, empêchant la modélisation d'une grammaire.
 L'usage de ces classifications par unité de présentation vise à faciliter le travail d'analyse du signal, notamment la reconnaissance optique des caractères (ROC).
-On retrouve ainsi l'esprit général de la norme qui consiste à opérer des décompositions a posteriori sur le matériel, et non à repérer des fragments documentaires qui ont porté l'intentionnalité de leur auteur pendant la production du document.
+On retrouve ainsi l'esprit général de la norme qui consiste à opérer des décompositions a posteriori sur le matériel, et non à repérer des fragments documentaires qui ont porté l'intentionnalité de leur auteur pendant la production du document.\\
 
 
-En tant que CE, chacun des Segment d'une décomposition peut-être décrit par les schémas de descriptions et le schéma Semantic DS [\g{B2 : réutilisabilité}].
+En tant que CE, chacun des \pc{Segment} d'une décomposition peut-être décrit par les schémas de descriptions et le schéma Semantic DS [\g{B2 : réutilisabilité}].
 MPEG-7 proposent beaucoup de descripteurs du matériel audio-visuel ainsi que des métadonnées sur le contexte de production.
+Cependant, ces métadonnées ne permettent pas de rendre compte de l'organisation de la production, des résultats intermédiaires produits, ainsi que des connaissances qui y sont fabriquées. 
+Même si ces informations peuvent être associées à n'importe quel \pc{Segment}, il s'agit plus d'annoter l'objet audiovisuel fini, plutôt que de rendre compte de sa production.
+Les descripteurs, quant à eux, renseignent sur les caractéristiques du matériel en tant que signal (à encoder, à transmettre etc.) à partir duquel des algorithmes cherchent à reconnaître des objets signifiants.
+La reconnaissance automatique est une première étape, qui doit conduire à un étiquettage selon une sémantique propre à un contexte d'usage (une tâche et des utilisateurs).
+Dans le cas de MPEG-7, nous n'avons pas observé de systèmes capable de fournir des connaissances liées à la production audiovisuelle, mais sur d'autres domaines comme le sport ou la médecine.
+
 Le schéma \pc{Semantic} esquisse une description visant des entités représentés dans le matériel audiovisuel (objet, évènement, lieux, agent) et esquisse ainsi une ouverture à des descriptions propres à un domaine.
-Les ontologies basées sur MPEG-7 s'attaquent largement à cette question avec diverses stratégies (voir \ref{sec:strats-domaine}).
-Les exemples développés traitent par exemple de sport et constituent une voie prometteuse pour l'enrichissement des descriptions.
-% intégration avec des ontos de domaine importante, bcp d'efforts pour des formalismes de haut-niveau, mais du coup difficile à appréhender par les utilisateurs, problème d'adoption ?
-
-% Pour autant, ces modélisations ne fournissent pas de connaissances propres à la production audiovisuelle, comme celles représentées dans les modèles de la pré-production (voir \ref{sec:plan}).
-% peu de lien avec le contexte, approche a posteriori qui ne permet pas de prescription ou de description au fil de la production
-%  description propre à la prod. av ? le signal tend mais n'y est pas encore
-
-
-%  structure documentaire générique, extensible ?
+Les ontologies basées sur MPEG-7 s'attaquent largement à cette question avec diverses stratégies (voir \ref{sec:strats-domaine}). 
+Les stratégies de \pc{SmartWeb} et COMM consistant à modéliser la création de liens entre objets multimédias et connaissances d'un domaine sont les mieux formalisées et les plus génériques.
+Cette généricité, qui vient de l'intégration du module OIO de l'ontologie DOLCE, rend leur appropriation plus difficile par rapport à des approches favorisant l'intégration d'une partie d'ontologie générique ou bien d'une ontologie noyau.
+Il s'agit en quelque sorte de discuter du point de départ pour la construction d'ontologie avec l'alternative classique de \ciel{coller au problème, ou y plaquer un modèle} \parcite{Bachimont2004}.
+L'approche \e{ascendante} se concentre sur la modélisation du problème, quitte à le rendre trop complexe pour être opérationnaliser, alors que l'approche \e{descendante} tente d'appliquer un schéma conceptuel générique aux spécificités du problème.
 
 
 
@@ -650,25 +649,41 @@ Son objectif n'est pas l'exhaustivité de la représentation des objets audiovis
 % In comparison to the COMM ontology, our model offers an additional representation layer with describe the editorial structure of audiovisual objects (Opus, MediaAsset, EditorialObject). With the Semantic Script, we provide a way to predefine a structure and capture intentions that are inherent to the audiovisual production process. COMM represents a MPEG-7 flavored description of video files and also the way this description has been produced by human or algorithms. This indexing is made after the video production and do not provide any mean to retain information from the context of production.
 
 
-\subsection{Discussion}
-[\g{B1 : autonomie}]
-[\g{B2 : réutilisabilité}]
+\subsection*{Discussion}
+\addcontentsline{toc}{subsection}{Discussion}
+La modélisation des objets audiovisuels que nous avons spécifié dans notre cahier des charges (\ref{sec:cdc-av}) demande de distinguer les produits intermédiaires de la chaîne, afin de favoriser leur circulation et leur intégration dans d'autres chaînes de production [\g{B1 : autonomie}].
+Sur ce plan, MPEG-7 modélise les objets audiovisuels comme des matériaux audiovisuels que l'on décrit surtout selon des critères propres au signal et peu selon le point de vue de la production audiovisuelle.
+La gestion de ces matériaux s'opère alors en fonction de leur caractéristiques communes, différents niveaux permettant de les regrouper et de mettre en commun certaines informations. 
+Ainsi , cette modélisation évacue largement les questions de construction documentaire pour se concentrer sur les stratégies d'annotations a posteriori.
+Dans ce point de vue, toutes les transformations d'un matériel se valent, quelque soit l'effet sur le sens véhiculé par le segment audiovisuel. 
+De même, le typage des segments ne permet pas de représenter des contraintes de structuration documentaire.
+Les ontologies construites à partir de MPEG-7 partagent ces problèmes inhérents à l'approche de segmentation et de description de la norme.
+L'alignement a minima des modèles de l'audiovisuel proposée en \ref{sec:omr} montre une relative homogénéité des concepts, ce qui tend à indiquer qu'ils partagent  ce manque de considération des problématiques documentaires. 
 
-%=============
-\paragraph{MPEG-21}
-% \addcontentsline{toc}{subsubsection}{MPEG-21}
-% \cite{Burnett2003} ; \cite{Garcia2010} ? 
-%Creation Value Chain
-Along with MPEG-7, the MPEG-21 Multimedia Framework \cite{Burnett2003} offers a valuable perspective on future practices in content management, distribution and consumption. The recent interest in content value chains modeling presented in \cite{Garcia2010} shows some similarities with our audiovisual object modeling approach. There is still an open debate about the modeling of the various forms or facets that content can take during its production. Many approaches rely on, adapt or extend the original FRBR Group 1 concepts of \e{Work}, \e{Expression}, \e{Manifestation} and \e{Item}. 
-For instance, the Media Value Chain Ontology (MVCO) \cite{Rodriguez-Doncel2009}, \cite{Rodriguez-Doncel2010} is included as the Part 19 of the MPEG-21 standard. 
-The authors merge the concepts of Expression and Manifestation. Moreover, they also propose a new concept of Product for asset which needs to be licensed before publishing. 
-% Citer également : Jane Hunter -- Reconciling MPEG-7 and MPEG-21 Semantics through a Common Event-Aware Metadata Model
+À l'inverse, les modèles de description \e{in situ} que nous avons étudié modélisent les objets audiovisuels en devenir, et décrivent justement la structure documentaire auctoriale qui guidera également la production du matériel audiovisuel.
+Cette approche apparaît alors comme complémentaire par rapport aux modèles \e{a posteriori}, dans le sens où la structure documentaire prévu devrait être associé et synchronisé au matériel audiovisuel effectivement produit.\\
+
+% :  / gestion des variations d'un segment de matériel, plutôt que d'un fragment porteur d'une intentionalité et s'articulant dans une structure documentaire / se conformant à une grammaire de genre 
+% => il n'y a pas de niveau documentaire, il n'y a pas de niveau de production ; il n'y a que du matériel dont on repère des ensembles cohérents suivant des critères techniques (transformé / même profil)
+
+Les modèles de description \e{in situ} mettent également en avant les connaissances mobilisées par les contributeurs de la chaîne de production [\g{B2 : réutilisabilité}].
+La description de la structure en devenir de l'objet audiovisuel permet ainsi d'associer d'autres connaissances à chaque fragment. Il s'agit par exemples de préciser la manière de les produire (indication de tournage, réglages d'équipement de captation etc.), ce qui se révèle particulièrement intéressant dans le cas de production collaborative.
+MPEG-7, et les ontologies qui le formalisent, se concentrent sur une description du signal, tout en associant des informations éparses sur le contexte de production.
+L'ouverture à une description sémantique présente dans MPEG-7 a été étendue dans certaines de ces ontologies afin de pouvoir intégrer des connaissances propre à un domaine.
+Cependant, ces stratégies d'intégration sont difficiles à appréhender car reposant sur des ontologies génériques. 
+Nous questionnons alors la pertinence de construire une ontologie de noyau qui serait moins complète et plus centrée sur les problématiques de la production audiovisuelle collaborative.
+% MPEG-7 : des md associant quelques valeurs au matériel produit, mais pas de description de sa production / pas de connaissances propre à la chaîne de prod., mais des descripteurs du signal / la représentation de MPEG-7 pose des problèmes sur le plan syntaxique et sémantique, les ontologies basées sur MPEG-7 s'attaquent à ces problèmes avec différentes stratégies / les formalismes permettant d'intégrer les connaissances d'un domaine sont difficile à appréhender, et on peut se demander s'il ne serait pas plus pertinent de construire une ontologie de noyau, moins complète et centré sur nos besoins 
 
 
 
 
-%=============
-\paragraph{TV Anytime}
-% \addcontentsline{toc}{subsubsection}{TV Anytime}
-\cite{Evain2000} ; \cite{Tsinaraki2004} ; \cite{Tsinaraki2005}
+% Along with MPEG-7, the MPEG-21 Multimedia Framework \cite{Burnett2003} offers a valuable perspective on future practices in content management, distribution and consumption. The recent interest in content value chains modeling presented in \cite{Garcia2010} shows some similarities with our audiovisual object modeling approach. There is still an open debate about the modeling of the various forms or facets that content can take during its production. Many approaches rely on, adapt or extend the original FRBR Group 1 concepts of \e{Work}, \e{Expression}, \e{Manifestation} and \e{Item}. 
+% For instance, the Media Value Chain Ontology (MVCO) \cite{Rodriguez-Doncel2009}, \cite{Rodriguez-Doncel2010} is included as the Part 19 of the MPEG-21 standard. 
+% The authors merge the concepts of Expression and Manifestation. Moreover, they also propose a new concept of Product for asset which needs to be licensed before publishing. 
+
+
+% %=============
+% \paragraph{TV Anytime}
+% % \addcontentsline{toc}{subsubsection}{TV Anytime}
+% \cite{Evain2000} ; \cite{Tsinaraki2004} ; \cite{Tsinaraki2005}
 
