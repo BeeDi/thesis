@@ -64,6 +64,7 @@
 \usepackage{minitoc}
 
 
+
 %%%%%%% Références
 % \usepackage[hyperfootnotes=false,pdfencoding=auto]{hyperref}
 
@@ -115,10 +116,12 @@
 \newcommand{\poi}[1]{\textbf{#1}.~}
 
 %%%%% Citation En Ligne
-\newcommand{\ciel}[1]{\textit{\gui{#1}}}
+\newcommand{\ciel}[1]{\emph{\gui{#1}}}
 
 %%%%% Un bout de code
 \newcommand{\cd}[1]{\textcolor{black!70}{\texttt{#1}}}
+\newcommand{\con}[1]{\textcolor{SteelBlue}{\textbf{\textsc{#1}}}}
+\newcommand{\rel}[1]{\textcolor{LightSlateGrey}{\texttt{#1}}}
 \newcommand{\tw}[1]{\texttt{#1}}
 
 %%%%% Guillemets français
@@ -238,11 +241,17 @@
 \newenvironment{cadrecol}[1]
 {%
 	\setlength\fboxrule{1pt}%
-	\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{black}{#1}}%
+	\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{LightSteelBlue}{#1}}%
 	\MakeFramed{\FrameRestore}%
 }{%
 	\endMakeFramed
 }
+\definecolor{fond}{rgb}{69,162,1}
+
+
+
+
+
 
 %%%%% Changer ponctuellement les marges
 \newenvironment{changemargin}[2]{\begin{list}{}{%
