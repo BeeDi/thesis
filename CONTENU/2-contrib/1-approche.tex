@@ -5,7 +5,62 @@
 
 
 
-\section{Synthèse et Besoins}\label{sec:principes}
+\section{Synthèse de l'état de l'art}\label{sec:principes}
+Dans le chapitre \ref{chap:omod}, nous avons étudié la modélisation de connaissances par les ontologies ainsi que la modélisation des vocabulaires métiers par les terminologies. 
+Notre définition des besoins implique d'associer une documentation et une terminologie à notre conceptualisation (\ref{sec:bm}), de manière à faciliter les échanges de connaissances entre tous les contributeurs de la chaîne de production, ainsi que dans les cas de réutilisation où l'on reprend des éléments externes à cette chaîne.
+Nos objectifs dépassent le cadre de la modélisation documentaire que permet XML et les langages de schéma associées (\ref{sec:xml}).
+Les langages de représentations des connaissances développés par le W3C apporte une formalisation qui permet de clarifier la sémantique de la modélisation et d'envisager la mise en place d'inférences (\ref{sec:onto-mc}).
+Si les langages RDF et RDF-Schema permettent la définition de hiérarchies de classes et de relations, OWL ajoute de nombreux raffinements dont de nouveaux axiomes précisant l'usage des propriétés, ainsi que l'ajout de propriétés d'annotation pour décrire la conceptualisation.
+La version OWL-DL fournit un compromis intéressant entre expressivité et décidabilité, mais ne permet pas de couvrir tous nos besoins [$\delta_1$ : \g{multijargon}].
+
+Ainsi, nous avons étudié les langages de représentation de thésaurus et vocabulaire structuré (\ref{sec:thesaurus}).
+SKOS et SKOS-XL proposent une représentation minimale et extensible des thésaurus existants, et apporte une formalisation qui permet leur publication sur le Web de données.
+La norme ISO-25964-1 apporte la composition des termes et proposent d'associer plus d'informations sur la création, la maintenance et la documentation du thésaurus.
+Les deux approches se concentrent sur la structuration des concepts auquelle on intègre (SKOS) ou on rattache des termes (dans SKOS-XL et ISO-25964-1, les termes sont définis indépendamment des concepts). 
+Cependant, cette indépendance n'offre pas la possibilité de grouper les termes entre eux afin de modéliser une terminologie métier [$\delta_3$ : \g{évolution, gestion}]. 
+De même, ces modèles définissent des termes préférés qui visent à normaliser l'usage linguistique d'une communauté métier, quelque soit la langue parlée par ses membres.
+Les différences d'usages entre métiers, organisation ou bien entre amateur et professionnels ne sont pas représentées [$\delta_1$ : \g{multi-jargon}]. 
+La documentation des concepts et des termes correspond tout à fait à nos besoins, en particulier dans SKOS avec la notion de note qui permet de s'adapter à la spécificité de chaque usage [$\delta_2$ : \g{documentation}].\\
+
+
+
+Dans le chapitre \ref{chap:mav}, nous avons examiné les modélisations de l'audiovisuel que l'on a distingué en deux approches, \e{in situ} et \e{a posteriori}, que nous jugeons complémentaires. 
+Ces approches mettent l'accent respectivement sur la dimension sémiotique ou matérielle des objets audiovisuels (\ref{sec:dav}) sans vraiment les articuler.
+La modélisation \e{in situ} rend compte des connaissances fabriquées en début de chaîne afin de prévoir les étapes suivantes de fabrication du document et du matériel audiovisuel (\ref{sec:insitu}).
+Ces modélisations se rapprochent d'une modélisation documentaire du script, définissant la structure documentaire auctoriale (\ref{sec:pv-id}) et les intentions de mise en forme.
+Cette modélisation du script repose sur une unité de base qui est le plan (introduite dans ce mémoire en \ref{sec:docvoc}).
+Ce découpage est particulièrement intéressant du fait que le plan est à la fois l'élément de base de la narration audiovisuelle (structure documentaire) et l'unité de travail dans le processus de production (description de la fabrication, lien avec le matériel audiovisuel). 
+Il permet ainsi d'associer de multiples connaissances à des fragments audiovisuels et facilite ainsi leur réutilisation [$\beta_2$ : \g{réutilisabilité}].
+Le modèle MSML se limite à une représentation XML du script utilisé pour construire une prévisualisation 3D du plateau de tournage ainsi que du résultat filmé (\ref{sec:msml}). 
+Le manque de formalisation sémantique ne favorise pas la transformation de ces informations et leur association avec le matériel audiovisuel effectivement fabriqué [$\beta_1$ : \g{autonomie}].
+L'autre modèle étudié propose une formalisation sémantique ainsi qu'une association entre une description du document et du matériel audiovisuel (\ref{sec:answer}).
+Cependant, ces travaux ne sont pas accessibles et ne peuvent donc être repris ni évalué.
+
+Les approches \e{a posteriori} (\ref{sec:post}) proposent d'analyser le matériel audiovisuel en fin de chaîne. 
+L'approche générique du schéma Dublin Core, même lorsqu'il est spécialisé pour les documents audiovisuels, est surtout pertinente au niveau du document (\ref{sec:dcmi}). 
+La description des fragments n'est ainsi rendu possible que par l'utilisation de descripteurs spécifiques, comme ceux de la norme MPEG-7. 
+De plus, on remarque l'importance d'une structure hiérarchique souple et extensible qui permet de couvrir les nombreux genre de documents produits par la télévision.
+MPEG-7 s'est établie comme une modélisation de référence pour l'audiovisuel (\ref{sec:mpeg7}).
+Pourtant, sa représentation en XML a été largement critiqué pour son ambiguïté syntaxique et sémantique qui a poussé de nombreux chercheurs à développer des formalisations sous la forme d'ontologie (\ref{sec:mpeg7etc}).
+Ces modélisation sont réalisées de manière automatique ou manuelle, et certaines reposent sur une ontologie générique pour favoriser l'intégration avec des ontologies de domaines.
+Au-délà de ces apports, les modèles, comme la norme originale, adopte une point de vue centré sur le matériel audiovisuel tant au niveau de la gestion que de la description des objets audiovisuels. 
+Ainsi, ils atténuent l'importance d'une modélisation de la structure documentaire et manquent de descriptions sémiotiques pertinentes pour la production audiovisuelle.
+La gestion se fait au niveau du matériel, par identification d'une source et de variantes plus adaptées à d'autres méthodes de distribution [$\beta_1$ : \g{autonomie}].
+L'abscence de distinction entre des opérations d'encodage et de montage ne permet pas de reconnaître la création d'un nouveau document (ou d'une nouvelle intention de réalisation), mais se limite à reconnaître un nouveau fichier.
+De même, les descriptions sont associées aux fichiers ou bien à des entités qui représentent des ensembles de fichiers ayant des caractéristiques communes [$\beta_2$ : \g{réutilisabilité}]. 
+De plus, si le découpage du matériel en segment permet de créer de multiples structure d'analyse sur l'objet, la caractérisation de ces segments par genre ne suffit pas à modéliser les contraintes de sa grammaire documentaire.
+Il n'y a pas non plus de description du processus de production de ces segments, ni de l'écriture filmique.
+
+Nous avons également examiné une ontologie qui vise à mettre en correspondance une grande partie des modélisations de ressources multimédia sur le Web (\ref{sec:omr}).
+La synthèse proposée est minimaliste et ne fait que renforcer l'impression que la plupart des modélisations se concentre sur le matériel audiovisuel (fichier et segment), plutôt que sur les aspects documentaires. 
+Ainsi, l'ontologie vise à faciliter la mise en commun des informations sur ces ressources dans le Web de données, mais ne permet pas d'étendre leur description.
+À l'inverse, l'utilisation d'une ontologie générique pour intégrer des connaissances propres à d'autres domaines apparaît très au-dessus de nos besoins. 
+En effet, nos ambitions se limite dans le cadre de cette thèse à l'expression des connaissances propres à la production audiovisuelle.
+Ainsi, la construction d'une ontologie noyau suivant une approche ascendante paraît plus pertinente et plus réalisable.\\
+
+% L'étude des formats conteneurs en section \ref{sec:}
+% réutilisation
+
 
 
 % Description in situ décrivent les connaissances contenus dans le script, poussant jusqu'à instrumenter la direction du tournage ; description a posteriori se concentrent sur le signal et cherchent à créer des passerelles avec des descriptions métiers ou de domaine
@@ -14,8 +69,6 @@
 % [stratégie d'annotation pre & post fabrication du matériel]
 
 % les formats conteneurs adoptent plusieurs perspectives sur la modélisation du contenu, mais leur représentation n'est pas formelle et comporte des ambigüités sémantiques
-
-
 
 
 % Notre hypothèse est que le plan constitue l'unité signifiante de base de l'audiovisuel (FSR). C'est donc à partir d'une description de cette unité que toute description devrait commencer.

@@ -238,6 +238,16 @@
 }
 
 %%%%% Encadré coloré
+\newenvironment{problemes}[1]
+{%
+	\setlength\fboxrule{1pt}%
+	\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{SteelBlue}{#1}}%
+	\MakeFramed{\FrameRestore}%
+}{%
+	\endMakeFramed
+}
+\definecolor{fond}{rgb}{69,162,1}
+
 \newenvironment{cadrecol}[1]
 {%
 	\setlength\fboxrule{1pt}%

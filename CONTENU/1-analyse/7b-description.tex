@@ -1,6 +1,6 @@
 %=============================
 %=============================
-\subsection{Modèles de description \e{in situ}}\label{sec:plan}
+\subsection{Modèles de description \e{in situ}}\label{sec:insitu}
 % \subsection{Descriptions métiers basées sur le plan}\label{sec:plan}
 % Script, Storyboard (\cite{Martin2005}, \cite{ThiBui2003}) etc.
 
@@ -73,7 +73,7 @@ La synchronisation entre ces descriptions et le contenu filmé est également un
 
 Le positionnement de MSML sur les connaissances spécifiques à la pré-production en fait un modèle à part parmi les modélisations que nous étudions.
 Son originalité provient de sa modélisation du contenu à produire selon un découpage narratif (scène), puis sur les indications de tournage dont il est possible d'observer les conséquences par l'intermédiaire d'une application.
-Ce point de vue de description particulier tranche avec des modélisations qui se concentre sur le matériel audiovisuel [\g{B1 : autonomie}] mais rend de ce fait difficile leur association [\g{B2 : réutilisabilité}].
+Ce point de vue de description particulier tranche avec des modélisations qui se concentre sur le matériel audiovisuel [\g{$\chi_1$ : autonomie}] mais rend de ce fait difficile leur association [\g{$\chi_2$ : réutilisabilité}].
 
 
 % The related  system  provides its user 3D model of the set as well as the shots taken by the camera in a given position and settings. 
@@ -115,8 +115,8 @@ Les résultats du projet comportent des applications et une ontologie décompos�
 \end{listeni}
 
 \paragraph{Discussion}
-L'intérêt de cette modélisation est d'associer des connaissances sur la production, c'est-à-dire comment a été construit le film, et le résultat de cette production, le film en tant que tel [\g{B2 : réutilisabilité}].
-Ceci est rendu possible par le fait que la structure d'annotation est celle du script, qui correspond à la fois à une unité de contenu -- le film -- et une unité de travail pour la production [\g{B1 : autonomie}].
+L'intérêt de cette modélisation est d'associer des connaissances sur la production, c'est-à-dire comment a été construit le film, et le résultat de cette production, le film en tant que tel [\g{$\chi_2$ : réutilisabilité}].
+Ceci est rendu possible par le fait que la structure d'annotation est celle du script, qui correspond à la fois à une unité de contenu -- le film -- et une unité de travail pour la production [\g{$\chi_1$ : autonomie}].
 Ce projet propose ainsi une approche de description intégrée aux pratiques et au vocabulaire de la production filmique, en instrumentant le travail de ses contributeurs.
 Il est néanmoins regrettable que leurs résultats ne soient pas accessibles à la communauté scientifique, qu'il s'agisse des applications ou bien de l'ontologie, ce qui rend difficile la poursuite de leur travaux. 
 
@@ -211,8 +211,8 @@ Il existe deux types de schémas d'encodage qui permettent de préciser si les v
 Cela permet par exemple, d'indiquer que les valeurs de la propriété \pc{date} sont écrites suivant le format du W3C Date Time Format ou bien suivant la norme ISO 8106. 
 De même, on peut déclarer que les valeurs de la propriété \pc{subject} seront prises dans la liste des \pc{Library of Congress Subject Headings}. 
 %need REF ! 
-SES et VES offrent ainsi la possibilité d'utiliser plusieurs jargons ou syntaxes pour caractériser les valeurs des propriétés, voir [A1] dans les besoins de modélisations du chapitre précédent (\ref{sec:bm}).
-De plus, la spécification d'un Terme permet d'ajouter une définition et de pointer vers d'autres ressources pour documenter les Termes, voir [A2].
+SES et VES offrent ainsi la possibilité d'utiliser plusieurs jargons ou syntaxes pour caractériser les valeurs des propriétés, voir [$\delta_1$] dans les besoins de modélisations du chapitre précédent (\ref{sec:bm}).
+De plus, la spécification d'un Terme permet d'ajouter une définition et de pointer vers d'autres ressources pour documenter les Termes, voir [$\delta_2$].
 
 \begin{figure}[ht!]
 \centering
@@ -251,7 +251,7 @@ Et ce, d'autant plus, que DMS-1 fournit des informations plus adaptées à l'aud
 %=============
 % \subsection{Modèles de description multimédia \e{a posteriori}}
 \subsubsection{MPEG-7 : Multimedia Description Scheme}\label{sec:mpeg7}
-% \cite{Hunter2001} ; \cite{Troncy2007} ; \cite{Nack2005a} ; \cite{Dasiopoulou2009} ; \cite{Garcia2005} ; 
+% \cite{Hunter2001} ; \cite{Troncy2007} ; \cite{Nack2005a} ; \cite{Dasiopoulou2009} ; \cite{Garci$\delta_2$005} ; 
 
 % à revoir
 Parmi les normes utilisés pour décrire le contenu des audiovisuels, MPEG-7 est certainement devenu le standard de l'industrie. 
@@ -544,7 +544,7 @@ Enfin, il est important de noter que dans les approches utilisant des ontologies
 Ainsi, il serait possible d'utiliser la dernière approche dans \pc{Harmony}.
 
 \paragraph{Discussion}
-Concernant la modélisation des objets audiovisuels, MPEG-7 et les ontologies réutilisant le Structure DS décomposent très finement le matériel audiovisuel dans l'espace et le temps [\g{B1 : autonomie}].
+Concernant la modélisation des objets audiovisuels, MPEG-7 et les ontologies réutilisant le Structure DS décomposent très finement le matériel audiovisuel dans l'espace et le temps [\g{$\chi_1$ : autonomie}].
 Les \pc{Segments} ainsi constitués renvoient alors au premier des trois niveaux de modélisation de MPEG-7, à savoir \pc{ContentEntity}, \pc{MediaProfile} et \pc{MediaInstance}.
 Cette modélisation en niveau permet d'identifier les variations construites à partir d'un même matériel audiovisuel, de les regrouper et d'associer la plupart des informations au niveau supérieur (CE).
 Ainsi, un CE peut regrouper plusieurs MP qui correspondent à un profil de transformation qui rassemble lui-même toutes les occurrences (MI) correspondant à ce profil.
@@ -563,7 +563,7 @@ L'usage de ces classifications par unité de présentation vise à faciliter le 
 On retrouve ainsi l'esprit général de la norme qui consiste à opérer des décompositions a posteriori sur le matériel, et non à repérer des fragments documentaires qui ont porté l'intentionnalité de leur auteur pendant la production du document.\\
 
 
-En tant que CE, chacun des \pc{Segment} d'une décomposition peut-être décrit par les schémas de descriptions et le schéma Semantic DS [\g{B2 : réutilisabilité}].
+En tant que CE, chacun des \pc{Segment} d'une décomposition peut-être décrit par les schémas de descriptions et le schéma Semantic DS [\g{$\chi_2$ : réutilisabilité}].
 MPEG-7 proposent beaucoup de descripteurs du matériel audio-visuel ainsi que des métadonnées sur le contexte de production.
 Cependant, ces métadonnées ne permettent pas de rendre compte de l'organisation de la production, des résultats intermédiaires produits, ainsi que des connaissances qui y sont fabriquées. 
 Même si ces informations peuvent être associées à n'importe quel \pc{Segment}, il s'agit plus d'annoter l'objet audiovisuel fini, plutôt que de rendre compte de sa production.
@@ -651,7 +651,7 @@ Son objectif n'est pas l'exhaustivité de la représentation des objets audiovis
 
 \subsection*{Discussion}
 \addcontentsline{toc}{subsection}{Discussion}
-La modélisation des objets audiovisuels que nous avons spécifié dans notre cahier des charges (\ref{sec:cdc-av}) demande de distinguer les produits intermédiaires de la chaîne, afin de favoriser leur circulation et leur intégration dans d'autres chaînes de production [\g{B1 : autonomie}].
+La modélisation des objets audiovisuels que nous avons spécifié dans notre cahier des charges (\ref{sec:cdc-av}) demande de distinguer les produits intermédiaires de la chaîne, afin de favoriser leur circulation et leur intégration dans d'autres chaînes de production [\g{$\chi_1$ : autonomie}].
 Sur ce plan, MPEG-7 modélise les objets audiovisuels comme des matériaux audiovisuels que l'on décrit surtout selon des critères propres au signal et peu selon le point de vue de la production audiovisuelle.
 La gestion de ces matériaux s'opère alors en fonction de leur caractéristiques communes, différents niveaux permettant de les regrouper et de mettre en commun certaines informations. 
 Ainsi , cette modélisation évacue largement les questions de construction documentaire pour se concentrer sur les stratégies d'annotations a posteriori.
@@ -666,7 +666,7 @@ Cette approche apparaît alors comme complémentaire par rapport aux modèles \e
 % :  / gestion des variations d'un segment de matériel, plutôt que d'un fragment porteur d'une intentionalité et s'articulant dans une structure documentaire / se conformant à une grammaire de genre 
 % => il n'y a pas de niveau documentaire, il n'y a pas de niveau de production ; il n'y a que du matériel dont on repère des ensembles cohérents suivant des critères techniques (transformé / même profil)
 
-Les modèles de description \e{in situ} mettent également en avant les connaissances mobilisées par les contributeurs de la chaîne de production [\g{B2 : réutilisabilité}].
+Les modèles de description \e{in situ} mettent également en avant les connaissances mobilisées par les contributeurs de la chaîne de production [\g{$\chi_2$ : réutilisabilité}].
 La description de la structure en devenir de l'objet audiovisuel permet ainsi d'associer d'autres connaissances à chaque fragment. Il s'agit par exemples de préciser la manière de les produire (indication de tournage, réglages d'équipement de captation etc.), ce qui se révèle particulièrement intéressant dans le cas de production collaborative.
 MPEG-7, et les ontologies qui le formalisent, se concentrent sur une description du signal, tout en associant des informations éparses sur le contexte de production.
 L'ouverture à une description sémantique présente dans MPEG-7 a été étendue dans certaines de ces ontologies afin de pouvoir intégrer des connaissances propre à un domaine.
@@ -677,7 +677,7 @@ Nous questionnons alors la pertinence de construire une ontologie de noyau qui s
 
 
 
-% Along with MPEG-7, the MPEG-21 Multimedia Framework \cite{Burnett2003} offers a valuable perspective on future practices in content management, distribution and consumption. The recent interest in content value chains modeling presented in \cite{Garcia2010} shows some similarities with our audiovisual object modeling approach. There is still an open debate about the modeling of the various forms or facets that content can take during its production. Many approaches rely on, adapt or extend the original FRBR Group 1 concepts of \e{Work}, \e{Expression}, \e{Manifestation} and \e{Item}. 
+% Along with MPEG-7, the MPEG-21 Multimedia Framework \cite{Burnett2003} offers a valuable perspective on future practices in content management, distribution and consumption. The recent interest in content value chains modeling presented in \cite{Garci$\delta_2$010} shows some similarities with our audiovisual object modeling approach. There is still an open debate about the modeling of the various forms or facets that content can take during its production. Many approaches rely on, adapt or extend the original FRBR Group 1 concepts of \e{Work}, \e{Expression}, \e{Manifestation} and \e{Item}. 
 % For instance, the Media Value Chain Ontology (MVCO) \cite{Rodriguez-Doncel2009}, \cite{Rodriguez-Doncel2010} is included as the Part 19 of the MPEG-21 standard. 
 % The authors merge the concepts of Expression and Manifestation. Moreover, they also propose a new concept of Product for asset which needs to be licensed before publishing. 
 

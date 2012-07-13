@@ -514,10 +514,10 @@ Trois axiomes OWL permettent de définir des individus par leur relations aux au
 
 \paragraph{Discussion}
 OWL, notamment dans ces versions OWL-DL et \pc{OWL Full} enrichit fortement l'expressivité des modélisations par rapport à RDF/RDFS, notamment du fait des définitions de propriétés avec des propriétés algébriques, et de la déclaration de classes par ajout de restrictions ou de combinaisons booléenne.
-Les primitives de OWL permettent de documenter les concepts a minima, grâce à l'apposition d'étiquettes multilingues, à l'ajout de définition et au renvoi vers des ressources externes [\g{A2 : documentation}]. 
+Les primitives de OWL permettent de documenter les concepts a minima, grâce à l'apposition d'étiquettes multilingues, à l'ajout de définition et au renvoi vers des ressources externes [\g{$\delta_2$ : documentation}]. 
 Les propriétés d'ontologie permetent de documenter son évolution et faciliter sa prise en main par ses utilisateurs.
-De plus, la possibilité d'importer des ontologies et d'utiliser des espaces de noms (via les URI) permet l'intégration d'autres ontologies, qu'on peut ensuite aligner pour fusionner les connaissances [\g{A3 : gestion, évolution}].
-Pour autant, OWL ne permet pas d'associer un thésaurus multi-jargon à la conceptualisation modélisée, car les étiquettes sont des valeurs littérales, et non des objets que l'on peut organiser hiérarchiquement [\g{A1 : multi-jargon}].
+De plus, la possibilité d'importer des ontologies et d'utiliser des espaces de noms (via les URI) permet l'intégration d'autres ontologies, qu'on peut ensuite aligner pour fusionner les connaissances [\g{$\delta_3$ : gestion, évolution}].
+Pour autant, OWL ne permet pas d'associer un thésaurus multi-jargon à la conceptualisation modélisée, car les étiquettes sont des valeurs littérales, et non des objets que l'on peut organiser hiérarchiquement [\g{$\delta_1$ : multi-jargon}].
 De ce fait, OWL n'est pas suffisant pour satisfaire à tous nos besoins de modélisations (\ref{sec:bm}).
 La section suivante examine donc des formalismes de représentation de vocabulaire structuré.
 L'objectif étant de pouvoir représenter l'ontologie en OWL et d'intégrer des vocabulaires à cette ontologie via un autre formalisme.
@@ -661,7 +661,7 @@ T-M-C-S  rdf:type skosxl:Label ;
 \end{Verbatim}
 
 
-Dans SKOS, la gestion de plusieurs jargons métiers dans une même conceptualisation [\e{A1 : multi-jargon}] est rendue difficile par la caractérisation simple des termes par la langue. 
+Dans SKOS, la gestion de plusieurs jargons métiers dans une même conceptualisation [\g{$\delta_1$ : multi-jargon}] est rendue difficile par la caractérisation simple des termes par la langue. 
 Ainsi, même si on accroche plusieurs étiquettes au même concept, on ne sait pas les sélectionner pour les présenter à l'une ou l'autre communauté. 
 Cela implique un dédoublement des concepts et donc des schémas conceptuels nécessaires (un par communauté).%, voir figure \ref{fig:skos}. 
 %implique une représentation plus fine par rapport à SKOS ce qui 
@@ -669,7 +669,7 @@ Avec le découplage terme-concept de SKOS-XL, on peut gérer terme et concept de
 Une solution consisterait à regrouper les termes dans des ConceptScheme (SKOS-XL l'autorise).
 Les ConceptScheme serviraient alors à la fois à regrouper les concepts (AV-Scheme) et les termes spécifiques aux organisations (RTBF-Scheme, VRT-Scheme). 
 Cependant, si cette modélisation permet de gérer vocabulaire métier et conceptualisation de manière séparée c'est au prix d'un flottement sur la sémantique de ConceptScheme. 
-Le support d'un nouveau jargon peut donc se faire sans toucher à la conceptualisation [\e{A3: gestion, évolution}] grâce à la permissivité de l'extension SKOS-XL. 
+Le support d'un nouveau jargon peut donc se faire sans toucher à la conceptualisation [\g{$\delta_3$: gestion, évolution}] grâce à la permissivité de l'extension SKOS-XL. 
 L'extension ou la mise en correspondance de la conceptualisation est facilitée par les relations sémantiques entre concepts.
 
 
@@ -686,12 +686,12 @@ Le thésaurus est considéré comme l'élément central décrit par l'ensemble d
 Sur les questions de documentation et de groupement de concepts, il existe une similarité importante avec les primitives de SKOS (note, groupe de concepts, etc.).\\
 
 %\textbf{Discussion}\\
-Les apports de la norme ISO 25964 par rapport à SKOS concernent davantage les pratiques de création et de maintenance de thésaurus que la gestion des jargons métiers [\e{A1 : multi-jargon}] et l'illustration de concepts par des ressources média [\e{A2 : documentation}]. 
+Les apports de la norme ISO 25964 par rapport à SKOS concernent davantage les pratiques de création et de maintenance de thésaurus que la gestion des jargons métiers [\g{$\delta_1$ : multi-jargon}] et l'illustration de concepts par des ressources média [\g{$\delta_2$ : documentation}]. 
 Ainsi, les manques par rapport à nos besoins sont similaires. L'attention portée sur les détails de description de chaque élément du modèle est tout à fait convaincante. 
 L'écart avec l'aspect épuré et synthétique de SKOS s'explique certainement par l'écart entre leurs objectifs. 
 Alors que SKOS vise la publication de tout type de SOC, l'ISO 25946 se concentre sur la construction et l'évolution des seuls thésaurus. 
 La norme ne s'est pas encore attelée aux questions d'interopérabilité et de correspondance avec d'autres vocabulaires. Ce travail est en cours et sera dévoilé dans la seconde partie de la norme (ISO 25946-2). 
-De notre point de vue, il manque toujours un moyen de regrouper des termes indépendamment des concepts pour ajouter des jargons à une conceptualisation existante [\e{A3: gestion, évolution}].
+De notre point de vue, il manque toujours un moyen de regrouper des termes indépendamment des concepts pour ajouter des jargons à une conceptualisation existante [\g{$\delta_3$: gestion, évolution}].
 
 
 % \subsection*{Bilan}
