@@ -1,9 +1,9 @@
 \chapter{Approche et modélisation}\label{chap:mod}
 \minitoc
 
-
-
-
+\begin{cico}
+\e{Comprenez-moi, mettre en machine ne signifie pas décontextualiser, mais situer autre part, dans un autre acteur, une portion des compétences nécessaires à l'action. [\dots] Au lieu de considérer des hommes d'un côté et des formalismes de l'autre, considérons plutôt une liste de compétences et cherchons expérimentalement à repérer, dans l'épreuve, lesquelles peuvent être confiées à quel genres d'acteur nouveaux.} \parcite{latour:ia}
+\end{cico} 
 
 \section{Synthèse de l'état de l'art}\label{sec:principes}
 Dans le chapitre \ref{chap:omod}, nous avons étudié la modélisation de connaissances par les ontologies ainsi que la modélisation des vocabulaires métiers par les terminologies. 
@@ -24,7 +24,26 @@ La documentation des concepts et des termes correspond tout à fait à nos besoi
 
 
 
-Dans le chapitre \ref{chap:mav}, nous avons examiné les modélisations de l'audiovisuel que l'on a distingué en deux approches, \e{in situ} et \e{a posteriori}, que nous jugeons complémentaires. 
+Dans le chapitre \ref{chap:mav}, nous avons étudié la manière dont les objets audiovisuels (\ref{sec:dav}) et leur réutilisation (\ref{sec:gest}) était envisagé dans différentes communautés.
+Nous avons mis en avant des divergences et des points aveugles entre les points de vue des professionnels de la production et des communautés scientifiques du multimédia, de l'ingénierie documentaire, de la sémiotique audiovisuelle et des bibliothèques numériques.
+Nous nous sommes ensuite intéressés tour à tour à l'étude des formats conteneurs (\ref{sec:wrapper}) et d'autres modélisations des objets audiovisuels.
+
+L'étude des formats conteneurs nous a montré qu'il était possible de modéliser les objets audiovisuels suivant les perspectives administratives, narratives et documentaires tout en y intégrant le matériel audiovisuel [$\chi_1$ :\g{autonomie}]. 
+Cepdendant, cette forte intégration ne peut être mise en place qu'à partir de la fabrication du matériel, et en vue de son transport en fin de chaîne, et pour sa diffusion.
+De même, l'utilisation d'un format conteneur façonne la modélisation autour de l'objet audiovisuel final, et même s'il embarque des métadonnées sur les fragments, elles ne peuvent être mobilisées pour elle-même.
+Ainsi, la nature même du format oblitère le début de la chaîne et ne permet pas de se concentrer sur des fragments.
+Par ailleurs, nous avons pointé l'ambiguïté sémantique des descriptions associées au matériel audiovisuel [$\chi_2$ :\g{réutilisabilité}].
+
+\e{
+	Les formats conteneurs ont montré l'importance de certaines informations pour le déroulement de la chaîne, et l'exploitation de document audiovisuel.
+	Notre modélisation s'inspire de cette approche et vise à l'améliorer sur les aspects suivants : 
+	\begin{liste}
+		\item la modélisation des connaissances associées au document audiovisuel doit pouvoir débuter en début de chaîne, avant même la fabrication du matériel audiovisuel.
+		\item la modélisation du document audiovisuel et des connaissances associées doit être formalisée pour éviter les ambiguïtés sémantiques ainsi que les problèmes d'appropriation de la part des contributeurs de la chaîne de production.
+	\end{liste}
+}
+
+Nous avons ensuite examiné des modélisations de l'audiovisuel que l'on a distingué en deux approches, \e{in situ} et \e{a posteriori}, que nous jugeons complémentaires. 
 Ces approches mettent l'accent respectivement sur la dimension sémiotique ou matérielle des objets audiovisuels (\ref{sec:dav}) sans vraiment les articuler.
 La modélisation \e{in situ} rend compte des connaissances fabriquées en début de chaîne afin de prévoir les étapes suivantes de fabrication du document et du matériel audiovisuel (\ref{sec:insitu}).
 Ces modélisations se rapprochent d'une modélisation documentaire du script, définissant la structure documentaire auctoriale (\ref{sec:pv-id}) et les intentions de mise en forme.
@@ -44,22 +63,49 @@ MPEG-7 s'est établie comme une modélisation de référence pour l'audiovisuel 
 Pourtant, sa représentation en XML a été largement critiqué pour son ambiguïté syntaxique et sémantique qui a poussé de nombreux chercheurs à développer des formalisations sous la forme d'ontologie (\ref{sec:mpeg7etc}).
 Ces modélisation sont réalisées de manière automatique ou manuelle, et certaines reposent sur une ontologie générique pour favoriser l'intégration avec des ontologies de domaines.
 Au-délà de ces apports, les modèles, comme la norme originale, adopte une point de vue centré sur le matériel audiovisuel tant au niveau de la gestion que de la description des objets audiovisuels. 
-Ainsi, ils atténuent l'importance d'une modélisation de la structure documentaire et manquent de descriptions sémiotiques pertinentes pour la production audiovisuelle.
+Ainsi, ils négligent la modélisation de la structure documentaire et manquent de descriptions sémiotiques pertinentes pour la production audiovisuelle. % atténue l'importance de 
 La gestion se fait au niveau du matériel, par identification d'une source et de variantes plus adaptées à d'autres méthodes de distribution [$\beta_1$ : \g{autonomie}].
 L'abscence de distinction entre des opérations d'encodage et de montage ne permet pas de reconnaître la création d'un nouveau document (ou d'une nouvelle intention de réalisation), mais se limite à reconnaître un nouveau fichier.
 De même, les descriptions sont associées aux fichiers ou bien à des entités qui représentent des ensembles de fichiers ayant des caractéristiques communes [$\beta_2$ : \g{réutilisabilité}]. 
 De plus, si le découpage du matériel en segment permet de créer de multiples structure d'analyse sur l'objet, la caractérisation de ces segments par genre ne suffit pas à modéliser les contraintes de sa grammaire documentaire.
 Il n'y a pas non plus de description du processus de production de ces segments, ni de l'écriture filmique.
 
-Nous avons également examiné une ontologie qui vise à mettre en correspondance une grande partie des modélisations de ressources multimédia sur le Web (\ref{sec:omr}).
-La synthèse proposée est minimaliste et ne fait que renforcer l'impression que la plupart des modélisations se concentre sur le matériel audiovisuel (fichier et segment), plutôt que sur les aspects documentaires. 
-Ainsi, l'ontologie vise à faciliter la mise en commun des informations sur ces ressources dans le Web de données, mais ne permet pas d'étendre leur description.
-À l'inverse, l'utilisation d'une ontologie générique pour intégrer des connaissances propres à d'autres domaines apparaît très au-dessus de nos besoins. 
-En effet, nos ambitions se limite dans le cadre de cette thèse à l'expression des connaissances propres à la production audiovisuelle.
-Ainsi, la construction d'une ontologie noyau suivant une approche ascendante paraît plus pertinente et plus réalisable.\\
+\e{
+	La production audiovisuelle et les modèles \e{in situ} posent le plan comme l'unité de base qui structure à la fois le processus de production audiovisuelle et les échanges entre ses contributeurs, de même que les mécanismes de narration propre aux documents audiovisuels.
+	La pratique de la réutilisation, les modifications et l'ouverture qu'elle engendre dans le déroulement des chaînes de production, implique également de fragmenter les documents audiovisuels, de rendre ces fragments autonomes mais aussi de les décrire pour favoriser leur circulation.
+	Or la reprise des modèles existants n'est pas possible, soit par manque de formalisme sémantique, soit par manque d'accès.
+	Ainsi, notre approche de modélisation doit se fonder sur le plan qui sert de point d'articulation entre une description métier, la structure documentaire et l'organisation de la production : 
+	\begin{liste}
+		\item la description par le vocabulaire métier de l'écriture filmique, rendu compréhensible pour les contributeurs amateurs ou externes par une terminologie et une documentation.
+		\item la mise en correspondance avec d'autres niveaux de fragmentation qui constituent une structure documentaire auctoriale, régie par une grammaire de composition variable suivant le genre du document.
+		\item  le processus de production qui s'organise autour des plans pour construire le document final, de la pre-script-ion, la fabrication puis le montage et autres traitements ultérieurs.
+	\end{liste}
+}	
+\e{
+	Par ailleurs, les modèles \e{a posteriori} ont largement formalisé et développé la description du matériel audiovisuel par des procédés d'analyse automatique du signal.
+	Si les résultats produits ne sont pas (encore) exprimés dans le vocabulaire de la production audiovisuelle, de nombreux travaux ont montré leur intérêt immédiat ainsi que les résultats potentiels pour certains types de descriptions.
+	Le constat que nous faisons est que ces deux approches s'intéressent à deux moments du processus de production du document audiovisuel.
+	Cela les amènent à modéliser des formes de connaissances complémentaires, utilisées à des fins différentes, que nous articulons dans une même approche de description du document audiovisuel.
+	La modélisation du processus de production audiovisuelle, de ses étapes, contributeurs et produits, nous permet de réaliser cette articulation, à condition de modéliser également la forme du document en construction et d'y associer ces connaissances.
+	Notre approche repose donc sur une stratégie de description du document à la fois progressive (réalisée à différents moments de la production) et contributive (réalisée par différents contributeurs, humain ou machine). 
+	Il s'agit de manière concrète, de se donner des méthodes d'analyse automatique permettant de vérifier que la pre-script-ion modélisée en début de chaîne correspond au matériel effectivement fabriqué, et de la modifier si besoin afin de la transformer en description valide.
+}
 
-% L'étude des formats conteneurs en section \ref{sec:}
-% réutilisation
+Enfin, nous avons également examiné une ontologie qui vise à mettre en correspondance une grande partie des modélisations de ressources multimédia sur le Web (\ref{sec:omr}).
+La synthèse proposée est minimaliste et ne fait que confirmer l'impression que la plupart des modélisations attaque la modélisation des objets audiovisuels par le matériel audiovisuel (fichier et segment), plutôt que par ses aspects documentaires.
+L'ontologie vise à faciliter la mise en commun des informations sur ces ressources dans le Web de données, mais ne permet pas d'étendre leur description, contrairement aux ontologies basées sur MPEG-7 et des ontologies génériques.
+
+\e{
+L'utilisation d'une ontologie générique pour intégrer des connaissances propres à d'autres domaines apparaît très au-dessus de nos besoins. 
+En effet, nos ambitions se limite dans le cadre de cette thèse à l'expression des connaissances propres à la production audiovisuelle.
+Ainsi, nous avons choisi de construire une ontologie noyau suivant une approche ascendante de manière à se concentrer sur les problèmes peu traités de la production audiovisuelle et éviter les écueils important de l'intégration avec une ontologie générique.}
+
+
+
+% quelles applications pour instrumenter cette approche : introduction au chapitre 6 
+
+
+
 
 
 
