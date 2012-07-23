@@ -2,7 +2,7 @@
 %====================================================
 %====================================================
 \newpage
-\section{Décrire les objets audiovisuels}\label{sec:desc}
+\section{Déscription des objets audiovisuels}\label{sec:desc}
 \e{
 Avant de commencer notre état de l'art sur les modélisations des objets audiovisuels, nous souhaitons préciser la nature des descriptions et les approches de fabrication de ces descriptions (\ref{sec:fab}).}
 % Nous verrons quelles types de description chacune de ces approches construit sur les contenus, et comment ces descriptions sont exploitées, pour quel type d'usage, à l'intention de systèmes informatiques ou d'être humains.
@@ -73,14 +73,18 @@ Notons enfin, qu'il existe également toutes sortes de descriptions produites pa
 
 
 
-\subsubsection{Fabriquer les descriptions, \e{in situ} ou \e{a posteriori} ?}\label{sec:codesc}
+\subsubsection{Fabriquer les descriptions, \e{endogènes} ou \e{exogènes} ?}\label{sec:codesc}
 Nous distinguons deux méthodes de fabrication des descriptions suivant le moment où l'information est construite.
-Ainsi, la fabrication que nous appellons \e{in situ} correspond à la collecte d'informations intervenant dès la pré-production d'un contenu, alors que l'approche dite \e{a posteriori} intervient en fin de chaîne, une fois l'objet audiovisuel constitué.
+Les méthodes \e{exogènes} interviennent en fin de chaîne, lorsque l'objet audiovisuel est constitué et que l'on souhaite appliquer une méthode d'analyse. 
+À l'inverse, les méthodes \e{endogènes} correspondent à la collecte d'information pendant la production. 
+Ces méthodes s'arrêtent généralement au moment de la fabrication du matériel et se concentrent sur les informations contenues dans le script. 
+Pour cela nous les nommons \e{a priori} (avant la fabrication), et nous les opposons à une méthode \e{dynamique} que nous souhaitons développer, et qui poursuit la collecte tout au long de la production.
+
 
 % \subsubsection{La collecte durant la production}
-\paragraph{Fabrication \e{in situ}, la collecte durant la production}
+\paragraph{Fabrication \e{endogène}, la collecte durant la production}
 Dans la chaîne de production audiovisuelle, chaque communauté de contributeurs a un intérêt particulier et souvent différent sur les informations à partager sur l'objet. 
-Les informations que l'un jugera critique (sur quelle cassettes peut-on trouver la prise de vue n°354) peuvent être jugées insignifiantes pour d'autres (un journaliste se contentera de savoir que la prise de vue existe). 
+Les informations que l'un jugera critique (le numéro de la cassette qui contient la prise de vue n°354) peuvent être jugées insignifiantes pour d'autres (un journaliste se contentera de savoir que la prise de vue existe alors que cette information est capitale pour la régie). 
 Il existe donc autant de descriptions possibles d'un objet, que de points de vue sur cet objet. 
 De plus, une description n'est jamais utile qu'en fonction d'un usage. 
 Savoir où se trouve la prise de vue n'a d'intérêt que pour la personne qui devra en réaliser le montage, ou bien s'assurer de la préservation de la cassette une fois utilisée. 
@@ -107,8 +111,8 @@ Ainsi, les auteurs proposent de favoriser une collecte des informations au fur e
 
 
 
-\paragraph{Fabrication \e{a posteriori}}
-Les approches classiques de construction de descriptions des contenus audiovisuels se font \e{a posteriori} de la production de l'objet audiovisuel. 
+\paragraph{Fabrication \e{exogène}}
+Les approches classiques de construction de descriptions des contenus audiovisuels se font \e{exogène} de la production de l'objet audiovisuel. 
 Elles interviennent en fin de chaîne, après la diffusion, voire en-dehors lorsqu'un organisme différent du producteur se charge de l'archivage (c'est le cas de l'INA avec l'audiovisuel public en France). 
 Il faut distinguer deux genres d'approches pour construire des descriptions de contenus audiovisuels : 
 \begin{liste}
@@ -173,7 +177,7 @@ Dans ce cas, la requête mentionne un nom de marque qui ne correspond pas au nom
 Ainsi, l'attente implicite serait de pouvoir effectuer des rapprochements sémantiques entre libellés de la requête et libellés utilisés dans l'indexation. 
 Ce qui suppose l'utilisation de vocabulaires structurés à la base de l'indexation et un formalisme permettant d'effectuer des raisonnements. 
 
-Notons enfin que l'approche \e{in situ} consiste à collecter les informations fabriquées durant la production. 
+Notons enfin que l'approche \e{endogène} consiste à collecter les informations fabriquées durant la production. 
 L'originalité de cette approche est d'attaquer le fossé sémantique par le haut, c'est-à-dire à partir des connaissances humaines, qu'il faut ensuite représenter et associer aux séquences audio-visuelles.
 
 \e{
@@ -181,4 +185,4 @@ Dans notre cas, nous nous intéressons à la manière dont les professionnels de
 Or, il s'agit maintenant d'examiner les moyens de décrire ces objets audiovisuels en regard de ces pratiques de réutilisation. 
 Ainsi, nous nous attacherons dans cette section à présenter les standards, modèles et vocabulaires qui contribuent à décrire les objets audiovisuels. 
 Nous détaillerons quelles sont les informations fournies par ces modèles et quel genre de manipulation des objets audiovisuels elles permettent d'effectuer.
-Nous distinguons parmi les modèles qui suivent une approche dite \e{in situ} de modélisation des connaissances des professionnels (\ref{sec:insitu}) et ceux qui suivent une approche de fabrication des descriptions se déroulant généralement \e{a posteriori} (\ref{sec:post}).}
+Nous distinguons parmi les modèles qui suivent une approche dite \e{endogène} de modélisation des connaissances des professionnels (\ref{sec:insitu}) et ceux qui suivent une approche de fabrication des descriptions se déroulant généralement \e{exogène} (\ref{sec:post}).}

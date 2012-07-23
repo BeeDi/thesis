@@ -1,11 +1,20 @@
 \chapter{Approche et modélisation}\label{chap:mod}
 \minitoc
+\e{
+L'objectif de ce chapitre est de présenter notre conceptualisation et sa représentation informatique dans le cadre plus général d'une approche de description des documents audiovisuels contributive et qui suit le déroulement de la production audiovisuelle, même dans des cas de réutilisation et de production collaborative impliquant des communautés de professionnels ou d'amateurs.
+Ainsi, en plus des problèmes de modélisation de la diversité des documents audiovisuels, de leur différent niveau de représentation, s'ajoute des problèmes d'échange de connaissances entre contributeurs ne partageant pas les mêmes conceptions, vocabulaires et compétences.}
 
-\begin{cico}
-\e{Comprenez-moi, mettre en machine ne signifie pas décontextualiser, mais situer autre part, dans un autre acteur, une portion des compétences nécessaires à l'action. [\dots] Au lieu de considérer des hommes d'un côté et des formalismes de l'autre, considérons plutôt une liste de compétences et cherchons expérimentalement à repérer, dans l'épreuve, lesquelles peuvent être confiées à quel genres d'acteur nouveaux.} \parcite{latour:ia}
-\end{cico} 
+\e{
+Nous commençons par résumer notre analyse des langages et modélisations étudiés dans les chapitres précédents (\ref{sec:synthese}) pour mettre en évidence les manques des solutions disponibles pour répondre aux problèmes soulevés. 
+Cela nous amène à présenter les principes de notre approche qui met en avant la complémentarité des informations produites avant et après la fabrication du matériel audiovisuel (\ref{sec:approche}).
+Nous introduisons également l'architecture développé dans le cadre du projet MediaMap pour opérationnaliser cette approche, et notamment les applications nécessaires à son fonctionnement.
+Ensuite, nous expliquons notre modélisation à travers les exemples présentés précédemment et fournissons les définitions des concepts et relations créés (\ref{sec:concept}).
+Dans le chapitre \ref{chap:op}, nous discuterons la représentation de notre conceptualisation avec le langage OWL, notamment en comparant certains de nos choix avec ceux effectués dans SKOS.
+Finalement, les applications développées par les partenaires du projet MediaMap et les expérimentations menées avec seront présentées plus en détails dans le chapitre \ref{chap:app}.}
 
-\section{Synthèse de l'état de l'art}\label{sec:principes}
+
+
+\section{Synthèse de l'état de l'art}\label{sec:synthese}
 Dans le chapitre \ref{chap:omod}, nous avons étudié la modélisation de connaissances par les ontologies ainsi que la modélisation des vocabulaires métiers par les terminologies. 
 Notre définition des besoins implique d'associer une documentation et une terminologie à notre conceptualisation (\ref{sec:bm}), de manière à faciliter les échanges de connaissances entre tous les contributeurs de la chaîne de production, ainsi que dans les cas de réutilisation où l'on reprend des éléments externes à cette chaîne.
 Nos objectifs dépassent le cadre de la modélisation documentaire que permet XML et les langages de schéma associées (\ref{sec:xml}).
@@ -43,19 +52,19 @@ Par ailleurs, nous avons pointé l'ambiguïté sémantique des descriptions asso
 	\end{liste}
 }
 
-Nous avons ensuite examiné des modélisations de l'audiovisuel que l'on a distingué en deux approches, \e{in situ} et \e{a posteriori}, que nous jugeons complémentaires. 
+Nous avons ensuite examiné des modélisations de l'audiovisuel que l'on a distingué en deux approches, \e{endogène} et \e{exogène}, que nous jugeons complémentaires. 
 Ces approches mettent l'accent respectivement sur la dimension sémiotique ou matérielle des objets audiovisuels (\ref{sec:dav}) sans vraiment les articuler.
-La modélisation \e{in situ} rend compte des connaissances fabriquées en début de chaîne afin de prévoir les étapes suivantes de fabrication du document et du matériel audiovisuel (\ref{sec:insitu}).
+La modélisation \e{endogène a priori} rend compte des connaissances fabriquées en début de chaîne afin de prévoir les étapes suivantes de fabrication du document et du matériel audiovisuel (\ref{sec:insitu}).
 Ces modélisations se rapprochent d'une modélisation documentaire du script, définissant la structure documentaire auctoriale (\ref{sec:pv-id}) et les intentions de mise en forme.
 Cette modélisation du script repose sur une unité de base qui est le plan (introduite dans ce mémoire en \ref{sec:docvoc}).
 Ce découpage est particulièrement intéressant du fait que le plan est à la fois l'élément de base de la narration audiovisuelle (structure documentaire) et l'unité de travail dans le processus de production (description de la fabrication, lien avec le matériel audiovisuel). 
-Il permet ainsi d'associer de multiples connaissances à des fragments audiovisuels et facilite ainsi leur réutilisation [$\beta_2$ : \g{réutilisabilité}].
+Il permet ainsi d'associer de multiples connaissances à des fragments audiovisuels et facilite ainsi leur réutilisation [$\chi_2$ : \g{réutilisabilité}].
 Le modèle MSML se limite à une représentation XML du script utilisé pour construire une prévisualisation 3D du plateau de tournage ainsi que du résultat filmé (\ref{sec:msml}). 
-Le manque de formalisation sémantique ne favorise pas la transformation de ces informations et leur association avec le matériel audiovisuel effectivement fabriqué [$\beta_1$ : \g{autonomie}].
+Le manque de formalisation sémantique ne favorise pas la transformation de ces informations et leur association avec le matériel audiovisuel effectivement fabriqué [$\chi_1$ : \g{autonomie}].
 L'autre modèle étudié propose une formalisation sémantique ainsi qu'une association entre une description du document et du matériel audiovisuel (\ref{sec:answer}).
 Cependant, ces travaux ne sont pas accessibles et ne peuvent donc être repris ni évalué.
 
-Les approches \e{a posteriori} (\ref{sec:post}) proposent d'analyser le matériel audiovisuel en fin de chaîne. 
+Les approches \e{exogènes} (\ref{sec:post}) proposent d'analyser le matériel audiovisuel en fin de chaîne. 
 L'approche générique du schéma Dublin Core, même lorsqu'il est spécialisé pour les documents audiovisuels, est surtout pertinente au niveau du document (\ref{sec:dcmi}). 
 La description des fragments n'est ainsi rendu possible que par l'utilisation de descripteurs spécifiques, comme ceux de la norme MPEG-7. 
 De plus, on remarque l'importance d'une structure hiérarchique souple et extensible qui permet de couvrir les nombreux genre de documents produits par la télévision.
@@ -64,14 +73,14 @@ Pourtant, sa représentation en XML a été largement critiqué pour son ambigu�
 Ces modélisation sont réalisées de manière automatique ou manuelle, et certaines reposent sur une ontologie générique pour favoriser l'intégration avec des ontologies de domaines.
 Au-délà de ces apports, les modèles, comme la norme originale, adopte une point de vue centré sur le matériel audiovisuel tant au niveau de la gestion que de la description des objets audiovisuels. 
 Ainsi, ils négligent la modélisation de la structure documentaire et manquent de descriptions sémiotiques pertinentes pour la production audiovisuelle. % atténue l'importance de 
-La gestion se fait au niveau du matériel, par identification d'une source et de variantes plus adaptées à d'autres méthodes de distribution [$\beta_1$ : \g{autonomie}].
+La gestion se fait au niveau du matériel, par identification d'une source et de variantes plus adaptées à d'autres méthodes de distribution [$\chi_1$ : \g{autonomie}].
 L'abscence de distinction entre des opérations d'encodage et de montage ne permet pas de reconnaître la création d'un nouveau document (ou d'une nouvelle intention de réalisation), mais se limite à reconnaître un nouveau fichier.
-De même, les descriptions sont associées aux fichiers ou bien à des entités qui représentent des ensembles de fichiers ayant des caractéristiques communes [$\beta_2$ : \g{réutilisabilité}]. 
+De même, les descriptions sont associées aux fichiers ou bien à des entités qui représentent des ensembles de fichiers ayant des caractéristiques communes [$\chi_2$ : \g{réutilisabilité}]. 
 De plus, si le découpage du matériel en segment permet de créer de multiples structure d'analyse sur l'objet, la caractérisation de ces segments par genre ne suffit pas à modéliser les contraintes de sa grammaire documentaire.
 Il n'y a pas non plus de description du processus de production de ces segments, ni de l'écriture filmique.
 
 \e{
-	La production audiovisuelle et les modèles \e{in situ} posent le plan comme l'unité de base qui structure à la fois le processus de production audiovisuelle et les échanges entre ses contributeurs, de même que les mécanismes de narration propre aux documents audiovisuels.
+	La production audiovisuelle et les modèles \e{endogènes} posent le plan comme l'unité de base qui structure à la fois le processus de production audiovisuelle et les échanges entre ses contributeurs, de même que les mécanismes de narration propre aux documents audiovisuels.
 	La pratique de la réutilisation, les modifications et l'ouverture qu'elle engendre dans le déroulement des chaînes de production, implique également de fragmenter les documents audiovisuels, de rendre ces fragments autonomes mais aussi de les décrire pour favoriser leur circulation.
 	Or la reprise des modèles existants n'est pas possible, soit par manque de formalisme sémantique, soit par manque d'accès.
 	Ainsi, notre approche de modélisation doit se fonder sur le plan qui sert de point d'articulation entre une description métier, la structure documentaire et l'organisation de la production : 
@@ -82,7 +91,7 @@ Il n'y a pas non plus de description du processus de production de ces segments,
 	\end{liste}
 }	
 \e{
-	Par ailleurs, les modèles \e{a posteriori} ont largement formalisé et développé la description du matériel audiovisuel par des procédés d'analyse automatique du signal.
+	Par ailleurs, les modèles \e{exogènes} ont largement formalisé et développé la description du matériel audiovisuel par des procédés d'analyse automatique du signal.
 	Si les résultats produits ne sont pas (encore) exprimés dans le vocabulaire de la production audiovisuelle, de nombreux travaux ont montré leur intérêt immédiat ainsi que les résultats potentiels pour certains types de descriptions.
 	Le constat que nous faisons est que ces deux approches s'intéressent à deux moments du processus de production du document audiovisuel.
 	Cela les amènent à modéliser des formes de connaissances complémentaires, utilisées à des fins différentes, que nous articulons dans une même approche de description du document audiovisuel.
@@ -131,3 +140,39 @@ Ainsi, nous avons choisi de construire une ontologie noyau suivant une approche 
 % Nous nous distinguons ainsi des approches qui formalisent la modélisation de MPEG-7, car nous nous concentrons sur les connaissances fabriquées dès le début de la production. 
 
 
+
+
+
+\section{Approche de description contributive et continue}\label{sec:approche}
+
+\begin{cico}
+\e{Comprenez-moi, mettre en machine ne signifie pas décontextualiser, mais situer autre part, dans un autre acteur, une portion des compétences nécessaires à l'action. [\dots] Au lieu de considérer des hommes d'un côté et des formalismes de l'autre, considérons plutôt une liste de compétences et cherchons expérimentalement à repérer, dans l'épreuve, lesquelles peuvent être confiées à quel genres d'acteur nouveaux.} \parcite{latour:ia}
+\end{cico} 
+
+In the context of TV production, the diversity of programs implies a diversity of workflows and editorial structures. Since a workflow specifies the asset production, it affects the collecting of information and its attachment to asset's components. Thus, distinct programs lead to distinct processes and annotation strategies. One parameter to distinguish among this diversity is the degree of shooting preparation or scripting that varies from pure scripting to pure improvisation. Between these two opposite and archetypal positions lies a variety of use-case that need to be covered. However, two kinds of program and production can be defined based on their attitude towards scripting:
+
+\begin{itemize}
+	\item[$\bullet$] on the one hand, a pure \textbf{fiction program} such as a drama, comedy, animated series etc. create original materials\footnote{Video Mash-Ups are an exception to fiction program as they rely on material editing or dubbing over existing materials to create a new storyline. For instance, \gui{Le grand Détournement} (1993 -- Michel Hazanavicius and Dominique Mézerette) which incorporates materials from over 50 movies and uses the official French dubber of John Wayne, a key character in the plot.} to tell a story and convey a message. Their major feature is that they do not need to rely on actual events to create content. In fiction, events, characters, location are created to fit the need of the story. However, these liberty comes with a challenge, convinces the viewer of the story consistency. In addition, audiovisual material creation is very expensive as it involves many equipments and people. 
+
+Because of this control on the future content and the cost of content production, fiction tends to be planned and described as much as possible. Pre-production documents such as the shooting script can specify the editorial, structural and aesthetic outline of the content in details. As the production is contributive, these documents need to be understood by various people and thus a common language of the filmmaking has emerged. We call it the audiovisual scripting vocabulary in reference to the main document using it. This vocabulary is widely known in the professional community and can be easily learned by enthusiastic amateurs. Despite its intensive use during the production chain, it is not used later during the archiving process. 
+%When modifications arise, either due to external constraints or voluntary decision, these documents are updated in order to remain a reference for all production contributors.   
+
+	\item[$\bullet$] on the other hand, a \textbf{reality-based program} such as news, documentary, magazine, talk-show etc. aim at depicting reality and reporting it to the viewer. These programs usually rely on the recording of an event more or less expected and more or less under control. From their recordings, the program is built according to editorial guidelines that defines perspective on reality.
+	
+In most cases, information about the future event are known beforehand which gives the opportunity for anticipation. For instance, studio production like a game show can rely on a predefined environment with fixed positions for people, lightning, cameras etc. For documentary, the main storyline is predefined and the shooting location can be more or less controlled. In worst case, the shooting occurs without prior planning to capture an unexpected and fleeting event. Compared to fiction program, the integration of diverse and existing materials is much easier as it can be decided later in the process without putting the report's consistency in jeopardy. Moreover, as the audiovisual material creation is costly such content integration and repurposing is much favored. Yet, content description is scarce due to production time constraints and do not provide as detailed information as pre-production documents. 
+\end{itemize}
+
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.9\textwidth]{./images/Approach-Logigram-v2.png}
+\caption{Description continue pour des productions scriptées et non-scriptées}
+\label{img:strat-annot}
+\end{figure}
+
+he modeling of the audiovisual scripting vocabulary brings potential benefits for both kinds of production. Provided that we adopt an adequate annotation strategy to collect information at various steps of the production chain. The goal is to enable audiovisual components description before, during or after their production, when the information is created or modified. The \textbf{annotation process} differences between scripted and non-scripted production are presented in Figure \ref{fig:strat-annot}.
+%By modeling the audiovisual scripting vocabulary to annotate asset's content, we create a correspondence between annotations and pre-production documents. This connection can be used by a software to create and update both at the same time all along the production process. For reality-based programs, annotations can also be created later in the process. 
+%The processes description will be detailed in the next section. For now on, we focus on the \textbf{annotation strategies} differences. 
+At first, audiovisual production starts from an original or existing program's idea. When the idea is shaped to fit a program genre, the structure of the audiovisual document is almost fixed. In the case of scripted production, the collect of information begins with the work on pre-production documents and prescriptive annotations. Then, the audiovisual material is produced during the shooting. At the derushing stage, a selection of the best material is made depending on the intended message to convey. If prescriptive annotations have been created, they can be used as a groundwork and compared to the actual selected content. If the comparison matches, then the prescriptive annotation becomes descriptive annotations. Otherwise, the prescriptive annotations should be corrected before being accepted as descriptive annotations. For non-scripted production, the content's description really begins during the derushing stage. Finally, the output is a piece of annotated audiovisual content.
+
+Note that these annotation strategies do not assume anything on the nature of the agent in charge of creating, checking and updating the annotations. In our mind, humans and systems have distinct capabilities which should be used in conjunction. We call this approach a \textit{continuous} (all along the production process) and \textit{contributive} (by various people or systems) description of audiovisual documents.
