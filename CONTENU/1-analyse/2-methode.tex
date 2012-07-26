@@ -1,16 +1,44 @@
-\subsection{Une méthode de construction d'ontologie}\label{sec:construction}
-Nous avons défini dans la section précédente (\ref{sec:tto}) ce qu'est une ontologie,  présenté des exemples de sémantiques et montré comment il était possible de classifier ces ontologies suivant leur usage. 
-Dans cette section, nous détaillons la méthode de construction d'ontologie \pc{Archonte} (\pc{arch}itecture for \pc{ont}ological \pc{e}laborating) proposé par \cite{Bachimont2000a}.
-Cette présentation est aussi l'occasion de préciser l'importance crucuiale du choix d'une sémantique sur la construction d'une ontologie.
+\subsection{Méthodes de construction d'ontologie}\label{sec:construction}
+Nous avons défini dans la section précédente (\ref{sec:tto}) ce qu'est une ontologie, présenté des exemples de sémantiques et montré comment il était possible de classifier ces ontologies suivant leur usage. 
+Nous abordons maintenant les méthodes de construction d'ontologies.
 
-La méthode repose sur trois étapes successives qui aboutissent à une ontologie computationnelle, exprimée dans un langage opérationnel de représentation des connaissances et à partir duquel on peut effectuer des inférences. 
+
+\paragraph{Méthode d'\cite{Uschold1996}}
+\citeauthor{Uschold1996} ont défini une méthode de construction à partir de leur expérience de développement d'ontologies en entreprises. 
+Elle se décompose en quatre étapes :
+\begin{listenum}
+	\item une phase de \g{conception} qui vise à identifier le domaine concerné, le but et la porté de l'ontologie.
+	\item une phase de \g{construction} qui se décompose en trois étapes ; définir les concepts clés et les relations entre ces concepts ; expliciter la représentation de la conceptualisation dans un langage formel ; intégrer des connaissances d'autres ontologies.
+	\item une phase d'\g{évaluation} de l'ontologie construite.
+	\item une phase de \g{documentation} qui doit expliciter les décisions effectuées aux étapes précédentes afin de faciliter la réutilisation de l'ontologie.
+\end{listenum}
+
+
+\paragraph{Methontology}
+La méthode proposée par le Laboratoire d'Intelligence Artificielle (LAI) de l'université Polytechnique de Madrid a pour particularité d'intégrer le développement de l'ontologie à une méthodologie de gestion de projet \parcite{Fernandez1997, Blazquez1998}. La méthodologie distingue trois types d'activités se déroulant en parallèle, et dont les deux premières servent à soutenir la construction de l'ontologie :
+\begin{liste}
+	\item les activités de \g{gestion de projet}, notamment la planification avant-projet puis le \e{contrôle de la qualité} des résultats produits. 
+	
+	\item les activités de \g{support} concernent l'\e{acquisition} des connaissances du domaine ; l'\e{intégration} de connaissances d'autres ontologies ; la \e{documentation} de l'ontologie et de sa production ; la \e{gestion de version} des résultats produits ; l'\e{évaluation} technique de la construction de l'ontologie ainsi que de sa documentation. 
+
+	\item les activités de \g{développement technique} qui permettent de construire l'ontologie par étape. 
+	Dans un premier temps, la \e{spécification} définit l'objectif de l'ontologie, les applications et les utilisateurs concernés ; puis la \e{conceptualisation} structure les connaissances du domaine, qui sont ensuite formalisé (étape de \e{formalisation}) et enfin représenté dans un langage informatique (étape d'\e{implémentation}). La séquence se poursuit par une étape de \e{maintenance}.
+\end{liste}
+
+
+% Ontospec (Kassel)
+% Guarino et Welty
+% voir livre BB pour la justification du manque de sémantique
+
+\paragraph{Archonte}
+La méthode \pc{Archonte} (\pc{arch}itecture for \pc{ont}ological \pc{e}laborating), proposée par \cite{Bachimont2000a}, met en avant l'importance cruciale donnée au choix d'une sémantique dans la construction d'une ontologie.
+La méthode repose sur trois étapes successives qui aboutissent à une ontologie computationnelle, exprimée dans un langage opérationnel de représentation des connaissances.
+% , et à partir duquel on peut effectuer des inférences. 
 % Précisons maintenant les étapes de cette méthode ainsi que les résultats obtenus :
 % \begin{liste}
 Le point de départ de la méthodologie est constitué d'expressions linguistiques (signifiant) issues du domaine considéré.
 L'intérêt de disposer d'un tel ensemble de traces linguistiques est qu'elles servent à exprimer des concepts (signifiés) ou des connaissances sur le monde. 
 Ainsi, on se retrouve avec un corpus de candidats-termes dont la signification peut être source d'ambiguïtés et dont l'on cherche à clarifier l'interprétation.\\
-% \end{liste}
-% \begin{liste}
 
 \g{[1.]} La première étape de cette méthode (aussi appelée \e{normalisation sémantique}) consiste à établir un \g{engagement sémantique}  qui précise la manière de mener l'interprétation des candidats-termes et de construire une première structure de connaissances. 
 Pour cela, on fixe d'abord un contexte de référence, la tâche ou le problème qui a poussé à l'élaboration de l'ontologie, qui permet de cadrer l'interprétation des candidats-termes.
@@ -62,13 +90,6 @@ La transposition dans un langage a des conséquences au niveau de l'expressivit�
 Nous obtenons une \g{ontologie computationelle} qui est une version de l'ontologie référentielle exploitable informatiquement.
 
 
-% \begin{liste}
-% 	\item
-% \end{liste}
-
-
-
-
 
 
 
@@ -91,6 +112,53 @@ Les inscriptions de connaissances doivent être considérées sous deux angles :
 % Au final, on construit un objet informatique en suivant une méthode de construction qui nous guide pour spécifier le comportement de l'ontologie. 
 
 % RTO
+
+
+
+
+
+\subsection*{Discussion}
+\addcontentsline{toc}{subsection}{Discussion}
+% pourquoi on choisit celle de BB, et pourquoi on ne l'utilise pas globalement, mais seulement localement sur des patrons d'utilisation précis.
+
+
+
+Notre étude des méthodes de construction d'ontologie ne vise pas à être exhaustive, pour cela nous renvoyons à \cite{Gomez-Perez2004}.
+Il faut cependant remarquer que nous avons écarté les approches d'acquisition des connaissances à partir d'un corpus de texte, comme la méthode \g{Terminae} développée par \cite{Aussenac-Gilles2003}.
+Dans cette approche, l'analyse linguistique d'un corpus permet de repérer des candidats-termes (\pc{Syntex}), d'effectuer des regroupements de contexte (\pc{Upery}) et d'identifier des relations (\pc{Yakwa}) afin d'accompagner la modélisation conceptuelle.
+Or, dans notre contexte de travail, les documents professionnels qui décrivent en détails la production audiovisuelle sont rares (peu d'organisation ont les ressources de les produire) et constituent des ressources de valeur auquelles il est difficile d'avoir accès. 
+De plus, la notion de document audiovisuel est largement absente des ouvrages généralistes, ce qui fonde précisément l'intérêt de notre travail de recherche.
+\citeauthor{Uschold1996} proposent point de vue global sur le processus de construction d'ontologie, qui reste un point de référence dans le domaine.
+L'approche de \pc{Methontology} clarifie cependant le déroulement de la construction et s'efforce de l'intégrer dans une vision de gestion de projet assez exhaustive. 
+Si cette vision est intéressante, il n'est pas forcément possible de l'appliquer telle quelle en pratique, du fait de contraintes spécifiques d'un projet.
+Par ailleurs, \pc{Archonte} détaille une méthode de formalisation logique qui permet de positionner la conceptualisation sur le plan sémantique. 
+De ce fait, elle précise la manière de formaliser une conceptualisation et peut s'intégrer de manière complémentaire aux autres méthodes exposées.
+
+Dans notre cas, nous avons suivi une méthodologie \e{ad-hoc}, nécessaire pour suivre les contraintes d'un projet de recherche et développement impliquant de multiple partenaires.
+Les aspects de gestion de projet (tels que décrits dans \pc{Methontology}) étaient donc largement assujetis à l'avancement du projet MediaMap.
+De même, la spécification et l'acquisition des connaissances et la conceptualisation reposent principalement sur un dialogue avec des experts du domaine (dans le cas du projet MediaMap ce fût principalement les membres de la RTBF et de la VRT) dans le cadre de réunions générales et de séminaires plus focalisés.
+Les autres aspects de la construction de l'ontologie ont été réalisés par les membres de l'équipe de recherche ICI, en s'inspirant des séquences de développement technique proposées par \pc{Methontology}.
+
+Sur le plan sémantique, l'étendue de notre modélisation nous pousse à introduire des concepts de haut-niveau afin d'articuler diverses connaissances se rapportant à la production audiovisuelle (l'organisation du processus, ses contributeurs, ses résultats, et leur description par un vocabulaire professionnel et compréhensible par des amateur).
+Ces ontologies génériques de haut-niveau proposent des fondements théoriques important et des patrons de conception détaillés (au sens de \cite{Isaac2005}) pour modéliser certaines situations. 
+On pense par exemple, au patron \ciel{Description \& Situations} de l'ontologie DOLCE \parcite{Gangemi2005}. 
+Pour autant, la modélisation ne doit pas perdre de vue notre perspective applicative, nécessaire à l'adoption et la compréhension du modèle par des utilisateurs du domaine.
+Ainsi, \citeauthor{Isaac2005} proposent d'adapter la structure de ces patrons aux besoins descriptifs de l'application.
+Cela consiste à simplifier la structure des patrons en créant des \e{raccourcis relationnels}, quitte à faire disparaître les subtilités de représentation.
+L'enjeu d'une telle approche est de faire co-exister la forme simplifiée (adaptée aux usages du domaine et aux besoins expressifs de l'application) et la forme de haut-niveau qui la rend réutilisable dans d'autres domaines.
+De notre point de vue, notre modélisation se construit à partir de tels patrons de conception, qu'il s'agira ensuite d'articuler par des relations. 
+Nous avons appliqué la méthodologie \pc{Archonte} pour formaliser la sémantique de ces patrons, qui sont ensuite regroupés pour former une seule ontologie.
+En effet, nous considérons que le point important est de justifier la modélisation de ces parties et de leur mise en relation, plutôt que de la structure de l'ensemble.
+
+
+
+
+
+
+% est-ce qu'on a adapté des patrons de conception générique aux notions du domaine, pour simplifier la modélisation (modélisation réduite) ? VOIR \cite{Isaac2005}
+
+
+
 
 
 
