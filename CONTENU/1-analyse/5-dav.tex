@@ -171,7 +171,7 @@ Le dispositif a pour objectif de transformer une forme A inscrite sur un support
 L'intérêt de cette définition du contenu par état (forme/support) est également de pouvoir introduire la notion de document et de formes documentaires, complètement absente des deux premières perspectives que nous avons examinées.
 
 
-\subsubsection{Le document numérique}\label{sec:docnum}
+\subsubsection{Le document audiovisuel numérique}\label{sec:docnum}
 \cite{Morizet-mahoudeaux2005a} définissent un document comme un contenu qui peut servir de référence par sa consistance matérielle dans le temps : \ciel{a document is a \e{content} instituted by a \e{publication act}, written down a medium, which possesses a \e{spatial} and \e{temporal delimitation}}.
 
 \begin{liste}
@@ -207,8 +207,66 @@ On retrouve dans cette définition, la caractérisation de l'inscription matéri
 Cette définition développe celle proposée antérieurement par le réseau thématique pluridisciplinaire 33 (RTP-DOC, \cite{Pedauque2003}) qui fait référence dans les communautés scientifiques engagées dans les questions documentaires.
 Leur définition du document comporte trois dimensions similaires : le document comme \e{forme} (la dimension matérielle dans laquelle s’incarne le contenu et qui permet sa manipulation), le document comme \e{signe} (il est porteur d’un sens intentionnel), et le document comme \e{médium} (sa dimension sociale, d'échange et de communication).
 
- 
+\paragraph{Le document audiovisuel}
+Dans le cas de l'audiovisuel, la forme sémiotique qui est inscrite sur le support d'enregistrement est temporelle, non-interactive et multi-modale.
+En effet, les images et le son se présentent au lecteur de manière successive, selon un ordre, un rythme et une durée pré-définis.
+La forme audiovisuelle se constitue de la superposition de ces flux visuels et sonores \parcite{Prie1999}.
+Or un enregistrement se fait nécessairement sur un espace matériel, ce qui implique de se donner un moyen de représenter spatialement le temps, et d'y associer ces images et ces sons.
+L'utilisation de code temporel (\e{timecode}) permet de marquer l'écoulement du temps et de réaliser cette synchronisation des flux.
+Une fois cette synchronisation faite, les flux peuvent être lu ensemble pour recréer le flux audiovisuel.
+Mais il devient également possible de représenter graphiquement ces flux afin de les appréhender de manière synoptique, quoique imprécise, pour faciliter sa manipulation et son analyse\footnote{Nous mentionnons en particulier le logiciel \gui{Ligne de Temps} développé par l'Institut Recherche et Innovation du Centre Pompidou. Voir \url{http://iri-web.centrepompidou.fr/outils/lignes-de-temps/} pour plus de détails sur son fonctionnement.}. 
+En effet, on peut représenter une successsion d'images en sélectionnant à intervalle régulier l'un d'entre elles, pour autant on ne peut réduire l'interprétation d'un objet audiovisuel à cela.
+La représentation graphique du son par sa fréquence est bien plus problématique, puisqu'elle ne permet pas de distinguer les moments de paroles et de musique, ni les mots prononcés etc.
 
+
+ % doc adaptatif
+ % doc av
+ \subsubsection{Personnalisation et adaptation}
+La particularité du document numérique par rapport au document papier, est la coupure entre le support d'enregistrement et le support de restitution. 
+Ainsi, l'enregistrement des données ne suffit pas à rendre le document lisible, il faut pour cela la médiation des dispositifs de lecture et de restitution, qui par calcul, reconstruisent le document au lecteur.
+Cette reconstruction peut alors faire l'objet d'une configuration prenant en compte la situation de lecture (lecteur, contexte de travail, dispositif matériel etc.), pour proposer non pas une vue canonique du document, mais une vue personnalisée ou adaptée à cette situation.
+Ces questions sont traités dans les domaines des hypermédia adaptatifs \parcite{Balpe1990}, de la modélisation utilisateur et des documents virtuels personnalisables \parcite{Leleu-Merviel2004}. \cite{Iksal2002} a réalisé une étude approfondie de ces questions et \cite{Garlatti2004} détaillent leur fonctionnement dans le cadre du projet d'un Web sémantique.
+
+Le fait de nommer les documents ainsi construits de \e{virtuel} renvoit également au caractère dynamique de cette construction, qui s'oppose à la matérialité du document traditionnel, à sa \e{permanence}, son statut de \e{référence} destinée à être \e{partagée} par plusieurs lecteurs \cite[pp.185-186]{bachimont:icc}. 
+Ainsi, l'adaptation du document construit des vues perceptibles et manipulables dans l'ici et le maintenant de l'interaction entre le lecteur et les dispositifs de lecture qu'on lui fournit.
+Les documents deviennent alors des ressources dont un système se saisit pour composer de nouveaux points de vue, rendu plus pertinent par leur adaptation au contexte de lecture :
+
+\ciel{
+conserver, retrouver l’information n’est pas suffisant. 
+Pour qu’elle puisse être utile, il faut qu’elle puisse être exploitée, c’est-à-dire traitée et rapprochée d’autres de façon à produire de l’information nouvelle. 
+Produire du sens n’est, pour l’essentiel, que rapprocher des informations disparates jamais rassemblées auparavant.} \parcite{Balpe1990}
+
+
+On remarque que deux types de systèmes d'adaptation se distinguent \parcite{DeBra1999} : 
+\begin{liste}
+	\item les systèmes \g{adaptables} qui fonctionnent à partir d'une requête de l'utilisateur (quelque soit la forme de celle-ci, formulaire, questionnaire etc.) et des informations sur l'utilisateur (connaissances et préférences).
+	Dans ce cadre, l'utilisation d'une modèle de l'utilisateur est primordiale pour mener à bien l'adaptation.
+	\item les systèmes \g{adaptatifs} qui repose sur l'observation de l'utilisateur pour déduire ses connaissances et préférences. 
+	De la sorte, le système déduit les informations sur l'utilisateur, plutôt qu'il ne le consulte (comme dans la première approche).
+\end{liste}
+
+Dans le cadre du projet MediaMap, il est prévu qu'un système \e{adaptable} soit développé pour faciliter la prise de vue par des contributeurs amateurs.
+Notre modèle doit ainsi permettre l'adaptation de scripts de tournage, ce qui implique de représenter d'une part les contributeurs et leurs connaissances, le vocabulaire du script et la structure du document audiovisuel.
+Toutefois, la manière de réaliser l'adaptation n'est pas traitée dans notre modèle, mais laissée aux développeurs d'applications.
+L'objectif de notre modélisation étant de fournir des éléments de contexte pour faciliter les échanges de connaissances le long de la chaîne de production.
+
+% \ciel{
+% Cependant en numérique, les fragments existaient, au moins potentiellement, dans la mémoire de la machine, ce n’est que leur actualisation sur l’écran et la forme qu’elle prend qui se construit dans l’ici et maintenant de l’interaction. 
+% Celle-ci est donc nécessairement volatile. De plus, elle change à chaque fois.
+% Ainsi c’est l’affichage, [\dots] qui varie, mais non le document lui-même tel qu’il est mémorisé au niveau des données.}
+
+% \ciel{
+% conserver, retrouver l’information n’est pas suffisant. 
+% Pour qu’elle puisse être utile, il faut qu’elle puisse être exploitée, c’est-à-dire traitée et rapprochée d’autres de façon à produire de l’information nouvelle. 
+% Produire du sens n’est, pour l’essentiel, que rapprocher des informations disparates jamais rassemblées auparavant.} (\cite{Balpe1990})
+
+% % Deux pistes proposées par SLM : 
+% Il est alors possible de construire des assemblage cohérent de fragments le temps d'une consultation (d'un affichage) par un utilisateur (documents virtuels personnalisables).
+% Plus on a de connaissance sur son activité, ses tâches, ses compétences propres, plus il est alors possible de rendre cette assemblage pertinent. 
+
+% Il est aussi possible de mettre à profit la description des documents pour construire des notions de voisinage indépendamment du profilage des utilisateurs. 
+% La proximité entre deux documents pourra s'évaluer d'autant de manière qu'il y a de critères descriptifs.
+% Ainsi, des informations auparavant éparpillées dans des documents papier différents pourraient être regroupés pour former de nouveaux assemblages
 
 \subsubsection{Unité de contenu et structures documentaires}\label{sec:uc-sd}
 La distinction entre \e{forme physique de restitution} (FPR) et \e{forme sémiotique de restitution} (FSR) sera essentielle pour l'examen des modélisations de l'audiovisuel.
@@ -251,22 +309,5 @@ La caractérisation de ces différents niveaux nous renvoit aux besoins de modé
 
 % paragraph{Discussion et comparaison}
 
-% \paragraph{La personnalisation document}
-% \ciel{
-% Cependant en numérique, les fragments existaient, au moins potentiellement, dans la mémoire de la machine, ce n’est que leur actualisation sur l’écran et la forme qu’elle prend qui se construit dans l’ici et maintenant de l’interaction. 
-% Celle-ci est donc nécessairement volatile. De plus, elle change à chaque fois.
-% Ainsi c’est l’affichage, [\dots] qui varie, mais non le document lui-même tel qu’il est mémorisé au niveau des données.}
-
-% \ciel{
-% conserver, retrouver l’information n’est pas suffisant. 
-% Pour qu’elle puisse être utile, il faut qu’elle puisse être exploitée, c’est-à-dire traitée et rapprochée d’autres de façon à produire de l’information nouvelle. 
-% Produire du sens n’est, pour l’essentiel, que rapprocher des informations disparates jamais rassemblées auparavant.} (\cite{Balpe1990})
-
-% % Deux pistes proposées par SLM : 
-% Il est alors possible de construire des assemblage cohérent de fragments le temps d'une consultation (d'un affichage) par un utilisateur (documents virtuels personnalisables).
-% Plus on a de connaissance sur son activité, ses tâches, ses compétences propres, plus il est alors possible de rendre cette assemblage pertinent. 
-
-% Il est aussi possible de mettre à profit la description des documents pour construire des notions de voisinage indépendamment du profilage des utilisateurs. 
-% La proximité entre deux documents pourra s'évaluer d'autant de manière qu'il y a de critères descriptifs.
-% Ainsi, des informations auparavant éparpillées dans des documents papier différents pourraient être regroupés. 
+ . 
 
