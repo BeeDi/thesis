@@ -1,16 +1,17 @@
 \chapter{Approche et modélisation}\label{chap:mod}
 \minitoc
 \e{
-L'objectif de ce chapitre est de présenter notre conceptualisation et sa représentation informatique dans le cadre plus général d'une approche de description des documents audiovisuels contributive et qui suit le déroulement de la production audiovisuelle, même dans des cas de réutilisation et de production collaborative impliquant des communautés de professionnels ou d'amateurs.
+L'objectif de la partie \g{Contribution} est de présenter notre conceptualisation et sa représentation informatique dans le cadre plus général d'une approche de description des documents audiovisuels contributive et qui suit le déroulement de la production audiovisuelle, même dans des cas de réutilisation et de production collaborative impliquant des communautés de professionnels ou d'amateurs.
 Ainsi, en plus des problèmes de modélisation de la diversité des documents audiovisuels, de leur différent niveau de représentation, s'ajoute des problèmes d'échange de connaissances entre contributeurs ne partageant pas les mêmes conceptions, vocabulaires et compétences.}
 
 \e{
 Nous commençons par résumer notre analyse des langages et modélisations étudiés dans les chapitres précédents (\ref{sec:synthese}) pour mettre en évidence les manques des solutions disponibles pour répondre aux problèmes soulevés. 
 Cela nous amène à présenter les principes de notre approche qui met en avant la complémentarité des informations produites avant et après la fabrication du matériel audiovisuel (\ref{sec:approche}).
 Nous introduisons également l'architecture développé dans le cadre du projet MediaMap pour opérationnaliser cette approche, et notamment les applications nécessaires à son fonctionnement.
-Ensuite, nous expliquons notre modélisation à travers les exemples présentés précédemment et fournissons les définitions des concepts et relations créés (\ref{sec:concept}).
-Dans le chapitre \ref{chap:op}, nous discuterons la représentation de notre conceptualisation avec le langage OWL, notamment en comparant certains de nos choix avec ceux effectués dans SKOS.
-Finalement, les applications développées par les partenaires du projet MediaMap et les expérimentations menées avec seront présentées plus en détails dans le chapitre \ref{chap:app}.}
+Ensuite, nous expliquons notre modélisation à travers les scénarios utilisés précédemment qui nous amène à définir des patrons de conception qui rassemblent les concepts et relations nécessaire à la représentation de situations typiques (\ref{sec:concept}).
+Dans le chapitre \ref{chap:app}, nous présentons les applications développées par les partenaires du projet MediaMap (\ref{sec:app}) et les expérimentations qui ont été menées avec (\ref{sec:xp}).
+Nous discutons également la représentation de notre conceptualisation avec le langage OWL, notamment en comparant certains de nos choix avec ceux effectués dans SKOS (\ref{sec:op}).
+Finalement, nous argumentons la validité de la modélisation de nos patrons de conception sur le plan informatique et sémantique (\ref{sec:val}.}
 
 
 
@@ -145,34 +146,74 @@ Ainsi, nous avons choisi de construire une ontologie noyau suivant une approche 
 
 \section{Approche de description contributive et continue}\label{sec:approche}
 
-\begin{cico}
-\e{Comprenez-moi, mettre en machine ne signifie pas décontextualiser, mais situer autre part, dans un autre acteur, une portion des compétences nécessaires à l'action. [\dots] Au lieu de considérer des hommes d'un côté et des formalismes de l'autre, considérons plutôt une liste de compétences et cherchons expérimentalement à repérer, dans l'épreuve, lesquelles peuvent être confiées à quel genres d'acteur nouveaux.} \parcite{latour:ia}
-\end{cico} 
 
-In the context of TV production, the diversity of programs implies a diversity of workflows and editorial structures. Since a workflow specifies the asset production, it affects the collecting of information and its attachment to asset's components. Thus, distinct programs lead to distinct processes and annotation strategies. One parameter to distinguish among this diversity is the degree of shooting preparation or scripting that varies from pure scripting to pure improvisation. Between these two opposite and archetypal positions lies a variety of use-case that need to be covered. However, two kinds of program and production can be defined based on their attitude towards scripting:
+\subsection{Stratégie de description dans les production scriptées et non-scriptées}
+Dans le cadre de la production télévisuelle, la diversité des genres de programmes à produire implique une diversité de structure documentaire et d'organisation des processus de production, sans compter les pratiques professionnelles qui varient d'un pays à l'autre, voire d'une organisation à l'autre. 
+Étant donné que la processus de production est étroitement lié à la nature du document audiovisuel que l'on fabrique (sur le plan technique, mais également du fait des contraintes financières), chaque genre développe sa propre organisation du travail.
+Cette organisation affecte la collecte d'information et son association au matériel audiovisuel, ce qui fait que deux types de production n'associent pas les mêmes informations au programme, ni ne procède de la même manière pour les obtenir.
+Un des critères déterminant la récupération de ces informations est le degré de préparation ou de scripting de la production.
+En effet, cela peut varier de la plus pure improvisation, jusqu'au script respecté dans ces moindres détails. On oppose ainsi \g{production scriptée et non-scriptée}.
+Entre ces deux cas de figure archétipal que nous détaillons ci-dessous, on trouve de nombreux cas d'usages qu'il faut également couvrir, concernant des changements de structure plus ou moins important : 
 
 \begin{itemize}
-	\item[$\bullet$] on the one hand, a pure \textbf{fiction program} such as a drama, comedy, animated series etc. create original materials\footnote{Video Mash-Ups are an exception to fiction program as they rely on material editing or dubbing over existing materials to create a new storyline. For instance, \gui{Le grand Détournement} (1993 -- Michel Hazanavicius and Dominique Mézerette) which incorporates materials from over 50 movies and uses the official French dubber of John Wayne, a key character in the plot.} to tell a story and convey a message. Their major feature is that they do not need to rely on actual events to create content. In fiction, events, characters, location are created to fit the need of the story. However, these liberty comes with a challenge, convinces the viewer of the story consistency. In addition, audiovisual material creation is very expensive as it involves many equipments and people. 
+	\item le programme de fiction pure, tel qu'une comédie, un série animé etc. repose sur la créaction de matériel audiovisuel originaux\footnote{Les \e{mash-up} vidéo qui consistent à détourner un matériel déjà existant, par le montage ou le doublage, pour créer une nouvelle oeuvre sont une exception remarquable de fiction se basant sur du matériel existant.
+	L'exemple le plus connu étant \ciel{Le grand détournement} aussi appelé \ciel{La classe américaine} réalisé en 1993 par Michel Hazanavicius et Dominique Mézerette. 
+	Ce long-métrage (70 minutes) incorpore du matériel vidéo de plus de 50 films et utilise les doubleurs officiels des acteurs (dont celui de John Wayne) pour détourner le sens original des images.}, à opposer à la récupération de matériel déjà existant, pour raconter une histoire.
+	La caractéristique principale de la fiction est de ne pas être dépendante de la réalité historique pour construire son histoire.
+	Au contraire, il s'agit pour elle de construire une réalité fictive à partir d'éléments existants mis en scène pour tromper le spectateur.
+	Ainsi, le défi est de convaincre le spectateur de la cohérence de ce monde fictif qui lui est présenté, plan par plan. 
+	On peut résumer de cette façon, une fiction donne un contrôle total sur le déroulement des évènements (puisqu'ils sont écrits à l'avance) mais au risque d'un manque de cohérence qui peut décridibiliser son histoire vis-à-vis du spectateur.
+	De nombreux efforts sont mis en oeuvre pour renforcer la crédibilité du monde fictif et de l'histoire (décors, costumes, accessoires, effets spéciaux, acteurs professionnels, équipe et équipement technique etc.), ce qui augmente les budgets de production en conséquence. 
+	Dès lors, la seule manière d'évaluer et de contrôler ces coûts de production est de prévoir au mieux ce qui doit être tourné, afin de rationaliser l'organisation de la production.
+	C'est le rôle des documents de pré-production tels que le script qui détaille la structure narrative, et le plan de tournage qui planifie l'ordre de fabrication des plans.
+	Lors du tournage, des modifications peuvent être effectuées (par choix ou par contrainte) ce qui oblige un membre de l'équipe (généralement la scripte) à mettre à jour ces documents et à les redistribuer aux autres contributeurs.
 
-Because of this control on the future content and the cost of content production, fiction tends to be planned and described as much as possible. Pre-production documents such as the shooting script can specify the editorial, structural and aesthetic outline of the content in details. As the production is contributive, these documents need to be understood by various people and thus a common language of the filmmaking has emerged. We call it the audiovisual scripting vocabulary in reference to the main document using it. This vocabulary is widely known in the professional community and can be easily learned by enthusiastic amateurs. Despite its intensive use during the production chain, it is not used later during the archiving process. 
-%When modifications arise, either due to external constraints or voluntary decision, these documents are updated in order to remain a reference for all production contributors.   
 
-	\item[$\bullet$] on the other hand, a \textbf{reality-based program} such as news, documentary, magazine, talk-show etc. aim at depicting reality and reporting it to the viewer. These programs usually rely on the recording of an event more or less expected and more or less under control. From their recordings, the program is built according to editorial guidelines that defines perspective on reality.
-	
-In most cases, information about the future event are known beforehand which gives the opportunity for anticipation. For instance, studio production like a game show can rely on a predefined environment with fixed positions for people, lightning, cameras etc. For documentary, the main storyline is predefined and the shooting location can be more or less controlled. In worst case, the shooting occurs without prior planning to capture an unexpected and fleeting event. Compared to fiction program, the integration of diverse and existing materials is much easier as it can be decided later in the process without putting the report's consistency in jeopardy. Moreover, as the audiovisual material creation is costly such content integration and repurposing is much favored. Yet, content description is scarce due to production time constraints and do not provide as detailed information as pre-production documents. 
+	\item les autres programmes reposent et visent à montrer la réalité historique, tels que les journaux télévisés, les documentaires, les magazines etc.
+	La production de ces programmes dépend donc de la captation d'un évènement plus ou moins contrôlé, à l'inverse de la fiction qui met en scène des situations pour ensuite les enregistrer.
+	Toutefois, ces programmes sont montés et commentés selon un point de vue particulier, une ligne éditoriale, qui définit la manière de présenter la réalité historique, ce qui constitue une sorte de mise en scène.
+	Dans de nombreux cas, les évènements sont connus ou programmés à l'avance, ce qui permet aux journalistes de les anticiper. 
+	Par exemple, les séquences plateaux d'un magazine ou d'un journal télévisé sont réalisées dans des environnements contrôlés, où il n'y a guère que le public ou les invités pour ne pas suivre le plan de tournage.
+	Dans le cas de documentaire, la trame générale et le tournage d'un documentaire est définie en avance, ou bien révisée en fonction des témoignages ou des évènements captés. 
+	De plus, les équipes tournent se donnent de la marge de manoeuvre en tournant beaucoup d'heures, afin de ne pas être à court de matière sen cas d'ajustement de la trame au moment du montage.
+	Dans certains cas, les évènements se déroulent de manière inattendus ou fugace ce qui empêche les équipes de capter ces évènements, ou alors de manière dégradé.
+	Ces situations peuvent aboutir à l'utilisation de matériel audiovisuel réalisés par d'autres, qu'il s'agisse de professionnels ou bien d'amateurs.
+	Un point important à souligner est que l'intégration de ce matériel se fait bien plus facilement que pour les programmes de fiction dont la crédibilité aux yeux du spectateur se joue sur la construction d'une identité visuelle cohérente. 
+	Lorsqu'on montre la réalité historique, ce problème est atténué et on peut s'autoriser plus d'écarts.
+	Comme l'envoi d'équipe de captation est coûteux, la réutilisation de matériel est devenu un objectif de ce type de production. 
+	La description des documents à produire est généralement rare du fait de contraintes temporelles forte (notamment en télévision) ou bien par manque de moyen.
 \end{itemize}
 
 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=0.9\textwidth]{./images/Approach-Logigram-v2.png}
-\caption{Description continue pour des productions scriptées et non-scriptées}
+\caption{Description contributive et continue pour des productions scriptées et non-scriptées}
 \label{img:strat-annot}
 \end{figure}
 
-he modeling of the audiovisual scripting vocabulary brings potential benefits for both kinds of production. Provided that we adopt an adequate annotation strategy to collect information at various steps of the production chain. The goal is to enable audiovisual components description before, during or after their production, when the information is created or modified. The \textbf{annotation process} differences between scripted and non-scripted production are presented in Figure \ref{fig:strat-annot}.
-%By modeling the audiovisual scripting vocabulary to annotate asset's content, we create a correspondence between annotations and pre-production documents. This connection can be used by a software to create and update both at the same time all along the production process. For reality-based programs, annotations can also be created later in the process. 
-%The processes description will be detailed in the next section. For now on, we focus on the \textbf{annotation strategies} differences. 
-At first, audiovisual production starts from an original or existing program's idea. When the idea is shaped to fit a program genre, the structure of the audiovisual document is almost fixed. In the case of scripted production, the collect of information begins with the work on pre-production documents and prescriptive annotations. Then, the audiovisual material is produced during the shooting. At the derushing stage, a selection of the best material is made depending on the intended message to convey. If prescriptive annotations have been created, they can be used as a groundwork and compared to the actual selected content. If the comparison matches, then the prescriptive annotation becomes descriptive annotations. Otherwise, the prescriptive annotations should be corrected before being accepted as descriptive annotations. For non-scripted production, the content's description really begins during the derushing stage. Finally, the output is a piece of annotated audiovisual content.
+La modélisation du vocabulaire de la production audiovisuelle peut avoir des avantages pour les deux types de production présentés, à condition d'adapter sa stratégie de collecte d'information à l'ensemble de la chaîne de production. 
+L'objectif est de récolter l'information dès qu'elle est produite, c'est-à-dire à toutes les étapes de la chaîne. 
+Les différences entre les processus de production scripté et non-scripté sont présentés dans la Figure \ref{fig:strat-annot}. 
+Dans les rectangles marrons, nous avons les résultats ou les éléments initateurs d'une activité (en noir, et décrites dans des rectangles oranges).
+Les flèches pleines correspondent au sens de déroulement du logigramme, les flèches en pointillées correspondent aux importation/exportation d'information. 
+Enfin, les losanges bleus correspondant à des embranchements logiques (des questions où l'on peut répondre par oui ou non) qui permettent de distinguer les différents cas à traiter.
+Au départ, la production est initié par une idée de programme, originale ou non, qui conduit à la plannification de la production.
+Lorsque l'idée correspond à un genre audiovisuel, la structure du document audiovisuel correspond à une grammaire particulière qui peut être modélisé. 
+Dans le cas d'une production scriptée, la collecte des informations peut commencer par reprendre les informations contenues dans les documents de production, et notamment le script, pour créer des annotations dites \e{prescriptives} (dictant la fabrication du document et du matériel).
+Le tournage permet de fabriquer du matériel, qu'il faut ensuite dérusher, c'est-à-dire identifier les différentes prises de vues et sélectionner les meilleurs morceaux. 
+Si il existe des annotations prescriptives, alors elles peuvent être utilisé comme point de départ pour la description du matériel.
+La comparaison entre ces annotations et le matériel filmé aboutit à deux situations, soit la prescription à été respecté et les annotations deviennent descriptives, soit il faut les modifier pour en faire des annotations descriptives.
+Dans le cas de production non-scriptée, la description du contenu commence véritablement après le dérushage.
 
-Note that these annotation strategies do not assume anything on the nature of the agent in charge of creating, checking and updating the annotations. In our mind, humans and systems have distinct capabilities which should be used in conjunction. We call this approach a \textit{continuous} (all along the production process) and \textit{contributive} (by various people or systems) description of audiovisual documents.
+Il faut remarquer que ce logigramme ne présume pas de la nature de l'agent construisant, vérifiant et mettant à jour les annotations.
+Comme nous le fait remarquer \citeauthor{latour:ia}, humains et machines possèdent des capacités distinctes qu'il convient d'associer de manière conjointe :
+
+\begin{cico}
+\e{Comprenez-moi, mettre en machine ne signifie pas décontextualiser, mais situer autre part, dans un autre acteur, une portion des compétences nécessaires à l'action. [\dots] Au lieu de considérer des hommes d'un côté et des formalismes de l'autre, considérons plutôt une liste de compétences et cherchons expérimentalement à repérer, dans l'épreuve, lesquelles peuvent être confiées à quel genres d'acteur nouveaux.} \parcite{latour:ia}
+\end{cico} 
+
+Nous appelons cette approche de description \g{contributive} et \g{continue} car elle implique une variété de contributeur opérant à toutes les étapes de la chaîne de production pour fabriquer la description d'un document audiovisuel.
+
+
+\subsection{Architecture de l'approche}
