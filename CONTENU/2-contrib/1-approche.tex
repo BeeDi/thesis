@@ -146,7 +146,6 @@ Ainsi, nous avons choisi de construire une ontologie noyau suivant une approche 
 
 \section{Approche de description contributive et continue}\label{sec:approche}
 
-
 \subsection{Stratégie de description dans les production scriptées et non-scriptées}
 Dans le cadre de la production télévisuelle, la diversité des genres de programmes à produire implique une diversité de structure documentaire et d'organisation des processus de production, sans compter les pratiques professionnelles qui varient d'un pays à l'autre, voire d'une organisation à l'autre. 
 Étant donné que la processus de production est étroitement lié à la nature du document audiovisuel que l'on fabrique (sur le plan technique, mais également du fait des contraintes financières), chaque genre développe sa propre organisation du travail.
@@ -194,7 +193,7 @@ Entre ces deux cas de figure archétipal que nous détaillons ci-dessous, on tro
 
 La modélisation du vocabulaire de la production audiovisuelle peut avoir des avantages pour les deux types de production présentés, à condition d'adapter sa stratégie de collecte d'information à l'ensemble de la chaîne de production. 
 L'objectif est de récolter l'information dès qu'elle est produite, c'est-à-dire à toutes les étapes de la chaîne. 
-Les différences entre les processus de production scripté et non-scripté sont présentés dans la Figure \ref{fig:strat-annot}. 
+Les différences entre les processus de production scripté et non-scripté sont présentés dans la Figure \ref{img:strat-annot}. 
 Dans les rectangles marrons, nous avons les résultats ou les éléments initateurs d'une activité (en noir, et décrites dans des rectangles oranges).
 Les flèches pleines correspondent au sens de déroulement du logigramme, les flèches en pointillées correspondent aux importation/exportation d'information. 
 Enfin, les losanges bleus correspondant à des embranchements logiques (des questions où l'on peut répondre par oui ou non) qui permettent de distinguer les différents cas à traiter.
@@ -216,4 +215,75 @@ Comme nous le fait remarquer \citeauthor{latour:ia}, humains et machines possèd
 Nous appelons cette approche de description \g{contributive} et \g{continue} car elle implique une variété de contributeur opérant à toutes les étapes de la chaîne de production pour fabriquer la description d'un document audiovisuel.
 
 
-\subsection{Architecture de l'approche}
+\subsection{Synthèse des scénarios d'usages et Architecture applicative de MediaMap}
+\e{Nous récapitulons ici les étapes des scénarios d'usages que nous avons développés dans les chapitre \ref{chap:omod} et \ref{chap:mav} afin de montrer comment l'ensemble de la chaîne doit être instrumenté pour faciliter la réutilisation et ouvrir les chaînes de production aux collaborations externes.}
+
+Le scénario de commande de tournage implique la RTBF dans un projet de production de reportages sur un évènement culturel.
+La Figure \ref{img:arch-process} montre les trois grandes phases du scénario et permet d'illustrer \co{sa mise en oeuvre et les applications développés dans le cadre du projet MediaMap}. 
+Noter que la numérotation des étapes du scénario ci-dessous se retrouve également sur la Figure :
+\begin{listenum}
+	\item[(1)] La RTBF écrit le script du reportage, en indiquant quels plans doivent être tournés, les personnes à questionner etc. [\g{Script}] 
+	\co{Cette fonctionnalité est prise en charge par le \pc{Mission Manager} de Perfect Memory, qui permet de construire et d'éditer des scripts, mais sert également d'interface sur l'organisation du projet.}
+	
+	\item[(2)] La RTBF décide de l'organisation du travail de tournage, elle dépêche une de ses équipes pour réaliser les entrevues avec les participants de l'évènement culturel puis délègue la captation du concert à la VRT et fait appel aux public d'amateurs pour envoyer leur commentaires et sensations avant, pendant ou après l'évènement. [\g{Planification}] 
+	\co{Le stockage des connaissances sur le projet est effectué sur une base sémantique intégrée à l'application \pc{Mission Manager} de Perfect Memory.
+	Contrairement à ce que le diagramme pourrait laisser penser, les connaissances évoluent tout au long de la chaîne de production, et le \pc{Mission Manager} permet d'organiser le processus et de suivre son évolution.}
+
+	\item[(3)] La commande de tournage des commentaires du public est envoyé à une caméra "intelligente" à disposition des amateurs. La commande, initialement exprimée dans le vocabulaire professionnel, est alors traduite en un plan de travail et un guide de tournage des prises de vue compréhensible par un non-initié. [\g{Traduction}]
+	\co{Cette opération de traduction est réalisée par l'application \pc{Camera Mate} de Skema, embarquée dans la caméra. 
+	Cela permet de fournir une interface adaptable à l'utilisateur qui la manie et de réaliser quelques traitements d'analyse.}
+	
+	\item[(4)] La caméra propose des assistances de prises de vues variables suivant le niveau du caméraman, et une fois le matériel filmé, la caméra vérifie si la prescription correspond au matériel filmé. Cela permet d'estimer la qualité de la prise de vue par rapport aux critères du script. Si l'estimation est trop mauvaise, cela peut éventuellement déclencher une nouvelle prise de vue. [\g{Assistance et Vérification}]
+	\co{La caméra est un prototype qui embarque un processeur ARM, construite par VITEC Multimédia. 
+	Le logiciel \pc{Camera Mate} utilise des algorithmes conçus par l'équipe ASER de l'UTC \parcite{Pinzari2010}.}
+	
+	\item[(5)] Lorsque le matériel audiovisuel et la description issue du script sont disponibles, l'amateur utilise la caméra pour envoyer ces informations, alors que la VRT utilise la plate-forme d'acquisition de la RTBF pour livrer son matériel. 
+	Cette plate-forme peut éventuellement servir à valider le matériel, puis se charge de le transformer (format, qualité, dimension etc.) si le contexte projet le nécessite. [\g{Livraison et Transformation}]
+	\co{La plate-forme est constitué d'un site Web développé par Solution 2.0, et d'une architecture de Media Asset Management nommé MAMMIE \parcite{Braeckman2010} qui permet de stocker les fichiers média, de créer une version Web et de transférer ces fichiers aux autres applications de MediaMap.}
+\end{listenum}
+
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=1\textwidth]{./images/Architecture-process-v1.png}
+\caption{Architecture finale du projet MediaMap : vue centrée sur le processus}
+\label{img:arch-process}
+\end{figure}
+
+\begin{listenum}
+	\item[(6)] L'acquisition du matériel et des connaissances aboutit à l'intégration de ces éléments à une plate-forme de gestion et de description côté RTBF. 
+	La description est enrichi par des méthodes d'analyse automatique du signal ou des ajouts manuels, à différents moments de la post-production.
+	Cela permet à l'équipe de post-production de la RTBF de prendre connaissance plus facilement du matériel filmé par ses contributeurs externes. [\g{Enrichissement des descriptions}]
+	\co{L'\pc{IPI Editor} développé par Memnon se charge de cette intégration dans une base de stockage du matériel et une base sémantique pour gérer les connaissances qui y sont associées (à l'exception des connaissances sur le processus de production, gérées par le \pc{Mission Manager}.)e
+	Parmi les traitements automatiques disponibles sur cette plate-forme, on trouve des analyseurs sonores qui permettent de repérer les moments de musique et de dialogue, et dans ce dernier cas de produire une transcription des paroles synchronisée mot à mot avec le flux audiovisuel.
+	Il est également possible de rattacher des connaissances sur le monde au matériel, comme les personnes, les lieux etc.}
+
+	\item[(7)] L'acquisition et la description du matériel audiovisuel peut être ensuite associée avec la structure documentaire du journal télévisé du soir, qui propose également une version Web, mais aussi à l'équipe de production d'un DVD de l'évènement (revoir la section \ref{sec:ex-reuse}, p.\pageref{sec:ex-reuse} pour plus de détails).
+	Enfin, certaines séquences seront également mises à disposition à des organisations externes via la base sémantique de description des rush (prises de vue). [\g{Réutilisation}]
+	\co{La réutilisation des matériaux audiovisuels dans divers contexte d'exploitation est rendu possible par l'articulation entre la plate-forme de stockage des rush et des bases sémantiques sur le processus de production (\pc{Mission Manager}) et sur les descriptions associées aux documents audiovisuels (\pc{IPI Editor, IPI Manager}), ce qui explique le positionnement du n°7 sur le diagramme.}
+
+	\item[(8)] Lors du montage du sujet pour le journal télévisé, la RTBF se rend compte qu'ils ont besoin d'un plan de coupe présentant le lieu de représentation de l'évènement culturel, qui n'a pas été commandé aux équipes de tournage. 
+	Pour cela, le monteur vérifie d'abord si les équipes de la VRT ou de la RTBF ne l'aurait pas tourné (en plus de la commande), mais aucun plan n'est disponible. 
+	De ce fait, une recherche dans la base de rush (prise de vue) est lancée et le monteur récupère un plan existant. [\g{Accès et Recherche}]
+	\co{L'interface de gestion du projet du \pc{Mission Manager} permet de visualiser le matériel produit par chaque équipe de tournage, de naviguer dans la structure documentaire du projet.
+	La recherche de matériel passe d'abord par une phase d'indexation prise en charge par Exalead et rendu accessible à un interface Web construite par Solution 2.0.
+	L'indexation s'effectue par une connexion à l'\pc{IPI Manager} qui gère l'évolution des connaissances sur et associées au document audiovisuel.
+	Ces recherches s'effectue avec le même vocabulaire que la définition d'un plan dans un script, et renvoit non seulement à des séquences audiovisuelles, mais également à leur contexte de production (projet, contributeur, structure documentaire etc.). 
+	La position du n°8 sur le diagramme présuppose l'échange d'information entre la base Exalead et la base sémantique de l'IPI Manager.}
+	
+	\item[(9)] Une fois le sujet pour le journal télévisé produit, la RTBF envoit le projet entier à la VRT, qui le réutilisera en modifiant le commentaire. 
+	Ce transfert ne consiste pas simplement à envoyer le montage final, mais l'ensemble des rush, des montages intermédiaires, des commentaires du public flamand, des enrichissement de descriptions etc.
+	Il s'agit donc d'un échange de matériel et de connaissances sur ce matériel. [\g{Transport, Échange}]
+	\co{Les différentes bases sémantiques peuvent exporter les connaissances stockés afin de les transmettre à d'autres bases, en même temps que l'ontologie qui définit ces connaissances.
+	Notre modèle doit également embarquer les variations de vocabulaire utilisé par le recepteur, afin de réaliser l'adaptation de leur expression.}
+\end{listenum}
+
+
+
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=1\textwidth]{./images/Architecture-apps.png}
+\caption{Architecture finale du projet MediaMap : vue applicative des flux de données}
+\label{img:arch-apps}
+\end{figure}
