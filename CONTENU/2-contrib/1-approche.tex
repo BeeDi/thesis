@@ -14,8 +14,10 @@ Nous discutons également la représentation de notre conceptualisation avec le 
 Finalement, nous argumentons la validité de la modélisation de nos patrons de conception sur le plan informatique et sémantique (\ref{sec:val}.}
 
 
-
-\section{Synthèse de l'état de l'art}\label{sec:synthese}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Synthèse de l'état de l'art et positionnement}\label{sec:synthese}
 Dans le chapitre \ref{chap:omod}, nous avons étudié la modélisation de connaissances par les ontologies ainsi que la modélisation des vocabulaires métiers par les terminologies. 
 Notre définition des besoins implique d'associer une documentation et une terminologie à notre conceptualisation (\ref{sec:bm}), de manière à faciliter les échanges de connaissances entre tous les contributeurs de la chaîne de production, ainsi que dans les cas de réutilisation où l'on reprend des éléments externes à cette chaîne.
 Nos objectifs dépassent le cadre de la modélisation documentaire que permet XML et les langages de schéma associées (\ref{sec:xml}).
@@ -110,14 +112,7 @@ L'utilisation d'une ontologie générique pour intégrer des connaissances propr
 En effet, nos ambitions se limite dans le cadre de cette thèse à l'expression des connaissances propres à la production audiovisuelle.
 Ainsi, nous avons choisi de construire une ontologie noyau suivant une approche ascendante de manière à se concentrer sur les problèmes peu traités de la production audiovisuelle et éviter les écueils important de l'intégration avec une ontologie générique.}
 
-
-
 % quelles applications pour instrumenter cette approche : introduction au chapitre 6 
-
-
-
-
-
 
 % Description in situ décrivent les connaissances contenus dans le script, poussant jusqu'à instrumenter la direction du tournage ; description a posteriori se concentrent sur le signal et cherchent à créer des passerelles avec des descriptions métiers ou de domaine
 % => il n'y a pas de lien entre les deux, car il n'y a pas de modélisation de la chaîne de fabrication pendant ou avant qu'elle se déroule (connaissances et produits)
@@ -125,7 +120,6 @@ Ainsi, nous avons choisi de construire une ontologie noyau suivant une approche 
 % [stratégie d'annotation pre & post fabrication du matériel]
 
 % les formats conteneurs adoptent plusieurs perspectives sur la modélisation du contenu, mais leur représentation n'est pas formelle et comporte des ambigüités sémantiques
-
 
 % Notre hypothèse est que le plan constitue l'unité signifiante de base de l'audiovisuel (FSR). C'est donc à partir d'une description de cette unité que toute description devrait commencer.
 % L'indexation structurelle peut ensuite prendre place à partir de cette unité. On définit des fragments (objets éditoriaux) de niveaux supérieurs, ainsi qu'une grammaire de composition de ces fragments, ce qui permet de définir des types de documents.
@@ -136,18 +130,18 @@ Ainsi, nous avons choisi de construire une ontologie noyau suivant une approche 
 % le plan est l'unité de base d'une structure documentaire qui exprime des connaissances sur la production audiovisuelle 
 % ces connaissances sont adaptés à la réutilisation de contenu, puisque c'est une recherche, des opérations de réagencement qui sont fait par des contributeurs de la production, en vue d'une nouvelle production
 
-
 % En toute modestie, on ne cherche pas à construire ou même à utiliser une ontologie générique, mais plutôt à se concentrer sur la modélisation de notre problème : la réutilisation dans la production audiovisuelle. Ainsi, nous ne reprennons pas directement le travail sur les ontologies génériques, car notre problème n'est pas l'intégration de connaissances d'un domaine, mais l'expression des connaissances propres à la production audiovisuelle.
 % Nous nous distinguons ainsi des approches qui formalisent la modélisation de MPEG-7, car nous nous concentrons sur les connaissances fabriquées dès le début de la production. 
 
 
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Approche de description contributive et continue}\label{sec:approche}
 
-\subsection{Stratégie de description dans les production scriptées et non-scriptées}
-Dans le cadre de la production télévisuelle, la diversité des genres de programmes à produire implique une diversité de structure documentaire et d'organisation des processus de production, sans compter les pratiques professionnelles qui varient d'un pays à l'autre, voire d'une organisation à l'autre. 
+\subsection{Stratégie de description dans les productions audiovisuelles}\label{sec:strat-desc}
+Dans le cadre de la production audiovisuelle et télévisuelle en particulier, la diversité des genres de programmes à produire implique une diversité de structure documentaire et d'organisation des processus de production, sans compter les pratiques professionnelles qui varient d'un pays à l'autre, voire d'une organisation à l'autre. 
 Étant donné que la processus de production est étroitement lié à la nature du document audiovisuel que l'on fabrique (sur le plan technique, mais également du fait des contraintes financières), chaque genre développe sa propre organisation du travail.
 Cette organisation affecte la collecte d'information et son association au matériel audiovisuel, ce qui fait que deux types de production n'associent pas les mêmes informations au programme, ni ne procède de la même manière pour les obtenir.
 Un des critères déterminant la récupération de ces informations est le degré de préparation ou de scripting de la production.
@@ -215,8 +209,12 @@ Comme nous le fait remarquer \citeauthor{latour:ia}, humains et machines possèd
 Nous appelons cette approche de description \g{contributive} et \g{continue} car elle implique une variété de contributeur opérant à toutes les étapes de la chaîne de production pour fabriquer la description d'un document audiovisuel.
 
 
-\subsection{Synthèse des scénarios d'usages et Architecture applicative de MediaMap}
-\e{Nous récapitulons ici les étapes des scénarios d'usages que nous avons développés dans les chapitre \ref{chap:omod} et \ref{chap:mav} afin de montrer comment l'ensemble de la chaîne doit être instrumenté pour faciliter la réutilisation et ouvrir les chaînes de production aux collaborations externes.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Synthèse des scénarios d'usages}\label{sec:scenar-appsO}
+\e{Nous récapitulons ici les étapes des scénarios d'usages que nous avons développés dans les chapitre \ref{chap:omod} et \ref{chap:mav} afin de montrer comment l'ensemble de la chaîne doit être instrumentée pour faciliter la réutilisation et ouvrir les chaînes de production aux collaborations externes.}
 
 Le scénario de commande de tournage implique la RTBF dans un projet de production de reportages sur un évènement culturel.
 La Figure \ref{img:arch-process} montre les trois grandes phases du scénario et permet d'illustrer \co{sa mise en oeuvre et les applications développés dans le cadre du projet MediaMap}. 
@@ -260,7 +258,7 @@ Noter que la numérotation des étapes du scénario ci-dessous se retrouve égal
 
 	\item[(7)] L'acquisition et la description du matériel audiovisuel peut être ensuite associée avec la structure documentaire du journal télévisé du soir, qui propose également une version Web, mais aussi à l'équipe de production d'un DVD de l'évènement (revoir la section \ref{sec:ex-reuse}, p.\pageref{sec:ex-reuse} pour plus de détails).
 	Enfin, certaines séquences seront également mises à disposition à des organisations externes via la base sémantique de description des rush (prises de vue). [\g{Réutilisation}]
-	\co{La réutilisation des matériaux audiovisuels dans divers contexte d'exploitation est rendu possible par l'articulation entre la plate-forme de stockage des rush et des bases sémantiques sur le processus de production (\pc{Mission Manager}) et sur les descriptions associées aux documents audiovisuels (\pc{IPI Editor, IPI Manager}), ce qui explique le positionnement du n°7 sur le diagramme.}
+	\co{La réutilisation des matériaux audiovisuels dans divers contexte d'exploitation est rendu possible par l'articulation entre la plate-forme de stockage des rush et des bases sémantiques sur le processus de production (\pc{Mission Manager}) et sur les descriptions associées aux documents audiovisuels (\pc{IPI Editor, IPI Manager}), ce qui explique le positionnement de l'étape n°7 sur le diagramme.}
 
 	\item[(8)] Lors du montage du sujet pour le journal télévisé, la RTBF se rend compte qu'ils ont besoin d'un plan de coupe présentant le lieu de représentation de l'évènement culturel, qui n'a pas été commandé aux équipes de tournage. 
 	Pour cela, le monteur vérifie d'abord si les équipes de la VRT ou de la RTBF ne l'aurait pas tourné (en plus de la commande), mais aucun plan n'est disponible. 
@@ -269,7 +267,7 @@ Noter que la numérotation des étapes du scénario ci-dessous se retrouve égal
 	La recherche de matériel passe d'abord par une phase d'indexation prise en charge par Exalead et rendu accessible à un interface Web construite par Solution 2.0.
 	L'indexation s'effectue par une connexion à l'\pc{IPI Manager} qui gère l'évolution des connaissances sur et associées au document audiovisuel.
 	Ces recherches s'effectue avec le même vocabulaire que la définition d'un plan dans un script, et renvoit non seulement à des séquences audiovisuelles, mais également à leur contexte de production (projet, contributeur, structure documentaire etc.). 
-	La position du n°8 sur le diagramme présuppose l'échange d'information entre la base Exalead et la base sémantique de l'IPI Manager.}
+	La position de l'étape n°8 sur le diagramme présuppose l'échange d'information entre la base Exalead et la base sémantique de l'IPI Manager.}
 	
 	\item[(9)] Une fois le sujet pour le journal télévisé produit, la RTBF envoit le projet entier à la VRT, qui le réutilisera en modifiant le commentaire. 
 	Ce transfert ne consiste pas simplement à envoyer le montage final, mais l'ensemble des rush, des montages intermédiaires, des commentaires du public flamand, des enrichissement de descriptions etc.
@@ -279,11 +277,40 @@ Noter que la numérotation des étapes du scénario ci-dessous se retrouve égal
 \end{listenum}
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Architecture du projet MediaMap}\label{sec:arch-compo}
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=1\textwidth]{./images/Architecture-apps.png}
+\includegraphics[width=1\textwidth]{./images/Architecture-apps-v1.png}
 \caption{Architecture finale du projet MediaMap : vue applicative des flux de données}
 \label{img:arch-apps}
 \end{figure}
+
+
+La Figure \ref{img:arch-apps} reprend la numérotation du scénario et propose une vue alternative centrée sur les applications et les flux de données entre elles. 
+En particulier, l'apparition de l'\pc{Open Semantic Bus} (OSB) et des \pc{Interoperability Wicket} (IW, guichet d'interopérabilité) introduisent des éléments d'une architecture modulaire s'inspirant des architectures distribuées de réseau informatique.
+Un élément caché dans le diagramme est la notion de \pc{Unique Semantic Entity} (USE) qui correspond à un paquet automome de connaissances et qui constitue le format d'échange sur l'OSB.
+En pratique, OSB, IW et USE permettent de réaliser l'interopérabilité des échanges de données et de connaissances entre les applications de la chaîne de production audiovisuelle, regroupant ainsi les fonctions suivantes : 
+\begin{liste}
+	\item gestion dynamique des applications connectées à l'OSB et des services proposées, à la manière des répertoires de Web Services, de façon à accepter l'ajout ou la suppression de ces derniers.
+	Cela implique également de décrire les appels et les résultats fournis par ces services.
+	Il s'agit par exemple de demander une description des formats d'import supportés par une application, d'une description des capacités d'un contributeur, ou bien de ces droits associés à un projet ou une tâche d'un projet.
+
+	\item gestion des échanges de données entre applications et entre contributeurs par l'intermédiaire des IW. 
+	Ces guichets assurent l'acquisition des données et leur comparaison éventuelle avec un attendu.
+	Ensuite, suivant le destinataire, ils peuvent effectuer des transformations automatiques pour satisfaire aux besoins du récepteur. 
+	Ces transformations opèrent sur deux niveaux, sur le plan du formatage des données (passage de XML à JSON, ou bien d'un modèle de données à l'autre), et sur le plan de l'expression des connaissances (transformation d'un vocabulaire professionnel en explication pour amateur par exemple).
+\end{liste}
+
+Parmi les différences avec la Figure précédente, il faut noter la mise en avant des interfaces Web créés par Solution 2.0. 
+Dans le cas de l'étape n°5, la livraison d'un matériel peut alors se faire indépendamment de la caméra "intelligente" et de l'OSB.
+Concernant, l'étape n°8 d'accès et de recherche de matériel, elle peut également être ouverte à des organisations externes.
+Un autre point important sont les différences de nommage. L'\pc{IPI Manager} et l'\pc{IPI Editor} était d'abord nommé ISIS par Memnon, mais ce nom fut changé en fin de projet pour des raisons commerciales. 
+De même, l'\pc{Axis ontology} est en réalité une version modifiée de l'ontologie MediaMap, intégrant des raffinements et des extensions spécifiques à leurs processus d'indexation. 
+Ainsi, l'ontologie construite pendant le projet est utilisée, modifiée et intégrée dans des applications, notamment celles de Memnon et de Perfect Memory.
+
+
+
+

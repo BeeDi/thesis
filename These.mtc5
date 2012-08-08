@@ -1,18 +1,20 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.1}Synthèse de l\kern 0.1em'état de l\kern 0.1em'art}{\reset@font\mtcSfont 95}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.1}Synthèse de l\kern 0.1em'état de l\kern 0.1em'art et positionnement}{\reset@font\mtcSfont 95}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.2}Approche de description contributive et continue}{\reset@font\mtcSfont 98}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.2.1}Stratégie de description dans les production scriptées et non-scriptées}{\reset@font\mtcSSfont 98}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.2.1}Stratégie de description dans les productions audiovisuelles}{\reset@font\mtcSSfont 98}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.2.2}Synthèse des scénarios d\kern 0.1em'usages}{\reset@font\mtcSSfont 100}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.2.3}Architecture de l\kern 0.1em'approche dans le projet MediaMap}{\reset@font\mtcSSfont 102}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.3}Modélisation conceptuelle}{\reset@font\mtcSfont 102}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.3.1}Axes de modélisation}{\reset@font\mtcSSfont 102}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.3.2}Prise en compte du multi-jargon}{\reset@font\mtcSSfont 104}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.1}Concept et termes}{\reset@font\mtcSSSfont 104}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Documentation}{\reset@font\mtcPfont 105}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.2}Conceptualisation et bases de connaissances}{\reset@font\mtcSSSfont 105}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.3}Vue et contexte d\kern 0.1em'accès}{\reset@font\mtcSSSfont 106}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.3.3}Le processus de production audiovisuelle}{\reset@font\mtcSSfont 106}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.3.1}Projet, Produit, Contributeur}{\reset@font\mtcSSSfont 106}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.3.2}L\kern 0.1em'écriture filmique}{\reset@font\mtcSSSfont 106}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.3.4}Le document audiovisuel}{\reset@font\mtcSSfont 106}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.4.1}Structure documentaire}{\reset@font\mtcSSSfont 106}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.4.2}Manifestations}{\reset@font\mtcSSSfont 106}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.2.3}Architecture du projet MediaMap}{\reset@font\mtcSSfont 102}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.3}Modélisation conceptuelle}{\reset@font\mtcSfont 104}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.3.1}Axes de modélisation}{\reset@font\mtcSSfont 104}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.3.2}Situations typiques des productions audiovisuelles}{\reset@font\mtcSSfont 105}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.1}Articulation des composants d\kern 0.1em'un document audiovisuel}{\reset@font\mtcSSSfont 106}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Structure ontologique}{\reset@font\mtcPfont 106}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Relations avec d\kern 0.1em'autres concepts}{\reset@font\mtcPfont 106}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.2}Description par l\kern 0.1em'écriture filmique}{\reset@font\mtcSSSfont 106}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Structure ontologique}{\reset@font\mtcPfont 106}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Relations avec d\kern 0.1em'autres concepts}{\reset@font\mtcPfont 106}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.3}Hiérarchie des tâches dans un projet de production}{\reset@font\mtcSSSfont 106}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Structure ontologique}{\reset@font\mtcPfont 106}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Relations avec d\kern 0.1em'autres concepts}{\reset@font\mtcPfont 107}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.4}Les contributeurs et leur engagement dans un projet de production}{\reset@font\mtcSSSfont 109}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Structure ontologique}{\reset@font\mtcPfont 109}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Relations avec d\kern 0.1em'autres concepts}{\reset@font\mtcPfont 109}}
