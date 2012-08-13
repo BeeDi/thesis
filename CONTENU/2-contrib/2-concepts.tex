@@ -108,8 +108,59 @@ Nous présentons ces situations en rapport avec les axes de modélisations que n
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Articulation des composants d'un document audiovisuel}
-\paragraph{Structure ontologique}
-\paragraph{Relations avec d'autres concepts}
+La modélisation d'un document audiovisuel numérique implique des composantes distinctes que nous avons étudié en \ref{sec:dav}. 
+Ainsi, nous le modélisons par trois composantes autonomes (au sens où elles peuvent être manipulé indépendamment des autres) mais qui s'articulent pour représenter un document et ses fragments : 
+\begin{liste}
+	\item la \g{manifestation matérielle}, c'est-à-dire l'enregistrement du matériel audiovisuel en numérique, selon un codage donné.
+	La manifestation matérielle d'un objet audiovisuel est représentée dans des fichiers numériques (\con{DigitalResource}), comme des fichiers d'encapsulation de média (\con{MediaWrapper}), ou des portions de ces fichiers que l'on nomme piste (\con{Track}) dans le cas des contenus temporels.
+
+	\item la \g{segmentation du matériel audiovisuel}, c'est-à-dire le matériel sous sa forme temporelle, une fois décodé (rendu perceptible) par une dispositif de lecture. 
+	De manière générale, le décodage d'une manifestation matérielle produit forme perceptible (\con{ContentObject}), ce qui dans le cas du matériel audio ou audio-visuel peut être représenté par une forme temporelle (\con{TemporalObject}).
+	Pour caractériser ces formes temporelles, on considère deux spécialisations, le \con{Segment} qui représente une séquence, et la \con{Segmentation} qui représente une collection ordonnée d'objets temporels (\con{TemporalObject}).
+	Un point important à noter est qu'une même forme temporelle peut être construites à partir de différentes \con{DigitalResource}, qu'il s'agisse de copies ou bien de variantes d'encodage. 
+	
+	\item la \g{forme sémiotique}, celle qui est interprétable par un lecteur, et qui donne à voir la structure du document et ses règles de composition.
+	De manière générale, cette forme sémiotique représente le résultat d'un travail artistique, intellectuelle, technique (\con{Opus}).
+	Nous distinguons en particulier l'oeuvre dans son ensemble (\con{MediaAsset}) qui représente un document à part, et les fragments qui le composent (\con{EditorialObject}).
+	Il nous faut remarquer que notre modélisation d'un document audiovisuel repose sur les deux précédentes composantes (\con{DigitalResource} et \con{ContentObject}) qui correspondent à la fabrication du matériel audiovisuel et à son montage et ses retouches pendant la post-production.
+	Cette dernière composante enrichit cette modélisation classique d'une dimension documentaire et éditoriale, et permet de les articuler afin de faciliter la création de variantes ou la réutilisation de fragments pour de nouveaux documents (voir notre caractérisation de ces pratiques, section \ref{sec:reuse}).
+	De plus, en se détachant du matériel audiovisuel, cette composante nous permet de capturer des connaissances sur la structure du document avant même sa production, et d'y attacher des connaissances (\con{Annotation}).
+\end{liste}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.95\textwidth]{./images/SO-CR-DAV-v1.png}
+\caption{Principaux concepts et relations pour modéliser les composants d'un document audiovisuel}
+\label{img:so-cr-dav}
+\end{figure}
+
+\paragraph{Structure ontologique et relations avec d'autres concepts}
+La Figure \ref{img:so-cr-dav} présente les principaux concepts et relations qui modélisent un document audiovisuel. 
+
+\begin{cadrecol}{LightGoldenrodYellow}
+Une \con{DigitalResource} représente une séquence de bits, comme un fichier ou une partie d'un fichier. 
+L'adresse de la ressource effective est donnée par la propriété \rel{source}. 
+\end{cadrecol}
+D'autres relations définissent le concept de ressource numérique :
+\begin{liste}
+	\item une \con{DigitalResource} peut également être la représentation (manifestation) numérique des autres types d'entités par la relation \rel{isAManifestationOf}/\rel{hasManifestation}, et plus spécifiquement représenter une illustration (graphique, textuelle, sonore etc.) d'une entité par la relation \rel{illustrates}/\rel{isIllustratedBy}.
+	Par exemple, un \con{Program} a pour manifestation un \con{AudiovisualMedia}, une \con{Segmentation} a pour manifestation un fichier EDL, un \con{Segment} sera représenté par une portion de fichier EDL etc.
+	D'autres \con{Entity} peuvent avoir des manifestations, par exemple lorsqu'elles sont représentés en-dehors de notre modélisation.\\
+	
+	\item une \con{DigitalResource} peut également avoir des copies (\rel{hasCopy}), identiques en tous points, sauf l'adresse. 
+	\item il est possible de spécifier le support de stockage (\con{Medium}) utilisé pour enregistrer la \con{DigitalResource} (\rel{isRecordedOn}).\\
+	
+	\item une relation spécifique (\rel{conformsTo}) permet d'indiquer l'encodage des caractères et le format de fichier utilisé (\con{SyntaxEncodingScheme}).
+	\item d'autres informations, comme le vocabulaire ou bien le système d'écriture utilisé (\con{Notation}) sont indiqués par la relation \rel{isMemberOf}/\rel{hasMember}.
+\end{liste}
+
+Au niveau de la structure ontologique, le premier critère 
+
+\begin{cadrecol}{LightGoldenrodYellow}
+
+\end{cadrecol}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Description par l'écriture filmique}
@@ -164,12 +215,12 @@ Cette distinction se retrouve dans d'autres parties de notre modélisation et ap
 Le concept d'\con{Event} et de \con{Mission} se définissent également par leurs relations avec le reste de notre ontologie, voir la Figure \ref{img:cr-event}. 
 Voici les relations qui s'appliquent à tous les évènements : 
 \begin{liste}
-	\item Il est possible de spécifier la participation d'une personne ou d'une organisation (\con{Agent}) à l'évènement (par la relation \rel{hasParticipant}/\rel{isAParticipantOf}).
+	\item il est possible de spécifier la participation d'une personne ou d'une organisation (\con{Agent}) à l'évènement (par la relation \rel{hasParticipant}/\rel{isAParticipantOf}).
 	Cette relation présente une version simplifiée de notre modélisation de l'implication d'un contributeur dans un projet de production.
 	Nous ajoutons également une contrainte de cohérence : dans le cas où il s'agit d'évènement réel, seul des participants réels peuvent être associées à l'évènement (et inversement). 
 	Par exemple, Batman ne peut pas participer à une manifestation sur la place de la Bastille, par contre Benjamin Diemert si. 
 
-	\item Il est possible de localiser (\con{Location}) l'évènement (par la relation \rel{isLocatedIn}).
+	\item il est possible de localiser (\con{Location}) l'évènement (par la relation \rel{isLocatedIn}).
 	Cette relation en fonctionne que dans un seul sens et ne peut pointer que vers un lieu, qui lui-même est liée à d'autres lieux par des relations méréologiques ou d'autres relations géographiques.
 	Nous ajoutons également une contrainte de cohérence : un évènement réel ne peut se situer dans un lieu fictif.
 
@@ -180,25 +231,25 @@ Voici les relations qui s'appliquent à tous les évènements :
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=0.75\textwidth]{./images/MOD-Process-v2.png}
-\caption{Principaux concepts et relations pour la modélisation d'une hiérarchie de tâches}
+\caption{Principaux concepts et relations pour modéliser une hiérarchie de tâches}
 \label{img:cr-event}
 \end{figure}
 
 
 À cela, s'ajoute les relations qui s'appliquent spécifiquement aux \con{Mission}s : 
 \begin{liste}
-	\item Il est possible de spécifier un ou plusieurs résultats attendus (ou livrable) pour chaque \con{Mission} (relation \rel{hasDeliverable}/\rel{isADeliverableOf}).
+	\item il est possible de spécifier un ou plusieurs résultats attendus (ou livrable) pour chaque \con{Mission} (\rel{hasDeliverable}/\rel{isADeliverableOf}).
 	Ce livrable peut être soit un document ou fragment audiovisuel (\con{Opus}), une séquence de matériel audiovisuel (\con{ContentObject}), un fichier (\con{DigitalResource}) ou bien une description (\con{Annotation}).
 	Par exemple, une \con{Task} de tournage vise à produire une séquence audiovisuelle alors qu'une \con{Task} de transcodage vise à produire un nouveau fichier vidéo.
 
-	\item Il est possible d'associer un ou plusieurs éléments existants (ou ressource) à chaque \con{Mission} (\rel{hasResource}/\rel{isAResourceFor}). 
+	\item il est possible d'associer un ou plusieurs éléments existants (ou ressource) à chaque \con{Mission} (\rel{hasResource}/\rel{isAResourceFor}). 
 	Cette ressource peut être soit un document ou fragment audiovisuel (\con{Opus}), une séquence de matériel audiovisuel (\con{ContentObject}), un fichier (\con{DigitalResource}) ou bien une description (\con{Annotation}).
 	Par exemple, le \con{Project} Magazine\#48 utilise des séquences audiovisuelles (\con{Segment}) tournées l'année dernière.
 
-	\item Il est possible d'indiquer un ordre de réalisation des \con{Mission}s grâce à des relations d'anteriorités (\rel{precedes}, \rel{precedesTransitive}) et de postériorités (\rel{follows}, \rel{followsTransitive}).
+	\item il est possible d'indiquer un ordre de réalisation des \con{Mission}s grâce à des relations d'anteriorités (\rel{precedes}, \rel{precedesTransitive}) et de postériorités (\rel{follows}, \rel{followsTransitive}).
 	Les propriétés transitives généralisent les autres propriétés afin de faciliter le raisonnement par inférence (à la manière de SKOS, \ref{sec:skos}).
 
-	\item Il est possible de spécifier des relations hiérarchiques entre les types de \con{Mission}s par la relation \rel{hasPartTransitive}/\rel{isPartOfTransitive} et \rel{hasPart}/\rel{isPartOf}.
+	\item il est possible de spécifier des relations hiérarchiques entre les types de \con{Mission}s par la relation \rel{hasPartTransitive}/\rel{isPartOfTransitive} et \rel{hasPart}/\rel{isPartOf}.
 	Nous ajoutons des restrictions afin que chaque type de Mission ne puisse englober que des Missions du même type, ou bien de niveau inférieur, de manière à créer des niveaux . 
 	Ainsi, un Project peut tout englober, mais une Task ne peut s'englober qu'elle-même. 
 	Inversement, une Task peut être englobée dans tous types de Mission, mais un Project ne peut qu'être englobé par lui-même.
@@ -210,15 +261,30 @@ Voici les relations qui s'appliquent à tous les évènements :
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Les contributeurs et leur engagement dans un projet de production}
-Notre modélisation des contributeurs repose sur la notion d'\con{Agent} humain ou logiciel :
+\paragraph{Agent et compétences}
+Notre modélisation des contributeurs repose sur la notion d'\con{Agent} humain ou logiciel qui possèdent des compétences (\con{Skill}) pour réaliser les \con{Mission}s qui leur sont confiées :
 \begin{cadrecol}{LightGoldenrodYellow}
 Un \con{Agent} représente une entité avec des capacités d'actions (contrairement à une ressource), qui peuvent être mises en oeuvre dans le cadre d'un évènement (\con{Event}).
 Par exemple, l'\con{Agent} chargé d'identifier les personnes dans un plan peut être une documentaliste ou bien un logiciel de reconnaissances de visage.
 \end{cadrecol}
 
+\begin{cadrecol}{LightGoldenrodYellow}
+Une \con{Skill} représente la capacité d'un contributeur à compréhendre des instructions et à réaliser la ou les actions correspondantes.
+Par exemple, la compétence \gui{tournage extérieur} implique qu'un contributeur sait comment régler sa caméra, se positionner et tourner des images de bonnes qualités en lumière naturelle. 
+Cela implique également qu'il connaît et comprend les instructions et les règles que l'on utilise pour un tournage à l'extérieur.
+\end{cadrecol}
+
+On distingue en particulier les compétences linguistiques, des savoir-faire professionnels : 
+\begin{liste}
+	\item une \con{LinguisticSkill} représente la capacité d'un contributeur à parler, lire et comprendre une langue humaine.
+	\item une \con{ProfessionalSKill} représente la capacité d'un contributeur à réaliser certaines tâches liées à un domaine professionnel, ainsi qu'à comprendre les instructions et les notations utilisées dans ce domaine. 
+	Par exemple, la capacité de \gui{cadrage} représente la capacité d'un contributeur à tenir une caméra en suivant les instructions de cadrage d'un réalisateur (plan large, plan rapproché etc.).
+\end{liste}
+
+\paragraph{Engagement dans un projet de production}
 En plus de cette notion de contributeur, il faut également modéliser la notion d'engagement, ce qui se représente classiquement par les notions de rôle et de droits.
-Dans le cadre d'une modélisation des productions audiovisuelles, nous devons faciliter le paramétrage des responsabilités attribuées à chacun de ces rôles. 
-Pour cela, nous introduisons la notion de poste (\con{Position}) à laquelle nous rattacherons des droits (\con{Right}s) sur les \con{Mission}s.
+Dans le cadre d'une modélisation de productions audiovisuelles variées, nous devons faciliter le paramétrage des responsabilités attribuées à chacun de ces rôles. 
+Pour cela, nous introduisons la notion de poste (\con{Position}), qui représente le contexte de travail d'un contributeur, et à laquelle nous rattachons des droits (\con{Right}s) sur les \con{Mission}s.
 
 \begin{cadrecol}{LightGoldenrodYellow}
 Un \con{Role} représente un poste générique d'un projet de production. 
@@ -240,6 +306,39 @@ Par exemple, un auteur sur un projet Z peut être responsable de l'écriture du 
 On peut également écrire une règle qui attribuent des droits de validation à un producteur sur l'ensemble du projet de production, ou juste une activité.
 
 
+\paragraph{Droits et responsabilités}
+Une production audiovisuelle est un projet qui se découpe en plusieurs étapes, mené à bien par des équipes de spécialistes. 
+De ce fait, on attribue des droits et des responsabilités (\con{Right}) aux contributeurs (\con{HistoricalAgent}) pour une tâche ou bien une étape donnée (\con{Mission}), en fonction de son rôle et de ses compétences. 
+Afin de modéliser cette relation triple (contributeur-droit-tâche), il nous faut introduire un concept intermédiaire que nous avons nommée l'ordre de mission (\con{CommissionOrder}).
+
+\begin{cadrecol}{LightGoldenrodYellow}
+Un \con{CommissionOrder} représente une délégation de droits et de responsabilités (\con{Right}) sur une \con{Mission}. 
+Cette délégation s'applique à un poste (\con{Position}), et donc indirectement au contributeur (\con{HistoricalAgent}) occupant ce poste.
+Par exemple, Anne est productrice et de ce fait obtient un droit de validation sur la tâche d'écriture du plan de tournage. 
+\end{cadrecol}
+
+\begin{cadrecol}{LightGoldenrodYellow}
+Un \con{Right} représente le devoir et l'autorisation de réaliser un ensemble d'actions, au sens d'interdire ou d'autoriser la création, la modification, la validation ou l'accès à certaines connaissances sur un projet de production.
+Par exemple, Anne (productrice) n'est pas autorisé à écrire le plan de tournage, par contre elle a le droit de le valider.
+\end{cadrecol}
+
+Nous avons défini par défaut 4 couches de droits d'accès (information, contribution, exécution et délégation) ainsi qu'un droit de validation, qui consiste à valider les résultats produits par d'autres tâches.  
+Ces droits sont des exemples utilisés dans le cadre de MediaMap, d'autres types de droits peuvent être définis pour s'ajuster aux besoins de l'application visée.
+Dans notre cas, chaque couche du droits d'accès rajoute de nouvelles possibilités d'actions au contributeur, de manière à ce que les couches supérieures héritent des droits des couches inférieures : 
+\begin{liste}
+	\item un droit d'information (\con{InformationRight}) représente un accès en lecture, un droit d'accéder aux connaissances associées à la tâche.
+
+	\item un droit de contribution (\con{ContributionRight}) représente la possibilité de participer à la réalisation d'une tâche. 
+	Il s'agit d'un droit de modification, mais pas de création, ce qui implique que la personne n'est pas responsable de l'achèvement de la tâche.
+
+	\item une obligation de réalisation (\con{ExecutionRight}) représente la responsabilité vis-à-vis d'une tâche. 
+	Il s'agit d'un droit de création et de rendu du résultat de la tâche.
+
+	\item un droit de délégation (\con{AssignmentRight}) représente la possibilité pour un contributeur d'organiser une \con{Mission}, c'est-à-dire de créer des sous-tâches et de les déléguer à d'autres contributeurs.
+	Cela correspond à un droit d'administration dans les systèmes de gestion de contenu et rajoute la possibilité de valider le résultat des sous-tâches.
+\end{liste}
+
+
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=0.95\textwidth]{./images/SO-Agent-v1.png}
@@ -247,8 +346,49 @@ On peut également écrire une règle qui attribuent des droits de validation à
 \label{img:so-agent}
 \end{figure}
 
-\paragraph{Structure ontologique}
-\paragraph{Relations avec d'autres concepts}
+\paragraph{Structure ontologique et relations avec d'autres concepts}
+La Figure \ref{img:so-agent} présente la structure ontologique concernant les différents types d'\con{Agent}s.
+Le premier critère différentiel porte sur la nature réelle (\con{HistoricalAgent}) ou fictive (\con{FictionalAgent}) de l'entité agissante. 
+Ensuite, nous distinguons entre les entités collectives (\con{HistoricalOrganization}, \con{FictionalOrganization}) et individuelles (\con{HistoricalIndividual}, \con{FictionalCharacter}).
+Il est à noter que nous avons défini une contrainte de cohérence qui n'autorise que les \con{HistoricalAgent}s à participer à un projet de production.
+Pour les organisations, nous avons défini le statut d'entreprise (\con{CorporateContributor}), qui pourrait se distinguer des associations ou autres collectifs ayant un statut légal distinct. 
+Il s'agit par exemple de pouvoir représenter la RTBF, ou la VRT. 
+% quid des contributeurs VS individus normaux ? 
+Concernant les individus, un \con{HistoricalIndividual} permet de représenter des personnages historiques comme Churchill ou Jean Rochefort. 
+À cela, nous ajoutons des spécialisations pour les contributeurs à un projet de production, qu'il s'agisse de personnes humaines (\con{HumanContributor}) ou bien d'agents logiciels (\con{SoftwareContributor}).
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.85\textwidth]{./images/CR-Agent&Mission-v2.png}
+\caption{Principaux concepts et relations pour modéliser l'engagement des contributeurs dans un projet de production}
+\label{img:cr-agent}
+\end{figure}
+
+% \paragraph{Relations avec d'autres concepts}
+Concernant les relations entre ces concepts, la Figure \ref{img:cr-agent} présente une vue générale des articulations entre les contributeurs, leur engagement dans un projet de production ainsi que les droits et responsabilités qui en découlent.
+Pour préciser cela, nous suivrons une lecture du diagramme à partir du coin en haut à gauche et suivant un sens de lecture gauche-droite, haut-bas.
+Tout d'abord, nous précisons les relations du concept d'\con{HistoricalIndividual} :
+\begin{liste}
+	\item une ou plusieurs compétences (\con{Skill}) peuvent être attribué à un individu réel (\rel{hasProficiency}/\rel{isMasteredBy}).
+	\item un ou plusieurs postes (\con{Position}) peuvent être attribué par un individu réel (\rel{holdsPosition}/\rel{isHeldBy}).
+\end{liste}
+
+Une fois des compétences attribués, le contributeur obtient une \con{Position} :
+\begin{liste}
+	\item une ou plusieurs compétences (\con{Skill}) peuvent être nécessaires pour obtenir le poste (\rel{requiresProficiency}). 
+	Cette relation s'applique également à la notion de \con{Role}.
+	\item le titre officiel (\con{Role}) du poste peut être précisé (\rel{worksAs}).
+	\item le projet (\con{Project}) auquel le poste est rattaché peut être indiqué (\rel{withinScope}).
+	\item l'organisation (\con{CorporateContributor}) qui embauche un contributeur à ce poste peut être spécifiée (\rel{worksFor}/\rel{hasWorker}).
+	\item la délégation (\con{CommissionOrder}) de droits (\con{Right}) sur des tâches (\con{Mission}) peut être déclaré (\rel{grantsCommission}).
+\end{liste}
+
+Concernant les \con{CommissionOrder}, deux relations permettent de faire le lien :
+\begin{liste}
+	\item le détail des droits (\con{Right}) qui sont accordés (\rel{grantsRights}).
+	\item la ou les tâches (\con{Mission}) pour lesquels ils sont accordés (\rel{upon}).
+\end{liste}
+
 
 
 
