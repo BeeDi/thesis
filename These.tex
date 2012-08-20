@@ -251,12 +251,16 @@
 }
 \definecolor{fond}{rgb}{69,162,1}
 
+% \definecolor{bbleu}{rgb}{31,127,135}
 \newenvironment{cadrecol}[1]
 {%
-	\setlength\fboxrule{1pt}%
-	\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{LightSteelBlue}{#1}}%
+	\setlength\fboxrule{0pt}%
+	\setlength{\parsep}{0em}%
+	\setlength{\topsep}{0em}%
+	\setlength{\partopsep}{0em}%
+	\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{White}{#1}}%
 	\MakeFramed{\FrameRestore}%
-}{%
+}{%u
 	\endMakeFramed
 }
 \definecolor{fond}{rgb}{69,162,1}

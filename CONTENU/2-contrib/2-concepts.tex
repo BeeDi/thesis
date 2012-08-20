@@ -65,7 +65,7 @@ Notre travail de modélisation se heurte à deux verrous scientifiques, identifi
 
 
 
-Relations transitives pour faciliter l'inférence (SKOS) ; distinction entre objet réel (production) et fictif (diégèse) (DMS-1).
+[Relations transitives pour faciliter l'inférence (SKOS) ; distinction entre objet réel (production) et fictif (diégèse) (DMS-1).]
 
 
 \subsection{Situations typiques des productions audiovisuelles}
@@ -107,20 +107,21 @@ Nous présentons ces situations en rapport avec les axes de modélisations que n
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Articulation des composants d'un document audiovisuel}
+\subsubsection{Articulation des composantes d'un document audiovisuel}\label{sec:opus}
 La modélisation d'un document audiovisuel numérique implique des composantes distinctes que nous avons étudié en \ref{sec:dav}. 
-Ainsi, nous le modélisons par trois composantes autonomes (au sens où elles peuvent être manipulé indépendamment des autres) mais qui s'articulent pour représenter un document et ses fragments : 
+Ainsi, nous le modélisons par trois composantes autonomes (au sens où elles peuvent être manipulé indépendamment des autres) mais qui s'articulent pour représenter un document et ses fragments. 
+La Figure \ref{img:so-cr-dav} présente les principaux concepts et relations qui modélisent un document audiovisuel, dont nous introduisons quelques définitions avant de les détailler par composantes : 
 \begin{liste}
 	\item la \g{manifestation matérielle}, c'est-à-dire l'enregistrement du matériel audiovisuel en numérique, selon un codage donné.
 	La manifestation matérielle d'un objet audiovisuel est représentée dans des fichiers numériques (\con{DigitalResource}), comme des fichiers d'encapsulation de média (\con{MediaWrapper}), ou des portions de ces fichiers que l'on nomme piste (\con{Track}) dans le cas des contenus temporels.
 
 	\item la \g{segmentation du matériel audiovisuel}, c'est-à-dire le matériel sous sa forme temporelle, une fois décodé (rendu perceptible) par une dispositif de lecture. 
-	De manière générale, le décodage d'une manifestation matérielle produit forme perceptible (\con{ContentObject}), ce qui dans le cas du matériel audio ou audio-visuel peut être représenté par une forme temporelle (\con{TemporalObject}).
+	De manière générale, le décodage d'une manifestation matérielle produit une forme perceptible (\con{ContentObject}), ce qui dans le cas du matériel audio ou audio-visuel peut être représenté par une forme temporelle (\con{TemporalObject}).
 	Pour caractériser ces formes temporelles, on considère deux spécialisations, le \con{Segment} qui représente une séquence, et la \con{Segmentation} qui représente une collection ordonnée d'objets temporels (\con{TemporalObject}).
 	Un point important à noter est qu'une même forme temporelle peut être construites à partir de différentes \con{DigitalResource}, qu'il s'agisse de copies ou bien de variantes d'encodage. 
 	
 	\item la \g{forme sémiotique}, celle qui est interprétable par un lecteur, et qui donne à voir la structure du document et ses règles de composition.
-	De manière générale, cette forme sémiotique représente le résultat d'un travail artistique, intellectuelle, technique (\con{Opus}).
+	De manière générale, cette forme sémiotique représente le résultat d'un travail artistique, intellectuel, technique (\con{Opus}).
 	Nous distinguons en particulier l'oeuvre dans son ensemble (\con{MediaAsset}) qui représente un document à part, et les fragments qui le composent (\con{EditorialObject}).
 	Il nous faut remarquer que notre modélisation d'un document audiovisuel repose sur les deux précédentes composantes (\con{DigitalResource} et \con{ContentObject}) qui correspondent à la fabrication du matériel audiovisuel et à son montage et ses retouches pendant la post-production.
 	Cette dernière composante enrichit cette modélisation classique d'une dimension documentaire et éditoriale, et permet de les articuler afin de faciliter la création de variantes ou la réutilisation de fragments pour de nouveaux documents (voir notre caractérisation de ces pratiques, section \ref{sec:reuse}).
@@ -129,14 +130,12 @@ Ainsi, nous le modélisons par trois composantes autonomes (au sens où elles pe
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=0.95\textwidth]{./images/SO-CR-DAV-v1.png}
+\includegraphics[width=0.95\textwidth]{./images/SO-CR-DAV-v2.png}
 \caption{Principaux concepts et relations pour modéliser les composants d'un document audiovisuel}
 \label{img:so-cr-dav}
 \end{figure}
 
-\paragraph{Structure ontologique et relations avec d'autres concepts}
-La Figure \ref{img:so-cr-dav} présente les principaux concepts et relations qui modélisent un document audiovisuel. 
-
+\subsubsection*{Manifestation matérielle}
 \begin{cadrecol}{LightGoldenrodYellow}
 Une \con{DigitalResource} représente une séquence de bits, comme un fichier ou une partie d'un fichier. 
 L'adresse de la ressource effective est donnée par la propriété \rel{source}. 
@@ -154,21 +153,212 @@ D'autres relations définissent le concept de ressource numérique :
 	\item d'autres informations, comme le vocabulaire ou bien le système d'écriture utilisé (\con{Notation}) sont indiqués par la relation \rel{isMemberOf}/\rel{hasMember}.
 \end{liste}
 
-Au niveau de la structure ontologique, le premier critère 
 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.95\textwidth]{./images/SO-DR-v1.png}
+\caption{Principaux concepts et relations pour modéliser les manifestations matérielles numériques}
+\label{img:so-dr}
+\end{figure}
+
+
+Au niveau de la structure ontologique, la Figure \ref{img:so-dr} montre qu'une \con{DigitalResource} se spécialise soit en \con{MediaWrapper}, soit en \con{Track} selon que la séquence de bits constitue un fichier ou une portion de fichier.
+Par la suite, ces deux concepts se spécialisent en fonction du critère différentiel suivant ; la nature du matériel qui est représenté. 
+Pour les \con{Track}s, on distingue la version audio (\con{AudioTrack}), vidéo (\con{VideoTrack}) et celles des sous-titres (\con{SubtitlesTrack}).
+D'autres types de pistes peuvent être ajoutés par la suite, par exemple pour identifier la piste télétexte etc.
 \begin{cadrecol}{LightGoldenrodYellow}
+\con{MediaWrapper} représente une manifestation numérique et fournit les informations nécessaires à sa lecture.
+\end{cadrecol}
+\begin{cadrecol}{LightGoldenrodYellow}
+Une \con{Track} est une manifestation matérielle qui contient un contenu temporel. 
+La lecture de ce contenu se fait selon une vitesse donnée et fixe, ce qui permet de synchroniser plusieurs \con{Track}s de nature différentes pour former un contenu multi-modal. 
+Par exemple, un fichier .mkv contient une piste de sous-titre pour un documentaire. 
+Les sous-titres sont formés d'une série de mots indexés par des codes temporels (timecode), qui déterminent quand les mots doivent être affichés. 
+\end{cadrecol}
 
+Pour les \con{MediaWrapper}, on distingue trois concepts enfants : 
+\begin{liste}
+	\item \con{GraphicalMedia} représente du contenu graphique, c'est-à-dire des images (\con{ImageMedia}) ou du texte (\con{TextMedia}). 
+	Par exemple, un fichier PDF d'un livre, ou bien une photo en format .jpg.
+	\item \con{TemporalMedia} représente du contenu temporel avec une vitesse de lecture et une durée fixe, comme une vidéo (\con{AudiovisualMedia}) ou bien une chanson (\con{AudioMedia}).
+	\item \con{InteractiveMedia} représente des contenus interactifs et dynamique, et dont la durée de lecture n'est pas fixé a priori, mais varie en fonction de l'interaction avec le lecteur.
+	Il peut s'agir par exemple d'un programme ou bien d'un jeux vidéo. 
+\end{liste}
+
+
+\subsubsection*{Segmentation du matériel audiovisuel}
+\begin{cadrecol}{LightGoldenrodYellow}
+Un \con{ContentObject} représente le résultat du décodage (ou de la lecture) d'une manifestation matérielle, c'est-à-dire une forme perceptible de la manifestation.
 \end{cadrecol}
 
 
+Cette définition peut être spécialisée suivant le type de média qui est produit par la lecture de la manifestation matérielle ; un \con{TemporalObject} pour les formes temporelles construites à partir d'un \con{TemporalMedia} ; un \con{GraphicalObject} pour les formes graphiques construites à partir d'un \con{ImageMedia} ; un \con{TextualObject} pour les formes composées de texte construites à partir d'un \con{TextMedia}, voir Figure \ref{img:so-content}.
+Pour chacun de ces formes, on peut distinguer ensuite deux concepts enfants :
+\begin{listeni} 
+	\item le premier représentant une \e{sélection} sur la forme. 
+	Dans le cas d'une forme temporelle, on utilise le code temporel (timecode) pour effectuer des sélections (\con{Segment}) sur une source (\con{TemporalMedia}, \con{TemporalObject}, \con{Track}) par la relation \rel{hasSource}. 
+	Les attributs \rel{TCin} et \rel{TCout} permettent d'indiquer le début et la fin de la sélection en utilisant la source comme référence.
+	
+	\item l'autre représentant un \e{assemblage} de sélections. 
+	Une \con{Segmentation} représente une collection (non-ordonnée) de \con{TemporalObject}, relié par la relation \rel{assembles}. 
+	Cela peut être une collection de \con{Segment}s (ceux qui sont utilisées pour construire le montage) ; un assemblage de \con{Segmentation} existantes (par exemple, l'insertion d'une interview dans un documentaire) ; un assemblage composite de \con{Segment}s et de \con{Segmentation}.
+	Il est à noter qu'une \con{Segmentation} ne représente pas finement le montage, comme des EDL, mais simplement une liste de séquences. Une \con{Segmentation} peut être relié à l'EDL correspondante par la relation \rel{hasManifestation}.
+\end{listeni}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.75\textwidth]{./images/SO-ContentObject-v1.png}
+\caption{Extrait de la structure ontologique qui modélise la segmentation du matériel audiovisuel}
+\label{img:so-content}
+\end{figure}
+
+\paragraph{Sélectionner une portion de ressource}
+Il est à remarquer que ces concepts de sélection (\con{Segment}) fonctionnent à partir d'un repère (c'est-à-dire de dimensions) ou bien d'un langage de sélection (comme CSS pour le HTML) qui permettent d'identifier des portions de contenu.
+Dans le cas du texte, les caractères peuvent servir de métrique pour identifier les portions de contenu à sélectionner. 
+De manière similaire, une image ou un objet 3D utilisent un repère (x,y,z) ou autres pour situer les formes construites sur l'espace de travail.
+Dans le cas de média interactif, ce problème est moins évident à traiter et doit se gérer au cas par cas, suivant le format utilisé. 
+Nous n'avons pas poussé notre modélisation sur ces aspects, car notre approche n'a pas besoin de détailler ces aspects, et que par ailleurs MPEG-7 propose des solutions éprouvées.
+
+\paragraph{Lister les éléments utilisés dans un assemblage}
+Concernant la notion d'assemblage de matériel audiovisuel (\con{Segmentation}), notre modélisation se limite à lister les \con{Segment}s utilisés, mais pourrait être étendu pour gérer la notion d'ordre.
+Cependant, de nombreux formats de représentation du montage (Edit Decision List) existent par ailleurs, largement plus expressifs et déjà intégrés dans certaines applications. 
+Ainsi, notre approche permet de faire une liste des éléments utilisées et laissent la représentation fine du montage à ces formats externes, que l'on peut raccrocher à notre modèle par la relation \rel{hasManifestation}.
+
+
+\subsubsection*{Structure documentaire}
+\begin{cadrecol}{LightGoldenrodYellow}
+Un \con{Opus} est une forme documentaire qui résulte de l'articulation d'un travail artistique, intellectuel et technique.
+De ce fait, le concept \con{Opus} est directement relié avec les concepts de \con{DigitalResource} (relation \rel{hasManifestation}) et de \con{ContentObject} (relation \rel{hasRealisation}) ainsi qu'avec d'autres \con{Opus} qui définissent sa structure documentaire (relation \rel{composedOf}).
+Dans le cadre d'une modélisation dynamique suivant un processus de production, l'\con{Opus} est le concept sur lequel on peut rattacher des connaissances a priori sur le document à fabriquer (relation \rel{hasPrescription}) ainsi que les connaissances sur ce qui a été effectivement fabriqué (relation \rel{hasDescription}).
+\end{cadrecol}
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.95\textwidth]{./images/SO-Opus-v1.png}
+\caption{Extrait de la structure ontologique qui modélise les structures documentaires}
+\label{img:so-opus}
+\end{figure}
+
+La Figure \ref{img:so-opus} présente les spécialisations du concept d'\con{Opus}.
+Le premier critère différencie les documents entiers, que l'on estime prêt à être publié (\con{MediaAsset}), des fragments documentaires, qui servent à de briques pour composer les documents (\con{EditorialObject}).
+Le concept de \con{Program} représente les documents audiovisuels fabriqués par la production télévisuelle. 
+Il s'agit d'un type de document ajusté aux contraintes et spécificités d'une forme de distribution. 
+Notre modélisation se limite aux documents audiovisuels, mais il serait possible à ce niveau de définir d'autres types de formes documentaires pour représenter par exemple les documents textuels de la chaîne de production.
+Pour cela, il faudrait introduire une typologie des documents semblables à celles proposées pour les \con{DigitalResource}s.
+Ensuite, pour chaque type de documents, on peut encore définir des genres et sous-genres, par exemple selon une taxinomie développée par une organisation, comme dans le case de \cite[Annexe B]{Troncy2004}.
+Dans notre cas, nous avons donné l'exemple d'un \con{Drama} et d'un \con{Magazine} d'information, qui renvoit alors à des grammaires de compositions propres. 
+Cependant, comme nous le précise \cite[\S3.6]{Gaillard2008}, la notion de genre n'est pas forcément à prendre comme l'instanciation d'une \gui{structure normative figée}, mais peut s'envisager davantage comme des règles évolutives de fabrication, qui servent tant à guider la production que la lecture des documents.
+Notre approche aborde ces questions de manière minimale, en proposant la possibilité de définir des règles de composition (contraignantes ou non) des \con{MediaAsset} par des \con{EditorialObject}s.
+Par défaut, un \con{Drama} est composé d'\con{EditorialObject}s, dont des \con{Scene}. 
+De même, un \con{Magazine} est composé d'\con{EditorialObject}s, dont des \con{Subject}, c'est-à-dire de courts reportages que l'on nomme Sujet dans le milieu de la télévision. 
+
+\paragraph{Décomposition en plans et sous-plans}
+Ainsi, les spécialisations d'\con{EditorialObject} permettent de définir des unités documentaires, et en particulier les unités de bases que nous avons identifiées ; le \con{Shot} et le \con{Subshot}.
+Le \con{Shot} est une série d'images continues ou non coupée par une transition.
+La notion de \con{Subshot} correspond aux portions de \con{Shot} où le mouvement de la caméra est ininterrompu ou que le cadrage est constant.
+Cela permet de diviser le plan en sous-plans avec une description du mouvement de caméra fixe.
+Ainsi, cela permet de décrire des plans complexes où se succèdent différents cadrages. 
+Par exemple, une séquencete qui comprend un premier mouvement de caméra (suivant un personnage qui marche) puis un zoom (sur la main du personnage) sera représenté comme un plan (\con{Shot}), comprenant deux sous-plans (\con{Subshot}), l'un pour le travelling, l'autre pour le zoom. 
+
+\paragraph{Prise de vue et sélection de plan}
+Au moment du tournage on parle plus de prise de vue que de plan, car cela correspond à la série d'images capturée par une caméra entre le moment où l'enregistrement est lancé et celui où il est arrêté.
+Pendant le derushing, on sélectionne juste la portion de la prise de vue qui est utile (voir section \ref{sec:preprod} pour un rappel sur le déroulement de la chaîne de production).
+La distinction entre les résultats de ces deux étapes est représenté par les concepts d'\con{AudiovisualMedia} (qui modélise la prise de vue enregistré par le caméraman) et de \con{Segment} (qui modélise la sélection d'une séquence par le derusheur), relié par une relation \rel{hasSource}.
+Lorsque plusieurs prises du même plan ont été tournées, on se retrouve alors avec plusieurs \con{Segment}s qu'il faut ensuite relier au plan (\con{Shot} qui est un \con{EditorialObject}).
+Dans ce cas, le lien entre ces prises et le plan est représenté par des relations \rel{hasRealisation} indiquant que les \con{Segment} sont des expressions de la forme documentaire \con{Shot}.
+Pour être plus précis et distinguer entre les des versions alternatives d'un même plan, et la version finalement retenue, on spécialise la relation \rel{hasRealisation} en \rel{hasCandidateRealisation} (pour les versions alternatives) et \rel{hasFinalRealisation} (qui indique la version choisie dans le montage final).
+Il est à remarquer que les versions alternatives pointent vers les fichiers créés au moment du tournage, alors que la version finale pointe par le fichier qui résulte du montage. 
+Si la modélisation des versions de travail et de la version finale du document est séparée à ce niveau là, le fait de les rattacher aux mêmes \con{Opus} et d'utiliser ces relations spécifiques permet d'expliciter leur statut tout en partageant leur description (\con{Annotation}). 
+
+
+\paragraph{Attacher des connaissances au document audiovisuel}
+Notre modélisation du document audiovisuel permet d'attacher des connaissances au cours de la production du document audiovisuel.
+Le vocabulaire de l'écriture filmique est représenté par des \con{Annotation}s, que nous définirons plus précisément dans la section \ref{sec:annotation}. 
+Avant la fabrication du matériel audiovisuel, les \con{Annotation}s, reliées à la structure du document (\con{Opus}) par la relation \rel{hasPrescription}, représentent le script et servent de guide de tournage, notamment dans le cadre de production collaborative amateur-professionnel.
+Après le tournage, les \con{Annotation}s peuvent être utilisé pour décrire (relation \rel{describes}) des séquences de matériel effectivement fabriqué (plus précisément, les \con{Segment}s qui sélectionnent des bouts d'\con{AudiovisualMedia} ou de \con{VideoTrack}).
+Il faut noter que cette description est indépendante de la prescription, car il faut pouvoir rendre compte des plans non prévus dans le plan de tournage, comme les \gui{plans de coupe} qui servent à faire des transitions ou à introduire un plan intérieur en présentant d'abord l'extérieur d'un bâtiment.
+Néanmoins, cette description peut être réalisé par analyse automatique ou manuelle du signal, et par comparaison avec les connaissances prescriptives si besoin.
+Les connaissances attachées sur le matériel utilisé dans le montage final peuvent être ensuite associées au document ou à ses fragments (\con{Opus}) par la relation \rel{hasDescription}.
+
+
+
+% Évolution de la modélisation : on distingue trois phases
+% - avant la fabrication : connaissances prescriptives associées à la structure documentaire pour préparer le tournage. [Annotations --hasPrescription-> Opus]
+% - après la fabrication : connaissances descriptives construites par analyse automatique/manuelle, par comparaison avec les co.prescritives pour préparer la sélection du contenu le plus pertinent. [Annotations --describes-> AVMedia]  
+% - après le dérushing : [EditorialObject --hasCandidateRealization-> Segment --hasSource-> AVMedia + MA-->hasCandidateRealization-> Segmentation]
+% - après le montage : [MediaAsset --hasFinalRealization-> Segmentation --assembles--> Segment --hasSource--> AVMedia + Opus --hasDescription-> Annotations --describes--> AVMedia, ceux qui sont utilisées dans la FinalRealization]
+ 
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.75\textwidth]{./images/UC-evolution-v3a.png}
+\caption{Exemple de modélisation documentaire dans les premières étapes de la production audiovisuelle (de la préproduction jusqu'aux premiers montages)}
+\label{img:uc-evo1}
+\end{figure}
+
+\paragraph{Évolution de la modélisation pendant la production}
+Notre modélisation des différentes composantes du document audiovisuel permet également de suivre l'évolution de la chaîne de production. 
+Ainsi, les résultats de plusieurs étapes de la chaîne sont représentés dans notre modèle, ce qui facilite son suivi et la reprise du travail ou sa délégation à d'autres contributeurs.
+Si l'on détaille le scénario d'usage que nous utilisons dans notre mémoire, nous pouvons à quel moment de la chaîne les instances de nos concepts modélisant le document audiovisuel sont construites, voir la Figure \ref{img:uc-evo1} :
+\begin{liste}
+	\item Pendant la \g{préproduction}, le script permet de définir à la fois la structure documentaire (\con{MediaAsset} et \con{EditorialObject} reliés par des relations \rel{isComposedOf}) et ainsi que les connaissances qui prescrivent la forme de chaque plan (\con{Annotation}, que nous détaillerons plus tard, reliés au plan par une relation \rel{hasPrescription}).
+	Dans notre cas, il s'agit d'une \e{interview} d'un metteur en scène contenant plusieurs plans réalisés en intérieur (même si nous n'en montrons qu'un dans la Figure) et qu'il faudra enrichir de \e{plans de coupe} (non décrits) de l'extérieur du lieu culturel où se déroule la représentation.
+
+	\item Au moment du \g{tournage}, du matériel audiovisuel est créé (\con{AudiovisualMedia}). 
+	Dans notre cas, il s'agit de deux fichiers vidéo, l'un contenant plusieurs plans de coupe, l'autre avec une seule prise de vue du réalisateur.
+	Pour l'instant, ces instances ne sont reliées à aucun autre composant du document audiovisuel.
+
+	\item Lors du \g{derushing}, il est alors question de sélectionner les parties utiles dans les fichies vidéos (\con{Segment} reliés aux \con{AudiovisualMedia} par une relation \rel{hasSource}).
+	On peut ainsi identifier à quels plans correspondent les images tournées (les \con{Segment}s sont reliés à des \con{Shot}s par des relations \rel{hasCandidateRealisation}).
+	Il se constitue ainsi une chaîne de relations entre des \con{EditorialObject}s, qui représentent une forme documentaire, et des \con{Segment}s(\rel{hasRealisation}, qui représentent des séquences de matériel audiovisuel, et des \con{AudiovisualMedia} (relation \rel{hasSource}, qui représentent les enregistrements du matériel audiovisisuel.
+
+	\item Au cours du \g{montage}, des \con{Segmentation}s sont construites pour chaque version du montage, listant par la relation \rel{assembles} les \con{Segment}s qui sont utilisées. 
+	Ces \con{Segmentation}s correspondent à l'expression (relation \rel{hasCandidateRealisation}) d'\con{EditorialObject} de plus haut-niveau que les plans, ou bien à des \con{MediaAsset} entiers.
+\end{liste}
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.8\textwidth]{./images/UC-evolution-v3b.png}
+\caption{Exemple de modélisation documentaire dans les dernières étapes de la production audiovisuelle (montage final et finition)}
+\label{img:uc-evo2}
+\end{figure}
+
+\begin{liste}
+	\item À la fin du \g{montage} une version finale du montage est choisie, ce qui permet de construire une ou plusieurs manifestation(s) du document audiovisuel. 
+	La Figure \ref{img:uc-evo2} montre les instances et les relations créés à cette étape dans des couleurs vives, alors que les anciennes sont dans des couleurs atténuées.
+	Dans notre modèle, cela correspond à relier le document (\con{MediaAsset}) à une \con{Segmentation} qui est identifié comme la dernière version par la relation \rel{hasFinalRealisation}.
+	Cette \con{Segmentation}, renvoit elle-même à des \con{Segment}s qui détaille la position des plans dans l'enregistrement du matériel audiovisuel construit (\con{AudiovisualAsset}). 
+	Dans notre cas, on a construit deux manifestations du document de qualité différente, reliés au \con{MediaAsset} par la relation \rel{hasManifestation}.
+	Ces deux instances représentent le résultat de l'étape de \g{finition} qui marque la fin de la post-production et permet l'exploitation du document audiovisuel.
+	Au niveau des descriptions, il est possible alors de les relier aux nouveaux \con{Segment}s créés ainsi qu'aux \con{EditorialObject}s correspondants.
+	En effet, le montage a simplement permis de rassembler du matériel audiovisuel, auparavant dispersé, dans une même fichier vidéo. 
+	Il n'y a donc ni de changement au niveau de sa description (\con{Annotation}), ni au niveau de sa structure documentaire (\con{Opus}).
+\end{liste}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Description par l'écriture filmique}
+\subsubsection{Description par l'écriture filmique}\label{sec:annotation}
 \paragraph{Structure ontologique}
 \paragraph{Relations avec d'autres concepts}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Hiérarchie des tâches dans un projet de production}
+\subsubsection{Hiérarchie des tâches dans un projet de production}\label{sec:mission}
 La définition d'une hiérarchie de tâches repose sur la définition d'une unité de travail représenté par le concept de \con{Mission} : 
 
 \begin{cadrecol}{LightGoldenrodYellow}
@@ -199,7 +389,7 @@ Nous distinguons trois types de \con{Mission} par leur nature et leur importance
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=0.95\textwidth]{./images/SO-Event-v1.png}
-\caption{Extrait de la structure ontologique des évènements et de la hiérarchie des tâches d'un projet de production}
+\caption{Extrait de la structure ontologique qui modélise les évènements et de la hiérarchie des tâches d'un projet de production}
 \label{img:so-event}
 \end{figure}
 
@@ -260,7 +450,7 @@ Voici les relations qui s'appliquent à tous les évènements :
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Les contributeurs et leur engagement dans un projet de production}
+\subsubsection{Les contributeurs et leur engagement dans un projet de production}\label{sec:agent}
 \paragraph{Agent et compétences}
 Notre modélisation des contributeurs repose sur la notion d'\con{Agent} humain ou logiciel qui possèdent des compétences (\con{Skill}) pour réaliser les \con{Mission}s qui leur sont confiées :
 \begin{cadrecol}{LightGoldenrodYellow}
@@ -342,7 +532,7 @@ Dans notre cas, chaque couche du droits d'accès rajoute de nouvelles possibilit
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=0.95\textwidth]{./images/SO-Agent-v1.png}
-\caption{Extrait de la structure ontologique des agents et des contributeurs à un projet de production}
+\caption{Extrait de la structure ontologique qui modélise les agents et les contributeurs à un projet de production}
 \label{img:so-agent}
 \end{figure}
 

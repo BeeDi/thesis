@@ -217,8 +217,8 @@ Nous appelons cette approche de description \g{contributive} et \g{continue} car
 \e{Nous récapitulons ici les étapes des scénarios d'usages que nous avons développés dans les chapitre \ref{chap:omod} et \ref{chap:mav} afin de montrer comment l'ensemble de la chaîne doit être instrumentée pour faciliter la réutilisation et ouvrir les chaînes de production aux collaborations externes.}
 
 Le scénario de commande de tournage implique la RTBF dans un projet de production de reportages sur un évènement culturel.
-La Figure \ref{img:arch-process} montre les trois grandes phases du scénario et permet d'illustrer \co{sa mise en oeuvre et les applications développés dans le cadre du projet MediaMap}. 
-Noter que la numérotation des étapes du scénario ci-dessous se retrouve également sur la Figure :
+La Figure \ref{img:arch-process} montre trois grandes étapes de production du scénario en vue d'illustrer \co{sa mise en oeuvre avec les applications développés dans le cadre du projet MediaMap}. 
+Noter que la numérotation des étapes du scénario ci-dessous se retrouve également sur la Figure \ref{img:arch-process} :
 \begin{listenum}
 	\item[(1)] La RTBF écrit le script du reportage, en indiquant quels plans doivent être tournés, les personnes à questionner etc. [\g{Script}] 
 	\co{Cette fonctionnalité est prise en charge par le \pc{Mission Manager} de Perfect Memory, qui permet de construire et d'éditer des scripts, mais sert également d'interface sur l'organisation du projet.}
@@ -276,6 +276,16 @@ Noter que la numérotation des étapes du scénario ci-dessous se retrouve égal
 	Notre modèle doit également embarquer les variations de vocabulaire utilisé par le recepteur, afin de réaliser l'adaptation de leur expression.}
 \end{listenum}
 
+Il faut remarquer que certaines étapes de la production (section \ref{sec:prod} pour rappel) n'apparaîssent pas tout à fait clairement dans ce scénario.
+Ceci vient du fait que le scénario met en avant de nouvelles pratiques comme la production collaborative et la réutilisation de fragments dès leur production. 
+Nous proposons donc de comparer notre scénario avec les étapes classiques d'un projet de production : 
+Alors que la \g{préproduction} est représentée par les phases (1) et (2), les phases (3) et (4) n'existent pas en tant que telles dans un projet de production classique.
+En effet, la traduction du script en guide de tournage doit être prise en charge par le contributeur, de même que les caméras ne propose habituellement pas d'assistance pendant le tournage ou de vérification après coup. 
+Toutefois, on peut les assimiler à une étape de \g{fabrication} du matériel audiovisuel.
+La phase (5) de livraison et (6) d'enrichissement des descriptions correspond à l'étape du \g{dérushing}. 
+La phase (7) de réutilisation correspond à plusieurs étapes, puisqu'il s'agit à la fois du \g{montage} et de la \g{finition}. Dans le cas décrit, il s'agit de réutilisation dans le sens où les fragments participent à plusieurs projets de production. 
+La phase (8) d'accès et recherche peut être présentée comme une étape \g{archivages} qui serait intégrée à la production. 
+La phase (9) de transport et d'échanges peut être mise en rapport avec l'étape de \g{distribution}, quoi que la nature de l'objet échangé varie énormément (des fichiers vidéo ou bien une ensemble de connaissances et de fichiers représentant le projet de production).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
