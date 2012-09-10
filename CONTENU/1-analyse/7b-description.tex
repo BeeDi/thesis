@@ -29,8 +29,8 @@ MSML est représenté en XML Schema et utilise Schematron \parcite{ISO/IEC2006} 
 MSML repose sur la \e{scène} en tant qu'unité narrative, dans laquelle se déroule des \e{évènements} dans un \e{lieu} et à un moment donné, c'est-à-dire un \e{intervalle continu de temps}, voir Figure \ref{img:msml-model}.
 Des \e{entités} (éléments) sont présentes dans la \e{scène}, soit des \e{accessoires} qui décorent, soit des \e{personnages} qui participent à l'évolution de l'histoire.
 Les \e{évènements} peuvent être décomposés en deux types, soit des \e{actions} qui représentent également la description d'une scène (cadre, environnement, ambiance etc.), soit des \e{dialogues} entre personnages.
-La représentation des \e{évènements} peut être associée avec une représentation du temps écoulé, c'est-à-dire de sa \e{durées} (\pc{span}).
-Les éléments de \e{durée} servent à combiner des évènements de nature différentes, comme un dialogue et une action qui se réaliseraient  simultanément, ou bien une action qui donnerait des indications sur la manière de jouer le dialogue.
+La représentation des \e{évènements} peut être associée avec une représentation du temps écoulé, c'est-à-dire de sa \e{durée} (\pc{span}).
+Les éléments de \e{durée} servent à combiner des évènements de nature différente, comme un dialogue et une action qui se réaliseraient  simultanément, ou bien une action qui donnerait des indications sur la manière de jouer le dialogue.
 
 
 % \paragraph{Modèle de fabrication}
@@ -45,30 +45,30 @@ Il peut s'agir par exemple, d'indiquer le type de plan souhaité par le réalisa
 \label{img:msml-ex}
 \end{figure}
 
-La Figure \ref{img:msml-ex} montre un exemple de script décomposé selon les modèle de scène et de fabrication. 
+La Figure \ref{img:msml-ex} montre un exemple de script décomposé selon les modèles de scène et de fabrication. 
 La scène se déroule dans une Jeep, deux personnages, Andi et Joe sont assis l'un à côté de l'autre et parlent. 
 La description de la scène est contenue dans un évènement \e{action}, puis Andi pose une question à Joe, représenté par un évènement \e{dialogue}. 
 On voit ainsi comment est réalisé la composition des éléments dialogue et action par l'intermédiaire des \e{durées}.
 L'action servant à décrire la manière dont le dialogue est énoncé par Andi.
-La scène se termine par une \e{instruction} de type transition qui indique au monteur qu'il ne faudra directement passer au plan suivant sans faire de fondu entre les plans.
+La scène se termine par une \e{instruction} de type transition qui indique au monteur qu'il faudra directement passer au plan suivant sans faire de fondu entre les plans.
 
 
 % \paragraph{Modèles de Pré-visualisation}
 % A similar work has been carried out by \cite{VanRijsselbergen2009} but with distinct goal and language. 
 % Their MovieScriptMarkupLanguage (MSML) captures the information of a shooting script with a particular attention to the details of set equipment's and actor's positions. 
 
-En vue de proposer une pré-visualisation graphique des évènements décrits dans le script, MSML propose des éléments permettant d'affiner la représentation du temps, ainsi que éléments de description des animations.
+En vue de proposer une pré-visualisation graphique des évènements décrits dans le script, MSML propose des éléments permettant d'affiner la représentation du temps, ainsi que des éléments de description des animations.
 Il s'agit en particulier de préciser la succession et la synchronisation des \e{évènements} se déroulant dans le script. 
 En effet, le texte du script décrit ces évènements ligne par ligne ce qui ne permet pas d'indiquer de relation temporelle entre eux.
-Ainsi, ils peuvent très bien se produire en simultanée, avec plus ou moins de temps entre eux etc.
+Ainsi, ils peuvent très bien se produire en simultané, avec plus ou moins de temps entre eux etc.
 De plus, les \e{animations} permettent de décomposer le mouvement d'une entité (objet, personnage) en plusieurs parties.
 
 \paragraph{Discussion}
-Le modèle MSML a été illustré dans l'application \pc{Scoop} développé par \cite{Cardinaels2008}. 
+Le modèle MSML a été illustré dans l'application \pc{Scoop} développée par \cite{Cardinaels2008}. 
 Il permet de coupler une représentation 3D d'un plateau et des personnages, avec la représentation du script et des équipements de production.
 Ainsi, un réalisateur peut modifier l'emplacement d'une caméra sur le plateau et observer directement l'effet sur le plan filmé. 
 L'objectif est de faciliter la préparation du tournage, notamment dans des environnements de plateau où la place est restreinte et le positionnement du décor difficile.
-Les informations récoltées pourraient également être réutilisé plus tard dans la production, cependant la représentation de script en fichier XML pose un problème de transformation des données et d'interopérabilité avec les applications de fin de chaîne.
+Les informations récoltées pourraient également être réutilisées plus tard dans la production, cependant la représentation de script en fichier XML pose un problème de transformation des données et d'interopérabilité avec les applications de fin de chaîne.
 La synchronisation entre ces descriptions et le contenu filmé est également un problème qui n'est pas abordé par \cite{VanRijsselbergen2009}. 
 
 Le positionnement de MSML sur les connaissances spécifiques à la pré-production en fait un modèle à part parmi les modélisations que nous étudions.
@@ -108,7 +108,7 @@ Les résultats du projet comportent des applications et une ontologie décompos�
 	Cette notation vise à préciser le jeu d'acteurs (position, émotion, mouvement etc.) pour chaque plan du script. 
 	L'application \pc{Editor} permet d'écrire ces annotations à côté du script à partir d'une palette de symboles visuels. 
 	Un service Web, le \pc{Rule Engine}, transforme ces symboles en des instances de l'ontologie représentant la géométrie du film et de la \gui{scène} filmée.
-	Ces instances peuvent ensuite être utilisé par une application de pré-visualisation de la scène en 3D, avec animation des personnages etc.
+	Ces instances peuvent ensuite être utilisées par une application de pré-visualisation de la scène en 3D, avec animation des personnages etc.
 
 	\item une intégration de concepts de MPEG-7 comme ontologie générique. 
 	Il s'agit en particulier du Segment DS mais aussi de descripteurs plus spécifiques pour la couleur, la texture, les mouvements de caméra etc.
@@ -118,7 +118,7 @@ Les résultats du projet comportent des applications et une ontologie décompos�
 L'intérêt de cette modélisation est d'associer des connaissances sur la production, c'est-à-dire comment a été construit le film, et le résultat de cette production, le film en tant que tel [\g{$\chi_2$ : réutilisabilité}].
 Ceci est rendu possible par le fait que la structure d'annotation est celle du script, qui correspond à la fois à une unité de contenu -- le film -- et une unité de travail pour la production [\g{$\chi_1$ : autonomie}].
 Ce projet propose ainsi une approche de description intégrée aux pratiques et au vocabulaire de la production filmique, en instrumentant le travail de ses contributeurs.
-Il est néanmoins regrettable que leurs résultats ne soient pas accessibles à la communauté scientifique, qu'il s'agisse des applications ou bien de l'ontologie, ce qui rend difficile la poursuite de leur travaux. 
+Il est néanmoins regrettable que leurs résultats ne soient pas accessibles à la communauté scientifique, qu'il s'agisse des applications ou bien de l'ontologie, ce qui rend difficile la réutilisation de leurs travaux. 
 
 
 
@@ -180,10 +180,10 @@ rightsHolder & \\ \hline
 \end{table}
 
 La \pc{Dublin Core Metadata Initiative} (DCMI) est une organisation qui vise à développer et promouvoir l'usage de standards de description de ressources afin de faciliter l'échange d'information sur le Web.
-Depuis la première conférence organisé en 1995 à Dublin, Ohio, l'organisation a enrichi le vocabulaire de son standard original, le \pc{Dublic Core Metadata Element Set} (DCMES), de nouveaux éléments. 
+Depuis la première conférence organisée en 1995 à Dublin, Ohio, l'organisation a enrichi le vocabulaire de son standard original, le \pc{Dublic Core Metadata Element Set} (DCMES), de nouveaux éléments. 
 En effet, la version étendue de \pc{DCMI Metadata Terms} (\cite{DCMIUsageBoard2010}) compte 54 propriétés et sous-propriétés, dont les 15 éléments d'origines (marqués en \e{italique} dans la Table \ref{tab:dcmi}).
 L'intérêt de cette structuration est de pouvoir remplacer les valeurs des sous-propriétés comme des valeurs de leur propriété parente. 
-La structuration des propriétés est telle que la valeur conserve une signification, même si celle-ci correspond à une propriété est moins précise. 
+La structuration des propriétés est telle que la valeur conserve une signification, même si celle-ci correspond à une propriété moins précise. 
 Cela sert notamment pour réaliser des inférences et de l'enrichissement de requêtes.
 Nous rappelons d'abord le modèle général du Dublin Core, puis nous présentons en particulier les Schémas d'encodage qui servent à détailler le champs de valeurs utilisable pour une propriété.
 Enfin, nous discutons une proposition de spécialisation du Dublin Core pour couvrir spécifiquement la description de documents audiovisuels.
@@ -196,11 +196,11 @@ Enfin, nous discutons une proposition de spécialisation du Dublin Core pour cou
 \end{figure}
 
 \paragraph{Modèle général et représentation}
-Une des grandes avancées de \pc{DCMI Metadata Terms}, a été la constitution d'une modélisation générale, voir la Figure \ref{img:dcmi-voc}, et l'introduction d'une syntaxe de représentation utilisants XML, RDF et RDF-S. 
-En plus des propriétés, le modèle définit la notion de Classe et de Schéma d'encodage (qui sera expliqué ci-après). 
+Une des grandes avancées de \pc{DCMI Metadata Terms}, a été la constitution d'une modélisation générale, voir la Figure \ref{img:dcmi-voc}, et l'introduction d'une syntaxe de représentation utilisant XML, RDF et RDF-S. 
+En plus des propriétés, le modèle définit les notions de Classe et de Schéma d'encodage (qui seront expliquées ci-après). 
 Les classes permettent de définir des types de ressources et de leur attribuer des URI. 
 
-Chaque \pc{Terme} est défini par une liste d'attributs lui donnant un identifiant, une étiquette, une définition, ajoutant des commentaires, de la documentation, une référence complémentaire, les relations hiérarchiques avec les autres Termes, la classe et le type du Terme, l'appartenance à un Schéma d'encodage, les restrictions de sujet et d'objet qui s'applique à une propriété, les propriétés équivalentes.
+Chaque \pc{Terme} est défini par une liste d'attributs lui donnant un identifiant, une étiquette, une définition qui permet des commentaires, de la documentation, une référence complémentaire, les relations hiérarchiques avec les autres Termes, la classe et le type du Terme, l'appartenance à un Schéma d'encodage, les restrictions de sujet et d'objet qui s'applique à une propriété, les propriétés équivalentes.
 Ainsi, on peut maintenant utiliser des URI, faisant référence à d'autres ressources, comme valeur d'une propriété.
 Les valeurs peuvent donc être soit une expression littérale, une URI quelconque, ou bien une URI pointant vers un type de ressource particulier, comme un Terme appartenant à un schéma d'encodage ou une classe.
 Par exemple, la propriété \pc{creator} ne peut pointer que vers des ressources de classe \pc{Agent} (du fait d'une restriction \pc{hasRange}). 
@@ -230,7 +230,7 @@ Ainsi, dans le cas de l'audiovisuel il faudrait étendre ce schéma pour décrir
 \cite{Hunter1998} ont proposé une extension qui raffine les propriétés du Dublin Core et les applique à différents niveaux de composition de l'objet audiovisuel, voire la Figure \ref{img:dcmi-mpeg7}.
 Ainsi, l'objet audiovisuel est d'abord décomposé en élément audio (avec des pistes de paroles, de musique et d'effets) et vidéo.
 Puis la vidéo est hiérarchisée en séquences, scènes, plans, images et objets dans une image.
-À chaque niveau s'applique un ensemble de propriétés, dont des ajouts par rapport au schéma (la Description est lié à une liste de Genre, le Format permet d'indiquer le diffuseur).
+À chaque niveau s'applique un ensemble de propriétés, dont des ajouts par rapport au schéma (la Description est liée à une liste de Genre, le Format permet d'indiquer le diffuseur).
 \cite{Hunter1999} poursuivent ce travail et propose une représentation de ce schéma pouvant être intégré à MPEG-7. 
 
 
@@ -254,7 +254,7 @@ Et ce, d'autant plus, que DMS-1 fournit des informations plus adaptées à l'aud
 % \cite{Hunter2001} ; \cite{Troncy2007} ; \cite{Nack2005a} ; \cite{Dasiopoulou2009} ; \cite{Garci$\delta_2$005} ; 
 
 % à revoir
-Parmi les normes utilisés pour décrire le contenu des audiovisuels, MPEG-7 est certainement devenu le standard de l'industrie. 
+Parmi les normes utilisés pour décrire les contenus audiovisuels, MPEG-7 est certainement devenu le standard de l'industrie. 
 Développé à partir de 1998 par le comité MPEG (Moving Picture Expert Group) à la suite des standards MPEG-1, MPEG-2 (norme de compression du signal audiovisuel) et MPEG-4 (norme de d'encodage multimédia basée sur les objets), MPEG-7 est devenu une norme ISO/IEC en 2001 puis mise à jour jusqu'en 2006. 
 
 La norme définit un ensemble de \e{Descripteurs} (Descriptors, Ds) dont les valeurs permettent de caractériser un objet audiovisuel, qu'il s'agisse de composantes du signal ou bien d'autres aspects comme des informations relatives à sa création, sa structure, son usage passé et futurs etc.
@@ -278,7 +278,7 @@ Dans la partie \e{Systems} de la norme, on trouve ainsi la définition d'outils 
 La partie \e{Reference Software} présente des logiciels de références pour utiliser la norme.
 Enfin, la partie \e{Conformance} explicite des directives et des procédures pour s'assurer de la conformité des descriptions produites.
 
-Nous détaillerons dans cette les Schémas de Description liés à la gestion du contenu (\e{Content Management} dans la Figure \ref{img:soa:mds}) et à la description du contenu (\e{Content Description}).\\
+Nous détaillerons dans la section suivante les Schémas de Description liés à la gestion du contenu (\e{Content Management} dans la Figure \ref{img:soa:mds}) et à la description du contenu (\e{Content Description}).\\
 
 
 \subsubsection{MPEG-7 : Gestion du contenu}\label{sec:mpeg7-gc}
@@ -295,7 +295,7 @@ Pour donner une première idée, on peut dire que le fichier créé correspond �
 
 
 On remarque qu'il existe cependant des différences dans les \pc{MediaInstance}, entre l'original et ce qui est nommé des \gui{copies} (copied instances). 
-Ce qui est particulièrement intéressant pour nous est de constater que la nature de la manipulation entre l'original et les soi-disantes \gui{copies} importe peu (copie technique, réencodage ou montage), car cela créé de toute façon une nouvelle \pc{MediaInstance}. 
+Ce qui est particulièrement intéressant pour nous est la constation que la nature de la manipulation entre l'original et les soi-disantes \gui{copies} importe peu (copie technique, réencodage ou montage), car cela crée de toute façon une nouvelle \pc{MediaInstance}. 
 Le \pc{Variation DS} permet ainsi d'indiquer la nature de la variation entre les copies (résumé, traduction, changement de codage de la couleur etc. mais également une révision ou bien une version alternative pour le contenu).
 
 À l'inverse, la notion de \pc{MediaProfile} est dépendante de la nature de ces transformations. 
@@ -322,7 +322,7 @@ Remarquons que ces schémas s'appliquent tous à décrire les \pc{ContentEntity}
 % plus de détails sur les DSs
 
 Le \pc{MediaInformation} est un schéma qui comporte des informations d'identification du CE ainsi qu'un ou plusieurs Profiles d'instances. 
-Il faut remarquer que la définition du Profile proposé implique que le moindre changement d'encodage aboutit à la création d'un nouveau Profile en plus de l'instance. 
+Il faut remarquer que la définition du Profile proposée implique que le moindre changement d'encodage aboutit à la création d'un nouveau Profile en plus de l'instance. 
 Il devient alors clair qu'un Profile représente la description d'un groupe d'instances, dont il facilite la gestion.
 \begin{liste}
 	\item \pc{MediaIdentification} : propose un ou plusieurs identifiants pour le CE.
@@ -344,16 +344,16 @@ Le \pc{CreationInformation} peut être considéré comme une version étendue à
 
 Le \pc{UsageDescription} est un schéma qui comporte un descripteur détaillant les droits attachés au contenu (\pc{Rights}), un descripteur décrivant les résultats financiers (\pc{FinancialResults}) et des schémas de descriptions sur les détails d'utilisation du contenu (\pc{Availability}) et sur l'historique de son utilisation(\pc{UsageRecord}).
 Les droits d'exploitation peuvent en effet porter uniquement sur certains types de distribution (DVD, télédiffusion etc.) ou une certaine période. 
-L'historique permet de garder trace des diffusions et de leur audience.
+L'historique permet de garder une trace des diffusions et de leur audience.
 
 
 \subsubsection{MPEG-7 : Description du contenu}\label{sec:mpeg7-dc}
 \paragraph{La structure spatio-temporelle du contenu}
-MPEG-7 fournit un ensemble de schémas et de descripteurs qui permettent de découper les contenus multimédias de toute les manières possibles. 
+MPEG-7 fournit un ensemble de schémas et de descripteurs qui permettent de découper les contenus multimédias de toutes les manières possibles. 
 Pour cela, la norme définit la notion de \pc{Segment} qui se décline en segment spatial, temporel ou spatio-temporel et sur tout type de média (audio, image, audiovisuel, multimédia). 
 Chaque segment peut se décomposer en d'autres segments suivant la structure d'un arbre. 
-De plus, ces segments peuvent être connectés entre eux ou pas, c'est-à-dire spécifier trois zones connexes ou pas d'une image ou bien trois séquences temporelles qui se suivent ou pas. 
-Les Segments peuvent également n'être valable que pour une source média particulière, comme une piste audio comportant la musique.
+De plus, ces segments peuvent être connectés entre eux ou pas, c'est-à-dire qu'ils peuvent spécifier trois zones d'une image (connexes ou pas) ou bien trois séquences temporelles (qui se suivent ou pas). 
+Les Segments peuvent également n'être valables que pour une source média particulière, comme une piste audio comportant la musique.
 
 Un point particulièrement important est que chacun de ces \pc{Segment} est considéré comme une \pc{ContentEntity}. 
 On peut donc utiliser les schémas de \pc{MediaInformation}, \pc{CreationInformation} et de \pc{UsageDescription} pour les décrire ainsi qu'un schéma \pc{Semantic} que nous décrivons ci-après. 
@@ -364,7 +364,7 @@ En plus de cela, de nombreux schémas spécifiques à la nature du média existe
 Le schéma \pc{Semantic} permet de décrire le monde qui est présenté aux lecteurs dans le contenu audiovisuel. 
 Il s'agit d'une description basée sur les évènements (\pc{Event}) ayant lieu à tel moment (\pc{SemanticTime}), à tel endroit (\pc{SemanticPlace}), et auxquels participent des objets (\pc{Object}) ou des agents (\pc{AgentObject}). 
 La description peut être raffinée en utilisant des concepts (\pc{Concept}), en détaillant les attributs d'une entité (\pc{SemanticState}) ou bien les relations entre entités (\pc{SemanticRelation}).
-À noter, que ces relations peuvent tout autant porté sur les évènements se déroulant dans le contenu (par exemple, l'agent A est bénéficiaire d'un évènement B) ou bien entre un contenu et des entités sémantiques (par exemple, l'image A est une référence à l'objet B).
+À noter, que ces relations peuvent tout autant porter sur les évènements se déroulant dans le contenu (par exemple, l'agent A est bénéficiaire d'un évènement B) ou bien entre un contenu et des entités sémantiques (par exemple, l'image A est une référence à l'objet B).
 
 % VariationDescription !!!!
 
@@ -393,21 +393,20 @@ Une fois cette structure fixée, elle ne pourra plus être altérée, sous peine
 Les relations doivent également être contenu à l'intérieur d'une description d'un document.
 De ce fait, créer une relation entre deux programmes obligent à créer un document de type collection contenant ces deux programmes.
 
-MPEG-7 reste une source de référence et d'inspiration pour plusieurs série de travaux qui tentent de pallier ces défauts de représentation.
+MPEG-7 reste une source de référence et d'inspiration pour plusieurs séries de travaux qui tentent de pallier ces défauts de représentation.
 Leur approche consiste à proposer une formalisation sémantique d'une partie du standard avec pour objectif de relier ces descriptions à des ontologies de domaine.
 \cite{Troncy2007} et \cite{Dasiopoulou2009} ont étudié plusieurs de ces travaux en vue de les comparer, voir la Table \ref{tab:ontos} pour une synthèse de leur comparaison. 
-Dans la suite de la section, nous présentons chacun de ces travaux avant de faire le point sur leur stratégies respectives d'intégration à des ontologies de domaine.
+Dans la suite de la section, nous présentons chacun de ces travaux avant de faire le point sur leur stratégie respective d'intégration d'ontologies de domaine.
 Enfin, nous discutons des apports et des manques de ces ontologies par rapport aux besoins que nous avons exprimés en début de chapitre (\ref{sec:bm-av}).
-
 Ces travaux se distinguent de plusieurs manières : 
 \begin{liste}
-	\item par l'étendue de leur reprise de \g{MPEG-7} (colonne éponyme).
-	On remarquera en particulier que ces ontologies se concentrent sur les parties de décomposition structurelle des objets audiovisuels (Structure), et sur les descripteurs bas-niveau (Visual DS et Audio DS).
-	\item l'ontologie générique à laquelle il se raccroche (colonne \g{Ontologie}) 
-	\item la conceptualisation utilisée pour réaliser des alignements et des liens avec des ontologies de domaine (colonne \g{Intégration}) 
-	\item le type et le domaine d'applications visés (colonne \g{Applications}) 
-	\item le langage de représentation utilisé (RDF-S ou OWL) (colonne \g{Langage}) 
-	\item le type de modélisation, modulaire (fond blanc) ou monolithique (fond gris).
+	\item Par l'étendue de leur reprise de \g{MPEG-7} (colonne éponyme).
+	On remarquera en particulier que les ontologies construites se concentrent sur les parties de décomposition structurelle des objets audiovisuels (Structure), et sur les descripteurs bas-niveau (Visual DS et Audio DS).
+	\item L'ontologie générique à laquelle se raccroche l'ontologie construite (colonne \g{Ontologie}) 
+	\item La conceptualisation utilisée pour réaliser des alignements et des liens avec des ontologies de domaine (colonne \g{Intégration}) 
+	\item Le domaine et le type d'applications visées (colonne \g{Applications}) 
+	\item Le langage de représentation utilisé (RDF-S ou OWL) (colonne \g{Langage}) 
+	\item Le type de modélisation, modulaire (fond blanc) ou monolithique (fond gris).
 \end{liste}
 
 \begin{table}[htb!]
@@ -441,11 +440,11 @@ Ces travaux se distinguent de plusieurs manières :
 
 \paragraph{\pc{Harmony}}
 \cite{Hunter1999} ont réalisé la première tentative de formalisation sémantique de MPEG-7. 
-L'ontologie \pc{Harmony} était représentée initiallement en RDF-S puis en OWL Full, et suit de près la modélisation proposée par MPEG-7. 
-Il en résulte les mêmes constats que pour MPEG-7, la modularité des descriptions ainsi qu'une ambiguïté syntaxique et sémantique.
+L'ontologie \pc{Harmony} était représentée initialement en RDF-S puis en OWL Full, et suit de près la modélisation proposée par MPEG-7. 
+Il en résulte les mêmes constats que pour MPEG-7 ; la modularité des descriptions ainsi qu'une ambiguïté syntaxique et sémantique.
 
 Les travaux de \cite{Hunter2001} ont intégré l'ontologie générique ABC permettant de modéliser des temporalités (évènement, situation, action), des actualités (artefact ou agent) et des oeuvres.
-L'intégration d'ABC doit aussi permettre de créer des relations ou des alignements avec des ontologies génériques ou de domaine, pour favoriser l'interopérabilité la spécialisation des descriptions. 
+L'intégration d'ABC doit aussi permettre de créer des relations ou des alignements avec des ontologies génériques ou de domaine, pour favoriser l'interopérabilité et la spécialisation des descriptions. 
 \cite{Hunter2004} est un exemple d'utilisation de l'ontologie pour l'annotation et l'analyse d'images médicales. 
 
 
@@ -458,7 +457,7 @@ Dans MPEG-7 et \pc{Harmony}, la description d'une image pouvait résulter de l'u
 
 MSO et VSO utilisent deux ontologies génériques, DOLCE Lite et l'Annotation Ontology (AO).
 L'AO a été construite pour spécialiser les entités de DOLCE (\cite{Borgo2002}) afin de faciliter la mise en relation avec des ontologies de domaine.
-Ces ontologies ont été utilisé pour l'analyse et l'annotation d'images et de vidéos dans le domaine du sport (jeu de tennis, \cite{Petridis2006}) et pour des vidéos personnelles.
+Ces ontologies ont été utilisées pour l'analyse et l'annotation d'images et de vidéos dans le domaine du sport (jeu de tennis, \cite{Petridis2006}) et pour des vidéos personnelles.
 
 
 \paragraph{\pc{SmartWeb}}
@@ -504,14 +503,14 @@ La méthode repose sur deux langages d'alignement, XML2RDF et XML2OWL qui permet
 La séparation entre objets et segments multimédia est totale puisque les deux classes ne sont même pas soeurs.
 De plus, reprenant MPEG-7, cette nouvelle représentation conserve les défauts déjà mentionnés : ambiguïté et complexité.
 Du point de vue de la mise en relation avec des ontologies de domaine, cela est rendu possible par l'intermédiaire du Semantic DS.
-Cette modélisation (décrite en \ref{sec:mpeg7}) est plus orienté et moins complète que celle proposée par des ontologies génériques.
+Cette modélisation (décrite en \ref{sec:mpeg7}) est plus orientée et moins complète que celle proposée par des ontologies génériques.
 De plus, l'approche nécessite d'utiliser un XML Schema pour définir les concepts du domaine, avant de pouvoir effectuer la transformation en une ontologie OWL.
 De ce fait, l'ontologie est mieux utilisée pour transformer des descriptions MPEG-7 que pour faciliter l'intégration avec d'autres ontologies.
 
 
 \paragraph{DS-MIRF}
 \cite{Tsinaraki2004a, Tsinaraki2007} présentent le DS-MIRF framework qui traduit manuellement le MDS, l'Audio DS et le Visual DS en une ontologie OWL-DL.
-Plus précisément, la transformation est pilotée par une ontologie tierce qui définit les alignements en le XML Schema et les entités OWL.
+Plus précisément, la transformation est pilotée par une ontologie tierce qui définit les alignements en XML Schema et les entités OWL.
 Cette méthode permet d'expliciter et de clarifier certaines ambiguïtés de MPEG-7, mais la structure de l'ontologie reste proche de celle de \pc{Rhizomik}.
 
 Une méthodologie a été proposée pour traduire systématiquement les déclarations réalisées avec une ontologie de domaine en déclarations compatibles avec la sémantique de MPEG-7.
@@ -523,11 +522,11 @@ Le DS-MIRF framework a été utilisé pour l'annotation de match de football et 
 En guise de synthèse, nous comparons les stratégies d'intégration des ontologies basées sur MPEG-7 avec des ontologies de domaine.
 Ces ontologies de domaine servent à produire des descriptions sur le contenu d'objets ou segments multimédia, en proposant des concepts et des propriétés spécifiques à ce domaine. 
 Nous avons vu que de nombreux exemples d'applications s'intéressent à un domaine sportif (football, tennis etc.).
-Cela permet alors d'enrichir la description, essentiellement techniques, de ces objets et de proposer une indexation propre à un métier.
+Cela permet alors d'enrichir la description, essentiellement technique, de ces objets et de proposer une indexation propre à un métier.
 Dans notre cas, l'enrichissement souhaité serait d'intégrer les connaissances fabriquées par les contributeurs de la chaîne de production.
 Les ontologies présentées mobilisent trois stratégies : 
 \begin{liste}
-	\item \e{l'utilisation d'une ontologie générique} pour faire le lien entre les objets multimédias et des descriptions issues de l'ontologie de domaine. 
+	\item \e{l'utilisation d'une ontologie générique} pour faire le lien entre les objets multimédia et des descriptions issues de l'ontologie de domaine. 
 	C'est le cas de l'ontologie \pc{Harmony} avec ABC, des ontologies du projet \pc{aceMedia} et \pc{Boemie}.
 	L'ontologie générique fournit des classes génériques que l'ontologie multimédia et de domaine peuvent spécialiser. 
 	Ces classes sont reliées par des propriétés génériques, et spécialisables, qui permettent de relier un objet multimédia avec des déclarations de l'ontologie de domaine.
@@ -546,19 +545,19 @@ Ainsi, il serait possible d'utiliser la dernière approche dans \pc{Harmony}.
 \paragraph{Discussion}
 Concernant la modélisation des objets audiovisuels, MPEG-7 et les ontologies réutilisant le Structure DS décomposent très finement le matériel audiovisuel dans l'espace et le temps [\g{$\chi_1$ : autonomie}].
 Les \pc{Segments} ainsi constitués renvoient alors au premier des trois niveaux de modélisation de MPEG-7, à savoir \pc{ContentEntity} (CE), \pc{MediaProfile} (MP) et \pc{MediaInstance} (MI).
-Cette modélisation en niveau permet d'identifier les variations construites à partir d'un même matériel audiovisuel, de les regrouper et d'associer la plupart des informations au niveau supérieur (CE).
+Cette modélisation en niveaux permet d'identifier les variations construites à partir d'un même matériel audiovisuel, de les regrouper et d'associer la plupart des informations au niveau supérieur (CE).
 Ainsi, un CE peut regrouper plusieurs MP qui correspondent à un profil de transformation qui rassemble lui-même toutes les occurrences (MI) correspondant à ce profil.
 Une critique importante de ce système est de ne pas distinguer entre la nature des transformations effectuées sur le matériel original, et en particulier entre une transformation d'encodage et de montage.
 
-Ainsi, le CE vise plus à rassembler les informations communes à plusieurs variations de matériels audiovisuel que de modéliser un document ou un fragment documentaire portant une intention spécifique (voir la définition du document numérique section \ref{sec:docnum}).
+Ainsi, le CE vise plus à rassembler les informations communes à plusieurs variations de matériels audiovisuels que de modéliser un document ou un fragment documentaire portant une intention spécifique (voir la définition du document numérique section \ref{sec:docnum}).
 De même, un MP et ses MI visent simplement à identifier et gérer des variations d'un même matériel, sans pour autant le raccorder à un projet documentaire en construction.
-Les décompositions ou bien les variations identifiées avec MPEG-7 ne correspondent pas a priori à celle utilisées pendant la production pour organiser le travail ou bien sa présentation (structure documentaire auctoriale, voir \ref{sec:uc-sd}).
+Les décompositions ou bien les variations identifiées avec MPEG-7 ne correspondent pas a priori à celles utilisées pendant la production pour organiser le travail ou bien sa présentation (structure documentaire auctoriale, voir \ref{sec:uc-sd}).
 Or l'identification de cette structure première semble pourtant décisive quand il s'agit de réutiliser des fragments de documents dans de nouveaux contextes d'exploitation. 
 De notre point de vue, il ne suffit pas d'identifier des segments ou des variations pour les constituer comme des fragments automones s'intégrant à un document audiovisuel.
 
 En particulier, il peut être important de spécifier la grammaire documentaire d'un genre de document pour faciliter les manipulations de ses fragments. 
 De ce point de vue, MPEG-7 définit une classification par genre et permet de typer les \pc{Segments} suivant leur place dans la structure de présentation du contenu.
-Ces classifications peuvent être étendues par les utilisateurs mais aucune contraintes de composition n'est prévu, empêchant la modélisation d'une grammaire.
+Ces classifications peuvent être étendues par les utilisateurs mais aucune contrainte de composition n'est prévue, empêchant la modélisation d'une grammaire.
 L'usage de ces classifications par unité de présentation vise à faciliter le travail d'analyse du signal, notamment la reconnaissance optique des caractères (ROC).
 On retrouve ainsi l'esprit général de la norme qui consiste à opérer des décompositions a posteriori sur le matériel, et non à repérer des fragments documentaires qui ont porté l'intentionnalité de leur auteur pendant la production du document.
 Ainsi, on peut dire que MPEG-7 vise plus à documenter l'analyse, que la production audiovisuelle.\\
@@ -566,18 +565,18 @@ Ainsi, on peut dire que MPEG-7 vise plus à documenter l'analyse, que la product
 
 En tant que CE, chacun des \pc{Segment} d'une décomposition peut-être décrit par les schémas de descriptions et le schéma Semantic DS [\g{$\chi_2$ : réutilisabilité}].
 MPEG-7 proposent de nombreux descripteurs du matériel audio-visuel ainsi que des métadonnées sur le contexte de production.
-Cependant, ces métadonnées ne permettent pas de rendre compte de l'organisation de la production, des résultats intermédiaires produits, ainsi que des connaissances qui y sont fabriquées. 
+Cependant, ces métadonnées ne permettent pas de rendre compte de l'organisation de la production, des résultats intermédiaires produits, ainsi que des connaissances fabriquées. 
 Même si ces informations peuvent être associées à n'importe quel \pc{Segment}, il s'agit plus d'annoter l'objet audiovisuel fini, plutôt que de rendre compte de sa production.
 Les descripteurs, quant à eux, renseignent sur les caractéristiques du matériel en tant que signal (à encoder, à transmettre etc.) à partir duquel des algorithmes cherchent à reconnaître des objets signifiants.
 La reconnaissance automatique est une première étape, qui doit conduire à un étiquettage selon une sémantique propre à un contexte d'usage (une tâche et des utilisateurs).
-Dans le cas de MPEG-7, nous n'avons pas observé de systèmes capable de fournir des connaissances liées à la production audiovisuelle, mais sur d'autres domaines comme le sport ou la médecine.
+Dans le cas de MPEG-7, nous n'avons pas observé de système capable de fournir des connaissances liées à la production audiovisuelle, mais sur d'autres domaines comme le sport ou la médecine.
 
 Le schéma \pc{Semantic} esquisse une description visant des entités représentées dans le matériel audiovisuel (objet, évènement, lieux, agent) et esquisse ainsi une ouverture à des descriptions propres à un domaine.
 Les ontologies basées sur MPEG-7 s'attaquent largement à cette question avec diverses stratégies (voir \ref{sec:strats-domaine}). 
 Les stratégies de \pc{SmartWeb} et COMM consistant à modéliser la création de liens entre objets multimédias et connaissances d'un domaine sont les mieux formalisées et les plus génériques.
 Cette généricité, qui vient de l'intégration du module OIO de l'ontologie DOLCE, rend leur appropriation plus difficile par rapport à des approches favorisant l'intégration d'une partie d'ontologie générique ou bien d'une ontologie noyau.
 Il s'agit en quelque sorte de discuter du point de départ pour la construction d'ontologie avec l'alternative classique de \ciel{coller au problème, ou y plaquer un modèle} \parcite{Bachimont2004}.
-L'approche \e{ascendante} se concentre sur la modélisation du problème, quitte à le rendre trop complexe pour être opérationnaliser, alors que l'approche \e{descendante} tente d'appliquer un schéma conceptuel générique aux spécificités du problème.
+L'approche \e{ascendante} se concentre sur la modélisation du problème, quitte à le rendre trop complexe pour être opérationnalisé, alors que l'approche \e{descendante} tente d'appliquer un schéma conceptuel générique aux spécificités du problème.
 
 
 
@@ -595,12 +594,12 @@ Suite aux travaux du W3C Media Annotation Working Group (MAWG), \cite{Burger2011
 \end{figure}
 
 La modélisation repose sur les concepts de \pc{Collection}, \pc{MediaResource}, \pc{MediaFragment}, \pc{Track} et \pc{Image}, voir la Figure \ref{img:ma-model}.
-La décomposition des objets multimédia se fait donc par des fragments, que l'on peut ensuite décomposer en piste et en image.
+La décomposition des objets multimédia se fait donc par des fragments, que l'on peut ensuite décomposer en pistes et en images.
 Cette simplicité apparente, comparée aux approches de segmentation complexe de MPEG-7, cache en réalité l'utilisation d'une autre recommandation du W3C.
-La définition d'un MediaFragments peut se faire à partir de l'URI de son média source, où l'on ajoute un syntaxe de décomposition (\cite{Hausenblas2011}).
+La définition d'un MediaFragment peut se faire à partir de l'URI de son média source, où l'on ajoute un syntaxe de décomposition (\cite{Hausenblas2011}).
 Par exemple, l'url suivante \cd{http://www.example.com/example.ogv\#t=10,20} désigne le fragment temporel commençant à 10s. et finissant à 20s.
 La décomposition peut se faire selon une dimension spatiale, temporelle, en pointant une piste de la source, en pointant un autre fragment prélablement identifié, ou bien n'importe quelle combinaison de ces dimensions.
-Des informations techniques (encodage, durée, format etc.) peuvent également être associée aux ressources.
+Des informations techniques (encodage, durée, format etc.) peuvent également être associées aux ressources.
 
 En plus de ces classes, on trouve dans l'ontologie le concept d'\pc{Agent} (personne ou organisation), de \pc{Location} (lieu), de \pc{Genre} (le genre de programme suivant un dictionnaire spécialisé), de \pc{Rating} (permettant d'enregistrer les évaluations de lecteurs/spectateurs) et de \pc{TargetAudience} (indiquant le public visé par la ressource).
 Ces classes supplémentaires permettent d'ajouter des informations sur le contexte de création (qui a participé, où) et de faciliter la diffusion et la recherche de ressource (genre, note, public cible etc.).
@@ -652,17 +651,17 @@ Son objectif n'est pas l'exhaustivité de la représentation des objets audiovis
 
 \subsection*{Discussion}
 \addcontentsline{toc}{subsection}{Discussion}
-La modélisation des objets audiovisuels que nous avons spécifié dans notre cahier des charges (\ref{sec:cdc-av}) demande de distinguer les produits intermédiaires de la chaîne, afin de favoriser leur circulation et leur intégration dans d'autres chaînes de production [\g{$\chi_1$ : autonomie}].
+La modélisation des objets audiovisuels que nous avons spécifiée dans notre cahier des charges (\ref{sec:cdc-av}) demande de distinguer les produits intermédiaires de la chaîne, afin de favoriser leur circulation et leur intégration dans d'autres chaînes de production [\g{$\chi_1$ : autonomie}].
 Sur ce plan, MPEG-7 modélise les objets audiovisuels comme des matériaux audiovisuels que l'on décrit surtout selon des critères propres au signal et peu selon le point de vue de la production audiovisuelle.
-La gestion de ces matériaux s'opère alors en fonction de leur caractéristiques communes, différents niveaux permettant de les regrouper et de mettre en commun certaines informations. 
+La gestion de ces matériaux s'opère alors en fonction de leurs caractéristiques communes, différents niveaux permettant de les regrouper et de mettre en commun certaines informations. 
 Ainsi , cette modélisation évacue largement les questions de construction documentaire pour se concentrer sur les stratégies de description exogènes.
 Dans ce point de vue, toutes les transformations d'un matériel se valent, quelque soit l'effet sur le sens véhiculé par le segment audiovisuel. 
 De même, le typage des segments ne permet pas de représenter des contraintes de structuration documentaire.
 Les ontologies construites à partir de MPEG-7 partagent ces problèmes inhérents à l'approche de segmentation et de description de la norme.
 L'alignement a minima des modèles de l'audiovisuel proposée en \ref{sec:omr} montre une relative homogénéité des concepts, ce qui tend à indiquer qu'ils partagent  ce manque de considération des problématiques documentaires. 
 
-À l'inverse, les modèles de description \e{endogènes} que nous avons étudié modélisent les objets audiovisuels en devenir, et décrivent justement la structure documentaire auctoriale qui guidera également la production du matériel audiovisuel.
-Cette approche apparaît alors comme complémentaire par rapport aux modèles \e{exogènes}, dans le sens où la structure documentaire prévu devrait être associé et synchronisé au matériel audiovisuel effectivement produit.
+À l'inverse, les modèles de description \e{endogènes} que nous avons étudiés modélisent les objets audiovisuels en devenir, et décrivent justement la structure documentaire auctoriale qui guidera également la production du matériel audiovisuel.
+Cette approche apparaît alors comme complémentaire par rapport aux modèles \e{exogènes}, dans le sens où la structure documentaire prévue devrait être associée et synchronisée au matériel audiovisuel effectivement produit.
 On pourrait ainsi réaliser une modélisation dynamique de la production audiovisuelle.\\
 
 % :  / gestion des variations d'un segment de matériel, plutôt que d'un fragment porteur d'une intentionalité et s'articulant dans une structure documentaire / se conformant à une grammaire de genre 
@@ -673,7 +672,7 @@ La description de la structure en devenir de l'objet audiovisuel permet ainsi d'
 MPEG-7, et les ontologies qui le formalisent, se concentrent sur une description du signal, tout en associant des informations éparses sur le contexte de production.
 L'ouverture à une description sémantique présente dans MPEG-7 a été étendue dans certaines de ces ontologies afin de pouvoir intégrer des connaissances propres à un domaine.
 Cependant, ces stratégies d'intégration sont difficiles à appréhender car reposant sur des ontologies génériques. 
-Nous questionnons alors la pertinence de construire une ontologie de noyau qui serait moins complète et plus centrée sur les problématiques de la production audiovisuelle collaborative.
+Nous questionnons alors la pertinence de construire une ontologie noyau qui serait moins complète et plus centrée sur les problématiques de la production audiovisuelle collaborative.
 % MPEG-7 : des md associant quelques valeurs au matériel produit, mais pas de description de sa production / pas de connaissances propre à la chaîne de prod., mais des descripteurs du signal / la représentation de MPEG-7 pose des problèmes sur le plan syntaxique et sémantique, les ontologies basées sur MPEG-7 s'attaquent à ces problèmes avec différentes stratégies / les formalismes permettant d'intégrer les connaissances d'un domaine sont difficile à appréhender, et on peut se demander s'il ne serait pas plus pertinent de construire une ontologie de noyau, moins complète et centré sur nos besoins 
 
 

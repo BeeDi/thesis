@@ -1,7 +1,7 @@
 \newpage
 \section{Langages de représentation}\label{sec:mods}
 \e{
-  L'objectif de cette section est de présenter des langages de représentations qui permettent de structurer des documents textuels (\ref{sec:xml}) et de construire des systèmes de connaissances (SOC).
+  L'objectif de cette section est de présenter des langages de représentation qui permettent de structurer des documents textuels (\ref{sec:xml}) et de construire des systèmes de connaissances (SOC).
   Nous nous intéressons à deux types de SOC, les ontologies (\ref{sec:ln-onto}) et les vocabulaires structurés de type thésaurus (\ref{sec:thesaurus}).
   La vision du W3C joue un rôle fondamental dans la définition de ces langages et leur adoption en tant que standards par l'industrie et les communautés scientifiques engagées dans ces questions.
   L'idée d'un Web Sémantique, proposée par \cite{Berners-Lee2001}, constitue une nouvelle étape dans la manipulation automatique des données sur le Web, qui ajoute à l'objectif de représentation des structures, la formalisation de leur sémantique :} 
@@ -92,17 +92,17 @@ Dans cet exemple, dc:title correspond à l'élément désignant le titre courant
 Cette recommandation du W3C a été publiée en 2001, comme l'un des langages de schéma développé pour XML \parcite{Thompson2004}.
 Souvent appellé XSD en référence à son suffixe de fichier '.xsd', le langage offre de nombreuses fonctionnalités : 
 \begin{liste}
-  \item déclarer des imbrications (ordre et hiérarchie), des quantifications et des règles de nommage pour les éléments et attributs XML 
-  \item réutiliser des parties d'autres schémas grâce aux espaces de noms 
-  \item distinguer entre type simple (pas d'élément, ni d'attribut) ou des types complexes
-  \item la déclaration de types dérivés, en définissant des restrictions sur des types existants
+  \item Déclarer des imbrications (ordre et hiérarchie), des quantifications et des règles de nommage pour les éléments et attributs XML.
+  \item Réutiliser des parties d'autres schémas grâce aux espaces de noms.
+  \item Distinguer entre type simple (pas d'élément, ni d'attribut) ou des types complexes.
+  \item La déclaration de types dérivés, en définissant des restrictions sur des types existants.
 \end{liste}
 % This W3C recommendation was published in 2001 and is one of several xml schema languages\footnote{We can cite, the old and very simple \gui{Document Type Defintion}(DTD) as well as the major rival of XML Schema, namely \gui{Relax NG}.}. It is often called XSD in reference to its files suffix – '.xsd'.
 
 % XSD can define imbrication, quantification and naming rules for xml elements and attributes – in order to enable vocabulary and content model validation. XSD also supports namespace so parts of other schemas can be included or imported. 
 
 \paragraph{Type de données}
-Une des principales caractéristiques de XSD, et aussi une des plus critiqués, est l'utilisation de types de données (Datatype), qui peut s'appliquer sur les éléments ou les attributs pour contraindre le champ de valeur possible \parcite{Biron2004}.
+Une des principales caractéristiques de XSD, et aussi une des plus critiquées, est l'utilisation de types de données (Datatype), qui peut s'appliquer sur les éléments ou les attributs pour contraindre le champ de valeur possible \parcite{Biron2004}.
 Le problème soulevé étant que cette restriction ne peut se déclarer qu'à partir de la définition d'un type de données, soit par restriction, par liste de valeurs possibles, ou bien par union entre différents types de données.
 
 % But one of the main and most criticized characteristic of XSD is DataType validation.
@@ -201,7 +201,7 @@ Pour faciliter l'exploitation de ces ressources, RDF est doté d'une sémantique
 % Thus, such descriptions will foremost benefits to software agents which we'll be able to exploit, process and search into this web of linked data. 
 
 \paragraph{Syntaxe}
-L'annotation des ressources consistes à écrires des assertions sous la forme \e{Sujet --Prédicat--> Objet}.
+L'annotation des ressources consiste à écrire des assertions sous la forme \e{Sujet --Prédicat--> Objet}.
 Les sujets sont les ressources à annoter, les objets peuvent être soit une ressource, soit une valeur littérale.
 Plusieurs assertions forment un graphe orienté dans lequel chaque \e{sujet/objet} est un noeud, et les prédicats (propriétés) sont des liens étiquettés.
 RDF utilise les URI pour identifier ces ressources, propriétés et des valeurs littérales typées (par exemple, grâce aux types XSD).
@@ -222,16 +222,16 @@ L'exemple suivant annote la page Wikipédia du film \ciel{Hook} en précisant sa
 
 \paragraph{Grouper des ressources}
 Lorsqu'une même ressource est le sujet de plusieurs assertions, la syntaxe de RDF nous impose de créer des noeuds intermédiaires (\e{blank node}).
-De ce fait, ces noeuds ne sont pas référencé par une URI, mais utilise un système d'identification propre.
+De ce fait, ces noeuds ne sont pas référencés par une URI, mais utilise un système d'identification propre.
 
 Ces groupes de ressources peuvent être typés pour définir la manière dont ses membres sont organisés.
 Le type \cd{Collection} permet de définir des groupes clos (seul les membres cités sont compris dans le groupe), alors que le type \cd{Container} ne permet pas de clôturer l'appartenance à un groupe.
 Ce dernier type propose trois sous-types qui organisent leurs membres de manière distincte : 
 
 \begin{liste}
-  \item un sac (\cd{bag}) est un groupe non-ordonné qui peut contenir des doublons.
-  \item une séquence (\cd{seq}) est un groupe ordonné qui peut contenir des doublons. 
-  \item un type \cd{alt} est un groupe de valeur littérale ou de ressources alternatives.
+  \item Un sac (\cd{bag}) est un groupe non-ordonné qui peut contenir des doublons.
+  \item Une séquence (\cd{seq}) est un groupe ordonné qui peut contenir des doublons. 
+  \item Un type alternatif (\cd{alt}) est un groupe de valeur littérale ou de ressources alternatives.
 \end{liste}
 
 Par exemple, on peut déclarer une liste de noms alternatifs pour le titre du film \e{Hook} en utilisant le type \cd{alt} (anglais, français et le titre français du Canada) :
@@ -280,8 +280,8 @@ Les classes, comme les propriétés, sont hiérarchisées par la primitive \cd{r
 Une des particularités de \cd{rdfs:class}, comme de \cd{rdfs:property}, est de s'accepter comme des instances, ce qui explique leur présence dans la liste des classes et de propriétés.
 
 Les propriétés définissent des liens entre ressources, l'une étant le sujet de l'assertion, l'autre l'objet.
-La déclaration des propriétés utilise les propriétés \cd{rdfs:domain} et \cd{rdfs:range} pour contraindre la classe de ressources pouvant être utilisé comme sujet (le domaine) et objet d'une assertion (la portée).
-Remarquons également que les propriétés suivantes correspondent plus une documentation des vocabulaires construits par RDFS, qu'à une anntotation de ressources : \cd{rdfs:label}, \cd{rdfs:comment}, \cd{rdfs:seeAlso}, \cd{rdfs:isDefinedBy}.
+La déclaration des propriétés utilise les propriétés \cd{rdfs:domain} et \cd{rdfs:range} pour contraindre la classe de ressources pouvant être utilisée comme sujet (le domaine) et objet d'une assertion (la portée).
+Remarquons également que les propriétés suivantes correspondent plus à une documentation des vocabulaires construits par RDFS, qu'à une anntotation de ressources : \cd{rdfs:label}, \cd{rdfs:comment}, \cd{rdfs:seeAlso}, \cd{rdfs:isDefinedBy}.
 
 
 
@@ -323,11 +323,11 @@ Remarquons également que les propriétés suivantes correspondent plus une docu
 OWL est un langage de représentation des connaissances visant à construire des ontologies pour le Web \parcite{Bechhofer2004}.
 Le travail sur le langage a débuté en 2001 à partir des travaux sur DAML+OIL initiés conjointement par le \pc{Defense Advanced Research Projects Agency} (DARPA) et le le projet \pc{Information Society Technologies} (IST) de l'Union Européenne \parcite{Connolly2001}.
 
-OWL repose sur RDF et une syntaxe XML et définit ses primitives par extension des clases et propriétés RDF/RDFS, notamment en ajoutant des contraintes de cardinalité ou de comparaison sur les déclarations de classes et de propriétés.
+OWL repose sur RDF et une syntaxe XML et définit ses primitives par extension des classes et propriétés RDF/RDFS, notamment en ajoutant des contraintes de cardinalité ou de comparaison sur les déclarations de classes et de propriétés.
 En comparaison de RDF/RDFS, dont la sémantique se rapproche de celle des graphes conceptuels, OWL est doté d'une sémantique en logique de description.
 OWL permet ainsi de développer des ontologies informatiques exploitables par des outils de raisonnement.
 Cependant, afin de couvrir un plus grand nombre de cas d'usage, OWL définit trois sous-langages dont l'expressivité, et donc l'efficacité computationnelle, varie. 
-Chaque sous-langage est un sous-ensemble de ses prédécesseur, ce qui implique que toute représentation en \pc{OWL Lite} est valide en \pc{OWL-DL}, et de même entre \pc{OWL-DL} et \pc{OWL Full}.
+Chaque sous-langage est un sous-ensemble de ses prédécesseurs, ce qui implique que toute représentation en \pc{OWL Lite} est valide en \pc{OWL-DL}, et de même entre \pc{OWL-DL} et \pc{OWL Full}.
 
 \begin{liste}
   \item \pc{OWL Full} a été conçu comme un sur-ensemble de RDF/RDFS de manière à être le plus compatible avec lui, au prix de la décidabilité.
@@ -382,14 +382,14 @@ On distingue en particulier, les axiomes qui permettent de déclarer une nouvell
     \caption{Axiomes de classe en OWL\label{tab:owl-class}}
 \end{table}
 
-OWL distingue quatre types de propriétés, qui doivent être mutuellement disjointe lorsqu'on utilise OWL-DL :
+OWL distingue quatre types de propriétés, qui doivent être mutuellement disjointes lorsqu'on utilise OWL-DL :
 \begin{liste}
 	\item \cd{owl:DatatypeProperty} associe des valeurs littérales à une instance.
 	\item \cd{owl:ObjectProperty} définit des relations entre des instances.
 	\item \cd{owl:AnnotationProperty} associe n'importe quelle valeur ou ressource à une instance dans un but de documentation de l'ontologie. 
   En effet, ces propriétés ne seront pas traités par les raisonneurs.
   En OWL-DL, il est impossible de définir des restrictions ou des spécialisations sur ces propriétés.
-	\item \cd{owl:OntologyProperty} est utilisé pour l'importation d'ontologie et documenter le développement (par version) de l'ontologie.
+	\item \cd{owl:OntologyProperty} est utilisée pour l'importation d'ontologie et documenter le développement (par version) de l'ontologie.
 	En OWL-DL, ces propriétés partagent les mêmes contraintes que les propriétés d'annotation.
 \end{liste}
 
@@ -408,7 +408,7 @@ Ces propriétés sont définies par l'intermédiaire d'axiomes RDFS, pour décla
 
 Les propriétés d'annotation utilisées sont celles de RDFS, plus la propriété \cd{owl:versionInfo} qui permet de documenter la version actuelle de l'ontologie.
 Les propriétés d'ontologies (\cd{owl:priorVersion}, \cd{owl:backwardCompatibleWith}, \cd{owl:incompatibleWith}) permettent de documenter l'ontologie en précisant sa relation avec d'autres versions (représentées par des instances de instance de \cd{owl:Ontology}).
-Les propriétés \cd{owl:DeprecatedClass} et \cd{owl:DeprecatedProperty} désignent les classes ou propriétés qui sont maintenues dans l'ontologie pour des raisons de compatibilité, mais ne sont pas susceptible d'être utilisé dans les futures versions.
+Les propriétés \cd{owl:DeprecatedClass} et \cd{owl:DeprecatedProperty} désignent les classes ou propriétés qui sont maintenues dans l'ontologie pour des raisons de compatibilité, mais ne sont pas susceptibles d'être utilisées dans les futures versions.
 
 % \paragraph{Property declaration}
 % We take as an example the definition of creation relationships on two different level of specialisation. 
@@ -461,7 +461,7 @@ Les propriétés \cd{owl:DeprecatedClass} et \cd{owl:DeprecatedProperty} désign
 % \paragraph{Individual}
 Les ontologies OWL peuvent également contenir des individus, c'est-à-dire des instances de classes, décrits par l'usage de propriétés.
 Ces individus sont identifiés par des URI, comme dans RDF/RDFS. 
-Trois axiomes OWL permettent de définir des individus par leur relations aux autres: 
+Trois axiomes OWL permettent de définir des individus par leurs relations aux autres : 
 \begin{liste}
   \item \cd{owl:sameAs} déclare deux URI comme faisant référence au même individu, permettant ainsi de fusionner leur définition et les conclusions qu'on a pu en tirer.
   \item \cd{owl:differentFrom} déclare explicitement deux URI comme se référant à des individus distincts.
@@ -542,21 +542,21 @@ On notera que l'objectif de publication semble pousser vers une représentation 
 \paragraph{Concept et Etiquette}
 SKOS centre son modèle sur les concepts (\cd{skos:Concept}) et considère les étiquettes comme des propriétés de ces derniers. 
 On distingue trois types d'étiquettes: 
-\begin{itemize} 
-	\item les étiquettes préférées (\cd{skos:prefLabel}) qui sont uniques par langue et servent de référence.
-	\item les étiquettes alternatives (\cd{skos:altLabel}) qui servent de synonymes pour l'étiquette de référence. 
-	\item les étiquettes cachées (\cd{skos:hiddenLabel}) qui servent à la récupération d'erreurs de frappes les plus courantes. 
-\end{itemize}
+\begin{liste} 
+	\item Les étiquettes préférées (\cd{skos:prefLabel}) qui sont uniques par langue et servent de référence.
+	\item Les étiquettes alternatives (\cd{skos:altLabel}) qui servent de synonymes pour l'étiquette de référence. 
+	\item Les étiquettes cachées (\cd{skos:hiddenLabel}) qui servent à la récupération d'erreurs de frappes les plus courantes. 
+\end{liste}
 Chacune de ces propriétés est formalisée comme une instance de \cd{owl:Anno\-tationProperty}, ce qui permet de l'attacher dans les faits à tout type d'éléments ontologiques, et pas seulement à des concepts. 
 Les valeurs lexicales portées par ces étiquettes sont formalisées comme des \cd{rdf:PlainLiteral}, ce qui permet de spécifier la langue et l'alphabet utilisés. 
 Par exemple, la chaîne "higashi"@ja-Latn correspond à un mot japonais écrit avec l'alphabet latin.
 
 \paragraph{Documentation}
 Différentes notes de documentation existent afin de :
-\begin{itemize}
-	\item définir un concept (\cd{skos:definition}), expliciter son contexte d'usage (\cd{skos:scopeNote}) ou donner des exemples (\cd{skos:example})
-	\item spécifier l'historique de sa signification (\cd{skos:historyNote}), les changements effectués (\cd{skos:changeNote}) ou à faire (\cd{skos:editorialNote})
-\end{itemize}
+\begin{liste}
+	\item Définir un concept (\cd{skos:definition}), expliciter son contexte d'usage (\cd{skos:scopeNote}) ou donner des exemples (\cd{skos:example}).
+	\item Spécifier l'historique de sa signification (\cd{skos:historyNote}), les changements effectués (\cd{skos:changeNote}) ou à faire (\cd{skos:editorialNote}).
+\end{liste}
 L'ensemble de ces notes est défini comme une spécialisation de \cd{skos:note}, formalisé comme une \cd{owl:annotationProperty}. 
 De cette manière, les notes peuvent servir à porter de la documentation écrite (comme les étiquettes), pointer vers des ressources RDF ou des documents identifiés par une URI. 
 Cela permet ainsi de prévoir l'extension de ces notes à des besoins plus spécifiques.
@@ -564,10 +564,10 @@ Cela permet ainsi de prévoir l'extension de ces notes à des besoins plus spéc
 
 \paragraph{Groupes et relations entre Concepts}
 Les concepts peuvent être regroupés dans des schémas conceptuels (\cd{skos:\-ConceptScheme} et relation \cd{skos:inScheme}) et structurés par différentes relations:
-\begin{itemize}
-	\item des relations de structuration hiérarchiques (\cd{skos:broader}, \cd{skos:na\-rrower}) ou associatives (\cd{skos:related})
-	\item des relations de correspondances entre concepts de schémas différents, soit une relation d'équivalence exacte (\cd{skos:exactMatch}), une équivalence approximative (\cd{skos:closeMatch}), des relations hiérarchiques (\cd{skos:broadMatch}, \cd{skos:narrowMatch}) ou associative \cd{skos:rela\-ted\-Match}).
-\end{itemize}
+\begin{liste}
+	\item Des relations de structuration hiérarchiques (\cd{skos:broader}, \cd{skos:na\-rrower}) ou associatives (\cd{skos:related})
+	\item Des relations de correspondances entre concepts de schémas différents, soit une relation d'équivalence exacte (\cd{skos:exactMatch}), une équivalence approximative (\cd{skos:closeMatch}), des relations hiérarchiques (\cd{skos:broadMatch}, \cd{skos:narrowMatch}) ou associative \cd{skos:rela\-ted\-Match}).
+\end{liste}
 
 
 
@@ -663,9 +663,9 @@ T-M-C-S  rdf:type skosxl:Label ;
 
 Dans SKOS, la gestion de plusieurs jargons métiers dans une même conceptualisation [\g{$\delta_1$ : multi-jargon}] est rendue difficile par la caractérisation simple des termes par la langue. 
 Ainsi, même si on accroche plusieurs étiquettes au même concept, on ne sait pas les sélectionner pour les présenter à l'une ou l'autre communauté. 
-Cela implique un dédoublement des concepts et donc des schémas conceptuels nécessaires (un par communauté).%, voir figure \ref{fig:skos}. 
+Cela implique un dédoublement des concepts et donc des schémas conceptuels nécessaires (un par communauté). %, voir figure \ref{fig:skos}. 
 %implique une représentation plus fine par rapport à SKOS ce qui 
-Avec le découplage terme-concept de SKOS-XL, on peut gérer terme et concept de manière séparée sans pour autant avoir de primitives spécifiques pour regrouper les termes par jargon ou code d'écriture.%, voir figure \ref{fig:skosxl}. 
+Avec le découplage terme-concept de SKOS-XL, on peut gérer terme et concept de manière séparée sans pour autant avoir de primitives spécifiques pour regrouper les termes par jargon ou code d'écriture. %, voir figure \ref{fig:skosxl}. 
 Une solution consisterait à regrouper les termes dans des ConceptScheme (SKOS-XL l'autorise).
 Les ConceptScheme serviraient alors à la fois à regrouper les concepts (AV-Scheme) et les termes spécifiques aux organisations (RTBF-Scheme, VRT-Scheme). 
 Cependant, si cette modélisation permet de gérer vocabulaire métier et conceptualisation de manière séparée c'est au prix d'un flottement sur la sémantique de ConceptScheme. 

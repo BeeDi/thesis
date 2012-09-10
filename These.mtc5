@@ -1,34 +1,39 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.1}Synthèse de l\kern 0.1em'état de l\kern 0.1em'art et positionnement}{\reset@font\mtcSfont 95}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.2}Approche de description contributive et continue}{\reset@font\mtcSfont 98}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.2.1}Stratégie de description dans les productions audiovisuelles}{\reset@font\mtcSSfont 98}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.2.2}Synthèse des scénarios d\kern 0.1em'usages}{\reset@font\mtcSSfont 100}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.2.3}Architecture du projet MediaMap}{\reset@font\mtcSSfont 103}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.3}Modélisation conceptuelle}{\reset@font\mtcSfont 104}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.3.1}Axes de modélisation}{\reset@font\mtcSSfont 104}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.3.2}Situations typiques des productions audiovisuelles}{\reset@font\mtcSSfont 106}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.1}Articulation des composantes d\kern 0.1em'un document audiovisuel}{\reset@font\mtcSSSfont 106}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Sélectionner une portion de ressource}{\reset@font\mtcPfont 109}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Lister les éléments utilisés dans un assemblage}{\reset@font\mtcPfont 110}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode L\kern 0.1em'unité plan et sa décomposition en sous-plans et éléments filmés}{\reset@font\mtcPfont 111}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Prise de vue et sélection de plan}{\reset@font\mtcPfont 112}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Attacher des connaissances au document audiovisuel}{\reset@font\mtcPfont 112}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Évolution de la modélisation pendant la production}{\reset@font\mtcPfont 112}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.2}Description par l\kern 0.1em'écriture filmique}{\reset@font\mtcSSSfont 114}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Valeurs d\kern 0.1em'attributs et listes d\kern 0.1em'autorités}{\reset@font\mtcPfont 115}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Exemple de description de plan complexe}{\reset@font\mtcPfont 115}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Une description, des annotations}{\reset@font\mtcPfont 117}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.3}Hiérarchie des tâches dans un projet de production}{\reset@font\mtcSSSfont 117}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Structure ontologique}{\reset@font\mtcPfont 117}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Relations avec d\kern 0.1em'autres concepts}{\reset@font\mtcPfont 118}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.4}Les contributeurs et leur engagement dans un projet de production}{\reset@font\mtcSSSfont 120}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Agent et compétences}{\reset@font\mtcPfont 120}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Engagement dans un projet de production}{\reset@font\mtcPfont 120}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Droits et responsabilités}{\reset@font\mtcPfont 121}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Structure ontologique et relations avec d\kern 0.1em'autres concepts}{\reset@font\mtcPfont 121}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.5}Adaptation de la forme d\kern 0.1em'expression des concepts}{\reset@font\mtcSSSfont 123}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Réaliser l\kern 0.1em'adaptation : scénario d\kern 0.1em'usage}{\reset@font\mtcPfont 125}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.6}Conceptualisation et bases de connaissances}{\reset@font\mtcSSSfont 126}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Spécialisation d\kern 0.1em'une conceptualisation}{\reset@font\mtcPfont 127}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Terminologie et la documentation}{\reset@font\mtcPfont 127}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Constitution d\kern 0.1em'un profil}{\reset@font\mtcPfont 128}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Échanges pendant le projet de production}{\reset@font\mtcPfont 129}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.1}Synthèse de l\kern 0.1em'état de l\kern 0.1em'art et positionnement}{\reset@font\mtcSfont 108}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.2}Approche de description contributive et continue}{\reset@font\mtcSfont 111}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.2.1}Stratégie de description dans les productions audiovisuelles}{\reset@font\mtcSSfont 111}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.2.2}Synthèse des scénarios d\kern 0.1em'usages}{\reset@font\mtcSSfont 114}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.3}Modélisation conceptuelle}{\reset@font\mtcSfont 118}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.3.1}Axes de modélisation}{\reset@font\mtcSSfont 118}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.3.2}Situations typiques des productions audiovisuelles}{\reset@font\mtcSSfont 119}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.1}Articulation des composantes d\kern 0.1em'un document audiovisuel ($\alpha _2$)}{\reset@font\mtcSSSfont 120}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Sélectionner une portion de ressource}{\reset@font\mtcPfont 123}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Lister les éléments utilisés dans un assemblage}{\reset@font\mtcPfont 123}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode L\kern 0.1em'unité plan et sa décomposition en sous-plans et éléments filmés}{\reset@font\mtcPfont 125}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Prise de vue et sélection de plan}{\reset@font\mtcPfont 126}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Attacher des connaissances au document audiovisuel}{\reset@font\mtcPfont 126}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Évolution de la modélisation pendant la production}{\reset@font\mtcPfont 127}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.2}Description par l\kern 0.1em'écriture filmique ($\alpha _2d$)}{\reset@font\mtcSSSfont 129}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Valeurs d\kern 0.1em'attributs et listes d\kern 0.1em'autorités}{\reset@font\mtcPfont 130}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Exemple de description de plan complexe}{\reset@font\mtcPfont 130}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Une description, des annotations}{\reset@font\mtcPfont 131}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.3}Hiérarchie des tâches dans un projet de production ($\alpha _1a$)}{\reset@font\mtcSSSfont 131}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Structure ontologique}{\reset@font\mtcPfont 132}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Relations avec d\kern 0.1em'autres concepts}{\reset@font\mtcPfont 132}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.3.2.4}Les contributeurs et leur engagement dans un projet de production ($\alpha _1b$)}{\reset@font\mtcSSSfont 134}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Agent et compétences}{\reset@font\mtcPfont 134}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Engagement dans un projet de production}{\reset@font\mtcPfont 135}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Droits et responsabilités}{\reset@font\mtcPfont 136}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Structure ontologique et relations avec d\kern 0.1em'autres concepts}{\reset@font\mtcPfont 137}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {V.4}Mise en oeuvre : documentation et instanciation}{\reset@font\mtcSfont 138}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.4.1}Adaptation de la forme d\kern 0.1em'expression des concepts ($\beta _2$)}{\reset@font\mtcSSfont 138}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Réaliser l\kern 0.1em'adaptation : scénario d\kern 0.1em'usage}{\reset@font\mtcPfont 140}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.4.2}Conceptualisation et bases de connaissances ($\beta _1$)}{\reset@font\mtcSSfont 142}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Spécialisation d\kern 0.1em'une conceptualisation}{\reset@font\mtcPfont 143}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Terminologie et la documentation}{\reset@font\mtcPfont 143}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Constitution d\kern 0.1em'un profil}{\reset@font\mtcPfont 144}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Échanges pendant le projet de production}{\reset@font\mtcPfont 145}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {V.4.3}Opérationnalisation}{\reset@font\mtcSSfont 145}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.4.3.1}Choix d\kern 0.1em'un langage}{\reset@font\mtcSSSfont 145}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.4.3.2}Concept definition}{\reset@font\mtcSSSfont 146}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.4.3.3}Relation and Attribute definition}{\reset@font\mtcSSSfont 146}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.4.3.4}Alternative Term Formalization}{\reset@font\mtcSSSfont 147}}

@@ -7,22 +7,22 @@ Nous abordons maintenant les méthodes de construction d'ontologies.
 \citeauthor{Uschold1996} ont défini une méthode de construction à partir de leur expérience de développement d'ontologies en entreprises. 
 Elle se décompose en quatre étapes :
 \begin{listenum}
-	\item une phase de \g{conception} qui vise à identifier le domaine concerné, le but et la porté de l'ontologie.
-	\item une phase de \g{construction} qui se décompose en trois étapes ; définir les concepts clés et les relations entre ces concepts ; expliciter la représentation de la conceptualisation dans un langage formel ; intégrer des connaissances d'autres ontologies.
-	\item une phase d'\g{évaluation} de l'ontologie construite.
-	\item une phase de \g{documentation} qui doit expliciter les décisions effectuées aux étapes précédentes afin de faciliter la réutilisation de l'ontologie.
+	\item Une phase de \g{conception} qui vise à identifier le domaine concerné, le but et la portée de l'ontologie.
+	\item Une phase de \g{construction} qui se décompose en trois étapes ; définir les concepts clés et les relations entre ces concepts ; expliciter la représentation de la conceptualisation dans un langage formel ; intégrer des connaissances d'autres ontologies.
+	\item Une phase d'\g{évaluation} de l'ontologie construite.
+	\item Une phase de \g{documentation} qui doit expliciter les décisions effectuées aux étapes précédentes afin de faciliter la réutilisation de l'ontologie.
 \end{listenum}
 
 
 \paragraph{Methontology}
 La méthode proposée par le Laboratoire d'Intelligence Artificielle (LAI) de l'université Polytechnique de Madrid a pour particularité d'intégrer le développement de l'ontologie à une méthodologie de gestion de projet \parcite{Fernandez1997, Blazquez1998}. La méthodologie distingue trois types d'activités se déroulant en parallèle, et dont les deux premières servent à soutenir la construction de l'ontologie :
 \begin{liste}
-	\item les activités de \g{gestion de projet}, notamment la planification avant-projet puis le \e{contrôle de la qualité} des résultats produits. 
+	\item Les activités de \g{gestion de projet}, notamment la planification avant-projet puis le \e{contrôle de la qualité} des résultats produits. 
 	
-	\item les activités de \g{support} concernent l'\e{acquisition} des connaissances du domaine ; l'\e{intégration} de connaissances d'autres ontologies ; la \e{documentation} de l'ontologie et de sa production ; la \e{gestion de version} des résultats produits ; l'\e{évaluation} technique de la construction de l'ontologie ainsi que de sa documentation. 
+	\item Les activités de \g{support} qui concernent l'\e{acquisition} des connaissances du domaine ; l'\e{intégration} de connaissances d'autres ontologies ; la \e{documentation} de l'ontologie et de sa production ; la \e{gestion de version} des résultats produits ; l'\e{évaluation} technique de la construction de l'ontologie ainsi que de sa documentation. 
 
-	\item les activités de \g{développement technique} qui permettent de construire l'ontologie par étape. 
-	Dans un premier temps, la \e{spécification} définit l'objectif de l'ontologie, les applications et les utilisateurs concernés ; puis la \e{conceptualisation} structure les connaissances du domaine, qui sont ensuite formalisé (étape de \e{formalisation}) et enfin représenté dans un langage informatique (étape d'\e{implémentation}). La séquence se poursuit par une étape de \e{maintenance}.
+	\item Les activités de \g{développement technique} qui permettent de construire l'ontologie par étape. 
+	Dans un premier temps, la \e{spécification} définit l'objectif de l'ontologie, les applications et les utilisateurs concernés ; puis la \e{conceptualisation} structure les connaissances du domaine, qui sont ensuite formalisées (étape de \e{formalisation}) et enfin représentées dans un langage informatique (étape d'\e{implémentation}). La séquence se poursuit par une étape de \e{maintenance}.
 \end{liste}
 
 
@@ -38,7 +38,7 @@ La méthode repose sur trois étapes successives qui aboutissent à une ontologi
 % \begin{liste}
 Le point de départ de la méthodologie est constitué d'expressions linguistiques (signifiant) issues du domaine considéré.
 L'intérêt de disposer d'un tel ensemble de traces linguistiques est qu'elles servent à exprimer des concepts (signifiés) ou des connaissances sur le monde. 
-Ainsi, on se retrouve avec un corpus de candidats-termes dont la signification peut être source d'ambiguïtés et dont l'on cherche à clarifier l'interprétation.\\
+Ainsi, on se retrouve avec un corpus de candidats-termes dont la signification peut être source d'ambiguïtés et dont on cherche à clarifier l'interprétation.\\
 
 \g{[1.]} La première étape de cette méthode (aussi appelée \e{normalisation sémantique}) consiste à établir un \g{engagement sémantique}  qui précise la manière de mener l'interprétation des candidats-termes et de construire une première structure de connaissances. 
 Pour cela, on fixe d'abord un contexte de référence, la tâche ou le problème qui a poussé à l'élaboration de l'ontologie, qui permet de cadrer l'interprétation des candidats-termes.
@@ -49,12 +49,12 @@ Ensuite, pour préciser l'interprétation on s'appuie sur la sémantique différ
 	La méthodologie que nous proposons ici repose sur l'organisation générale des unités en un réseau d'identités et de différences.
 	Ce sont les propriétés structurelles de ce réseau qui permettent de contraindre l'interprétation des unités définies dans le réseau : la position d'une unité dans le réseau prescrit comment la comprendre et lui prescrit une signification qui pourra dès lors lui être associée, quel que soit le contexte où elle se rencontre.} (\cite[p.139]{bachimont:icc})
 
-Cette caractérisation des notions par leur voisinage repose sur quatres relations à expliciter : 
+Cette caractérisation des notions par leur voisinage repose sur quatre relations à expliciter : 
 \begin{liste}
-	\item la \e{communauté avec le parent} (similarity with parent) : pourquoi la notion hérite des proprités de son parent.
-	\item la \e{différence avec le parent} (difference with parent) : en quoi la notion est différente de son parent.
-	\item la \e{différence avec les soeurs} (difference with siblings) : en quoi un notion est différentes de ses notions soeurs.
-	\item la \e{communauté avec les soeurs} (similarity with siblings) : quelle est la propriété que partage les notion soeurs -- dont on distingue plusieurs valeurs exclusives, une par soeur.\\ 		
+	\item la \gui{communauté avec le parent} (\ciel{similarity with parent}) : pourquoi la notion hérite des proprités de son parent.
+	\item la \gui{différence avec le parent} (\ciel{difference with parent}) : en quoi la notion est différente de son parent.
+	\item la \gui{différence avec les soeurs} (\ciel{difference with siblings}) : en quoi un notion est différente de ses notions soeurs.
+	\item la \gui{communauté avec les soeurs} (\ciel{similarity with siblings}) : quelle est la propriété que partagent les notion soeurs -- dont on distingue plusieurs valeurs exclusives, une par soeur.\\ 		
 \end{liste}
 % \end{liste}
 
@@ -95,12 +95,12 @@ Nous obtenons une \g{ontologie computationelle} qui est une version de l'ontolog
 
 \subsection{La validation en Ingénierie des Connaissances}\label{sec:valid-ic}
 En suivant l'analyse proposée par \cite{Bachimont2004}, il en découle que  l'Ingénierie des Connaissances (IC) \ciel{exprime les connaissances d'un domaine dans un langage de modélisation et l'opérationnalise en un système}. 
-En d'autres termes, la modélisation de l'IC porte sur les concepts utilisés par les gens de ce domaine pour penser et établir des connaissances sur le monde, mais pas directement sur le monde.
+En d'autres termes, la modélisation de l'IC porte sur les concepts utilisés par les membres de ce domaine pour penser et établir des connaissances sur le monde, mais pas directement sur le monde.
 Ainsi, les modèles de l'IC n'ont pas pour vocation à \ciel{prédire quoi que ce soit sur le monde ni sur la connaissance}, mais plutôt d'\ciel{instrumenter le travail intellectuel, l'exercice de la pensée, le travail de la connaissance}. 
 Dans cette perspective, \citeauthor{Bachimont2004} nous propose de théoriser l'IC comme \ciel{une ingénierie des inscriptions numériques des connaissances qui vise à instrumenter le travail cognitif associé à ces inscriptions}. 
         
 Les inscriptions possèdent une double dimension ; \e{matérielle} (et donc manipulable par des techniques de calcul logique) ; \e{sémiotique} (et donc interprétable selon des conventions propres à une situation d'usage).  
-En d'autres termes, le systèmes d'IC permet d'agir de manière prédictible sur les inscriptions de connaissances, ces actions produisant de nouvelles inscriptions qui donnent matière à penser à l'utilisateur. 
+En d'autres termes, le système d'IC permet d'agir de manière prédictible sur les inscriptions de connaissances, ces actions produisant de nouvelles inscriptions qui donnent matière à penser à l'utilisateur. 
         
 Il y a donc plusieurs éléments à valider en IC, les calculs qui seront faits sur les inscriptions (on teste le comportement du système informatique) puis l'interprétation de ces inscriptions (on évalue le gain apporté par le système et les inscriptions qu'il fournit à l'utilisateur selon une situation d'usage). 
 La modélisation prise en charge par l'IC ne porte donc ni sur le monde, ni sur l'activité cognitive et ne peut être validée uniquement par le formalisme de ses inscriptions. 
@@ -117,7 +117,7 @@ Les inscriptions de connaissances doivent être considérées sous deux angles :
 
 
 
-\subsection*{Discussion}
+\subsection*{Discussion sur la méthodologie suivie}
 \addcontentsline{toc}{subsection}{Discussion}
 % pourquoi on choisit celle de BB, et pourquoi on ne l'utilise pas globalement, mais seulement localement sur des patrons d'utilisation précis.
 
@@ -128,18 +128,18 @@ Il faut cependant remarquer que nous avons écarté les approches d'acquisition 
 Dans cette approche, l'analyse linguistique d'un corpus permet de repérer des candidats-termes (\pc{Syntex}), d'effectuer des regroupements de contexte (\pc{Upery}) et d'identifier des relations (\pc{Yakwa}) afin d'accompagner la modélisation conceptuelle.
 Or, dans notre contexte de travail, les documents professionnels qui décrivent en détails la production audiovisuelle sont rares (peu d'organisation ont les ressources de les produire) et constituent des ressources de valeur auquelles il est difficile d'avoir accès. 
 De plus, la notion de document audiovisuel est largement absente des ouvrages généralistes, ce qui fonde précisément l'intérêt de notre travail de recherche.
-\citeauthor{Uschold1996} proposent point de vue global sur le processus de construction d'ontologie, qui reste un point de référence dans le domaine.
+\citeauthor{Uschold1996} proposent un point de vue global sur le processus de construction d'ontologie, qui reste un point de référence dans le domaine.
 L'approche de \pc{Methontology} clarifie cependant le déroulement de la construction et s'efforce de l'intégrer dans une vision de gestion de projet assez exhaustive. 
 Si cette vision est intéressante, il n'est pas forcément possible de l'appliquer telle quelle en pratique, du fait de contraintes spécifiques d'un projet.
 Par ailleurs, \pc{Archonte} détaille une méthode de formalisation logique qui permet de positionner la conceptualisation sur le plan sémantique. 
 De ce fait, elle précise la manière de formaliser une conceptualisation et peut s'intégrer de manière complémentaire aux autres méthodes exposées.
 
-Dans notre cas, nous avons suivi une méthodologie \e{ad-hoc}, nécessaire pour suivre les contraintes d'un projet de recherche et développement impliquant de multiple partenaires.
+Dans notre cas, nous avons suivi une méthodologie \e{ad-hoc}, nécessaire pour suivre les contraintes d'un projet de recherche et développement impliquant de multiples partenaires.
 Les aspects de gestion de projet (tels que décrits dans \pc{Methontology}) étaient donc largement assujetis à l'avancement du projet MediaMap.
 De même, la spécification et l'acquisition des connaissances et la conceptualisation reposent principalement sur un dialogue avec des experts du domaine (dans le cas du projet MediaMap ce fût principalement les membres de la RTBF et de la VRT) dans le cadre de réunions générales et de séminaires plus focalisés.
 Les autres aspects de la construction de l'ontologie ont été réalisés par les membres de l'équipe de recherche ICI, en s'inspirant des séquences de développement technique proposées par \pc{Methontology}.
 
-Sur le plan sémantique, l'étendue de notre modélisation nous pousse à introduire des concepts de haut-niveau afin d'articuler diverses connaissances se rapportant à la production audiovisuelle (l'organisation du processus, ses contributeurs, ses résultats, et leur description par un vocabulaire professionnel et compréhensible par des amateur).
+Sur le plan sémantique, l'étendue de notre modélisation nous pousse à introduire des concepts de haut-niveau afin d'articuler diverses connaissances se rapportant à la production audiovisuelle (l'organisation du processus, ses contributeurs, ses résultats, et leur description par un vocabulaire professionnel et compréhensible par des amateurs).
 Ces ontologies génériques de haut-niveau proposent des fondements théoriques important et des patrons de conception détaillés (au sens de \cite{Isaac2005}) pour modéliser certaines situations. 
 On pense par exemple, au patron \ciel{Description \& Situations} de l'ontologie DOLCE \parcite{Gangemi2005}. 
 Pour autant, la modélisation ne doit pas perdre de vue notre perspective applicative, nécessaire à l'adoption et la compréhension du modèle par des utilisateurs du domaine.
