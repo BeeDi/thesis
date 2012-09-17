@@ -78,7 +78,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\part*{État de l'Art}
+\part*{État de l'art}
+\addcontentsline{toc}{part}{État de l'art}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{CONTENU/1-analyse/0-cdc}
 \input{CONTENU/1-analyse/1-ontologie}
@@ -105,7 +106,8 @@
 \addcontentsline{toc}{part}{Contribution}
 \input{CONTENU/2-contrib/1-approche}
 \input{CONTENU/2-contrib/2a-concepts}
-\input{CONTENU/3-disc/3-meo}
+\input{CONTENU/2-contrib/2b-concepts}
+\input{CONTENU/2-contrib/3-meo}
 
 
 % % \cleardoublepage
@@ -134,6 +136,12 @@
 \chapter*{Conclusion}\label{chap:cc}
 \addcontentsline{toc}{chapter}{Conclusion}
 
+
+\appendix
+\part*{Annexes}
+\rehead{\headingsf\scshape Annexe~\thechapter}
+\noappendicestocpagenum
+\addappheadtotoc
 \input{CONTENU/3-disc/5-annexes}
 % \chapter{}\label{c:}
 % \section{}\label{s:}
@@ -167,55 +175,7 @@
 
 % \cleardoublepage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \chapter[Supports, outils et espaces --- Les mutations des opérations lectoriales]{Supports, outils et espaces\\\scriptsize{Les mutations des opérations lectoriales}}\label{a:hist}
-% \input{CONTENU/A2.HIST/H0}
-% \input{CONTENU/A2.HIST/H1}
-% \input{CONTENU/A2.HIST/H2}
-% \input{CONTENU/A2.HIST/H3}
-% \input{CONTENU/A2.HIST/H4}
-% \input{CONTENU/A2.HIST/H5}
 
-% \cleardoublepage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \chapter{Fragments pertinents issus des entretiens avec des lecteurs savants}\label{a:preint}
-% \input{CONTENU/A3.PREINT.LEFTOVERS/0}
-
-% \cleardoublepage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \input{CONTENU/A4.SC01/QuestionnaireSC01} % → Les questions
-
-% % → Quelques macros pour la structuration des questions
-% \newcommand{\questionnaireSCUN}[1]{\section{#1}}
-% \newcommand{\sectionquestionnaire}[1]{\subsection*{#1}}
-% \newcommand{\question}[1]{\par\bigskip\textbf{#1}\par}
-% \newcommand{\sousquestion}[1]{\par\medskip\textbf{\textcolor[rgb]{0.0,0.0,0.0}{--- \textbf{\textit{#1}}}}\par} % parcol = 0.73
-% \newcommand{\reponse}[1]{\ignorespaces#1}
-% \newcommand{\poimp}[1]{\bigskip\textsc{\textbf{#1}}\par}
-
-% \chapter[Questionnaires de retour d'utilisation]{Questionnaires de retour d'utilisation\\{\scriptsize Expérience : «commentaire composé multimédia»}}\label{a:sc01}
-
-% \ita{Note 1 : les réponses des étudiants sont rapportées sans intervention de notre part sur l'orthographe ou la syntaxe.}
-
-% \ita{Note 2 : le prototype a été présenté aux étudiants sous le nom de «Verena».}
-
-% \questionnaireSCUN{Étudiant \as}\input{CONTENU/A4.SC01/as}			% Alain SAAS
-% \questionnaireSCUN{Étudiant \cl}\input{CONTENU/A4.SC01/cl}			% Cecile LABORDE
-% \questionnaireSCUN{Étudiant \dao}\input{CONTENU/A4.SC01/dao}		% Djamila AIT OUADDA
-% \questionnaireSCUN{Étudiant \ds}\input{CONTENU/A4.SC01/ds}			% Delphine SZYMCZAK
-% \questionnaireSCUN{Étudiant \dd}\input{CONTENU/A4.SC01/dd}			% Dorine DUFOUR
-% \questionnaireSCUN{Étudiant \glb}\input{CONTENU/A4.SC01/glb}		% Gabrielle LE BIHAN
-% \questionnaireSCUN{Étudiant \rb}\input{CONTENU/A4.SC01/rb}			% Romain BODINIER
-
-% \cleardoublepage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

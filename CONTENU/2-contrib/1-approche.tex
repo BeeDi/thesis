@@ -2,23 +2,30 @@
 
 \e{
 L'objectif de la partie \g{Contribution} est de présenter notre conceptualisation et sa représentation informatique dans le cadre plus général d'une approche de description des documents audiovisuels contributive et qui suit le déroulement de la production audiovisuelle, même dans des cas de réutilisation et de production collaborative impliquant des communautés de professionnels ou d'amateurs.
-Ainsi, en plus des problèmes de modélisation de la diversité des documents audiovisuels, de leurs différents niveaux de représentation, s'ajoute des problèmes d'échange de connaissances entre contributeurs ne partageant pas les mêmes conceptions, vocabulaires et compétences.}
+Ainsi, en plus des problèmes de modélisation de la diversité des documents audiovisuels, de leurs différents niveaux de représentation, s'ajoute des problèmes d'échange de connaissances entre contributeurs ne partageant pas les mêmes conceptions, vocabulaires et compétences.
+}
 
 \e{
 Nous commençons par résumer notre analyse des langages et modélisations étudiés dans les chapitres précédents (\ref{sec:synthese}) pour mettre en évidence les manques des solutions disponibles pour répondre aux problèmes soulevés. 
 Cela nous amène à présenter les principes de notre approche qui met en avant la complémentarité des informations produites avant et après la fabrication du matériel audiovisuel (\ref{sec:approche}).
 Nous introduisons également l'architecture développée dans le cadre du projet MediaMap pour opérationnaliser cette approche, et notamment les applications nécessaires à son fonctionnement.
-Ensuite, nous expliquons notre modélisation à travers les scénarios utilisés précédemment qui nous amène à définir des patrons de conception qui rassemblent les concepts et relations nécessaires à la représentation de situations typiques (\ref{sec:concept}).
+Ensuite, nous expliquons notre modélisation en introduisant des patrons de conception qui rassemblent les concepts et relations nécessaires à la représentation de situations typiques de la production audiovisuelle (\ref{sec:concept}).
+Nous discutons ensuite de la mise en oeuvre de ces patrons (\ref{sec:moe}), qu'il s'agisse de les représenter dans un langage informatique, de donner des exemples d'instanciations ou de spécialisations ou encore de documenter le modèle afin de faciliter l'accès et l'échange des connaissances qu'il exprime.
+}
+
+\e{
 Dans le chapitre \ref{chap:app}, nous présentons les applications développées par les partenaires du projet MediaMap (\ref{sec:app}) et les expérimentations qui ont été menées avec (\ref{sec:xp}).
-Nous discutons également la représentation de notre conceptualisation avec le langage OWL, notamment en comparant certains de nos choix avec ceux effectués dans SKOS (\ref{sec:op}).
-Finalement, nous argumentons la validité de la modélisation de nos patrons de conception sur le plan informatique et sémantique (\ref{sec:val}).}
+Nous présentons finalement notre réflexion sur la validation de notre modélisation, notamment dans le cadre du projet MediaMap (\ref{sec:val}).
+% Nous discutons également la représentation de notre conceptualisation avec le langage OWL, notamment en comparant certains de nos choix avec ceux effectués dans SKOS (\ref{sec:op}).
+% Finalement, nous argumentons la validité de la modélisation de nos patrons de conception sur le plan informatique et sémantique (\ref{sec:val}).
+}
 
 \minitoc
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Synthèse de l'état de l'art et positionnement}\label{sec:synthese}
+\section{Synthèse de l'état de l'art}\label{sec:synthese}
 Dans le chapitre \ref{chap:omod}, nous avons étudié la modélisation de connaissances par les ontologies ainsi que la modélisation des vocabulaires métiers par les terminologies. 
 Notre définition des besoins implique d'associer une documentation et une terminologie à notre conceptualisation (\ref{sec:bm}), de manière à faciliter les échanges de connaissances entre tous les contributeurs de la chaîne de production, ainsi que dans les cas de réutilisation où l'on reprend des éléments externes à cette chaîne.
 Nos objectifs dépassent le cadre de la modélisation documentaire que permet XML et les langages de schéma associés (\ref{sec:xml}).
@@ -181,7 +188,7 @@ Entre ces deux cas de figure archétipal que nous détaillons ci-dessous, on tro
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=0.9\textwidth]{./images/Approach-Logigram-v2.png}
+\includegraphics[width=0.9\textwidth]{./images/Approach-Logigram-fr.png}
 \caption{Description contributive et continue pour des productions scriptées et non-scriptées}
 \label{img:strat-annot}
 \end{figure}
@@ -214,8 +221,8 @@ Nous appelons cette approche de description \g{contributive} et \g{continue} car
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Synthèse des scénarios d'usages}\label{sec:scenar-apps}
-\e{Nous récapitulons ici les étapes des scénarios d'usages que nous avons développés dans les chapitre \ref{chap:omod} et \ref{chap:mav} afin de montrer comment l'ensemble de la chaîne doit être instrumentée pour faciliter la réutilisation et ouvrir les chaînes de production aux collaborations externes.}
+\subsection{Synthèse des scénarios d'usages et architecture applicative}\label{sec:scenar-apps}
+\e{Nous récapitulons ici les étapes des scénarios d'usages que nous avons développés dans les chapitre \ref{chap:omod} et \ref{chap:mav} afin de montrer comment l'ensemble de la chaîne est instrumentée dans le projet MediaMap pour faciliter la réutilisation et ouvrir les chaînes de production aux collaborations externes.}
 
 Le scénario de commande de tournage implique la RTBF dans un projet de production de reportages sur un évènement culturel.
 La Figure \ref{img:arch-process} montre trois grandes étapes de production du scénario en vue d'illustrer \co{sa mise en oeuvre avec les applications développées dans le cadre du projet MediaMap}. 
@@ -278,10 +285,11 @@ Noter que la numérotation des étapes du scénario ci-dessous se retrouve égal
 \end{listenum}
 
 
+
 % En faire un tableau
-Il faut remarquer que certaines étapes de la production (section \ref{sec:prod} pour rappel) n'apparaîssent pas tout à fait clairement dans ce scénario.
-Ceci vient du fait que le scénario met en avant de nouvelles pratiques comme la production collaborative et la réutilisation de fragments dès leur production. 
-Nous proposons donc de comparer notre scénario avec les étapes classiques d'un projet de production : 
+La Table \ref{tab:archaine} clarifie la manière dont le scénario se déroule par rapport à une chaîne de production classique (voir \ref{sec:prod}). 
+En effet, notre scénario met en avant de nouvelles pratiques, comme la production collaborative et la réutilisation de fragments dès leur production. 
+Nous proposons donc de comparer notre scénario avec les étapes classiques d'un projet de production. 
 Alors que la \g{préproduction} est représentée par les phases (1) et (2), les phases (3) et (4) n'existent pas en tant que telles dans un projet de production classique.
 En effet, la traduction du script en guide de tournage doit être prise en charge par le contributeur, de même que les caméras ne propose habituellement pas d'assistance pendant le tournage ou de vérification après coup. 
 Toutefois, on peut les assimiler à une étape de \g{fabrication} du matériel audiovisuel.
@@ -289,6 +297,20 @@ La phase (5) de livraison et (6) d'enrichissement des descriptions correspond à
 La phase (7) de réutilisation correspond à plusieurs étapes, puisqu'il s'agit à la fois du \g{montage} et de la \g{finition}. Dans le cas décrit, il s'agit de réutilisation dans le sens où les fragments participent à plusieurs projets de production. 
 La phase (8) d'accès et recherche peut être présentée comme une étape \g{archivages} qui serait intégrée à la production. 
 La phase (9) de transport et d'échanges peut être mise en rapport avec l'étape de \g{distribution}, quoi que la nature de l'objet échangé varie énormément (des fichiers vidéo ou bien une ensemble de connaissances et de fichiers représentant le projet de production).
+
+\begin{table}
+\begin{tabular*}{0.92\textwidth}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+	\multicolumn{2}{|c|}{\g{Pré-production}} & \multicolumn{4}{|c|}{\g{Production}} & \multicolumn{2}{|c|}{\g{Post-production}} & \multicolumn{2}{|c|}{\g{Exploitation}} \\ \hline\hline
+	\e{Planning} & \e{Scripting} & \multicolumn{2}{|c|}{\e{Fabrication}} & \multicolumn{2}{|c|}{\e{Derushing}} & \e{Montage} & \e{Finition} & \e{Archivage} & \e{Distribution} \\ \hline
+	(1) & (2) & (3) & (4) & (5) & (6) & \multicolumn{2}{|c|}{(7,8)} & (8) & (9) \\ \hline
+
+\end{tabular*}
+\caption{Comparaison entre les étapes de le chaîne de production classique (\e{en italique}) et le scénario de production de MediaMap}\label{tab:archaine}
+% \end{center}
+\end{table}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
