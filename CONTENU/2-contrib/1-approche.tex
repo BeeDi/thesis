@@ -2,16 +2,18 @@
 
 \e{
 L'objectif de la partie \g{Contribution} est de présenter notre conceptualisation et sa représentation informatique dans le cadre plus général d'une approche de description des documents audiovisuels contributive et qui suit le déroulement de la production audiovisuelle, même dans des cas de réutilisation et de production collaborative impliquant des communautés de professionnels ou d'amateurs.
-Ainsi, en plus des problèmes de modélisation de la diversité des documents audiovisuels, de leurs différents niveaux de représentation, s'ajoute des problèmes d'échange de connaissances entre contributeurs ne partageant pas les mêmes conceptions, vocabulaires et compétences.
+Ainsi, en plus des problèmes de modélisation de la diversité des documents audiovisuels, de leurs différents niveaux de représentation, s'ajoute des problèmes d'échange de connaissances entre contributeurs hétérogènes, qui ne partagent pas les mêmes conceptions, vocabulaires et compétences.
 }
 
 \e{
 Nous commençons par résumer notre analyse des langages et modélisations étudiés dans les chapitres précédents (\ref{sec:synthese}) pour mettre en évidence les manques des solutions disponibles pour répondre aux problèmes soulevés. 
 Cela nous amène à présenter les principes de notre approche qui met en avant la complémentarité des informations produites avant et après la fabrication du matériel audiovisuel (\ref{sec:approche}).
 Nous introduisons également l'architecture développée dans le cadre du projet MediaMap pour opérationnaliser cette approche, et notamment les applications nécessaires à son fonctionnement.
-Ensuite, nous expliquons notre modélisation en introduisant des patrons de conception qui rassemblent les concepts et relations nécessaires à la représentation de situations typiques de la production audiovisuelle (\ref{sec:concept}).
-Nous discutons ensuite de la mise en oeuvre de ces patrons (\ref{sec:moe}), qu'il s'agisse de les représenter dans un langage informatique, de donner des exemples d'instanciations ou de spécialisations ou encore de documenter le modèle afin de faciliter l'accès et l'échange des connaissances qu'il exprime.
+Nous présentons en section \ref{sec:axes} une reformulation des verrous scientifiques que nous avons identifiés en section \ref{sec:scien}, ce qui nous permet d'introduire des patrons de conception pour représenter les situations typiques de \e{la} production audiovisuelle (\ref{sec:situations}).
+% Ensuite, nous expliquons notre modélisation en introduisant des patrons de conception qui rassemblent les concepts et relations nécessaires à la représentation de situations typiques de la production audiovisuelle (\ref{sec:concept}).
+Nous discutons ensuite de la mise en oeuvre de ces patrons (\ref{sec:meo}), qu'il s'agisse de les représenter dans un langage informatique, de donner des exemples d'instanciations ou de spécialisations ou encore de documenter le modèle afin de faciliter l'accès et l'échange des connaissances qu'il exprime.
 }
+
 
 \e{
 Dans le chapitre \ref{chap:app}, nous présentons les applications développées par les partenaires du projet MediaMap (\ref{sec:app}) et les expérimentations qui ont été menées avec (\ref{sec:xp}).
@@ -27,71 +29,79 @@ Nous présentons finalement notre réflexion sur la validation de notre modélis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Synthèse de l'état de l'art}\label{sec:synthese}
 Dans le chapitre \ref{chap:omod}, nous avons étudié la modélisation de connaissances par les ontologies ainsi que la modélisation des vocabulaires métiers par les terminologies. 
-Notre définition des besoins implique d'associer une documentation et une terminologie à notre conceptualisation (\ref{sec:bm}), de manière à faciliter les échanges de connaissances entre tous les contributeurs de la chaîne de production, ainsi que dans les cas de réutilisation où l'on reprend des éléments externes à cette chaîne.
-Nos objectifs dépassent le cadre de la modélisation documentaire que permet XML et les langages de schéma associés (\ref{sec:xml}).
-Les langages de représentations des connaissances développés par le W3C apportent une formalisation qui permet de clarifier la sémantique de la modélisation et d'envisager la mise en place d'inférences (\ref{sec:onto-mc}).
-Si les langages RDF et RDF-Schema permettent la définition de hiérarchies de classes et de relations, OWL ajoute de nombreux raffinements dont de nouveaux axiomes précisant l'usage des propriétés, ainsi que l'ajout de propriétés d'annotation pour décrire la conceptualisation.
-La version OWL-DL fournit un compromis intéressant entre expressivité et décidabilité, mais ne permet pas de couvrir tous nos besoins [$\delta_1$ : \g{multijargon}].
+Notre définition des besoins implique d'associer une documentation et une terminologie à notre conceptualisation (\ref{sec:bm}), de manière à faciliter les échanges de connaissances entre tous les contributeurs de la chaîne de production, ainsi que dans les cas de réutilisation où l'on intègre des éléments externes dans sa chaîne.
+L'analyse des langages documentaires (\ref{sec:xml}) et de représentation de connaissances (\ref{sec:onto-mc}) montre que leur conception les rend trop généraliste pour couvrir nos besoins spécifiques. 
+Nous nous appuyons donc sur leur formalisme pour développer des principes de documentation, qui généralisent les propositions des langages de représentation de thésaurus et vocabulaire structuré (\ref{sec:thesaurus}) à la gestion des jargons métiers.
+Ceci nous permet de couvrir nos besoins de représentation et de documentation du vocabulaire propre à la production audiovisuelle, et \e{in fine} d'adapter la forme d'expression des connaissances échangées entre contributeurs hétérogènes.
 
-Ainsi, nous avons étudié les langages de représentation de thésaurus et vocabulaire structuré (\ref{sec:thesaurus}).
-SKOS et SKOS-XL proposent une représentation minimale et extensible des thésaurus existants, et apporte une formalisation qui permet leur publication sur le Web de données.
-La norme ISO-25964-1 apporte la composition des termes et proposent d'associer plus d'informations sur la création, la maintenance et la documentation du thésaurus.
-Les deux approches se concentrent sur la structuration des concepts auxquels on intègre (SKOS) ou on rattache des termes (dans SKOS-XL et ISO-25964-1, les termes sont définis indépendamment des concepts). 
-Cependant, cette indépendance n'offre pas la possibilité de grouper les termes entre eux afin de modéliser une terminologie métier [$\delta_3$ : \g{évolution, gestion}]. 
-De même, ces modèles définissent des termes préférés qui visent à normaliser l'usage linguistique d'une communauté métier, quelque soit la langue parlée par ses membres.
-Les différences d'usages entre métiers, organisation ou bien entre amateurs et professionnels ne sont pas représentées [$\delta_1$ : \g{multi-jargon}]. 
-La documentation des concepts et des termes correspond tout à fait à nos besoins, en particulier dans SKOS avec la notion de note qui permet de s'adapter à la spécificité de chaque usage [$\delta_2$ : \g{documentation}].\\
+% Nos objectifs dépassent le cadre de la modélisation documentaire que permet XML et les langages de schéma associés (\ref{sec:xml}).
+% Les langages de représentations des connaissances développés par le W3C apportent une formalisation qui permet de clarifier la sémantique de la modélisation et d'envisager la mise en place d'inférences (\ref{sec:onto-mc}).
+% Si les langages RDF et RDF-Schema permettent la définition de hiérarchies de classes et de relations, OWL ajoute de nombreux raffinements dont de nouveaux axiomes précisant l'usage des propriétés, ainsi que l'ajout de propriétés d'annotation pour décrire la conceptualisation.
+% La version OWL-DL fournit un compromis intéressant entre expressivité et décidabilité, mais ne permet pas de couvrir tous nos besoins [$\delta_1$ : \g{multijargon}].
+
+% Ainsi, nous avons étudié les langages de représentation de thésaurus et vocabulaire structuré (\ref{sec:thesaurus}).
+% SKOS et SKOS-XL proposent une représentation minimale et extensible des thésaurus existants, et apporte une formalisation qui permet leur publication sur le Web de données.
+% La norme ISO-25964-1 apporte la composition des termes et proposent d'associer plus d'informations sur la création, la maintenance et la documentation du thésaurus.
+% Les deux approches se concentrent sur la structuration des concepts auxquels on intègre (SKOS) ou on rattache des termes (dans SKOS-XL et ISO-25964-1, les termes sont définis indépendamment des concepts). 
+% Cependant, cette indépendance n'offre pas la possibilité de grouper les termes entre eux afin de modéliser une terminologie métier [$\delta_3$ : \g{évolution, gestion}]. 
+% De même, ces modèles définissent des termes préférés qui visent à normaliser l'usage linguistique d'une communauté métier, quelque soit la langue parlée par ses membres.
+% Les différences d'usages entre métiers, organisation ou bien entre amateurs et professionnels ne sont pas représentées [$\delta_1$ : \g{multi-jargon}]. 
+% La documentation des concepts et des termes correspond tout à fait à nos besoins, en particulier dans SKOS avec la notion de note qui permet de s'adapter à la spécificité de chaque usage [$\delta_2$ : \g{documentation}].\\
 
 
 
 Dans le chapitre \ref{chap:mav}, nous avons étudié la manière dont les objets audiovisuels (\ref{sec:dav}) et leur réutilisation (\ref{sec:gest}) étaient envisagées dans différentes communautés.
-Nous avons mis en avant des divergences et des points aveugles entre les points de vue des professionnels de la production et des communautés scientifiques du multimédia, de l'ingénierie documentaire, de la sémiotique audiovisuelle et des bibliothèques numériques.
+Il se dégage de cette étude un point de vue centré sur le matériel audiovisuel (le signal) et un autre, documentaire, qui considère l'objet comme une articulation de différentes formes matérielles et sémiotiques. 
+Cette approche considère ainsi non pas un objet, mais un document qui prend part à un acte de communication, et dont chacune des dimensions joue un rôle précis. 
+% Nous avons mis en avant des divergences et des points aveugles entre les points de vue des professionnels de la production et des communautés scientifiques du multimédia, de l'ingénierie documentaire, de la sémiotique audiovisuelle et des bibliothèques numériques.
+
 Nous nous sommes ensuite intéressés tour à tour à l'étude des formats conteneurs (\ref{sec:wrapper}) et d'autres modélisations des objets audiovisuels.
+Le succès des formats conteneurs montre l'importance de l'association d'informations métiers au matériel audiovisuel, pour le déroulement de la chaîne, et l'exploitation de document audiovisuel.
+Cependant, on remarque que le format de représentation de ces informations pose un problème d'ambiguïté sémantique et qu'il ne peut être utilisé en début de chaîne, avant la fabrication du matériel.
+% L'étude des formats conteneurs nous a montré qu'il était possible de modéliser les objets audiovisuels suivant les perspectives administratives, narratives et documentaires tout en y intégrant le matériel audiovisuel [$\chi_1$ :\g{autonomie}]. 
+% Cependant, cette forte intégration ne peut être mise en place qu'à partir de la fabrication du matériel, et vise pas au-délà de sa diffusion.
+% De même, l'utilisation d'un format conteneur façonne la modélisation autour de l'objet audiovisuel final, et même s'il embarque des métadonnées sur les fragments, elles ne peuvent être mobilisées pour elle-même.
+% Ainsi, la nature même du format oblitère le début de la chaîne et ne permet pas de se concentrer sur des fragments.
+% Par ailleurs, nous avons pointé l'ambiguïté sémantique des descriptions associées au matériel audiovisuel [$\chi_2$ :\g{réutilisabilité}].
 
-L'étude des formats conteneurs nous a montré qu'il était possible de modéliser les objets audiovisuels suivant les perspectives administratives, narratives et documentaires tout en y intégrant le matériel audiovisuel [$\chi_1$ :\g{autonomie}]. 
-Cependant, cette forte intégration ne peut être mise en place qu'à partir de la fabrication du matériel, et vise pas au-délà de sa diffusion.
-De même, l'utilisation d'un format conteneur façonne la modélisation autour de l'objet audiovisuel final, et même s'il embarque des métadonnées sur les fragments, elles ne peuvent être mobilisées pour elle-même.
-Ainsi, la nature même du format oblitère le début de la chaîne et ne permet pas de se concentrer sur des fragments.
-Par ailleurs, nous avons pointé l'ambiguïté sémantique des descriptions associées au matériel audiovisuel [$\chi_2$ :\g{réutilisabilité}].
-
-\e{
-	Les formats conteneurs ont montré l'importance de certaines informations pour le déroulement de la chaîne, et l'exploitation de document audiovisuel.
-	Notre modélisation s'inspire de cette approche et vise à l'améliorer sur les aspects suivants : 
-	\begin{liste}
-		\item La modélisation des connaissances associées au document audiovisuel doit pouvoir débuter en début de chaîne, avant même la fabrication du matériel audiovisuel.
-		\item La modélisation du document audiovisuel et des connaissances associées doit être formalisée pour éviter les ambiguïtés sémantiques ainsi que les problèmes d'appropriation de la part des contributeurs de la chaîne de production.
-	\end{liste}
-}
+% \e{
+% 	Les formats conteneurs ont montré l'importance de certaines informations pour le déroulement de la chaîne, et l'exploitation de document audiovisuel.
+% 	Notre modélisation s'inspire de cette approche et vise à l'améliorer sur les aspects suivants : 
+% 	\begin{liste}
+% 		\item La modélisation des connaissances associées au document audiovisuel doit pouvoir débuter en début de chaîne, avant même la fabrication du matériel audiovisuel.
+% 		\item La modélisation du document audiovisuel et des connaissances associées doit être formalisée pour éviter les ambiguïtés sémantiques ainsi que les problèmes d'appropriation de la part des contributeurs de la chaîne de production.
+% 	\end{liste}
+% }
 
 Nous avons ensuite examiné des modélisations de l'audiovisuel que l'on a distinguées en deux approches, \e{endogène} et \e{exogène}, que nous jugeons complémentaires. 
 Ces approches mettent l'accent respectivement sur la dimension sémiotique ou matérielle des objets audiovisuels (\ref{sec:dav}) sans vraiment les articuler.
-La modélisation \e{endogène a priori} rend compte des connaissances fabriquées en début de chaîne afin de prévoir les étapes suivantes de fabrication du document et du matériel audiovisuel (\ref{sec:insitu}).
-Ces modélisations se rapprochent d'une modélisation documentaire du script, définissant la structure documentaire auctoriale (\ref{sec:pv-id}) et les intentions de mise en forme.
-Cette modélisation du script repose sur une unité de base qui est le plan (introduit dans ce mémoire en \ref{sec:docvoc}).
-Ce découpage est particulièrement intéressant du fait que le plan est à la fois l'élément de base de la narration audiovisuelle (structure documentaire) et l'unité de travail dans le processus de production (description de la fabrication, lien avec le matériel audiovisuel). 
-Il permet ainsi d'associer de multiples connaissances à des fragments audiovisuels et facilite ainsi leur réutilisation [$\chi_2$ : \g{réutilisabilité}].
-Le modèle MSML se limite à une représentation XML du script utilisé pour construire une prévisualisation 3D du plateau de tournage ainsi que du résultat filmé (\ref{sec:msml}). 
-Le manque de formalisation sémantique ne favorise pas la transformation de ces informations et leur association avec le matériel audiovisuel effectivement fabriqué [$\chi_1$ : \g{autonomie}].
-L'autre modèle étudié propose une formalisation sémantique ainsi qu'une association entre une description du document et du matériel audiovisuel (\ref{sec:answer}).
-Cependant, ces travaux ne sont pas accessibles et ne peuvent donc être repris ni évalués.
-
-Les approches \e{exogènes} (\ref{sec:post}) proposent d'analyser le matériel audiovisuel en fin de chaîne. 
-L'approche générique du schéma Dublin Core, même lorsqu'il est spécialisé pour les documents audiovisuels, est surtout pertinente au niveau du document (\ref{sec:dcmi}). 
-La description des fragments n'est ainsi rendue possible que par l'utilisation de descripteurs spécifiques, comme ceux de la norme MPEG-7. 
-De plus, on remarque l'importance d'une structure hiérarchique souple et extensible qui permet de couvrir les nombreux genre de documents produits par la télévision.
-MPEG-7 s'est établie comme une modélisation de référence pour l'audiovisuel (\ref{sec:mpeg7}).
-Pourtant, sa représentation en XML a été largement critiquée pour son ambiguïté syntaxique et sémantique qui a poussé de nombreux chercheurs à développer des formalisations sous la forme d'ontologie (\ref{sec:mpeg7etc}).
-Ces modélisation sont réalisées de manière automatique ou manuelle, et certaines reposent sur une ontologie générique pour favoriser l'intégration avec des ontologies de domaine.
-Au-délà de ces apports, les modèles, comme la norme originale, adopte un point de vue centré sur le matériel audiovisuel tant au niveau de la gestion que de la description des objets audiovisuels. 
-Ainsi, ils négligent la modélisation de la structure documentaire et manquent de descriptions sémiotiques pertinentes pour la production audiovisuelle. % atténue l'importance de 
-La gestion se fait au niveau du matériel, par identification d'une source et de variantes plus adaptées à d'autres méthodes de distribution [$\chi_1$ : \g{autonomie}].
-L'abscence de distinction entre des opérations d'encodage et de montage ne permet pas de reconnaître la création d'un nouveau document (ou d'une nouvelle intention de réalisation), mais se limite à reconnaître un nouveau fichier.
-De même, les descriptions sont associées aux fichiers ou bien à des entités qui représentent des ensembles de fichiers ayant des caractéristiques communes [$\chi_2$ : \g{réutilisabilité}]. 
-De plus, si le découpage du matériel en segment permet de créer de multiples structure d'analyse sur l'objet, la caractérisation de ces segments par genre ne suffit pas à modéliser les contraintes de sa grammaire documentaire.
-Il n'y a pas non plus de description du processus de production de ces segments, ni de l'écriture filmique.
-
-\e{
-	La production audiovisuelle et les modèles \e{endogènes} posent le plan comme l'unité de base qui structure à la fois le processus de production audiovisuelle et les échanges entre ses contributeurs, de même que les mécanismes de narration propres aux documents audiovisuels.
+% La modélisation \e{endogène} rend compte des connaissances fabriquées en début de chaîne afin de prévoir les étapes suivantes de fabrication du document et du matériel audiovisuel (\ref{sec:insitu}).
+% Ces modélisations se rapprochent d'une modélisation documentaire du script, définissant la structure documentaire auctoriale (\ref{sec:pv-id}) et les intentions de mise en forme.
+% Cette modélisation du script repose sur une unité de base qui est le plan (introduit dans ce mémoire en \ref{sec:docvoc}).
+% Ce découpage est particulièrement intéressant du fait que le plan est à la fois l'élément de base de la narration audiovisuelle (structure documentaire) et l'unité de travail dans le processus de production (description de la fabrication, lien avec le matériel audiovisuel). 
+% Il permet ainsi d'associer de multiples connaissances à des fragments audiovisuels. %et facilite ainsi leur réutilisation [$\chi_2$ : \g{réutilisabilité}].
+% Le modèle MSML se limite à une représentation XML du script utilisé pour construire une prévisualisation 3D du plateau de tournage ainsi que du résultat filmé (\ref{sec:msml}). 
+% Le manque de formalisation sémantique ne favorise pas la transformation de ces informations et leur association avec le matériel audiovisuel effectivement fabriqué [$\chi_1$ : \g{autonomie}].
+% L'autre modèle étudié propose une formalisation sémantique ainsi qu'une association entre une description du document et du matériel audiovisuel (\ref{sec:answer}).
+% Cependant, ces travaux ne sont pas accessibles et ne peuvent donc être repris ni évalués.
+% 
+% Les approches \e{exogènes} (\ref{sec:post}) proposent d'analyser le matériel audiovisuel en fin de chaîne. 
+% L'approche générique du schéma Dublin Core, même lorsqu'il est spécialisé pour les documents audiovisuels, est surtout pertinente au niveau du document (\ref{sec:dcmi}). 
+% La description des fragments n'est ainsi rendue possible que par l'utilisation de descripteurs spécifiques, comme ceux de la norme MPEG-7. 
+% De plus, on remarque l'importance d'une structure hiérarchique souple et extensible qui permet de couvrir les nombreux genres de documents produits par la télévision.
+% MPEG-7 s'est établie comme une modélisation de référence pour l'audiovisuel (\ref{sec:mpeg7}).
+% Pourtant, sa représentation en XML a été largement critiquée pour son ambiguïté syntaxique et sémantique qui a poussé de nombreux chercheurs à développer des formalisations sous la forme d'ontologie (\ref{sec:mpeg7etc}).
+% Ces modélisation sont réalisées de manière automatique ou manuelle, et certaines reposent sur une ontologie générique pour favoriser l'intégration avec des ontologies de domaine.
+% Au-délà de ces apports, les modèles, comme la norme MPEG-7, adopte un point de vue centré sur le matériel audiovisuel tant au niveau de la gestion que de la description des objets audiovisuels. 
+% Ainsi, ils négligent la modélisation de la structure documentaire et manquent de descriptions sémiotiques pertinentes pour la production audiovisuelle atténue l'importance de 
+% La gestion se fait au niveau du matériel, par identification d'une source et de variantes plus adaptées à d'autres méthodes de distribution [$\chi_1$ : \g{autonomie}].
+% L'abscence de distinction entre des opérations d'encodage et de montage ne permet pas de reconnaître la création d'un nouveau document (ou d'une nouvelle intention de réalisation), mais se limite à reconnaître un nouveau fichier.
+% De même, les descriptions sont associées aux fichiers ou bien à des entités qui représentent des ensembles de fichiers ayant des caractéristiques communes [$\chi_2$ : \g{réutilisabilité}]. 
+% De plus, si le découpage du matériel en segment permet de créer de multiples structure d'analyse sur l'objet, la caractérisation de ces segments par genre ne suffit pas à modéliser les contraintes de sa grammaire documentaire.
+% Il n'y a pas non plus de description du processus de production de ces segments, ni de l'écriture filmique.
+% 
+% \e{
+	La production audiovisuelle et les modèles \e{endogènes} (\ref{sec:insitu}) posent le plan comme l'unité de base qui structure à la fois le processus de production audiovisuelle et les échanges entre ses contributeurs, de même que les mécanismes de narration propres aux documents audiovisuels.
 	La pratique de la réutilisation, les modifications et l'ouverture qu'elle engendre dans le déroulement des chaînes de production, implique également de fragmenter les documents audiovisuels, de rendre ces fragments autonomes mais aussi de les décrire pour favoriser leur circulation.
 	Or la reprise des modèles existants n'est pas possible, soit par manque de formalisme sémantique, soit par manque d'accès.
 	Ainsi, notre approche de modélisation doit se fonder sur le plan qui sert de point d'articulation entre une description métier, la structure documentaire et l'organisation de la production : 
@@ -100,25 +110,30 @@ Il n'y a pas non plus de description du processus de production de ces segments,
 		\item La mise en correspondance avec d'autres niveaux de fragmentation qui constituent une structure documentaire auctoriale, régie par une grammaire de composition variable suivant le genre du document.
 		\item Le processus de production qui s'organise autour des plans pour construire le document final, de la pre-script-ion, la fabrication puis le montage et autres traitements ultérieurs.
 	\end{liste}
-}	
-\e{
-	Par ailleurs, les modèles \e{exogènes} ont largement formalisé et développé la description du matériel audiovisuel par des procédés d'analyse automatique du signal.
+
+% }	
+% \e{
+	Par ailleurs, les modèles \e{exogènes} (\ref{sec:post}) ont largement formalisé et développé la description du matériel audiovisuel par des procédés d'analyse automatique du signal.
+	Ces modélisation sont réalisées de manière automatique ou manuelle, et certaines reposent sur une ontologie générique pour favoriser l'intégration avec des ontologies de domaine.
+	Au-délà de ces apports, les modèles, comme la norme MPEG-7, adopte un point de vue centré sur le matériel audiovisuel tant au niveau de la gestion que de la description des objets audiovisuels. 
+	Ainsi, ils négligent la modélisation de la structure documentaire et manquent de descriptions sémiotiques pertinentes pour la production audiovisuelle
 	Si les résultats produits ne sont pas (encore) exprimés dans le vocabulaire de la production audiovisuelle, de nombreux travaux ont montré leur intérêt immédiat ainsi que les résultats potentiels pour certains types de descriptions.
 	Le constat que nous faisons est que ces deux approches s'intéressent à deux moments du processus de production du document audiovisuel.
 	Cela les amènent à modéliser des formes de connaissances complémentaires, utilisées à des fins différentes, que nous articulons dans une même approche de description du document audiovisuel.
-	La modélisation du processus de production audiovisuelle, de ses étapes, contributeurs et produits, nous permet de réaliser cette articulation, à condition de modéliser également la forme du document en construction et d'y associer ces connaissances.
-	Notre approche repose donc sur une stratégie de description du document à la fois progressive (réalisée à différents moments de la production) et contributive (réalisée par différents contributeurs, humain ou machine). 
-	Il s'agit de manière concrète, de se donner des méthodes d'analyse automatique permettant de vérifier que la pre-script-ion modélisée en début de chaîne correspond au matériel effectivement fabriqué, et de la modifier si besoin afin de la transformer en description valide.
-}
+	La modélisation du processus de production audiovisuelle, de ses étapes, contributeurs et résultats, nous permet de réaliser cette articulation, à condition de modéliser également la forme du document en construction et d'y associer ces connaissances.
+	Notre approche repose donc sur une stratégie de description du document à la fois continue (réalisée à différents moments de la production) et contributive (réalisée par différents contributeurs, humain ou machine). 
+	Il s'agit de manière concrète, de se donner des méthodes d'analyse permettant de vérifier que la pre-script-ion modélisée en début de chaîne correspond au matériel effectivement fabriqué, et de la modifier si besoin afin de la transformer en description valide.
+% }
 
 Enfin, nous avons également examiné une ontologie qui vise à mettre en correspondance une grande partie des modélisations de ressources multimédia sur le Web (\ref{sec:omr}).
 La synthèse proposée est minimaliste et ne fait que confirmer l'impression que la plupart des modélisations attaque la modélisation des objets audiovisuels par le matériel audiovisuel (fichier et segment), plutôt que par ses aspects documentaires.
 L'ontologie vise à faciliter la mise en commun des informations sur ces ressources dans le Web de données, mais ne permet pas d'étendre leur description, contrairement aux ontologies basées sur MPEG-7 et des ontologies génériques.
 
-\e{
+% \e{
 L'utilisation d'une ontologie générique pour intégrer des connaissances propres à d'autres domaines apparaît très au-dessus de nos besoins. 
 En effet, nos ambitions se limite dans le cadre de cette thèse à l'expression des connaissances propres à la production audiovisuelle.
-Ainsi, nous avons choisi de construire une ontologie noyau suivant une approche ascendante de manière à se concentrer sur les problèmes peu traités de la production audiovisuelle et éviter les écueils important de l'intégration avec une ontologie générique.}
+Ainsi, nous avons choisi de construire une ontologie noyau suivant une approche ascendante de manière à se concentrer sur les problèmes peu traités de la production audiovisuelle et éviter les écueils important de l'intégration avec une ontologie générique.
+% }
 
 % quelles applications pour instrumenter cette approche : introduction au chapitre 6 
 
@@ -157,7 +172,7 @@ En effet, cela peut varier de la plus pure improvisation, jusqu'au script respec
 Entre ces deux cas de figure archétipal que nous détaillons ci-dessous, on trouve de nombreux cas d'usages qu'il faut également couvrir, concernant des changements de structure plus ou moins important : 
 
 \begin{itemize}
-	\item le programme de fiction pure, tel qu'une comédie, un série animé etc. repose sur la créaction de matériel audiovisuel originaux\footnote{Les \e{mash-up} vidéo qui consistent à détourner un matériel déjà existant, par le montage ou le doublage, pour créer une nouvelle oeuvre sont une exception remarquable de fiction se basant sur du matériel existant.
+	\item Le programme de fiction pure, tel qu'une comédie, un série animé etc. repose sur la créaction de matériel audiovisuel originaux\footnote{Les \e{mash-up} vidéo qui consistent à détourner un matériel déjà existant, par le montage ou le doublage, pour créer une nouvelle oeuvre sont une exception remarquable de fiction se basant sur du matériel existant.
 	L'exemple le plus connu étant \ciel{Le grand détournement} aussi appelé \ciel{La classe américaine} réalisé en 1993 par Michel Hazanavicius et Dominique Mézerette. 
 	Ce long-métrage (70 minutes) incorpore du matériel vidéo de plus de 50 films et utilise les doubleurs officiels des acteurs (dont celui de John Wayne) pour détourner le sens original des images.}, à opposer à la récupération de matériel déjà existant, pour raconter une histoire.
 	La caractéristique principale de la fiction est de ne pas être dépendante de la réalité historique pour construire son histoire.
@@ -170,7 +185,7 @@ Entre ces deux cas de figure archétipal que nous détaillons ci-dessous, on tro
 	Lors du tournage, des modifications peuvent être effectuées (par choix ou par contrainte) ce qui oblige un membre de l'équipe (généralement la scripte) à mettre à jour ces documents et à les redistribuer aux autres contributeurs.
 
 
-	\item les autres programmes reposent et visent à montrer la réalité historique, tels que les journaux télévisés, les documentaires, les magazines etc.
+	\item Les autres programmes reposent et visent à montrer la réalité historique, tels que les journaux télévisés, les documentaires, les magazines etc.
 	La production de ces programmes dépend donc de la captation d'un évènement plus ou moins contrôlé, à l'inverse de la fiction qui met en scène des situations pour ensuite les enregistrer.
 	Toutefois, ces programmes sont montés et commentés selon un point de vue particulier, une ligne éditoriale, qui définit la manière de présenter la réalité historique, ce qui constitue une sorte de mise en scène.
 	Dans de nombreux cas, les évènements sont connus ou programmés à l'avance, ce qui permet aux journalistes de les anticiper. 
@@ -299,6 +314,7 @@ La phase (8) d'accès et recherche peut être présentée comme une étape \g{ar
 La phase (9) de transport et d'échanges peut être mise en rapport avec l'étape de \g{distribution}, quoi que la nature de l'objet échangé varie énormément (des fichiers vidéo ou bien une ensemble de connaissances et de fichiers représentant le projet de production).
 
 \begin{table}
+\begin{center}
 \begin{tabular*}{0.92\textwidth}{|c|c|c|c|c|c|c|c|c|c|}
 \hline
 	\multicolumn{2}{|c|}{\g{Pré-production}} & \multicolumn{4}{|c|}{\g{Production}} & \multicolumn{2}{|c|}{\g{Post-production}} & \multicolumn{2}{|c|}{\g{Exploitation}} \\ \hline\hline
@@ -307,9 +323,8 @@ La phase (9) de transport et d'échanges peut être mise en rapport avec l'étap
 
 \end{tabular*}
 \caption{Comparaison entre les étapes de le chaîne de production classique (\e{en italique}) et le scénario de production de MediaMap}\label{tab:archaine}
-% \end{center}
+\end{center}
 \end{table}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -350,3 +365,110 @@ La phase (9) de transport et d'échanges peut être mise en rapport avec l'étap
 
 
 
+\subsection{Axes de modélisation}\label{sec:axes}
+Comme nous l'avons vu en section \ref{sec:metier}, la production audiovisuelle se présente comme un processus structuré en grandes étapes (pré-production, production, post-production) qui visent la préparation, la fabrication puis l'exploitation d'un document audiovisuel.
+S'il existe une diversité de type de production (scriptée, non-scriptée) et de genre de documents (\ref{sec:strat-desc}), celles-ci ne représentent que des variations dans la réalisation des étapes de cette structure générale.  
+De la même manière, les pratiques de production collaborative et de réutilisation du matériel existant (\ref{sec:rechaine}) n'entraînent pas de transformation profonde de cette structure, mais plutôt une adaptation de certaines étapes. 
+Cependant, l'ouverture de la chaîne à de nouveaux contributeurs ainsi que le focus sur les fragments nécessitent d'affiner la modélisation classique du document audiovisuel et d'en suivre sa construction. 
+Ainsi, s'il n'existe pas \e{une} production audiovisuelle, il nous faut modéliser des situations typiques de \e{la} production audiovisuelle, qui pourront s'ajuster aux spécificités \e{des} productions audiovisuelles.
+
+% Notre travail de modélisation se heurte à deux verrous scientifiques, identifiés en section \ref{sec:scien} puis développés dans les chapitre \ref{chap:omod} et \ref{chap:mav}, que nous reformulons en : 
+Nous décomposons les problèmes scientifiques que nous avons défini précédemment en deux axes de modélisation principaux. 
+L'axe $\alpha$ se rapporte aux situations typiques de la production audiovisuelle (\ref{sec:situations}), alors que l'axe $\beta$ renvoit à des questions de représentation progressive de ces situations, ainsi qu'à la documentation de cette représentation.
+Ce dernier axe ne conduit pas à la définition de patrons de conception, mais plutôt à l'enrichissement des patrons existants ainsi qu'à la mise en place de conventions de représentation qui sont distinctes de notre modèle.
+Ainsi, leur mise en oeuvre se situe plus au niveau des applications que de l'ontologie que nous avons construites, ce qui nous amène à présenter certaines de ces éléments dans la section \ref{meo}.
+
+
+
+\begin{problemes}{LightGoldenrodYellow}
+\begin{liste}
+ 	\item[(\g{$\alpha$})] \g{L'articulation de plusieurs ensembles de connaissances} [\e{$\chi_1$ : autonomie}, \e{$\chi_2$ : réutilisabilité}]. 
+ 	On distingue ainsi deux ensembles de connaissances : 
+ 	% à quoi servent-ils ?
+ 	\begin{listeni} 
+ 		\item[($\alpha_1$)] L'organisation du \e{processus de production audiovisuelle}, qui décrit la répartition des tâches et  les capacités des \e{contributeurs}.
+ 		Cet ensemble permet d'associer les connaissances fabriquées par les contributeurs aux documents et de faciliter leur implication et les échanges de connaissances.
+ 		
+ 		\item[($\alpha_2$)] L'organisation du \e{document audiovisuel}, c'est-à-dire sa structure documentaire, le \e{matériel audiovisuel} qu'on y attache et une description de leur fabrication (l'\e{écriture filmique} détaillée dans le script).
+ 		Cet ensemble permet de faciliter la recherche, la gestion et donc la réutilisation des fragments audiovisuels.
+ 	\end{listeni}
+
+ 	\item[(\g{$\beta$})] \g{Une pro(duction/con)sommation progressive et contributive de ces connaissances} [\e{$\delta_1$: multi-jargon}, \e{$\delta_2$ : documentation}, \e{$\delta_3$ : évolution, gestion}].
+ 	Il s'agit ici du problème de l'évolution et du partage des connaissances liées à un document/fragment audiovisuel tout au long de son ou de ses cycle(s) de vie. 
+ 	On distingue deux écueils nouveaux suite à l'ouverture de la chaîne à des pratiques de réutilisation : la \e{progressivité de la description}, et la nécesssité de la rendre compréhensible malgré l'\e{hétérogénéité des contributeurs} : 
+ 	\begin{listeni}
+ 		\item[($\beta_1$)] \e{Les connaissances sur les document/fragments audiovisuels évoluent et doivent s'ajuster au contexte de production ou de réutilisation}.
+ 		Les connaissances fabriquées en début de chaîne de production prescrivent un résultat attendu, or de nombeux éléments sont susceptibles d'être modifiés ou précisés par la suite.
+ 		Il faut donc ajuster les connaissances prescriptives à la réalité des opérations, afin de décrire les résultats effectifs (et non plus l'attendu).
+ 		Cet écueil apparent est en réalité une opportunité, car la fabrication des descriptions peut alors s'appuyer sur les connaissances prescriptives et les vérifier. 
+		De plus, la réutilisation d'un fragment/document audiovisuel dans un nouveau contexte n'implique pas seulement un transfert de matériels audiovisuels, mais également un transfert des connaissances. % mais est-ce que l'on traite vraiment ce cas ? on gère des ensembles de connaissances qui peuvent évoluer (enrichissement)
+		Ce transfert peut nécessiter d'extraire certaines connaissances toujours pertinentes et de les associer à celles du nouveau contexte d'utilisation, ou bien de les intégrer à une conceptualisation propre à ce contexte (spécialisation ou bien extension).
+		% Cette évolution est rendue possible par 
+
+		\item[($\beta_2$)] \e{Adapter la forme d'expression des connaissances en fonction de l'implication du contributeur dans la chaîne de production et de ses capacités.}
+ 		Le problème de l'accès aux connaissances est traité par la composition d'une vue contextuelle et spécifique à chaque contributeur de la chaîne, ou chaque groupe de contributeurs.
+ 		Toute connaissance exprimée à travers le modèle doit pouvoir être caractérisée suivant les codes d'écritures utilisés, eux-mêmes reliées aux capacités des contributeurs.
+		Il est alors possible d'effectuer une double sélection ; les connaissances pertinentes suivant l'implication dans la chaîne (en utilisant la description du processus de production); les formes d'expression facilitant leur compréhension (à partir d'une description des capacités des contributeurs).
+		% Cette adaptation est rendue possible par le couplage entre conceptualisation, terminologie et documentation.
+ 	\end{listeni}
+\end{liste}
+\end{problemes}
+
+
+Nous pouvons raffiner maintenant ces deux axes de modélisation. 
+Voici les situations typiques de la production audiovisuelle que nous avons modélisé en patrons de conception : 
+% \begin{problemes}s{LightGoldenrodYellow}
+\begin{listeni}
+	\item[($\alpha_1$)] l'organisation du \g{processus de production} (\ref{sec:mission}) et du travail de ses \g{contributeurs} (\ref{sec:agent}): 
+	\begin{liste}
+		\item[($\alpha_1a$)] la division d'un projet de production en sous-tâches et la spécification du résultat attendu ainsi que des moyens fournis pour les remplir .
+
+		\item[($\alpha_1b$)] l'assignation des tâches d'un projet à des contributeurs, ce qui leur confère un rôle, des droits et des responsabilités.
+	\end{liste}
+
+	\item[($\alpha_2$)] l'articulation d'un \g{document audiovisuel} et de ses différentes composantes (\ref{sec:opus}), avec leurs descriptions (\ref{sec:annotation}) : 
+	\begin{liste}
+		\item[($\alpha_2a$)] la gestion des fichiers qui encapsulent le matériel audio-visuel et ces différentes pistes.
+		\item[($\alpha_2b$)] la segmentation du matériel audiovisuel.
+		\item[($\alpha_2c$)] la structure documentaire qui suit des règles de composition de fragments. 
+		\item[($\alpha_2d$)] la description par l'écriture filmique, et ses références à des éléments fictifs ou réels.
+	\end{liste}
+\end{listeni}
+% \end{problemes}
+
+
+Concernant les aspects concernant la documentation et l'évolution des connaissances : 
+\begin{listeni}
+\item[($\beta_1$)] Le déroulement de la production a pour conséquence de faire \g{évoluer nos connaissances} sur l'organisation du processus de production et l'articulation du document audiovisuel : 
+	\begin{liste}
+		\item L'évolution de la description d'un document audiovisuel.
+		\item L'échange de connaissances entre organisations.
+		\item Les pratiques de réutilisation de fragments documentaires.
+	\end{liste}
+
+	\item[($\beta_2$)] L'\g{adaptation des formes d'expressions} aux capacités des contributeurs de la chaîne de production : 
+	\begin{liste}
+		\item La mise en place d'un thésaurus multi-jargon et d'une documentation des concepts.
+		\item L'attribution de compétences linguistiques et professionnelles aux contributeurs (humains, machines).
+		\item L'accès personnalisé aux connaissances de la chaîne suivant le contexte (le contributeur, ses capacités, son implication dans la châine).
+	\end{liste}
+\end{listeni}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.8\textwidth]{./images/Legende-v1.png}
+\caption{Légende pour les diagrammes de présentation des patrons de conception}
+\label{img:legende}
+\end{figure}
+
+Nous avons rappelé les indicatifs de ces axes de modélisation dans les titre des sections suivantes.
+Par ailleurs, nous avons utilisé deux types de Figure pour présenter ces patrons (voir Figure \ref{img:legende}) : 
+\begin{liste}
+	\item les Figures de type \gui{Principaux concepts et relations} permettent de présenter les relations entre concepts pour représenter une situation. 
+	Dans certains cas, nous avons ajouté des liens de spécialisation afin de donner directement une vue synoptique sur les possibilités de représentation de ce patron. 
+	Les propriétés des concepts sont généralement définis dans le texte.
+
+	\item les Figures de type \gui{Extrait de la structure ontologique} se focalisent sur les liens de spécialisations entre concepts, et permettent de préciser les différences entre concepts frères ainsi que la similarité entre concepts parent-enfants utilisées dans la méthode de construction d'ontologie \pc{Archonte} (\ref{sec:construction}).
+	Ces Figures permettent de détailler la formalisation de notre modèle conceptuel. 
+	Des exemples d'instanciations seront ensuite présentés dans la section \ref{sec:meo}.
+\end{liste}
