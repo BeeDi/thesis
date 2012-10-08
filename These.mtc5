@@ -40,6 +40,8 @@
 {\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.4.3.2}Définition de relation et de propriété}{\reset@font\mtcSSSfont 131}}
 {\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Spécialisation}{\reset@font\mtcPfont 131}}
 {\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Restriction}{\reset@font\mtcPfont 132}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode La relation donne un rôle au concepts objet}{\reset@font\mtcPfont 133}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.4.3.3}Conséquences de la fragmentation de la modélisation du document audiovisuel}{\reset@font\mtcSSSfont 133}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.4.3.4}Alternative Term Formalization}{\reset@font\mtcSSSfont 133}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Relations qui confèrent un rôle au concept objet}{\reset@font\mtcPfont 133}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Relations transitives pour faciliter l\kern 0.1em'inférence}{\reset@font\mtcPfont 133}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.4.3.3}Contradictions entre les composantes du document audiovisuel}{\reset@font\mtcSSSfont 133}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.4.3.4}Énumération de valeurs par les listes d\kern 0.1em'autorités}{\reset@font\mtcSSSfont 134}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {V.4.3.5}Représentation(s) de la terminologie et de la documentation}{\reset@font\mtcSSSfont 135}}
